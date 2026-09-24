@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 06:11",
+  "updated_at": "2026-09-25 06:22",
   "updated_by": "claude",
   "stage": "0-validation-prep",
-  "stage_note": "0단계: 검증 준비 + MVP 설계 완료. 방향: 사람 중심 진로 대화 + AI 보조(D6), MVP는 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기(D7). 2026-10 봉사·인터뷰·콘텐츠 발행 시작 예정.",
+  "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-evidence-map",
+      "id": "pr-business-model",
       "who": "claude",
-      "state": "pr-open-waiting-review",
-      "branch": "Sweet-Butters/evidence-and-map-scope",
+      "state": "merging",
+      "branch": "Sweet-Butters/business-model",
       "started": "2026-09-25",
-      "summary": "PR: 문제 정의를 확인된 것/가설로 나누기, H1 수정, MVP는 커리큘럼이 아니라 지도(대회·활동 포함, D8)"
+      "summary": "PR: 소셜벤처(D9), 데이터 원칙(D10), docs/business-model.md, 선생님 질문 8~12번"
     }
   ],
   "queued_tasks": [
@@ -42,6 +42,12 @@
     }
   ],
   "pending_decisions": [
+    {
+      "id": "signup-in-mvp",
+      "summary": "회원가입을 MVP에 넣을지 (사용자는 가입·데이터 축적을 원함)",
+      "default": "D7대로 MVP는 가입 없음. 넣는다면 만 14세 이상만, 최소 수집",
+      "by": "로드맵 도구 v0 만들기 전"
+    },
     {
       "id": "mvp-gate",
       "summary": "MVP 다음 단계 기준 수치",
