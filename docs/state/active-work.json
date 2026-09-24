@@ -1,20 +1,30 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 06:22",
+  "updated_at": "2026-09-25 06:30",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-business-model",
+      "id": "pr-signup-qna",
       "who": "claude",
       "state": "merging",
-      "branch": "Sweet-Butters/business-model",
+      "branch": "Sweet-Butters/signup-and-qna",
       "started": "2026-09-25",
-      "summary": "PR: 소셜벤처(D9), 데이터 원칙(D10), docs/business-model.md, 선생님 질문 8~12번"
+      "summary": "PR: 선택 가입 v0부터·만 14세 이상(D11), 고민 Q&A부터(D12)"
     }
   ],
   "queued_tasks": [
+    {
+      "id": "privacy-policy",
+      "stage": "1-mvp",
+      "summary": "가입을 열기 전에 개인정보처리방침 작성 (모으는 항목, 이유, 보관 기간, 탈퇴 시 삭제)"
+    },
+    {
+      "id": "qna-channel",
+      "stage": "1-mvp",
+      "summary": "고민 Q&A 받기 시작 (인스타 질문 스티커·카톡 채널), 답해 줄 현직자 찾기"
+    },
     {
       "id": "content-first-10",
       "stage": "1-mvp",
@@ -23,7 +33,7 @@
     {
       "id": "roadmap-tool-v0",
       "stage": "1-mvp",
-      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개 손으로 만든 로드맵) web/에 제작"
+      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 선택 가입(만 14세 이상, 최소 수집) web/에 제작"
     },
     {
       "id": "benefit-schema",
@@ -43,9 +53,9 @@
   ],
   "pending_decisions": [
     {
-      "id": "signup-in-mvp",
-      "summary": "회원가입을 MVP에 넣을지 (사용자는 가입·데이터 축적을 원함)",
-      "default": "D7대로 MVP는 가입 없음. 넣는다면 만 14세 이상만, 최소 수집",
+      "id": "age-cap-adult-track",
+      "summary": "학생 트랙 나이 상한과 어른 트랙",
+      "default": "학생 트랙 만 14~24세, 어른(부모·선생님·멘토) 트랙은 v1에 따로",
       "by": "로드맵 도구 v0 만들기 전"
     },
     {
