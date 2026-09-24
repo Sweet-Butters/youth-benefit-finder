@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 06:30",
+  "updated_at": "2026-09-25 06:50",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-signup-qna",
+      "id": "pr-age-tracks",
       "who": "claude",
       "state": "merging",
-      "branch": "Sweet-Butters/signup-and-qna",
+      "branch": "Sweet-Butters/age-tracks",
       "started": "2026-09-25",
-      "summary": "PR: 선택 가입 v0부터·만 14세 이상(D11), 고민 Q&A부터(D12)"
+      "summary": "PR: 학생 트랙 만 14~24세, 어른 트랙 v1 (D13)"
     }
   ],
   "queued_tasks": [
@@ -33,7 +33,7 @@
     {
       "id": "roadmap-tool-v0",
       "stage": "1-mvp",
-      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 선택 가입(만 14세 이상, 최소 수집) web/에 제작"
+      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 선택 가입(학생 만 14~24세, 최소 수집) web/에 제작"
     },
     {
       "id": "benefit-schema",
@@ -52,12 +52,6 @@
     }
   ],
   "pending_decisions": [
-    {
-      "id": "age-cap-adult-track",
-      "summary": "학생 트랙 나이 상한과 어른 트랙",
-      "default": "학생 트랙 만 14~24세, 어른(부모·선생님·멘토) 트랙은 v1에 따로",
-      "by": "로드맵 도구 v0 만들기 전"
-    },
     {
       "id": "mvp-gate",
       "summary": "MVP 다음 단계 기준 수치",
