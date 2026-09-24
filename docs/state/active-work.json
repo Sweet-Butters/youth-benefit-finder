@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 05:01",
+  "updated_at": "2026-09-25 06:11",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP 설계 완료. 방향: 사람 중심 진로 대화 + AI 보조(D6), MVP는 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기(D7). 2026-10 봉사·인터뷰·콘텐츠 발행 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-1",
+      "id": "pr-evidence-map",
       "who": "claude",
       "state": "pr-open-waiting-review",
-      "branch": "Sweet-Butters/plan-youth-benefit-mermaid",
+      "branch": "Sweet-Butters/evidence-and-map-scope",
       "started": "2026-09-25",
-      "summary": "PR #1: 로드맵·그림·현황판 + 진로 대화 전환(D6)·MVP 설계(D7), 리뷰·머지 대기"
+      "summary": "PR: 문제 정의를 확인된 것/가설로 나누기, H1 수정, MVP는 커리큘럼이 아니라 지도(대회·활동 포함, D8)"
     }
   ],
   "queued_tasks": [
@@ -57,7 +57,7 @@
     {
       "id": "h1-threshold",
       "summary": "새 H1 판단 기준 수치",
-      "default": "청소년 10명 중 6명 이상이 '진로를 이야기할 사람이 없다'면 H1 지지",
+      "default": "청소년 10명 중 6명 이상이 '진로 이야기를 할 사람이 없다' 또는 '여러 길을 간 어른을 만난 적이 없다'면 H1 지지",
       "by": "첫 인터뷰 전"
     },
     {
@@ -81,7 +81,7 @@
   ],
   "user_todo": [
     "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
-    "PR #1 확인 후 머지 결정",
+    "2023 학교 밖 청소년 실태조사 원문 PDF에서 '고민 상담 대상' 문항 확인",
     "Orca Settings > repo > Setup script에 bootstrap-board.ps1 넣기 (CLI로 설정 불가)",
     "꿈드림 센터에 10월 봉사 일정 연락",
     "연세대·서강대 창업지원단 하반기 교내 프로그램 확인",
