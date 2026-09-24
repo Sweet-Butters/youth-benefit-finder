@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 04:20",
+  "updated_at": "2026-09-25 04:22",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP 설계 완료. 방향: 사람 중심 진로 대화 + AI 보조(D6), MVP는 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기(D7). 2026-10 봉사·인터뷰·콘텐츠 발행 시작 예정.",
@@ -15,11 +15,6 @@
     }
   ],
   "queued_tasks": [
-    {
-      "id": "roadmap-redraw",
-      "stage": "0-validation-prep",
-      "summary": "docs/roadmap.md 다이어그램과 docs/images 그림을 진로 대화 중심·새 가설 H1~H9로 다시 그리기"
-    },
     {
       "id": "content-first-10",
       "stage": "1-mvp",
@@ -80,7 +75,7 @@
     }
   ],
   "user_todo": [
-    "docs/images 그림 3장 확인",
+    "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
     "PR #1 확인 후 머지 결정",
     "Orca Settings > repo > Setup script에 bootstrap-board.ps1 넣기 (CLI로 설정 불가)",
     "꿈드림 센터에 10월 봉사 일정 연락"
