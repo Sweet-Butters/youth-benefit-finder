@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 04:22",
+  "updated_at": "2026-09-25 05:01",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP 설계 완료. 방향: 사람 중심 진로 대화 + AI 보조(D6), MVP는 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기(D7). 2026-10 봉사·인터뷰·콘텐츠 발행 시작 예정.",
@@ -34,6 +34,11 @@
       "id": "verify-check",
       "stage": "1-mvp",
       "summary": "코드가 생기면 tests/verify.py 같은 end-to-end 검사 만들기 (verify 스킬이 사용)"
+    },
+    {
+      "id": "funding-2027",
+      "stage": "1-mvp",
+      "summary": "지원 일정: 2027-01 연세대 캠퍼스타운 확인, 2027-03~04 사회적기업가 육성사업 지원, 2027-06 백암재단 공모전 (docs/funding.md)"
     }
   ],
   "pending_decisions": [
@@ -78,7 +83,9 @@
     "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
     "PR #1 확인 후 머지 결정",
     "Orca Settings > repo > Setup script에 bootstrap-board.ps1 넣기 (CLI로 설정 불가)",
-    "꿈드림 센터에 10월 봉사 일정 연락"
+    "꿈드림 센터에 10월 봉사 일정 연락",
+    "연세대·서강대 창업지원단 하반기 교내 프로그램 확인",
+    "지원사업 공고 월 1회 확인 (기업마당, K-Startup 등)"
   ],
   "rules": {
     "base_branch": "main",
