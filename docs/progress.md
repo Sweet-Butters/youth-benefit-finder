@@ -1,12 +1,14 @@
 # youth-benefit-finder 현황판
 
-> **마지막 갱신:** 2026-09-25 03:13 (Claude)
+> **마지막 갱신:** 2026-09-25 04:20 (Claude)
 > 작업과 **같은 커밋**에서 이 파일을 고친다. 로그만 늘리지 말고 요약과 위 시각도 바꾼다.
 > 모든 항목에는 시각과 누가 했는지를 적는다. 기계용 상태는 `docs/state/active-work.json`, 결정 이유는 `docs/decisions.md`.
 
 ## 요약
 
 - **0단계: 문제 검증 준비 중.** 코드는 아직 없다. 기획 문서(README, 경쟁 분석, 검증 계획, 로드맵)만 있다.
+- **서비스 중심을 '진로 대화'로 옮겼다.** 사람(멘토)이 중심이고 AI는 보조, 혜택 정보는 실행 지원 도구다 (D6). README와 검증 계획은 고쳤고, 로드맵 다이어그램·그림은 아직 옛 방향이다.
+- **MVP는 멘토 연결이 아니라 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기** (D7). 한 줄 소개는 "지금 내 자리에서 시작하는 진로". 설계는 `docs/mvp.md`.
 - 기획 로드맵(`docs/roadmap.md`), 로드맵 그림 3장(`docs/images/*.svg`), 현황판을 `main`으로 보내는 **PR을 올렸다** (리뷰·머지 대기).
 - 다음 큰 일정은 2026년 10월 꿈드림 AI 교육 봉사 시작과 당사자 인터뷰다.
 
@@ -14,14 +16,14 @@
 
 | 작업 | 누가 | 하는 일 | 상태 | 시작 |
 |---|---|---|---|---|
-| 로드맵·그림·현황판 PR | Claude | `Sweet-Butters/plan-youth-benefit-mermaid` → `main` | PR 리뷰·머지 대기 | 2026-09-25 |
+| 기획 PR #1 | Claude | 로드맵·그림·현황판 + 진로 대화 전환(D6)·MVP 설계(D7), `Sweet-Butters/plan-youth-benefit-mermaid` → `main` | PR 리뷰·머지 대기 | 2026-09-25 |
 
 ## 사용자가 할 일
 
 | # | 할 일 | 메모 |
 |---|---|---|
 | 1 | `docs/images/` 그림 3장 확인 | 팀원·센터 선생님용으로 괜찮은지 |
-| 2 | 로드맵·현황판 PR 확인 후 머지 결정 | 브랜치 `Sweet-Butters/plan-youth-benefit-mermaid` → `main` |
+| 2 | PR #1 확인 후 머지 결정 | 브랜치 `Sweet-Butters/plan-youth-benefit-mermaid` → `main` |
 | 3 | Orca → Settings → youth-benefit-finder → Setup script에 현황판 스크립트 넣기 | CLI로는 설정 불가. 명령: `& "$HOME\.claude\skills\project-board\bootstrap-board.ps1"` |
 | 4 | 꿈드림 센터에 10월 봉사 일정 연락 | 검증 계획 방법 1 |
 
@@ -29,9 +31,11 @@
 
 | 결정 | 아무 말 없으면 | 언제까지 |
 |---|---|---|
-| H1 판단 기준 수치 (예: 인터뷰 15명 중 8명 이상 "나중에 알고 놓쳤다") | 예시 수치를 그대로 쓴다 | 첫 인터뷰 전 (2026-10월 말) |
+| MVP 다음 단계 기준 (예: 카톡 채널 + 인스타 팔로워 1,000명이면 멘토 시험) | 예시 수치를 그대로 쓴다 | 콘텐츠 발행 시작 전 |
+| 팀 역할 나누기 (A 기획·글 / B 디자인·SNS / C 사실 확인·인터뷰·도구) | `docs/mvp.md` 초안대로 | 콘텐츠 발행 시작 전 |
+| 새 H1 판단 기준 수치 (예: 청소년 10명 중 6명 이상 "진로를 이야기할 사람이 없다") | 예시 수치를 그대로 쓴다 | 첫 인터뷰 전 (2026-10월 말) |
 | README를 영어 기본 + `README.ko.md` 한글판으로 나눌지 (bilingual-repo 스킬) | 외부 공개·홍보 전까지 한국어만 유지 | 저장소를 외부에 알리기 전 |
-| 서비스 이름 확정 | 가칭 `youth-benefit-finder` 유지 | MVP 공개 전 |
+| 서비스 이름 확정 (지금 이름은 '혜택 찾기' 중심일 때의 가칭) | 가칭 `youth-benefit-finder` 유지 | 서비스를 외부에 소개하기 전 |
 | 라이선스 | 정하지 않음 (모든 권리 저작자) | 외부 기여를 받기 전 |
 
 ---
@@ -40,6 +44,9 @@
 
 | 시각 | 종류 | 한 일 | 결과 |
 |---|---|---|---|
+| 2026-09-25 04:20 | pr | Claude: 방향 전환(D6)·MVP 설계(D7)를 PR #1에 커밋 추가 (사용자 요청) | PR 리뷰 대기 |
+| 2026-09-25 03:49 | decision | 사용자: MVP는 멘토 연결이 아니라 콘텐츠로 사람 모으기, 한 줄 소개 1번 "지금 내 자리에서 시작하는 진로" 선택 (D7). Claude: `docs/mvp.md` 작성, README 핵심 기능·로드맵 수정 | 첫 콘텐츠 주제 10개, 주간 운영표 초안 포함 |
+| 2026-09-25 03:29 | decision | 사용자: 서비스 중심을 '사람 중심 진로 대화 + AI 보조'로 전환 (D6). Claude: README, 검증 계획 가설 H1~H9, 인터뷰 질문지 수정 | 로드맵 다이어그램은 다시 그릴 예정 |
 | 2026-09-25 03:13 | pr | Claude: 로드맵·그림·현황판을 커밋하고 `main`으로 PR 생성 (사용자 요청) | PR 리뷰 대기 |
 | 2026-09-25 03:06 | setup | Claude: 현황판(progress.md, active-work.json, CLAUDE.md, decisions.md) 생성, `.claude/handoff.md`를 .gitignore에 추가 | 스킬 세팅 완료 |
 | 2026-09-25 03:02 | docs | Codex(gpt-5.6-luna): 로드맵 머메이드 3개를 SVG 그림으로 제작 | `docs/images/roadmap-{decisions,timeline,mvp-scope}.svg`, UTF-8·한글 확인 |

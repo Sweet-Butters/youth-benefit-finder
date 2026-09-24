@@ -1,30 +1,39 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 03:13",
+  "updated_at": "2026-09-25 04:20",
   "updated_by": "claude",
   "stage": "0-validation-prep",
-  "stage_note": "0단계: 문제 검증 준비. 코드 없음, 기획 문서만 있음. 2026-10 꿈드림 봉사 + 인터뷰 시작 예정.",
+  "stage_note": "0단계: 검증 준비 + MVP 설계 완료. 방향: 사람 중심 진로 대화 + AI 보조(D6), MVP는 콘텐츠 + 로드맵 도구 + 구독으로 사람 모으기(D7). 2026-10 봉사·인터뷰·콘텐츠 발행 시작 예정.",
   "active_tasks": [
     {
-      "id": "roadmap-commit",
+      "id": "pr-1",
       "who": "claude",
       "state": "pr-open-waiting-review",
       "branch": "Sweet-Butters/plan-youth-benefit-mermaid",
       "started": "2026-09-25",
-      "summary": "로드맵·그림·현황판 PR (main으로), 리뷰·머지 대기"
+      "summary": "PR #1: 로드맵·그림·현황판 + 진로 대화 전환(D6)·MVP 설계(D7), 리뷰·머지 대기"
     }
   ],
   "queued_tasks": [
     {
-      "id": "benefit-schema",
-      "stage": "1-mvp",
-      "earliest": "2026-11-15",
-      "summary": "혜택 30~50개 수작업 수집 + 데이터 스키마 확정 (나이, 지역, 대상, 분야, 마감일)"
+      "id": "roadmap-redraw",
+      "stage": "0-validation-prep",
+      "summary": "docs/roadmap.md 다이어그램과 docs/images 그림을 진로 대화 중심·새 가설 H1~H9로 다시 그리기"
     },
     {
-      "id": "roadmap-numbering",
-      "stage": "0-validation-prep",
-      "summary": "README 로드맵(1~6단계)과 docs/roadmap.md(0~4단계) 번호 맞추기"
+      "id": "content-first-10",
+      "stage": "1-mvp",
+      "summary": "첫 콘텐츠 10개 제작 시작 (docs/mvp.md 목록), 카톡 채널·인스타 계정 개설"
+    },
+    {
+      "id": "roadmap-tool-v0",
+      "stage": "1-mvp",
+      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개 손으로 만든 로드맵) web/에 제작"
+    },
+    {
+      "id": "benefit-schema",
+      "stage": "4-execution-support",
+      "summary": "실행 지원용 지원 정보 30~50개 수작업 수집 + 스키마 확정 (진로 대화 시험 뒤)"
     },
     {
       "id": "verify-check",
@@ -34,9 +43,21 @@
   ],
   "pending_decisions": [
     {
+      "id": "mvp-gate",
+      "summary": "MVP 다음 단계 기준 수치",
+      "default": "카톡 채널 + 인스타 팔로워 1,000명이면 멘토 연결 소규모 시험",
+      "by": "콘텐츠 발행 시작 전"
+    },
+    {
+      "id": "team-roles",
+      "summary": "팀 역할 나누기",
+      "default": "A 기획·글 / B 디자인·SNS / C 사실 확인·인터뷰·도구 (docs/mvp.md)",
+      "by": "콘텐츠 발행 시작 전"
+    },
+    {
       "id": "h1-threshold",
-      "summary": "H1 판단 기준 수치",
-      "default": "인터뷰 15명 중 8명 이상이 '나중에 알고 놓쳤다'면 H1 지지",
+      "summary": "새 H1 판단 기준 수치",
+      "default": "청소년 10명 중 6명 이상이 '진로를 이야기할 사람이 없다'면 H1 지지",
       "by": "첫 인터뷰 전"
     },
     {
@@ -47,9 +68,9 @@
     },
     {
       "id": "service-name",
-      "summary": "서비스 이름",
+      "summary": "서비스 이름 (지금 이름은 혜택 찾기 중심일 때의 가칭)",
       "default": "가칭 youth-benefit-finder 유지",
-      "by": "MVP 공개 전"
+      "by": "서비스를 외부에 소개하기 전"
     },
     {
       "id": "license",
@@ -60,7 +81,7 @@
   ],
   "user_todo": [
     "docs/images 그림 3장 확인",
-    "로드맵·현황판 PR 확인 후 머지 결정",
+    "PR #1 확인 후 머지 결정",
     "Orca Settings > repo > Setup script에 bootstrap-board.ps1 넣기 (CLI로 설정 불가)",
     "꿈드림 센터에 10월 봉사 일정 연락"
   ],
