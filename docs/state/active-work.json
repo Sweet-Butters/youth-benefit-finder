@@ -1,17 +1,24 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 06:54",
+  "updated_at": "2026-09-25 07:05",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-interest-quiz",
+      "id": "pr-survey-2025",
       "who": "claude",
       "state": "merging",
-      "branch": "Sweet-Butters/interest-quiz",
+      "branch": "Sweet-Butters/survey-2025",
       "started": "2026-09-25",
-      "summary": "PR: 관심 찾기 퀴즈 + 체험 (D14)"
+      "summary": "PR: 2025 실태조사 수치로 갱신, docs/week1-problem-definition.md"
+    },
+    {
+      "id": "week1-pptx",
+      "who": "claude",
+      "state": "in-progress",
+      "started": "2026-09-25",
+      "summary": "1주차 미션 PPT를 사용자 양식으로 제작 (저장소 밖)"
     }
   ],
   "queued_tasks": [
