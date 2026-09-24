@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 06:50",
+  "updated_at": "2026-09-25 06:54",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-age-tracks",
+      "id": "pr-interest-quiz",
       "who": "claude",
       "state": "merging",
-      "branch": "Sweet-Butters/age-tracks",
+      "branch": "Sweet-Butters/interest-quiz",
       "started": "2026-09-25",
-      "summary": "PR: 학생 트랙 만 14~24세, 어른 트랙 v1 (D13)"
+      "summary": "PR: 관심 찾기 퀴즈 + 체험 (D14)"
     }
   ],
   "queued_tasks": [
@@ -33,7 +33,7 @@
     {
       "id": "roadmap-tool-v0",
       "stage": "1-mvp",
-      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 선택 가입(학생 만 14~24세, 최소 수집) web/에 제작"
+      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 관심 찾기 퀴즈(10문항, 체험 분야마다 2개) + 선택 가입(학생 만 14~24세) web/에 제작"
     },
     {
       "id": "benefit-schema",
