@@ -1,0 +1,31 @@
+# 비밀 정보 (API 키 등) - 절대 커밋 금지
+.env
+.env.*
+!.env.example
+
+# 크롤링 원문 - 저작권 문제로 공개 저장소에 올리지 않음
+data/raw/
+
+# 사용자 데이터 - 미성년자 개인정보, 저장소에 두지 않음
+data/users/
+*.db
+*.sqlite
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# 기타
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
