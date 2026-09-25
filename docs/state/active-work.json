@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 22:36",
+  "updated_at": "2026-09-25 22:43",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "architecture-doc",
-      "who": "claude (Fable 에이전트)",
-      "state": "in-progress",
+      "id": "pr-architecture",
+      "who": "claude",
+      "state": "pr-open-waiting-merge",
       "branch": "Sweet-Butters/architecture",
       "started": "2026-09-25",
-      "summary": "docs/architecture.md: 데이터 위치, 사용자 데이터 구조, 개인정보·삭제, 사진 저장, URL 구조"
+      "summary": "PR: D16~D19 + docs/architecture.md (검토 메모 포함)"
     }
   ],
   "queued_tasks": [
@@ -99,6 +99,24 @@
       "summary": "취업 연계가 직업안정법상 신고·등록 대상인지, 미성년자 보호 규정",
       "default": "전문가 확인 전에는 협력 기관 훈련·인턴 프로그램 소개까지만 (D18)",
       "by": "취업 연계 기능을 만들기 전"
+    },
+    {
+      "id": "login-method",
+      "summary": "로그인 방식: 이메일 매직 링크만, 또는 카카오 로그인도",
+      "default": "이메일 매직 링크만 (카카오 계정 정보를 받지 않음)",
+      "by": "가입 기능을 만들기 전"
+    },
+    {
+      "id": "domain",
+      "summary": "도메인 구입 시점 (서비스 이름이 먼저)",
+      "default": "콘텐츠를 외부에 알리기 전에 정한다",
+      "by": "첫 콘텐츠 공개 전"
+    },
+    {
+      "id": "track-rename",
+      "summary": "track을 learner/supporter로 바꾸기 (architecture.md 검토 메모 1)",
+      "default": "바꾼다 (코드 생기기 전이라 비용이 거의 없음)",
+      "by": "supabase 마이그레이션 작성 전"
     }
   ],
   "user_todo": [
