@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 17:08",
+  "updated_at": "2026-09-25 22:36",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-portfolio-d15",
-      "who": "claude",
-      "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/portfolio-d15",
+      "id": "architecture-doc",
+      "who": "claude (Fable 에이전트)",
+      "state": "in-progress",
+      "branch": "Sweet-Butters/architecture",
       "started": "2026-09-25",
-      "summary": "PR: 나의 기록(포트폴리오) D15, 기존 서비스 조사 반영"
+      "summary": "docs/architecture.md: 데이터 위치, 사용자 데이터 구조, 개인정보·삭제, 사진 저장, URL 구조"
     }
   ],
   "queued_tasks": [
@@ -93,6 +93,12 @@
       "summary": "'확인됨'·추천 표시의 법적 문제 여부",
       "default": "전문가 확인 전에는 열지 않음 (D15 3·4단계)",
       "by": "확인 표시 기능을 만들기 전"
+    },
+    {
+      "id": "job-placement-legal",
+      "summary": "취업 연계가 직업안정법상 신고·등록 대상인지, 미성년자 보호 규정",
+      "default": "전문가 확인 전에는 협력 기관 훈련·인턴 프로그램 소개까지만 (D18)",
+      "by": "취업 연계 기능을 만들기 전"
     }
   ],
   "user_todo": [
