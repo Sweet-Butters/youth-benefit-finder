@@ -1,0 +1,44 @@
+name: collect
+
+# 공식 출처에서 혜택을 모아 data/collected/에 커밋한다 (docs/collection-strategy.md).
+# 사이트는 아직 이 폴더를 읽지 않는다 (자동 공개 여부 결정 전).
+# 매일 실행은 팀이 확인한 뒤 schedule 주석을 푼다.
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 21 * * *"   # 매일 06:00 KST
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Collect
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}   # 없으면 규칙만으로 판단
+        run: python -m crawler.main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: review
+          path: data/collected/review.json
+          retention-days: 14
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/collected
+          if ! git diff --cached --quiet; then git commit -m "collect: $(date -u +%F)" && git push; fi

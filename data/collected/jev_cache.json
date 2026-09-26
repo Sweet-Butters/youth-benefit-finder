@@ -1,0 +1,6428 @@
+{
+ "e61b289cf38028a9": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6dba75538deaec30": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a2b4280e5d77cece": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "c45e9f5fb148bbc5": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a2fb6ef68f66e296": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "eeaab98b78e5826e": {
+  "youth": 0.79,
+  "out_of_school": 0.86,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4560542dc31abd5a": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "c82bd1b77a3da1f2": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4a0efc1426789e02": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4c54a97f2f3945b0": {
+  "youth": 0.8,
+  "out_of_school": 0.86,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "5df44224b227bc68": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b89cbbafbda3f60f": {
+  "youth": 0.82,
+  "out_of_school": 0.86,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "2441cc824d0e64cd": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "7b75bd3b2c1bb2cf": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ad51c5532fa999fc": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "0fa2e6c7d056566a": {
+  "youth": 0.8,
+  "out_of_school": 0.86,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "c281545b6f1ac0b3": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "331312802e48c377": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b28ff3338a6987d6": {
+  "youth": 0.77,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6ca50184dc4eeacf": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "d6dcee81b594da9d": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "0442d75f3d5cf10f": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ce6ef82fc9f96a0b": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ebe2fe8f05ca0f0f": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "32e79197b55d8193": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "051123d8aecd2979": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "befb881ae2265d70": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "95fde8f1e591627d": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "0b82ec8cf311a824": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "323cd152d60b96bf": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ac0ef02cec46c918": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4dbf5a3191684f67": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "663c64cb85f2001a": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "e5902f8403c8bcf0": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6f5bc960cae5d1be": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a5df59cc444bc515": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b194829894391949": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "7a83b5d886d00558": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6bb8b7582c329732": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "be9e4415340d4191": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "fd9e538faa427e69": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "0bbc966aeedd9280": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "616cbde970fe63d6": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "d848ec08209bc4e7": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "764cab5e328189f8": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "9800168c9710ff6e": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "672399a056fcbd3a": {
+  "youth": 0.82,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "2c5216692c51a42b": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "fee0877d3f55b4a9": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "1c348efcd60c7751": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "add53340c4961513": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "d3526aae047ade30": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b9adc3ac68aa5f60": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "9610d16b072a3eb6": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6cf78bedfbbbe759": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ad3f07b339e9887c": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "1242b4a8cb5e7594": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "0d1a3cd3721ab32e": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a446c4a1bb9c0b61": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "609c4c2531d8db5d": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "56b601c4e953ce13": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "fd405459db48e7cb": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "91637365f660114e": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "e4ee6eb6ab0f779d": {
+  "youth": 0.81,
+  "out_of_school": 0.86,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4a3014bc3b611d80": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b341b99bfa52035f": {
+  "youth": 0.76,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "5bcd9ab04128b01d": {
+  "youth": 0.81,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "d5c2041538abad95": {
+  "youth": 0.76,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "5c3b56ed3b455141": {
+  "youth": 0.85,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "37bc0d9fda4b74ae": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "819108673d77e536": {
+  "youth": 0.8,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "739b53eab4d2cb32": {
+  "youth": 0.78,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "7212d40f9eded545": {
+  "youth": 0.79,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "12c08e0741aacbcf": {
+  "youth": 0.77,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "9c1e768bf99a8f04": {
+  "youth": 0.63,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "f82c472402954d82": {
+  "youth": 0.81,
+  "out_of_school": 0.96,
+  "step": "ged-high",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "f4a7396e3f3ed487": {
+  "youth": 0.85,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "78efbe7a7b31a1f2": {
+  "youth": 0.79,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "f4b9a168d13c21fe": {
+  "youth": 0.76,
+  "out_of_school": 0.12,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "98f3045180481c77": {
+  "youth": 0.84,
+  "out_of_school": 0.13,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "e96e1bb8eaca374e": {
+  "youth": 0.66,
+  "out_of_school": 0.06,
+  "step": "restaurant-job",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "360e5df00bb2908a": {
+  "youth": 0.76,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "f7eda1a2baf24889": {
+  "youth": 0.82,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "41853c4a6b1708a3": {
+  "youth": 0.79,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "be73d4001e45780b": {
+  "youth": 0.73,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "d0a222e7a3b4601d": {
+  "youth": 0.85,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "ab890b29863c3a34": {
+  "youth": 0.69,
+  "out_of_school": 0.95,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "56d7e1b30303df2c": {
+  "youth": 0.82,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "c27362992534d5aa": {
+  "youth": 0.8,
+  "out_of_school": 0.48,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "763d87bb465d24ab": {
+  "youth": 0.81,
+  "out_of_school": 0.13,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "4ad0cfa16b373adf": {
+  "youth": 0.84,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "34e3af592249c20b": {
+  "youth": 0.84,
+  "out_of_school": 0.05,
+  "step": "culinary-vocational-hs",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "a88b77a11a6271d3": {
+  "youth": 0.85,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "e8dd19a1c5b88408": {
+  "youth": 0.8,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "280dbe9fdacc2129": {
+  "youth": 0.85,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "cd55b2d37f915d14": {
+  "youth": 0.86,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "119a26f95455a494": {
+  "youth": 0.83,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "5cbecc0c823465cc": {
+  "youth": 0.85,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "75bcdd7a172a49bd": {
+  "youth": 0.81,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "63736139fed35e4a": {
+  "youth": 0.8,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "c877446c04a628b6": {
+  "youth": 0.84,
+  "out_of_school": 0.95,
+  "step": "none",
+  "stepConf": 0.36,
+  "seen": "2026-09-27"
+ },
+ "e80f166f3f0465c4": {
+  "youth": 0.82,
+  "out_of_school": 0.05,
+  "step": "culinary-vocational-hs",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "828af39bff427b35": {
+  "youth": 0.86,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "4ca1f19ffe149c15": {
+  "youth": 0.81,
+  "out_of_school": 0.14,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "39e565a706cb2e86": {
+  "youth": 0.81,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "ae4419557dcad127": {
+  "youth": 0.79,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "5c8c0a7fb2707ebb": {
+  "youth": 0.83,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "beaa9cfd6df6e648": {
+  "youth": 0.82,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "aaa83eb983b2ef1e": {
+  "youth": 0.87,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "3b5c43f3a28abecc": {
+  "youth": 0.62,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "ba4f59e14c4da343": {
+  "youth": 0.8,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "4a5c757d526dcbd5": {
+  "youth": 0.77,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "3bc559182c7967c2": {
+  "youth": 0.78,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "0860c6be77188a2e": {
+  "youth": 0.82,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "4d50a3be9876411c": {
+  "youth": 0.79,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "e64d7bff256bbba9": {
+  "youth": 0.79,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "2e2105fc65667bf5": {
+  "youth": 0.81,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "ff3cab646acfa765": {
+  "youth": 0.76,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "b007962ce2593060": {
+  "youth": 0.76,
+  "out_of_school": 0.39,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "4b06447af6af1486": {
+  "youth": 0.9,
+  "out_of_school": 0.06,
+  "step": "culinary-vocational-hs",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "d1c75127fd316ae1": {
+  "youth": 0.75,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "4219dbd6e10ccc20": {
+  "youth": 0.77,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "17e779f9e21c2799": {
+  "youth": 0.81,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "5322188b8af843d1": {
+  "youth": 0.86,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "09902c65328fb2ff": {
+  "youth": 0.85,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "7861e28229c3eccc": {
+  "youth": 0.88,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "5bbace9b6852eed4": {
+  "youth": 0.75,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "efcebd5d44394552": {
+  "youth": 0.81,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "8df6b53ea5af8347": {
+  "youth": 0.82,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "7d3e39d258a9f433": {
+  "youth": 0.84,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "fbaa77b1a5e6c1cc": {
+  "youth": 0.82,
+  "out_of_school": 0.18,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "eb73fa6ca007ab33": {
+  "youth": 0.81,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "93191e263e5d1485": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "f351a821f2efbe04": {
+  "youth": 0.77,
+  "out_of_school": 0.16,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "517675b1000bc8e3": {
+  "youth": 0.75,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "7727411ad0fcd757": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "8d4b6e9051132e79": {
+  "youth": 0.83,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "8b33b3cb90f2562e": {
+  "youth": 0.68,
+  "out_of_school": 0.54,
+  "step": "cooking-training-course",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "d024baf7b4665783": {
+  "youth": 0.81,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "b3646a5141faf6cd": {
+  "youth": 0.85,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "26e451ec001da899": {
+  "youth": 0.79,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "1f5f060b71feb3ef": {
+  "youth": 0.82,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "a157692e473084e6": {
+  "youth": 0.79,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "c68da32f3ce41c31": {
+  "youth": 0.74,
+  "out_of_school": 0.24,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "2ad3cb06efc489a7": {
+  "youth": 0.79,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "426fe3bd48267079": {
+  "youth": 0.83,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "0c97fa4a8bd78440": {
+  "youth": 0.71,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "82b02e917328dd4a": {
+  "youth": 0.83,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "5975ed95270ea301": {
+  "youth": 0.46,
+  "out_of_school": 0.57,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "c1eccc8bdb601c38": {
+  "youth": 0.76,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "88992696d94dc9e5": {
+  "youth": 0.69,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "ba6670a90cc05f02": {
+  "youth": 0.71,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "44abbec39cb054b7": {
+  "youth": 0.78,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "4887d7240b077919": {
+  "youth": 0.78,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "2da7d51c1a082ddb": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "95299426a2e20377": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "aa44e3cf65b13977": {
+  "youth": 0.79,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "6c397db5d3a5f327": {
+  "youth": 0.67,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "bbc88643a6bde2db": {
+  "youth": 0.8,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "2be6f3c8ddaefad4": {
+  "youth": 0.79,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "82471fc5d17849e3": {
+  "youth": 0.82,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "4dc1abbf96fd62b4": {
+  "youth": 0.82,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "5945c447542cf324": {
+  "youth": 0.8,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "494097ec8896653d": {
+  "youth": 0.65,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "ccf2e49f5f633afc": {
+  "youth": 0.8,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "35db8640ec260772": {
+  "youth": 0.79,
+  "out_of_school": 0.12,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "b29cb7db22be0821": {
+  "youth": 0.77,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "bfda752f6bb6c0ca": {
+  "youth": 0.8,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "6fe685484768d19b": {
+  "youth": 0.79,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "84b92cf6182a4ae4": {
+  "youth": 0.74,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "d64e7eb7045f3a4a": {
+  "youth": 0.83,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "f688b0a0c0673cff": {
+  "youth": 0.86,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "8a659383b6974931": {
+  "youth": 0.81,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "666aaf5ca088d91e": {
+  "youth": 0.8,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "9751a831c9c345ba": {
+  "youth": 0.74,
+  "out_of_school": 0.24,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "b390dd6066cca905": {
+  "youth": 0.82,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "710ff8a63db20617": {
+  "youth": 0.81,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "8193c23075bc5114": {
+  "youth": 0.84,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "ab348fa3fe24530d": {
+  "youth": 0.69,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "1fc4754c878dd82e": {
+  "youth": 0.81,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "41795c2d3b79e4c1": {
+  "youth": 0.73,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "4e22b206a1a022c8": {
+  "youth": 0.77,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "6cf4c06e4122b5c4": {
+  "youth": 0.78,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "99cc8435e57e384d": {
+  "youth": 0.77,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "93a7bc4602359f2d": {
+  "youth": 0.82,
+  "out_of_school": 0.24,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "40a42fbfcb9b8b5a": {
+  "youth": 0.73,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "ee7eb9a1c374c81d": {
+  "youth": 0.67,
+  "out_of_school": 0.48,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "620da3b20eedb051": {
+  "youth": 0.77,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "72e0d8788f4943c7": {
+  "youth": 0.67,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "aa9abf195f4e9cd8": {
+  "youth": 0.35,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "4acd3f27275f9f3f": {
+  "youth": 0.88,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "dd9e72eafe04ad3c": {
+  "youth": 0.84,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.4,
+  "seen": "2026-09-27"
+ },
+ "e29cd9a1316e42b5": {
+  "youth": 0.78,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "8a6f836a0ee0f47f": {
+  "youth": 0.71,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "222a8250530b9ace": {
+  "youth": 0.78,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "20c164339c41fb6a": {
+  "youth": 0.74,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "d44464a95c24ab39": {
+  "youth": 0.91,
+  "out_of_school": 0.09,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "c9d841f549b72a39": {
+  "youth": 0.81,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "b6081b2fd48f2944": {
+  "youth": 0.73,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "4bfeceed3b1702c6": {
+  "youth": 0.78,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "5eab10c7c6c552fa": {
+  "youth": 0.81,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "fdaf01e1a9b59ce7": {
+  "youth": 0.8,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "ed1f8a5c6c948f81": {
+  "youth": 0.68,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "205226b66755c46b": {
+  "youth": 0.79,
+  "out_of_school": 0.09,
+  "step": "korean-cook-license",
+  "stepConf": 0.43,
+  "seen": "2026-09-27"
+ },
+ "2a25333ae3181bc1": {
+  "youth": 0.8,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "9abbccaa5fba1104": {
+  "youth": 0.79,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "cb5cc529df301c46": {
+  "youth": 0.78,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "f8c79bcafad294aa": {
+  "youth": 0.82,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "be9c5c2cb10b2ae1": {
+  "youth": 0.8,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "043846e18f1ed0da": {
+  "youth": 0.82,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "33c7c175d6c67eec": {
+  "youth": 0.77,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "f645b4a45dd78fb8": {
+  "youth": 0.77,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "0f93ff92aea496b6": {
+  "youth": 0.8,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "2ebcc7f312bfbe26": {
+  "youth": 0.85,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "49a9f14747ac1d2e": {
+  "youth": 0.75,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "0fcdfca7a19f981d": {
+  "youth": 0.78,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "57c36116857be36c": {
+  "youth": 0.8,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "f6c3d36d7df60338": {
+  "youth": 0.79,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "aa6f2b02e69f7767": {
+  "youth": 0.8,
+  "out_of_school": 0.14,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "f87b133cb1947587": {
+  "youth": 0.77,
+  "out_of_school": 0.18,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "9e2c6f3f76f635a0": {
+  "youth": 0.64,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "ab33842380a73899": {
+  "youth": 0.88,
+  "out_of_school": 0.44,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "81e61c383e20b30b": {
+  "youth": 0.63,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "b7f2f5cfadaa5240": {
+  "youth": 0.8,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "848a6e7062de32c5": {
+  "youth": 0.82,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "aca34ca5a6181c0c": {
+  "youth": 0.69,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "c201795b7b6a5c7a": {
+  "youth": 0.79,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "42eac773ad4a4a75": {
+  "youth": 0.72,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "efaaf0445e25b671": {
+  "youth": 0.52,
+  "out_of_school": 0.73,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "99406e5b4baa96d0": {
+  "youth": 0.82,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "bbbb69fd7a267d52": {
+  "youth": 0.8,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "8ae635f04ce2710a": {
+  "youth": 0.54,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "fe91560ca97e9f6b": {
+  "youth": 0.75,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "f1fc797a731dccc8": {
+  "youth": 0.77,
+  "out_of_school": 0.97,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "6c8a71dc7bf8b919": {
+  "youth": 0.82,
+  "out_of_school": 0.96,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "d53acb47a922bb35": {
+  "youth": 0.83,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "bb0742819a07bfdf": {
+  "youth": 0.83,
+  "out_of_school": 0.18,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "069e4f1cb1da3ade": {
+  "youth": 0.84,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "bd641a37fac86cbb": {
+  "youth": 0.86,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "6ffcc7666e493eea": {
+  "youth": 0.89,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "5e03433045d1762e": {
+  "youth": 0.83,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "3b323ec267833ae4": {
+  "youth": 0.85,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "8f5472b30d3016f7": {
+  "youth": 0.75,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "59ab18e6ec58fc49": {
+  "youth": 0.84,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "011044903d37e0e0": {
+  "youth": 0.86,
+  "out_of_school": 0.12,
+  "step": "culinary-college",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "e3a3b56f89fc6073": {
+  "youth": 0.87,
+  "out_of_school": 0.05,
+  "step": "culinary-vocational-hs",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "09f0222969a55f46": {
+  "youth": 0.82,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "1ae9e5c53b3764b2": {
+  "youth": 0.78,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "416128fc757a2d78": {
+  "youth": 0.88,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "770decea3ca43666": {
+  "youth": 0.82,
+  "out_of_school": 0.24,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "6ea67c7315aa19d4": {
+  "youth": 0.82,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "958d83a1c6960ee2": {
+  "youth": 0.81,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "3476c6ca9223479c": {
+  "youth": 0.75,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "87205d25882f1d21": {
+  "youth": 0.76,
+  "out_of_school": 0.91,
+  "step": "ged-high",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "aa9b250c3d37417b": {
+  "youth": 0.84,
+  "out_of_school": 0.18,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "059168e6b1436a9a": {
+  "youth": 0.58,
+  "out_of_school": 0.5,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "4b2a6141530616cf": {
+  "youth": 0.87,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "2e14d2c78bf55571": {
+  "youth": 0.6,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "8e30cf4956037ffc": {
+  "youth": 0.83,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "0fed5406c59a6797": {
+  "youth": 0.57,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "2a6cea07dc42b540": {
+  "youth": 0.84,
+  "out_of_school": 0.69,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "9c370e6e5cf7ee4c": {
+  "youth": 0.83,
+  "out_of_school": 0.42,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "7cf9373327c6d68d": {
+  "youth": 0.82,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "14d57ef113c3a3e6": {
+  "youth": 0.83,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "c5d5c5b2d9fc20e0": {
+  "youth": 0.86,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "1d032b24dbf08e89": {
+  "youth": 0.87,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "38719aa006319fd5": {
+  "youth": 0.87,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "1619b67125fe3561": {
+  "youth": 0.79,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "b54dd461040aa3fe": {
+  "youth": 0.78,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "7527473e04c10b40": {
+  "youth": 0.8,
+  "out_of_school": 0.2,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "530a09a8eaa96a25": {
+  "youth": 0.84,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "a6ef333dc2e34ec3": {
+  "youth": 0.65,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "72b3bb8a6aca1dbe": {
+  "youth": 0.83,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "3a89182e806a7259": {
+  "youth": 0.87,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "c587b8eead348d9d": {
+  "youth": 0.8,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "d8d606c6748650ce": {
+  "youth": 0.81,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "4e100ae6ddbcc536": {
+  "youth": 0.72,
+  "out_of_school": 0.07,
+  "step": "culinary-vocational-hs",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "059a89d50b934966": {
+  "youth": 0.85,
+  "out_of_school": 0.24,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "198a6d2e20086e14": {
+  "youth": 0.81,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "b45c7ee5969c18e3": {
+  "youth": 0.82,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "d8a73592c214ced6": {
+  "youth": 0.84,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "b99a5636e384cf19": {
+  "youth": 0.84,
+  "out_of_school": 0.94,
+  "step": "cooking-training-course",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "ffa2844a16974da4": {
+  "youth": 0.88,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "9f78d57b32e55430": {
+  "youth": 0.85,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "ab3f9dbfd62b4679": {
+  "youth": 0.81,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "9a606f609cc9730a": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "849759d81bf19a69": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "4767006b7067ea5a": {
+  "youth": 0.5,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "abd26bf526a59bc5": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "1914c9d70b5ca491": {
+  "youth": 0.6,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "133427cb7d8d8188": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "f0e93ffc4fe709f0": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "15d6fe87772901a6": {
+  "youth": 0.53,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "fce47990ceb8d56d": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "e41edb143f19677e": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "f6688277140bda0a": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "4484f04e42b7dac5": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "9840488e271023bd": {
+  "youth": 0.43,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "bc872e5366ecb690": {
+  "youth": 0.46,
+  "out_of_school": 0.06,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "3e1f960ad8e26258": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "dfb7a9635a9dd6da": {
+  "youth": 0.2,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "85a17787c568031e": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "c655e6d389017c39": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "c12f68006b93cb1f": {
+  "youth": 0.36,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "c83b8983fdf83d96": {
+  "youth": 0.56,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "9bfe6dbfecb75714": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "894ca2f774abfe24": {
+  "youth": 0.29,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "2569f0dd39d8dbc2": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "1a6b7de4f06bc7a6": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "10b6612bb8e3eb8d": {
+  "youth": 0.6,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "fdf676b2ebccb458": {
+  "youth": 0.56,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "316d913518d32e1c": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "4512649d001f001c": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "c47dbf4048759a22": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "33cfe6af43d8f5d5": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "aca301d3d319e0d8": {
+  "youth": 0.23,
+  "out_of_school": 0.12,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "6558c6d3aa9c2dea": {
+  "youth": 0.57,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "2208b264e45e8d46": {
+  "youth": 0.54,
+  "out_of_school": 0.06,
+  "step": "culinary-college",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "636d6cca4de99c04": {
+  "youth": 0.38,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "78fee43f3489ba4e": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "90b0e2ee6212aa48": {
+  "youth": 0.38,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "77c8cd76226805dd": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "143aa2231ad07e8e": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "f2f552de6832e4f1": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "28c3fd59204b50a5": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "a92c7f7b34d5b4c6": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "fa37869a513cae24": {
+  "youth": 0.48,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "3e624df7aa2971ab": {
+  "youth": 0.47,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "2101c65a15d29674": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "a437258635d307fe": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "9b90fea33ada1199": {
+  "youth": 0.41,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "018e2c3906d1320b": {
+  "youth": 0.15,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "9351ac1f346ad952": {
+  "youth": 0.42,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "4977f0df51768560": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "6b234d2ddd86389a": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "1187c13da32ad385": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "857edc35d94c0b82": {
+  "youth": 0.41,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "b6e05bc4c40c9ace": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "fb4d1ccb57872e13": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "38c807ea2512e5b7": {
+  "youth": 0.46,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "5eed9c6d0b20c17d": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "44fdb3f662ea617a": {
+  "youth": 0.5,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "8157b23ff0beb4d5": {
+  "youth": 0.3,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "94b92e6dd15d48a8": {
+  "youth": 0.41,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "c4a4a9c6db852fe1": {
+  "youth": 0.38,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "4667240fd289d697": {
+  "youth": 0.38,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "c07c7fbbe9bb4d39": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "eb2c41e7d3759297": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "70886ea8b49539d6": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "9037a9cf76a7ae87": {
+  "youth": 0.38,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "c6801cac5b26e835": {
+  "youth": 0.49,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "35547cb4507e26b8": {
+  "youth": 0.47,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.43,
+  "seen": "2026-09-27"
+ },
+ "d86d8a823f9d43bb": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "9239ce69dcfc7cc2": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "5abb3cc68561e6fb": {
+  "youth": 0.33,
+  "out_of_school": 0.13,
+  "step": "culinary-college",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "75add9135f20703b": {
+  "youth": 0.58,
+  "out_of_school": 0.11,
+  "step": "culinary-college",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "fbb37fe9e63f4c85": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "e77ea852440af6b9": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "a31cd9d81c09bacd": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "088bba7ef4d5e36c": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "23008dc7a4b0c7bf": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "d376d52a9443c3c9": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "a28065a67f794c3c": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "165edf1bf0ff8961": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "fb4e8ede6de9af2f": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "a005d39e03294c0b": {
+  "youth": 0.41,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "c827cea3f7a88d4c": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "dd6c03531d223dd8": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "498345aa188f1943": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "9e56c1fc1de31c88": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "496c5a209748ec58": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "8c5834de2c811fe1": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "e33104a707dcee25": {
+  "youth": 0.41,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "3fb842faacf3228b": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "748313a6ce4a3543": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "be1c2a7168b19b00": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "e558fcd31759ed47": {
+  "youth": 0.52,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "734627d7df875c83": {
+  "youth": 0.35,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "71b01b3edd395bec": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "fdb9f30a1e303ac9": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "95e9c1e09b908b3c": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "2ab997dc4058bb42": {
+  "youth": 0.41,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "768f8fe34b4afa03": {
+  "youth": 0.35,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "94252b3da2bebc59": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "735891486e4912ac": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "3dd603eaee7d5469": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "85fed6a2476c642a": {
+  "youth": 0.4,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "c46ba2a7fd06c4f4": {
+  "youth": 0.52,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "3b4bbc9acd595bb8": {
+  "youth": 0.47,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "59b25e8a9b1fbc84": {
+  "youth": 0.53,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "1ad082ca60030427": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "6879fd02794006a6": {
+  "youth": 0.36,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "8f1fdb4bd6c42c9f": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "775148c9022ca4bf": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "33733ed5bee0bf20": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "9fa7ef26ce8bca0d": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "043060c7dac393a4": {
+  "youth": 0.36,
+  "out_of_school": 0.13,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "2625d2ad67998c84": {
+  "youth": 0.36,
+  "out_of_school": 0.14,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "030512581a3ec8e6": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "b40990943f92f432": {
+  "youth": 0.36,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "410bf78d7af7980a": {
+  "youth": 0.49,
+  "out_of_school": 0.06,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "d58c08f14df28c09": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "e0b1a9f95ddcf479": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "b3fe18a02377a776": {
+  "youth": 0.52,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "5de104765d373905": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "6e0c3c50533d5b81": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "ad77ee8c93476c87": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "b9719729bee9fcfc": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "90ed6ddd1aadc51e": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "901fd4284fa821e1": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "924356e7915b8062": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "c1ba1fed2fb273fb": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "2609281599ee0003": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "c82aee14b77a7aa3": {
+  "youth": 0.56,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "8e705acd95195094": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "b73af2fb0bd42753": {
+  "youth": 0.49,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "08c38706f7cfd1ef": {
+  "youth": 0.41,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "55862f8b55771c62": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "411e4d0ccc9f601c": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "492da46beb4eb782": {
+  "youth": 0.39,
+  "out_of_school": 0.1,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "1659042f036e4c7d": {
+  "youth": 0.29,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "81a9df6e66d9040f": {
+  "youth": 0.3,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "226896cf54d74466": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "72093622a7933158": {
+  "youth": 0.38,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "2912bbedc9cd5a97": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "c4d85d2ba491760b": {
+  "youth": 0.56,
+  "out_of_school": 0.09,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "89d43f3ef4f69d07": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "eb9eb7f7f058abcc": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "9397b689b1cf0323": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "3414baacbf6449f8": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "7912639d5edc43b8": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "b6213811e71e4d86": {
+  "youth": 0.42,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "b7e72a61898e2651": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "b245aea259be3372": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "81b11f48b22d9388": {
+  "youth": 0.59,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "def8f14878225d41": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "bd4566d15def010f": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "357a742c33cc2cad": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "6282772508802bb2": {
+  "youth": 0.36,
+  "out_of_school": 0.14,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "907270841e1c18d7": {
+  "youth": 0.54,
+  "out_of_school": 0.15,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "3b14ab22500f22c2": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "2a8eca7be1777062": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "b67bd75e54ff5faa": {
+  "youth": 0.5,
+  "out_of_school": 0.36,
+  "step": "culinary-college",
+  "stepConf": 0.42,
+  "seen": "2026-09-27"
+ },
+ "b8529d817a2a1947": {
+  "youth": 0.49,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "7a6bc504d2d7a569": {
+  "youth": 0.48,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "9f1a00fd3a3a0a9f": {
+  "youth": 0.55,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "10b1ec5da48b390a": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "c6475710f197ee1d": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "2221481c022aa67f": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "bdcd70835fa7a01c": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "968f56bdc2fe196a": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "2eb86379a51686bc": {
+  "youth": 0.46,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "e29f56d394cdd3e6": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "6730db62f3549a4d": {
+  "youth": 0.51,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "c530530255718d83": {
+  "youth": 0.39,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "e9d0ce9e8fc113cb": {
+  "youth": 0.58,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "80d7fb22ae2a6453": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "5ac23b9eb67423a8": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "dc39eedb647edc17": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "04ed67006e082c94": {
+  "youth": 0.49,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "c4a9c866ec0810d1": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "4e02e19d7c88cbc7": {
+  "youth": 0.51,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "a52c8c8840b7c0b8": {
+  "youth": 0.51,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "0d3346fd01f4f2c6": {
+  "youth": 0.35,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "9abb3211954abc00": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "b14adb707c728f6d": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "aab80779f91e670b": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "1a8619cf6fd7d4f3": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "97dee62e41921c92": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "0b1ed4539335a32e": {
+  "youth": 0.85,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "f4949471c2f6d903": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "eb1f3a19a728541c": {
+  "youth": 0.42,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "fe632f77cef49fd7": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "5ad84ffe483ca5d1": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "6782f210f1f1d1e5": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "72b300c31f1b77ff": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "17b05371273cfdef": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "3f01469145a774d5": {
+  "youth": 0.47,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "68c7ba3d1e1e6f91": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "b575b3621d7d09a9": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "0e9bb7c30052b8dd": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "eb93357c261faadb": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "e28d80ef63c34b5f": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "3e0f1177e8fd9bfc": {
+  "youth": 0.04,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "5164cf1b417f09e0": {
+  "youth": 0.57,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "8f2c230165848166": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "cb3a536356f4bdf7": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "8ac88df30732007d": {
+  "youth": 0.52,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "67a88ad14de09c2b": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "810ce1a187694395": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "098db11698728c54": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "5ae927496a925d11": {
+  "youth": 0.46,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "b6600cb671038ce3": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "e4ec7f6e18bef268": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "07f4f279c04262d8": {
+  "youth": 0.59,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "d546359b259c6c1e": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "a242c8708247632d": {
+  "youth": 0.55,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "34cb811f0f623ec0": {
+  "youth": 0.63,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "777e205faf985d51": {
+  "youth": 0.52,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "2e9d13e7fd16382c": {
+  "youth": 0.43,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "bdfd82597ba38080": {
+  "youth": 0.39,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "7f446445a1e27ef3": {
+  "youth": 0.42,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "fd06757e8d59e698": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "eb291e1585cffff4": {
+  "youth": 0.44,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "888ba9792910e2f3": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "2f0ab12d6cb16100": {
+  "youth": 0.36,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "739e5ddec53881c2": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "7192699c5f2cc04c": {
+  "youth": 0.52,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "581847391253fbf1": {
+  "youth": 0.42,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "3552d13ac4df3ae7": {
+  "youth": 0.43,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "2417b5ad5a91b13f": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "6a691f60cf0b7c48": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "d6681324e6461db0": {
+  "youth": 0.39,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "959de099d1dc1a39": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "d24251b40c7a056b": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "35a1293843efe85d": {
+  "youth": 0.38,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "e5305cad3375c41d": {
+  "youth": 0.39,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "bbc32f432de7745b": {
+  "youth": 0.11,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "8502a0d1b9df7dcd": {
+  "youth": 0.24,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "5694eaf3368a783e": {
+  "youth": 0.21,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "f7df21c7ec526761": {
+  "youth": 0.51,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "7ed8dcc701ee5f35": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "d2956b04620de338": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "fe2a62a8bd0a5461": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "325d00d265d8c1df": {
+  "youth": 0.54,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "d7b6baffea268893": {
+  "youth": 0.41,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "eb27c834e8f0fa64": {
+  "youth": 0.32,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "83d42962b46265a0": {
+  "youth": 0.4,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "6c807330ae9c3a7c": {
+  "youth": 0.42,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "2e189533f08764d6": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "9c09c620cff2a56a": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "150d297cb102556e": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "c2e24c1bff5ac088": {
+  "youth": 0.56,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "3fa5268f931ea56f": {
+  "youth": 0.56,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "ff035de850bce33c": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "64f5656520e29d9d": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "43b3f1ed3249d339": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "1e43a2e16b105c1a": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "992c5bc4b0e1f3cb": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "b313128e5067c8e3": {
+  "youth": 0.46,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "d1b10f50514084d6": {
+  "youth": 0.31,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "9d9405de56bd4820": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "364b8788c5b4cd19": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "b8132399ebbb894d": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "2fa2449c3777dfe8": {
+  "youth": 0.4,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "24f755abb0625c2d": {
+  "youth": 0.47,
+  "out_of_school": 0.11,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "4c7b8681d7f98203": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "011743beafe583dd": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "4a9fc1e3a31d17a1": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "f4991d8838b4643a": {
+  "youth": 0.53,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "934f50cd201e9a7e": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "751ef577752c7609": {
+  "youth": 0.46,
+  "out_of_school": 0.13,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "e4ed5ee9603338ae": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "ddebfcdb0ab5d981": {
+  "youth": 0.39,
+  "out_of_school": 0.08,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "39fcc5e128936cfe": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "1ec871350062e3d2": {
+  "youth": 0.52,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "eef2f51e83b70378": {
+  "youth": 0.18,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "f75b64ca778e4842": {
+  "youth": 0.41,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "f099ec7e9060840f": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "09c260caff78f2f3": {
+  "youth": 0.34,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "897caece47a8d237": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "6099e7269c61904c": {
+  "youth": 0.28,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "282db4171a8cc192": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "abbf57e833711f11": {
+  "youth": 0.46,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "47cc584a5f210ad8": {
+  "youth": 0.39,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "658e80f41db54e5a": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "6581a3972d2b2465": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "ffa63d2037cf7211": {
+  "youth": 0.38,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "b471a299b13e62b7": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "1bc1dba8d3f7c856": {
+  "youth": 0.35,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "0d5bfe7ccc787f24": {
+  "youth": 0.39,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "7e7f4cc140a4dae5": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "146f7243a39bc330": {
+  "youth": 0.39,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "c3cfab6c40393632": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "86f547f60ec42544": {
+  "youth": 0.34,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "65e8d84f9effeaef": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "8be75607f5a128fd": {
+  "youth": 0.55,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "d7728bfc1c78d5ef": {
+  "youth": 0.45,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "f9748f35d7baeec9": {
+  "youth": 0.67,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "25a939a0ced36e3e": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "d4cf1d721b3aac04": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "5706f6a41f982aed": {
+  "youth": 0.57,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "50999058202b1abd": {
+  "youth": 0.59,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "fa520d1dde924f3c": {
+  "youth": 0.55,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.46,
+  "seen": "2026-09-27"
+ },
+ "afd9d241464e0d7c": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "535bdd2b8878e5ba": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "e17554d227cc544e": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "ea34652c43132720": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "cbae48436a6a3432": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "58554e0e1488975e": {
+  "youth": 0.58,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "6bf68ffe3ac087cf": {
+  "youth": 0.45,
+  "out_of_school": 0.06,
+  "step": "none",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "efcdb472e7b72ec3": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "5206317c66b7f432": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "d5617bfee087822f": {
+  "youth": 0.55,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "2d283807805fb1a1": {
+  "youth": 0.36,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "8ab92695397ab019": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "60a659036078f457": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "e19477eaa69f4187": {
+  "youth": 0.5,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "9344ee491ab687d6": {
+  "youth": 0.46,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "b0c65bd1fcc5d6d3": {
+  "youth": 0.49,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.66,
+  "seen": "2026-09-27"
+ },
+ "e0840f85c0abc0bb": {
+  "youth": 0.46,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "521804e6fa3a61a7": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "fcba662cb6037d01": {
+  "youth": 0.51,
+  "out_of_school": 0.07,
+  "step": "culinary-college",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "139b15452e932538": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "36663de37ab0331e": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "4295dbbf3bf5dce9": {
+  "youth": 0.48,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.59,
+  "seen": "2026-09-27"
+ },
+ "ddd506af4320f443": {
+  "youth": 0.48,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "fd2432aedc1b29af": {
+  "youth": 0.64,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "5a063536ddf614f7": {
+  "youth": 0.53,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.58,
+  "seen": "2026-09-27"
+ },
+ "2c605fb84631e5f5": {
+  "youth": 0.51,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "ee8bd24c21f48ffe": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "37292fa970c13ad1": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "9f6f821aa68155df": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "8adceed604407ad6": {
+  "youth": 0.43,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.65,
+  "seen": "2026-09-27"
+ },
+ "a5d44f00bdb892b3": {
+  "youth": 0.47,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "645b9b7d7cba3228": {
+  "youth": 0.31,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "6348a91f826753ea": {
+  "youth": 0.43,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.43,
+  "seen": "2026-09-27"
+ },
+ "fb9f4c1f37404817": {
+  "youth": 0.42,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "de7025068cc0315d": {
+  "youth": 0.26,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "4409e5a91ce0d56f": {
+  "youth": 0.46,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "2e89307c41236cc6": {
+  "youth": 0.45,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "46b03c3de86c48b5": {
+  "youth": 0.38,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "0afdadfd00eb8fa5": {
+  "youth": 0.56,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "c68a3c3e397d984b": {
+  "youth": 0.37,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "57efe2b260be1252": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "daeebb474c372e42": {
+  "youth": 0.24,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "a02c213e6a938091": {
+  "youth": 0.53,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "98fc68931ba06c88": {
+  "youth": 0.54,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.63,
+  "seen": "2026-09-27"
+ },
+ "88134c0f76c2cc48": {
+  "youth": 0.47,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "0c3baa25c7352c71": {
+  "youth": 0.53,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "b4d7cd1bedefc26c": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "6e3cd44ae1ec9a20": {
+  "youth": 0.57,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "4dd18fe545d7ebe0": {
+  "youth": 0.36,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "bd77442063762588": {
+  "youth": 0.57,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "40c9794893ea33ec": {
+  "youth": 0.47,
+  "out_of_school": 0.07,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "b3e3be7d256910b9": {
+  "youth": 0.4,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "a877bc4282970169": {
+  "youth": 0.45,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "52e8ce9af42ccce2": {
+  "youth": 0.42,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.57,
+  "seen": "2026-09-27"
+ },
+ "2de0ccbc4ef855e6": {
+  "youth": 0.54,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "abcbf5fa1ae6def2": {
+  "youth": 0.5,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.64,
+  "seen": "2026-09-27"
+ },
+ "5f4d0b6ffcd295d6": {
+  "youth": 0.51,
+  "out_of_school": 0.12,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "ac405a6c3cad3614": {
+  "youth": 0.23,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "72da94c3e82e3333": {
+  "youth": 0.4,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "0302f46cb3083720": {
+  "youth": 0.37,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "1d9ef2fd92fe5882": {
+  "youth": 0.36,
+  "out_of_school": 0.05,
+  "step": "none",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "e3aa8400ec600304": {
+  "youth": 0.49,
+  "out_of_school": 0.05,
+  "step": "culinary-college",
+  "stepConf": 0.47,
+  "seen": "2026-09-27"
+ },
+ "cd0704e47ea08b0e": {
+  "youth": 0.58,
+  "out_of_school": 0.07,
+  "step": "culinary-college",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "09a797af8f1894d4": {
+  "youth": 0.49,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "2bb9b4685e3e3f30": {
+  "youth": 0.44,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.6,
+  "seen": "2026-09-27"
+ },
+ "31bd50aa344298a2": {
+  "youth": 0.38,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "4e4afb4cda4c312a": {
+  "youth": 0.23,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "8f82a1cff361a306": {
+  "youth": 0.34,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "ac6bc39f77547925": {
+  "youth": 0.34,
+  "out_of_school": 0.04,
+  "step": "culinary-college",
+  "stepConf": 0.51,
+  "seen": "2026-09-27"
+ },
+ "8a967315b1eb0d2a": {
+  "youth": 0.3,
+  "out_of_school": 0.03,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "d4592d8b0c779101": {
+  "youth": 0.43,
+  "out_of_school": 0.03,
+  "step": "culinary-college",
+  "stepConf": 0.44,
+  "seen": "2026-09-27"
+ },
+ "969d137368e9a36d": {
+  "youth": 0.48,
+  "out_of_school": 0.04,
+  "step": "none",
+  "stepConf": 0.5,
+  "seen": "2026-09-27"
+ },
+ "219f22ca9dbbc1b4": {
+  "youth": 0.21,
+  "out_of_school": 0.59,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "0951715f999f12c0": {
+  "youth": 0.54,
+  "out_of_school": 0.42,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "5353629e88c890ca": {
+  "youth": 0.07,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "13a33fe276b1d032": {
+  "youth": 0.86,
+  "out_of_school": 0.46,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "b3254894257efc35": {
+  "youth": 0.85,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "e0f1a7485bcc2add": {
+  "youth": 0.07,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "3d960845f5d8307e": {
+  "youth": 0.53,
+  "out_of_school": 0.61,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "f5dfa6589ae8d49c": {
+  "youth": 0.13,
+  "out_of_school": 0.53,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "7c96b0e401f9fe4e": {
+  "youth": 0.85,
+  "out_of_school": 0.54,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "5e8900c86ddc3327": {
+  "youth": 0.14,
+  "out_of_school": 0.57,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "8c3ff6575c642f61": {
+  "youth": 0.07,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "c6dde96ef5652b2e": {
+  "youth": 0.54,
+  "out_of_school": 0.47,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "83914f986f16b3ba": {
+  "youth": 0.54,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "dfc9d521c16eb7cc": {
+  "youth": 0.19,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "cfc2766139da14c3": {
+  "youth": 0.67,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "3fe65d07c0b827ea": {
+  "youth": 0.16,
+  "out_of_school": 0.52,
+  "step": "none",
+  "stepConf": 0.54,
+  "seen": "2026-09-27"
+ },
+ "a236a090abace39a": {
+  "youth": 0.72,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "e5fd0c0d70523316": {
+  "youth": 0.16,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "125a0276ac3fc92d": {
+  "youth": 0.77,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "8bc1181bdb1a889d": {
+  "youth": 0.22,
+  "out_of_school": 0.54,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "7a5d658b17321c76": {
+  "youth": 0.2,
+  "out_of_school": 0.56,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "2af4e2c55e178d26": {
+  "youth": 0.1,
+  "out_of_school": 0.62,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "f5fb86d7212e2b49": {
+  "youth": 0.87,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "bb4122c09d863dc4": {
+  "youth": 0.85,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "1101d9afb6645617": {
+  "youth": 0.8,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "4f823e19e8d3ef40": {
+  "youth": 0.78,
+  "out_of_school": 0.5,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "10ca719c46ac4fdf": {
+  "youth": 0.85,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "f00550166b0389e8": {
+  "youth": 0.07,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "138da576aa438cd9": {
+  "youth": 0.07,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "19e8082f33280a18": {
+  "youth": 0.8,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "20cb4e9075a952da": {
+  "youth": 0.08,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "f1944bc6c9f89aeb": {
+  "youth": 0.08,
+  "out_of_school": 0.17,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "693e895216656998": {
+  "youth": 0.82,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "cf6fd1558b9db643": {
+  "youth": 0.07,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "fa60e55c1fb8113b": {
+  "youth": 0.13,
+  "out_of_school": 0.53,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "bc7791e24da69a17": {
+  "youth": 0.78,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "7f73911ffc2af1bf": {
+  "youth": 0.18,
+  "out_of_school": 0.56,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "0e9fbf5c0d76df9a": {
+  "youth": 0.78,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "187e33149bf6d265": {
+  "youth": 0.58,
+  "out_of_school": 0.47,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "838077fead6a24d7": {
+  "youth": 0.78,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "b35f686c0ce16818": {
+  "youth": 0.82,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "6672b2e5599acdb4": {
+  "youth": 0.07,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "e7a197deedd22c7a": {
+  "youth": 0.79,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "443c734cd332c742": {
+  "youth": 0.83,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "cd31b93c82072f0c": {
+  "youth": 0.86,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "94bd024960e06bf9": {
+  "youth": 0.82,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "be72e6fc2e9adf8c": {
+  "youth": 0.88,
+  "out_of_school": 0.44,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "e497885c6e4a661e": {
+  "youth": 0.08,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "6a91433237e93360": {
+  "youth": 0.83,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b9eebe7df2e16828": {
+  "youth": 0.06,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "bdb13620da8ccb9b": {
+  "youth": 0.87,
+  "out_of_school": 0.39,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "4e7fbd5abd85e6df": {
+  "youth": 0.26,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "f2783f0721e4dfd4": {
+  "youth": 0.15,
+  "out_of_school": 0.5,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "ae207ee6e598f95d": {
+  "youth": 0.07,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "3c51da035c50693c": {
+  "youth": 0.07,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "61ee22ae92937ba1": {
+  "youth": 0.25,
+  "out_of_school": 0.54,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "ed9bb40c82866b27": {
+  "youth": 0.48,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "eb452ca9814dae43": {
+  "youth": 0.86,
+  "out_of_school": 0.48,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "5e155f76d2ac2dbc": {
+  "youth": 0.09,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "13f1383466f14d46": {
+  "youth": 0.14,
+  "out_of_school": 0.47,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "9dc2c6d54c05faae": {
+  "youth": 0.69,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "26a63d9adcc8e512": {
+  "youth": 0.2,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "9b78973a4458759d": {
+  "youth": 0.87,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "cf152005f9e2b7b2": {
+  "youth": 0.55,
+  "out_of_school": 0.45,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "3e60ab48505fa9c3": {
+  "youth": 0.17,
+  "out_of_school": 0.53,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "1000549f6b751998": {
+  "youth": 0.88,
+  "out_of_school": 0.44,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "6f44cc5a50789711": {
+  "youth": 0.81,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "362eeedaee8face0": {
+  "youth": 0.55,
+  "out_of_school": 0.42,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.48,
+  "seen": "2026-09-27"
+ },
+ "735b1b36ef8afa22": {
+  "youth": 0.09,
+  "out_of_school": 0.49,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "b1157d93a633c419": {
+  "youth": 0.24,
+  "out_of_school": 0.52,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "2c68fda7df4ed3d2": {
+  "youth": 0.53,
+  "out_of_school": 0.42,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "6cd878c2a15b966e": {
+  "youth": 0.09,
+  "out_of_school": 0.22,
+  "step": "none",
+  "stepConf": 0.67,
+  "seen": "2026-09-27"
+ },
+ "549c499f9ba9d820": {
+  "youth": 0.78,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "61ef6668f8ba1e9a": {
+  "youth": 0.81,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "8f83225805980fba": {
+  "youth": 0.87,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "3d753e83a838e52a": {
+  "youth": 0.09,
+  "out_of_school": 0.43,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "dc3546257ead8c18": {
+  "youth": 0.62,
+  "out_of_school": 0.46,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b1abb749ba12001b": {
+  "youth": 0.51,
+  "out_of_school": 0.42,
+  "step": "none",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "cf182b164d6b98ed": {
+  "youth": 0.2,
+  "out_of_school": 0.53,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "066028416e022f48": {
+  "youth": 0.83,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "47360bff80f327dd": {
+  "youth": 0.76,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "41dffaba9bf559c2": {
+  "youth": 0.75,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "0e33e56294f40bc6": {
+  "youth": 0.07,
+  "out_of_school": 0.21,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "e03c0ece2bfca8b1": {
+  "youth": 0.8,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "0ed1f0cfc45bcb81": {
+  "youth": 0.78,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "814515d01bc5cdeb": {
+  "youth": 0.83,
+  "out_of_school": 0.52,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.43,
+  "seen": "2026-09-27"
+ },
+ "a5993c599b97616e": {
+  "youth": 0.16,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "455ab5b27ce02113": {
+  "youth": 0.86,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "29efcb707d35aa3f": {
+  "youth": 0.08,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "0e5e6c74e7f9da66": {
+  "youth": 0.87,
+  "out_of_school": 0.32,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "9037b3f5618eb1fa": {
+  "youth": 0.61,
+  "out_of_school": 0.45,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "9712fc042fc98fce": {
+  "youth": 0.13,
+  "out_of_school": 0.41,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "969501c003009e6a": {
+  "youth": 0.56,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.53,
+  "seen": "2026-09-27"
+ },
+ "69c33ffbeca762bf": {
+  "youth": 0.07,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "d33988e32c1f132e": {
+  "youth": 0.07,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "a7d9e0e05f60826d": {
+  "youth": 0.14,
+  "out_of_school": 0.56,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "49c61fb0866e2c78": {
+  "youth": 0.84,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "8cef51331d45635a": {
+  "youth": 0.84,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "be65a7b9e575c2a6": {
+  "youth": 0.16,
+  "out_of_school": 0.52,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "cc258f23756f4de8": {
+  "youth": 0.16,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.61,
+  "seen": "2026-09-27"
+ },
+ "0dd255d4f80a3966": {
+  "youth": 0.81,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "6408ca2b0da4b773": {
+  "youth": 0.26,
+  "out_of_school": 0.63,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "4fceeba8dbae69e0": {
+  "youth": 0.37,
+  "out_of_school": 0.64,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "f7f4433886a881ca": {
+  "youth": 0.31,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "d603eb13c095f2ac": {
+  "youth": 0.74,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "93f034226df70956": {
+  "youth": 0.19,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "5205af8a3a20f3cb": {
+  "youth": 0.18,
+  "out_of_school": 0.57,
+  "step": "none",
+  "stepConf": 0.49,
+  "seen": "2026-09-27"
+ },
+ "54137bb23b1fda43": {
+  "youth": 0.57,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.56,
+  "seen": "2026-09-27"
+ },
+ "23abd508536f90f4": {
+  "youth": 0.77,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "81fe68e287e8c394": {
+  "youth": 0.29,
+  "out_of_school": 0.59,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "85adae61585c2970": {
+  "youth": 0.84,
+  "out_of_school": 0.45,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "5edc6a7ede5d646f": {
+  "youth": 0.07,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "439731df72ba9b13": {
+  "youth": 0.74,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "14450028e040b449": {
+  "youth": 0.85,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "8559fad6ef9a6a29": {
+  "youth": 0.82,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "9e368beb21fb7f7a": {
+  "youth": 0.85,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "19816169d68d8f31": {
+  "youth": 0.84,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "1d07bc0a439eb1ca": {
+  "youth": 0.82,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5bf6ba1e8cad1f90": {
+  "youth": 0.76,
+  "out_of_school": 0.24,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "0a254cc268b81187": {
+  "youth": 0.84,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "3edda81fbf6fa1b7": {
+  "youth": 0.79,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "10400487e57e9e55": {
+  "youth": 0.85,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "2c1958da5b87ebce": {
+  "youth": 0.22,
+  "out_of_school": 0.59,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "c7dc8cc833ca899f": {
+  "youth": 0.87,
+  "out_of_school": 0.47,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "f089c4f401182779": {
+  "youth": 0.84,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "536da0a76e5fe18e": {
+  "youth": 0.87,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "93222a443a121486": {
+  "youth": 0.85,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "5ae048a6ff99a1aa": {
+  "youth": 0.79,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "9688099b3cc49fb1": {
+  "youth": 0.84,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "221634eb73a0f219": {
+  "youth": 0.76,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "1aa031ada8ac57b6": {
+  "youth": 0.79,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "721096922af80fb5": {
+  "youth": 0.14,
+  "out_of_school": 0.59,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "e378557fede4c13b": {
+  "youth": 0.09,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "56af8f660d662989": {
+  "youth": 0.83,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "4708c2aeb193a4ae": {
+  "youth": 0.85,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "e6420024a1678a84": {
+  "youth": 0.76,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "3bac221fe97612c3": {
+  "youth": 0.87,
+  "out_of_school": 0.44,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "14604ad9e1fcc01f": {
+  "youth": 0.73,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "c6c4d9f17cff4fea": {
+  "youth": 0.65,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "4f4a418cbcfe9665": {
+  "youth": 0.87,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "76c99feb2f982ced": {
+  "youth": 0.81,
+  "out_of_school": 0.28,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.45,
+  "seen": "2026-09-27"
+ },
+ "1bae73f681c5411b": {
+  "youth": 0.85,
+  "out_of_school": 0.39,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "0745eedef7b6b20b": {
+  "youth": 0.74,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "22b3aa9d09cf9029": {
+  "youth": 0.09,
+  "out_of_school": 0.4,
+  "step": "none",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "2f2dc9b5183eed76": {
+  "youth": 0.08,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "1940dc85092bebe5": {
+  "youth": 0.07,
+  "out_of_school": 0.25,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "cdb01cfcc3b0d752": {
+  "youth": 0.87,
+  "out_of_school": 0.46,
+  "step": "none",
+  "stepConf": 0.55,
+  "seen": "2026-09-27"
+ },
+ "71f59f0c5e4f6fe8": {
+  "youth": 0.76,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "1d679d9f5ad18845": {
+  "youth": 0.88,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "30ab4cf92ef6539f": {
+  "youth": 0.84,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "df7dae2d4a7fc7db": {
+  "youth": 0.82,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "97957a425206bf33": {
+  "youth": 0.84,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "55427a748fc1904a": {
+  "youth": 0.18,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "bc808c7ec29743d7": {
+  "youth": 0.78,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "448d57f12bb97866": {
+  "youth": 0.76,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "f950d8a2a93bd31c": {
+  "youth": 0.7,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "20791f83b1410ba9": {
+  "youth": 0.74,
+  "out_of_school": 0.27,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "384d61a65c6510dc": {
+  "youth": 0.8,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "f6decdbc29eabde4": {
+  "youth": 0.71,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "ef1a5650f0522cf1": {
+  "youth": 0.82,
+  "out_of_school": 0.25,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "7f5e3b63e1c37d41": {
+  "youth": 0.84,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "1232396ef5eed806": {
+  "youth": 0.83,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "0e0db8abfc63907a": {
+  "youth": 0.89,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "65d09c3c81b7de21": {
+  "youth": 0.82,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "fb31d03ad8ee8c64": {
+  "youth": 0.75,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "dc98cf35e139622e": {
+  "youth": 0.87,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "51b0451e2d8e3240": {
+  "youth": 0.79,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "0b79b863f41d8296": {
+  "youth": 0.78,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "a7ea8e4d5cdc06e3": {
+  "youth": 0.06,
+  "out_of_school": 0.23,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "4df5c1958845f5fd": {
+  "youth": 0.86,
+  "out_of_school": 0.44,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "6330ba1628a85496": {
+  "youth": 0.18,
+  "out_of_school": 0.61,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "2546dd7e8beda972": {
+  "youth": 0.87,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "ae7f6ba159038075": {
+  "youth": 0.85,
+  "out_of_school": 0.28,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "1edef97bb3d8e265": {
+  "youth": 0.07,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "400feff12c07354b": {
+  "youth": 0.8,
+  "out_of_school": 0.3,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "b1619bb9cca2867b": {
+  "youth": 0.79,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "84ec3a7c7e55b84a": {
+  "youth": 0.77,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "8cee55d928458cca": {
+  "youth": 0.08,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "71a5f8463a1b604b": {
+  "youth": 0.07,
+  "out_of_school": 0.26,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "dbad019199028322": {
+  "youth": 0.89,
+  "out_of_school": 0.34,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "163733ceaad259f4": {
+  "youth": 0.84,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "1c6f45458c7b9855": {
+  "youth": 0.83,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "4fed76963f9c6365": {
+  "youth": 0.55,
+  "out_of_school": 0.39,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "de005eead8e29d40": {
+  "youth": 0.15,
+  "out_of_school": 0.48,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "a66bbd4c5b209d95": {
+  "youth": 0.83,
+  "out_of_school": 0.31,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "7f6c56ea4f281cfd": {
+  "youth": 0.07,
+  "out_of_school": 0.19,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "d0eec15fe59bdb2e": {
+  "youth": 0.37,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "aee9e387ca9244d3": {
+  "youth": 0.86,
+  "out_of_school": 0.41,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "c9d6dd879c46307e": {
+  "youth": 0.12,
+  "out_of_school": 0.48,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "512b42509f332bea": {
+  "youth": 0.87,
+  "out_of_school": 0.32,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "6bee105194514a0a": {
+  "youth": 0.53,
+  "out_of_school": 0.49,
+  "step": "none",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "5dc064baa7857b03": {
+  "youth": 0.83,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "55c75bf7acd4311a": {
+  "youth": 0.75,
+  "out_of_school": 0.38,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "a79b611b651c902f": {
+  "youth": 0.09,
+  "out_of_school": 0.35,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "c1d256861b784590": {
+  "youth": 0.09,
+  "out_of_school": 0.29,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "0514143eb9aace07": {
+  "youth": 0.15,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 0.96,
+  "seen": "2026-09-27"
+ },
+ "6e02c37261712c89": {
+  "youth": 0.8,
+  "out_of_school": 0.29,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "cf4d05411a224527": {
+  "youth": 0.87,
+  "out_of_school": 0.47,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "dc45306c92e686af": {
+  "youth": 0.84,
+  "out_of_school": 0.42,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "ef70e8e7a835c16b": {
+  "youth": 0.17,
+  "out_of_school": 0.47,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "5d9730f5db6b8818": {
+  "youth": 0.25,
+  "out_of_school": 0.46,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "69a182d48fc80f9f": {
+  "youth": 0.21,
+  "out_of_school": 0.47,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "c7419eddda58fc1b": {
+  "youth": 0.15,
+  "out_of_school": 0.4,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "97cb640c0c06fb9d": {
+  "youth": 0.24,
+  "out_of_school": 0.43,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "f635a05f4d0e0a64": {
+  "youth": 0.27,
+  "out_of_school": 0.46,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "f81ff0c2f11893e7": {
+  "youth": 0.26,
+  "out_of_school": 0.5,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "cc9b07a616bc7c5b": {
+  "youth": 0.14,
+  "out_of_school": 0.39,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "544810003c8e65c2": {
+  "youth": 0.21,
+  "out_of_school": 0.49,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "3a1a3ee54bf6a946": {
+  "youth": 0.27,
+  "out_of_school": 0.44,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "20a531b669f0cc26": {
+  "youth": 0.87,
+  "out_of_school": 0.45,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "d8a04d923af958af": {
+  "youth": 0.16,
+  "out_of_school": 0.43,
+  "step": "cooking-oneday-class",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a546b671e5adf857": {
+  "youth": 0.84,
+  "out_of_school": 0.37,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "fc291dcba2d004ae": {
+  "youth": 0.83,
+  "out_of_school": 0.36,
+  "step": "none",
+  "stepConf": 0.62,
+  "seen": "2026-09-27"
+ },
+ "82ff602611c470e1": {
+  "youth": 0.83,
+  "out_of_school": 0.44,
+  "step": "cooking-oneday-class",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "732970b083f9fde7": {
+  "youth": 0.87,
+  "out_of_school": 0.44,
+  "step": "none",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "38e82509c9e7d804": {
+  "youth": 0.88,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "5eeed33d0713f4a7": {
+  "youth": 0.89,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6ff6ac2f4fb9b7ab": {
+  "youth": 0.91,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "90a7d64f79c6d1dc": {
+  "youth": 0.8,
+  "out_of_school": 0.53,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "43749e732eabda4c": {
+  "youth": 0.92,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6f954db2c74185c9": {
+  "youth": 0.89,
+  "out_of_school": 0.57,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "115584dd06dac641": {
+  "youth": 0.88,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "2294ab9d7f6774ec": {
+  "youth": 0.88,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "cf720e6d458cd5a4": {
+  "youth": 0.92,
+  "out_of_school": 0.66,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "bb5a99a4916d14b0": {
+  "youth": 0.89,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "cd5b9d459686d211": {
+  "youth": 0.91,
+  "out_of_school": 0.6,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "b1b123a9b050b31f": {
+  "youth": 0.89,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "3a00722550dc8e95": {
+  "youth": 0.88,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "ef7299e26800afc2": {
+  "youth": 0.89,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "d8741d32b38f951b": {
+  "youth": 0.83,
+  "out_of_school": 0.56,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "63427e026542d374": {
+  "youth": 0.9,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "eddb817592fa6a7d": {
+  "youth": 0.89,
+  "out_of_school": 0.6,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a8a95864a5a02732": {
+  "youth": 0.9,
+  "out_of_school": 0.62,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "1afa8a1399753d62": {
+  "youth": 0.88,
+  "out_of_school": 0.62,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "eef22087cfe64b0f": {
+  "youth": 0.88,
+  "out_of_school": 0.61,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "8ae7a65b837b1b12": {
+  "youth": 0.88,
+  "out_of_school": 0.62,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "214ad723d1e4cbcd": {
+  "youth": 0.87,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "09484624b4e0a5d0": {
+  "youth": 0.9,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "053bf2c601bf9c85": {
+  "youth": 0.89,
+  "out_of_school": 0.61,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "f7c6811eb5d80b96": {
+  "youth": 0.88,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "af2743e9a77d5bb3": {
+  "youth": 0.92,
+  "out_of_school": 0.66,
+  "step": "restaurant-job",
+  "stepConf": 0.31,
+  "seen": "2026-09-27"
+ },
+ "af69425b4a88ea5e": {
+  "youth": 0.9,
+  "out_of_school": 0.67,
+  "step": "none",
+  "stepConf": 0.52,
+  "seen": "2026-09-27"
+ },
+ "9c9ac2370424cdab": {
+  "youth": 0.91,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "d8ccf77de64284f6": {
+  "youth": 0.9,
+  "out_of_school": 0.67,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "540fe2b343de9a41": {
+  "youth": 0.9,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "bb9f8b32b8b888f7": {
+  "youth": 0.91,
+  "out_of_school": 0.66,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6154c6af97e39866": {
+  "youth": 0.91,
+  "out_of_school": 0.54,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "738cdfd1b00468c9": {
+  "youth": 0.92,
+  "out_of_school": 0.55,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "a5b068cafff6b2f1": {
+  "youth": 0.92,
+  "out_of_school": 0.56,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "50cadcb8c073792a": {
+  "youth": 0.9,
+  "out_of_school": 0.66,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "72d529bd20114f1b": {
+  "youth": 0.89,
+  "out_of_school": 0.61,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "efeedca471610ce3": {
+  "youth": 0.92,
+  "out_of_school": 0.68,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "23e1102744438b16": {
+  "youth": 0.89,
+  "out_of_school": 0.67,
+  "step": "none",
+  "stepConf": 0.99,
+  "seen": "2026-09-27"
+ },
+ "2a1a7d50d0030456": {
+  "youth": 0.91,
+  "out_of_school": 0.64,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "e6258fc0189f303c": {
+  "youth": 0.92,
+  "out_of_school": 0.63,
+  "step": "none",
+  "stepConf": 1.0,
+  "seen": "2026-09-27"
+ },
+ "6950bc8d30bb1de5": {
+  "youth": 0.92,
+  "out_of_school": 0.65,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "aafac6ee2138b926": {
+  "youth": 0.91,
+  "out_of_school": 0.66,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "685584c2bde27b2f": {
+  "youth": 0.91,
+  "out_of_school": 0.68,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "3966375736e0b008": {
+  "youth": 0.91,
+  "out_of_school": 0.68,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "3e6ddc1dbcc7adcc": {
+  "youth": 0.91,
+  "out_of_school": 0.58,
+  "step": "none",
+  "stepConf": 0.97,
+  "seen": "2026-09-27"
+ },
+ "a3f8add3ea27715a": {
+  "youth": 0.89,
+  "out_of_school": 0.59,
+  "step": "none",
+  "stepConf": 0.98,
+  "seen": "2026-09-27"
+ },
+ "619c578dbc8b83b0": {
+  "youth": 0.69,
+  "out_of_school": 0.33,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ }
+}

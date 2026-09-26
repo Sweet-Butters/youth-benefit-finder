@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 23:28",
+  "updated_at": "2026-09-27 00:43",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "apply-d22",
+      "id": "crawler-stage1",
       "who": "claude + 에이전트",
       "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/apply-d22",
+      "branch": "Sweet-Butters/crawler-stage1",
       "started": "2026-09-26",
-      "summary": "시안 4를 본 사이트에 적용, 홈·글 재디자인, 후보 1차 확인"
+      "summary": "혜택 수집기 1단계: 공식 출처 5개(큐넷, 장학재단, 청소년활동 인증·신고, 자원봉사) + Jev 두 번째 의견. 결과는 data/collected/에만, 사이트는 아직 안 읽음"
     }
   ],
   "queued_tasks": [
@@ -151,9 +151,17 @@
       "summary": "첫걸음 지원(D21) 운영 방식: 기부금 처리, 선발 기준, 세무·법적 요건",
       "default": "v1(가입·나의 기록) 전에는 시작하지 않음",
       "by": "첫 후원자를 받기 전"
+    },
+    {
+      "id": "general-benefits",
+      "summary": "분야와 상관없는 혜택(일반 장학금 584개, 자원봉사 169개, 청소년활동 125개)을 어디에 보여 줄지: 분야 공통 칸, 지역별 '봉사·체험' 칸, 새 단계(예: 봉사 시간)",
+      "default": "지금은 검토 목록(review.json)에만 둔다. 사이트에 올리지 않음",
+      "by": "수집 결과를 사이트에 연결하기 전"
     }
   ],
   "user_todo": [
+    "GitHub Secrets에 DATA_GO_KR_KEY(새로 발급한 키)와 TYPESAFE_API_KEY(공모전 레이더와 같은 키) 등록 → Actions의 collect를 수동 실행. 채팅에 키를 붙여 넣지 않는다",
+    "보조금24 승인 나면 알려 주기 (수집 출처 추가)",
     "국민내일배움카드를 미성년 학교 밖 청소년이 받을 수 있는지 고용노동부 콜센터(1350)에 확인",
     "1주차 미션 PPT 확인·제출 (Downloads, 팀명 Team 유이정)",
     "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
