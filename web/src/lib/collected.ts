@@ -15,6 +15,8 @@ export interface AutoGroup {
   audience: "any" | "out_of_school";
   /** The crawler thinks 학교 밖 청소년 can apply (tag out_of_school_ok or open_to_all). A hint, not a filter. */
   outOfSchoolOk: boolean;
+  /** No age or schooling limit at all (tag open_to_all), e.g. 기능사 exams. */
+  openToAll: boolean;
   /** Open or upcoming application windows, soonest first. */
   windows: AutoWindow[];
 }
@@ -72,6 +74,7 @@ export function autoGroups(): AutoGroup[] {
       seen: its.map((i) => i.last_seen ?? "").filter((s) => ISO.test(s)).sort().pop() ?? fallbackSeen,
       audience: first.type === "scholarship" && /학교\s*밖/.test(text) ? "out_of_school" : "any",
       outOfSchoolOk: tags.has("out_of_school_ok") || tags.has("open_to_all"),
+      openToAll: tags.has("open_to_all"),
       windows,
     };
   });

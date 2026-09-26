@@ -193,6 +193,7 @@ const autoPerks = autoGroups()
       sourceLabel: g.sourceLabel,
       seenLabel: g.seen ? md(g.seen) : "",
       oosOk: g.outOfSchoolOk,
+      openAll: g.openToAll,
     };
   })
   .filter((p) => p.steps.length && !p.closed);
@@ -720,7 +721,8 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
         const more = rest.length
           ? `<details class="p-more"><summary>다음 회차 ${rest.length}개 더</summary><ol>${rest.map((r) => `<li><span>${esc(r.label)}</span>${r.k ? `<span>${esc(r.k)}</span>` : ""}</li>`).join("")}</ol></details>`
           : "";
-        const hint = p.oosOk && ans("school") === "left" ? `<p class="p-hint">학교 밖 청소년도 신청할 수 있다고 적혀 있어요.</p>` : "";
+        const hint = p.openAll ? `<p class="p-hint">나이·학력 제한 없이 누구나 신청할 수 있어요.</p>`
+          : p.oosOk && ans("school") === "left" ? `<p class="p-hint">학교 밖 청소년도 신청할 수 있다고 적혀 있어요.</p>` : "";
         return `<li class="perk auto">` +
           `<p class="p-tier"><span class="t-auto">공식 자동</span><span>출처 ${esc(p.sourceLabel)}</span>${p.seenLabel ? `<span>${esc(p.seenLabel)} 확인</span>` : ""}</p>` +
           `<p class="p-top"><span class="p-type">${esc(p.typeLabel)}</span></p>` +
