@@ -68,6 +68,17 @@ for (const [items, schema] of [[fields, "field.schema.json"], [steps, "step.sche
 }
 for (const f of fields) for (const p of f.data.paths ?? []) registerId(p.id, `${f.rel} (path)`);
 
+// Find-talk data (D27): one catalog of fields the talk can suggest, one quiz. Both optional.
+function readSingle(name, schemaId) {
+  const path = join(DATA_DIR, name);
+  if (!existsSync(path)) return null;
+  const item = { rel: `data/processed/${name}`, data: null };
+  try { item.data = JSON.parse(readFileSync(path, "utf8")); } catch (e) { err(item.rel, `JSON parse error: ${e.message}`); return null; }
+  return validate(schemaId, item) ? item : null;
+}
+const catalog = readSingle("catalog.json", "catalog.schema.json");
+const quiz = readSingle("quiz.json", "quiz.schema.json");
+
 const redirectsPath = join(DATA_DIR, "redirects.json");
 let redirects = [];
 if (existsSync(redirectsPath)) {
@@ -92,6 +103,32 @@ for (const s of steps) {
 for (const h of helps) {
   for (const id of h.data.step_ids ?? []) if (!stepIds.has(id)) err(h.rel, `unknown step_id "${id}"`);
   for (const id of h.data.field_ids ?? []) if (!fieldIds.has(id)) err(h.rel, `unknown field_id "${id}"`);
+}
+
+// 2b. Catalog and quiz integrity
+if (catalog) {
+  const ids = new Set();
+  for (const f of catalog.data.fields) {
+    if (ids.has(f.id)) err(catalog.rel, `duplicate catalog id "${f.id}"`);
+    ids.add(f.id);
+    if (f.status === "ready" && !fieldIds.has(f.id)) err(catalog.rel, `"${f.id}" is ready but data/processed/fields/${f.id}.json does not exist`);
+    if (f.status === "coming" && fieldIds.has(f.id)) warn(catalog.rel, `"${f.id}" has a roadmap; set status to ready`);
+  }
+  for (const id of fieldIds) if (!ids.has(id)) warn(catalog.rel, `field "${id}" is missing from the catalog`);
+}
+if (quiz) {
+  const q = new Set();
+  for (const question of quiz.data.questions) {
+    if (q.has(question.id)) err(quiz.rel, `duplicate question id "${question.id}"`);
+    q.add(question.id);
+    const o = new Set();
+    for (const opt of question.options) {
+      if (o.has(opt.id)) err(quiz.rel, `${question.id}: duplicate option id "${opt.id}"`);
+      o.add(opt.id);
+    }
+  }
+  const covered = new Set(quiz.data.questions.flatMap((qq) => qq.options.flatMap((opt) => Object.keys(opt.score))));
+  for (const h of ["R", "I", "A", "S", "E", "C"]) if (!covered.has(h)) err(quiz.rel, `no option scores Holland type ${h}`);
 }
 
 // 3. No id that exists on the base branch may disappear (retire instead)
