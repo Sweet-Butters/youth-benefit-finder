@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "redirects.schema.json",
+  "title": "바뀐 URL → 새 URL (301)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["from", "to"],
+    "properties": {
+      "from": { "type": "string", "pattern": "^/" },
+      "to": { "type": "string", "pattern": "^/" }
+    }
+  }
+}

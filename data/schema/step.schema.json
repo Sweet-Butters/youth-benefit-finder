@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "step.schema.json",
+  "title": "단계 (step) 하나. 여러 길이 함께 쓰는 공유 카탈로그",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "kind"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "kind": {
+      "type": "string",
+      "enum": ["exam", "license", "training", "school", "experience", "job", "mission", "other"],
+      "description": "mission은 D16의 주 1회 작은 미션"
+    },
+    "official_url": { "$ref": "common.schema.json#/$defs/https_url" },
+    "typical_duration": { "type": "string", "maxLength": 40 },
+    "retired": { "type": "boolean" },
+    "replaced_by": { "$ref": "common.schema.json#/$defs/id" }
+  }
+}

@@ -1,0 +1,69 @@
+---
+import Base from "../../layouts/Base.astro";
+import { fields, steps, helpsForStep, helpsForField, KIND_LABEL, HELP_LABEL, type Field } from "../../lib/content";
+
+export function getStaticPaths() {
+  return fields.map((f) => ({ params: { field: f.id }, props: { field: f } }));
+}
+const { field } = Astro.props as { field: Field };
+const paths = field.paths.filter((p) => !p.retired);
+const fieldHelps = helpsForField(field.id);
+---
+<Base title={field.title} description={field.summary}>
+  <h1>{field.title}가 되는 여러 길</h1>
+  <p>{field.summary}</p>
+  <p class="muted">어느 길이 더 낫다고 정하지 않아요. 나란히 보고 지금 내 상황에 맞는 길을 골라 보세요.</p>
+
+  {paths.map((p) => (
+    <section class="path" id={p.id}>
+      <h2>{p.title}</h2>
+      <p class="muted">{p.summary}</p>
+      <ol class="steps">
+        {p.steps.map((ps) => {
+          const s = steps.get(ps.step);
+          if (!s) return null;
+          const hs = helpsForStep(s.id);
+          return (
+            <li class="step">
+              <div class="step-head"><span class="kind">{KIND_LABEL[s.kind] ?? s.kind}</span> <strong>{s.title}</strong></div>
+              <p>{s.summary}</p>
+              {ps.note && <p class="note">{ps.note}</p>}
+              {s.official_url && <p><a href={s.official_url} rel="noopener">공식 안내</a></p>}
+              {hs.length > 0 ? (
+                <ul class="helps">
+                  {hs.map((h) => (
+                    <li>
+                      <span class="kind">{HELP_LABEL[h.type]}</span> <a href={h.url} rel="noopener">{h.title}</a>
+                      <span class="muted"> · {h.provider} · 확인 {h.checked_at}{h.sponsored ? " · 후원" : ""}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="muted empty">이 단계에서 받을 수 있는 도움은 확인하는 대로 채워 둘게요.</p>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  ))}
+
+  {fieldHelps.length > 0 && (
+    <section>
+      <h2>{field.title} 분야 전체에 쓸 수 있는 도움</h2>
+      <ul>{fieldHelps.map((h) => <li><a href={h.url} rel="noopener">{h.title}</a> <span class="muted">· {h.provider}</span></li>)}</ul>
+    </section>
+  )}
+</Base>
+
+<style>
+  .path { border:1px solid var(--line); border-radius:12px; padding:16px; margin:20px 0; background:var(--soft); }
+  .path h2 { margin-top:0; }
+  .steps { padding-left:20px; }
+  .step { margin:12px 0; }
+  .step p { margin:4px 0; }
+  .kind { display:inline-block; font-size:12px; border:1px solid var(--accent); color:var(--accent); border-radius:999px; padding:0 8px; }
+  .note { font-size:14px; border-left:3px solid var(--accent); padding-left:8px; }
+  .helps { padding-left:16px; font-size:14px; }
+  .empty { font-size:14px; }
+</style>
