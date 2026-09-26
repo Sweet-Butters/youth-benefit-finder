@@ -1,0 +1,45 @@
+---
+// Not found (D22): a platform sign for a station that isn't on the map.
+import Site from "../layouts/Site.astro";
+---
+<Site title="없는 역" description="찾는 페이지가 없어요." noindex>
+  <main class="nf">
+    <div class="sign" role="img" aria-label="역 이름판: 이 역은 없어요">
+      <span class="side prev"><small>← 앞 역</small>처음</span>
+      <span class="cur display">이 역은 없어요</span>
+      <span class="side next"><small>다음 역 →</small>읽을거리</span>
+    </div>
+    <div class="row">
+      <span class="face" aria-hidden="true">길잡이</span>
+      <p class="b">주소가 바뀌었거나 아직 없는 역이에요. 괜찮아요, 처음 역으로 돌아가서 다시 골라 봐요.</p>
+    </div>
+    <ul class="ways">
+      <li><a href="/">처음으로 돌아가기</a></li>
+      <li><a href="/guide">읽을거리 보기</a></li>
+    </ul>
+  </main>
+</Site>
+
+<style>
+  .nf { max-width: 640px; margin: 0 auto; padding: 48px 16px 0; }
+  .sign { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); border-bottom: 8px solid var(--line-3); background: #fff; }
+  .cur { grid-column: 1 / -1; grid-row: 1; background: var(--line-3); color: #fff; text-align: center; font-size: clamp(30px, 8vw, 42px); padding: 14px 12px; line-height: 1.2; }
+  .side { display: flex; flex-direction: column; padding: 8px 12px; font-weight: 600; color: var(--ink-2); }
+  .side small { font-size: 13px; font-weight: 400; }
+  .next { text-align: right; align-items: flex-end; }
+  .row { display: flex; gap: 8px; align-items: flex-start; margin-top: 28px; }
+  .face {
+    flex: none; width: 40px; height: 40px; border-radius: 14px; background: var(--me); color: var(--me-ink);
+    display: grid; place-items: center; font: 600 11px var(--ui); letter-spacing: -0.02em;
+  }
+  .b { margin: 0; font: 17px/1.6 var(--bubble); padding: 10px 14px; border-radius: 4px 18px 18px 18px; background: var(--bubble-bg); box-shadow: 0 1px 0 rgba(27, 31, 42, 0.08); }
+  .ways { list-style: none; margin: 28px 0 0; padding: 0; border-top: 2px solid var(--ink); }
+  .ways li { border-bottom: 1px solid var(--rule); }
+  .ways a { display: flex; justify-content: space-between; align-items: center; min-height: 56px; padding: 0 2px; font-weight: 700; font-size: 17px; text-decoration: none; }
+  .ways a::after { content: "→"; }
+  .ways a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  @media (min-width: 900px) {
+    .sign { grid-template-columns: 1fr auto 1fr; }
+    .cur { grid-column: auto; grid-row: auto; padding: 18px 28px; }
+  }
+</style>

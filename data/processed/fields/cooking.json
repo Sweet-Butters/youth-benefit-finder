@@ -6,11 +6,13 @@
     "A"
   ],
   "summary": "음식을 만드는 일이에요. 학교에 다니든 그만뒀든, 대학에 가든 가지 않든 갈 수 있는 길이 여러 개예요.",
+  "try_phrase": "요리",
   "paths": [
     {
       "id": "cooking-license-job",
       "title": "해 보고, 자격증 따고, 현장으로",
       "summary": "집에서 해 보고 체험으로 확인한 뒤, 자격증을 따서 주방에서 일을 시작해요.",
+      "learn_style": "hands",
       "steps": [
         {
           "step": "mission-cook-one-recipe"
@@ -30,6 +32,7 @@
       "id": "cooking-college",
       "title": "검정고시 보고 대학 조리학과로",
       "summary": "학력을 인정받고 대학에서 조리와 외식을 체계적으로 배워요.",
+      "learn_style": "study",
       "steps": [
         {
           "step": "ged-high"
@@ -50,6 +53,7 @@
       "id": "cooking-training",
       "title": "직업훈련으로 기술부터",
       "summary": "훈련기관에서 실무를 배우고 자격증을 따서 일을 시작해요.",
+      "learn_style": "institution",
       "steps": [
         {
           "step": "cooking-training-course"
@@ -66,6 +70,7 @@
       "id": "cooking-vocational-hs",
       "title": "특성화고에서 배우며 준비",
       "summary": "조리 관련 학과가 있는 특성화고에서 배우며 자격증과 현장 경험을 쌓아요.",
+      "learn_style": "school",
       "steps": [
         {
           "step": "culinary-vocational-hs"

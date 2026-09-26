@@ -1,29 +1,24 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 22:33",
+  "updated_at": "2026-09-26 23:28",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "design-concepts",
+      "id": "apply-d22",
       "who": "claude + 에이전트",
       "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/design-concepts",
+      "branch": "Sweet-Butters/apply-d22",
       "started": "2026-09-26",
-      "summary": "시안 4개(노선도, 다꾸, 대화형, 합친 시안) + D22"
+      "summary": "시안 4를 본 사이트에 적용, 홈·글 재디자인, 후보 1차 확인"
     }
   ],
   "queued_tasks": [
     {
-      "id": "apply-d22",
-      "stage": "1-mvp",
-      "summary": "합친 시안을 본 사이트(/fields/<id>)의 기본 화면으로 옮기기, 홈·글 페이지도 같은 디자인 언어로"
-    },
-    {
       "id": "cooking-helps",
       "stage": "1-mvp",
-      "summary": "요리사 도움 후보 9개(data/candidates/cooking-helps.md)를 공식 원문으로 확인해 data/processed/helps/로 옮기기. 확인 순서는 파일 맨 위. 항목당 걸린 시간 기록 (사실 확인 담당)"
+      "summary": "요리사 도움 후보 확인·등록: 1차 확인 보고서 data/candidates/cooking-helps-check.md의 JSON을 공식 원문으로 확인해 data/processed/helps/로 (큐넷 공개문제, 고교 취업연계 장려금부터). 항목당 걸린 시간 기록 (사실 확인 담당)"
     },
     {
       "id": "cooking-review",
@@ -159,6 +154,7 @@
     }
   ],
   "user_todo": [
+    "국민내일배움카드를 미성년 학교 밖 청소년이 받을 수 있는지 고용노동부 콜센터(1350)에 확인",
     "1주차 미션 PPT 확인·제출 (Downloads, 팀명 Team 유이정)",
     "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
     "2023 학교 밖 청소년 실태조사 원문 PDF에서 '고민 상담 대상' 문항 확인",

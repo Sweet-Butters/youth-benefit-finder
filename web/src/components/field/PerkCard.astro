@@ -1,0 +1,25 @@
+---
+// One benefit card for the no-JS view of the field map. Mirrors card() in pages/fields/[field].astro.
+interface Props {
+  p: {
+    typeLabel: string; title: string; provider: string; url: string; summary: string; steps: string[];
+    regionLabel: string; deadlineLabel: string; ageLabel: string; costLabel: string; closed: boolean; sponsored: boolean;
+  };
+  stationTitle?: (sid: string) => string;
+}
+const { p, stationTitle } = Astro.props;
+---
+<li class:list={["perk", { "is-closed": p.closed, "is-sponsored": p.sponsored }]}>
+  <p class="p-top"><span class="p-type">{p.typeLabel}</span>{p.sponsored && <span class="p-spon">후원</span>}</p>
+  <h4 class="p-title">{p.title}</h4>
+  <p class="p-prov">{p.provider}</p>
+  <p class="p-sum">{p.summary}</p>
+  <dl class="p-meta">
+    <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+    <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
+    {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
+    {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
+  </dl>
+  {stationTitle && p.steps.length > 1 && <p class="p-at">이어지는 역: {p.steps.map(stationTitle).join(" · ")}</p>}
+  <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
+</li>
