@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "catalog.schema.json",
+  "title": "찾기 대화가 고를 수 있는 분야 목록 (D27). 노선도가 없는 분야도 들어간다",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["fields"],
+  "properties": {
+    "note": { "type": "string" },
+    "fields": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "holland", "one_line", "status"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 30 },
+          "holland": {
+            "type": "array", "minItems": 1, "maxItems": 3, "uniqueItems": true,
+            "items": { "$ref": "common.schema.json#/$defs/holland" },
+            "description": "가장 가까운 유형부터"
+          },
+          "one_line": { "type": "string", "minLength": 1, "maxLength": 80, "description": "결과 화면의 이유 한 줄. '손으로 뭔가 만들어 내는 걸 좋아한다면'" },
+          "jobs": { "type": "array", "maxItems": 6, "items": { "type": "string", "maxLength": 20 } },
+          "try_first": { "type": "string", "maxLength": 80, "description": "노선도가 없을 때 먼저 해 볼 작은 것 한 줄" },
+          "status": { "enum": ["ready", "coming"], "description": "ready = data/processed/fields/<id>.json 노선도가 있다" },
+          "benefit_words": {
+            "type": "array", "maxItems": 12, "items": { "type": "string", "maxLength": 12 },
+            "description": "혜택 게시판에서 이 분야와 관련 있다고 볼 단어 (M2에서 규칙으로 옮긴다)"
+          }
+        }
+      }
+    }
+  }
+}

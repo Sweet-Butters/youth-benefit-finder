@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "quiz.schema.json",
+  "title": "찾기 대화의 관심 질문 (D14, D27). 고르기만, 진단이 아니라 시작점",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "questions"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "질문이나 점수를 바꾸면 올린다 (브라우저에 저장된 답을 버리기 위해)"
+    },
+    "note": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "text",
+          "options"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/id"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 60
+          },
+          "hint": {
+            "type": "string",
+            "maxLength": 60
+          },
+          "multi": {
+            "type": "boolean",
+            "description": "여러 개 고르기 (최대 2개)"
+          },
+          "options": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "label",
+                "score"
+              ],
+              "properties": {
+                "id": {
+                  "$ref": "common.schema.json#/$defs/id"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 40
+                },
+                "score": {
+                  "type": "object",
+                  "propertyNames": {
+                    "$ref": "common.schema.json#/$defs/holland"
+                  },
+                  "additionalProperties": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  },
+                  "description": "홀랜드 유형별 점수. '모르겠어요' 같은 답은 {}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

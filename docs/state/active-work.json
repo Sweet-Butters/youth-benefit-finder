@@ -1,20 +1,20 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 06:00",
+  "updated_at": "2026-09-27 06:32",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [],
   "queued_tasks": [
     {
-      "id": "m1-find-talk",
+      "id": "privacy-full",
       "stage": "1-mvp",
-      "summary": "M1(~10/12): 첫 화면 찾기 대화 v0 — 상황 3개 + 관심 질문 8~10개 → 분야 3개, 결과 옆 '내 조건 혜택'(게시판을 상황으로 거름). 고민 글은 저장·전송 없음 (docs/milestones.md)"
+      "summary": "가입·알림·AI를 열기 전: docs/privacy-policy-draft.md 전체판의 [확인 필요] 17개를 변호사·KISA 상담으로 확인하고 공개. 지금은 한 쪽짜리 /privacy 공개됨"
     },
     {
       "id": "m2-five-fields",
       "stage": "1-mvp",
-      "summary": "M2(~10/31): 분야 4개 추가(팀이 고름) + 분야별 혜택 규칙 + 결과 공유 카드, 꿈드림에서 학생 5~10명 시험"
+      "summary": "M2(~10/31): 고른 분야 4개의 노선도(길 3~4개, 역 6~8개, 사람 확인) + 분야별 혜택 규칙 + 결과 공유 카드, 꿈드림에서 학생 5~10명 시험. 후보 조사 data/candidates/fields-m2.md, 기능사 시험 15종은 이미 수집 중"
     },
     {
       "id": "cooking-helps",
@@ -30,11 +30,6 @@
       "id": "guide-fact-additions",
       "stage": "1-mvp",
       "summary": "글 보강(출처 확인 필요): 검정고시 자퇴 후 응시 제한 기간, 전체 합격 기준(평균), 청소년 야간근로 제한·15세 미만 취직인허증"
-    },
-    {
-      "id": "privacy-policy",
-      "stage": "1-mvp",
-      "summary": "가입을 열기 전에 개인정보처리방침 작성 (모으는 항목, 이유, 보관 기간, 탈퇴 시 삭제)"
     },
     {
       "id": "qna-channel",
@@ -150,12 +145,13 @@
     },
     {
       "id": "m2-fields",
-      "summary": "M2에서 추가할 분야 4개 (예: 디자인·영상, IT·개발, 미용·뷰티, 돌봄·반려동물, 정비·기술)",
-      "default": "학교 밖 청소년 실태조사 희망 직업 상위와 체험 가능성으로 Claude가 후보 5개를 정리해 팀에 제시",
+      "summary": "M2에서 추가할 분야 4개. 조사 결과 추천 순: 디자인·영상, 미용·뷰티, IT·개발, 돌봄·복지, 간호·보건 (data/candidates/fields-m2.md)",
+      "default": "추천 순 위 4개(디자인·영상, 미용·뷰티, IT·개발, 돌봄·복지). 돌봄·복지는 대학 없는 길이 약해 간호·보건(간호조무사)과 바꿀지 팀 판단",
       "by": "2026-10-12 (M1 끝)"
     }
   ],
   "user_todo": [
+    "문의용 메일 주소 정하기 (개인정보 처리방침·후원 문의에 씀). 지금은 GitHub 문의 창구로 되어 있음",
     "(보안) 공공데이터포털 키가 채팅에 한 번 노출됐다. 여유 있을 때 재발급 → 새 키를 알려 주지 말고 Claude에게 '키 바꿨어'라고만 하면 파일 경로로 등록",
     "GoatCounter(sweetbutters) Settings에서 'Allow adding visitor counts on your website'와 공개 통계판(public dashboard) 켜기. 켜기 전에는 세기만 하고 사이트에 숫자가 안 뜬다",
     "구글 서치 콘솔과 네이버 서치어드바이저에 사이트 등록 → 사이트맵 https://sweet-butters.github.io/youth-benefit-finder/sitemap-index.xml 제출 (장학금 이름으로 검색해 들어오게)",
