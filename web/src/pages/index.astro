@@ -5,7 +5,9 @@
 // phones), the benefits board filtered by the situation answers ("내 조건 혜택").
 // Privacy: the answers stay in this browser (localStorage, versioned by quiz.version); the worry line is never stored
 // or sent, it only lives in this tab until reload. Counting (GoatCounter, only when GC_CODE is set) sends two events,
-// find-talk/start and find-talk/done, never the answers.
+// find-talk/start, find-talk/done and find-talk/share, never the answers.
+// Share (M2): "결과 공유하기" draws a card in the browser (canvas) with the three field names and their line colours,
+// no age, region or worry. The link it shares is /?f=<id>,<id>,<id>; opening one shows "친구의 결과" above the talk.
 // Without JS: the static version, i.e. the field map, the benefits board and the catalog list.
 import Site from "../layouts/Site.astro";
 import { url } from "../lib/url";
@@ -74,11 +76,14 @@ const data = {
   colors: KIND_COLOR,
   regions: REGION_LABEL,
   helps: url("/helps/"),
+  home: url("/"),
+  fieldsIdx: url("/fields/"),
   counting: !!GC_CODE,
 };
 ---
 <Site title="처음" description="뭘 하고 싶은지 몰라도 돼요. 몇 가지만 고르면 해 볼 만한 분야와 지금 조건에 맞는 장학금·지원·봉사·체험을 같이 보여 줘요. 가입 없이, 답은 이 브라우저에만 남아요.">
   <main class="ft">
+    <aside class="friend" id="friend" aria-label="친구의 결과" hidden></aside>
     <div class="ft-stage" id="stage">
       <div class="ft-left">
         <header class="opening">
@@ -109,8 +114,8 @@ const data = {
       <aside class="side" aria-labelledby="side-h">
         <h2 id="side-h" class="display">대화 없이 바로 보기</h2>
         {firstMap && (
-          <a class="go" href={url(`/fields/${firstMap.id}`)}>
-            <span class="go-t"><small>길을 지하철 노선도처럼 그려 뒀어요</small><b>{firstMap.title} 노선도</b></span>
+          <a class="go" href={live.length > 1 ? url("/fields/") : url(`/fields/${firstMap.id}`)}>
+            <span class="go-t"><small>길을 지하철 노선도처럼 그려 뒀어요</small><b>{live.length > 1 ? `노선도 ${live.length}개 모아 보기` : `${firstMap.title} 노선도`}</b></span>
             <span class="go-arrow" aria-hidden="true">→</span>
           </a>
         )}
@@ -148,6 +153,11 @@ const data = {
             <p class="official">
               검사 결과가 아니라 시작점이에요. 공식 검사는 <a href="https://www.career.go.kr" target="_blank" rel="noopener">커리어넷에서</a> 무료로 할 수 있어요.
             </p>
+            <div class="share" id="share">
+              <button type="button" class="share-btn" id="share-btn"><span>결과 공유하기</span><i aria-hidden="true">↗</i></button>
+              <p class="share-note">분야 이름만 그림으로 만들어요. 나이·사는 곳·고민은 넣지 않아요.</p>
+              <div class="share-out" id="share-out" hidden></div>
+            </div>
             <div class="res-tools" id="res-tools"></div>
           </div>
 
@@ -220,6 +230,9 @@ const data = {
       const blank = () => Array(N).fill(null);
       let S = { a: blank(), done: false, undo: null, resume: null };
       let worryText = ""; // memory only
+      // A friend's shared link keeps its banner in view until the first answer: the talk does not scroll the page before that.
+      let holdTop = false;
+      const nearest = (el) => { if (el && !holdTop) el.scrollIntoView({ block: "nearest" }); };
       let shown = 0, token = 0, fast = false;
       const ans = (id) => S.a[SI[id]];
       const nextQ = () => S.a.findIndex((v) => v == null);
@@ -347,6 +360,7 @@ const data = {
 
       function answer(qi, v) {
         const editing = !!S.undo;
+        holdTop = false;
         if (S.a.every((x) => x == null)) count("find-talk/start");
         S.a = S.a.map((x, i) => (i === qi ? v : x));
         if (editing && nextQ() < 0) fast = true;
@@ -373,7 +387,7 @@ const data = {
             return;
           }
           fast = false;
-          thread.lastElementChild?.scrollIntoView({ block: "nearest" });
+          nearest(thread.lastElementChild);
           const first = choices.querySelector("input, button");
           if (first && keep > 0) first.focus({ preventScroll: true });
         };
@@ -392,7 +406,7 @@ const data = {
             t.className = "row bot" + (msgs[idx - 1]?.from === "bot" ? "" : " first");
             t.innerHTML = `<span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span><div class="b" aria-label="입력 중"><span class="typing"><i></i><i></i><i></i></span></div></div>`;
             thread.append(t);
-            t.scrollIntoView({ block: "nearest" });
+            nearest(t);
             setTimeout(() => {
               if (my !== token) return;
               t.replaceWith(rowEl(m, msgs[idx - 1], true));
@@ -405,7 +419,7 @@ const data = {
         };
         const step = () => {
           i++; shown = keep + i;
-          thread.lastElementChild?.scrollIntoView({ block: "nearest" });
+          nearest(thread.lastElementChild);
           if (i < rest.length) next(); else done();
         };
         next();
@@ -579,6 +593,8 @@ const data = {
         const T = totals();
         const anyScore = H.some((h) => T[h] > 0);
         const picks = rank(T).slice(0, 3);
+        lastPicks = picks.map(({ f }) => f);
+        resetShare();
         $("result-title").textContent = D.cat.length === 1 ? "지금 볼 수 있는 분야" : "해 볼 만한 분야";
         renderRecap(picks, anyScore);
         renderPicks(picks, anyScore);
@@ -599,6 +615,165 @@ const data = {
         update();
         requestAnimationFrame(() => composer.scrollIntoView({ block: "end" }));
       }
+
+      // ---------- share card (M2): field names + line colours only, drawn in this browser ----------
+      let lastPicks = [];
+      let shareObjUrl = "";
+      const LINES = ["--line-1", "--line-2", "--line-3"];
+      const FALLBACK = ["#1f8a4c", "#2456c9", "#c8356e", "#b8860b"];
+      const cssVar = (name, fb) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fb;
+      const DISPLAY = `"Black Han Sans", "IBM Plex Sans KR", system-ui, sans-serif`;
+      const UI = `"IBM Plex Sans KR", system-ui, sans-serif`;
+      const shareLink = () => new URL(`${D.home}?f=${lastPicks.map((f) => f.id).join(",")}`, location.origin).href;
+      const siteLabel = () => new URL(D.home, location.origin).href.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+      // Canvas text needs the web fonts loaded first; each face is asked for with the text it will draw (the Korean
+      // fonts come in unicode-range slices). Never wait more than 3 s: after that the system font stands in.
+      async function fontsFor(text) {
+        const faces = [`400 90px "Black Han Sans"`, `700 40px "IBM Plex Sans KR"`, `600 34px "IBM Plex Sans KR"`, `400 30px "IBM Plex Sans KR"`];
+        try {
+          const load = Promise.all(faces.map((f) => document.fonts.load(f, text).catch(() => null))).then(() => document.fonts.ready);
+          await Promise.race([load, new Promise((r) => setTimeout(r, 3000))]);
+        } catch {}
+      }
+      function fit(ctx, text, max, size, family, weight = 400) {
+        let px = size;
+        ctx.font = `${weight} ${px}px ${family}`;
+        while (ctx.measureText(text).width > max && px > 32) { px -= 4; ctx.font = `${weight} ${px}px ${family}`; }
+        return px;
+      }
+      function clip(ctx, text, max) {
+        if (ctx.measureText(text).width <= max) return text;
+        let t = text;
+        while (t.length > 1 && ctx.measureText(t + "…").width > max) t = t.slice(0, -1);
+        return t.trimEnd() + "…";
+      }
+
+      async function drawCard() {
+        const W = 1080, HH = 1350, M = 80;
+        const ink = cssVar("--ink", "#1b1f2a"), ink2 = cssVar("--ink-2", "#4a5061"), paper = cssVar("--paper", "#f2efe8");
+        const green = cssVar("--me", "#22594a");
+        const colors = lastPicks.map((_, k) => cssVar(LINES[k], FALLBACK[k]));
+        const stripe = ["--line-1", "--line-2", "--line-3", "--line-4"].map((v, k) => cssVar(v, FALLBACK[k]));
+        const site = siteLabel();
+        const title = "해 볼 만한 분야";
+        await fontsFor(["지금 내 자리에서", "찾기 대화로 찾은", title, "나도 찾아보기", site, "0123456789…· ",
+          ...lastPicks.map((f) => f.title + f.jobs.join(" · "))].join(""));
+
+        const c = document.createElement("canvas");
+        c.width = W; c.height = HH;
+        const ctx = c.getContext("2d");
+        ctx.fillStyle = paper; ctx.fillRect(0, 0, W, HH);
+        ctx.textBaseline = "alphabetic";
+
+        // top band: the brand
+        ctx.fillStyle = ink; ctx.fillRect(0, 0, W, 128);
+        ctx.beginPath(); ctx.arc(M + 14, 64, 20, 0, Math.PI * 2); ctx.fillStyle = "#fff"; ctx.fill();
+        ctx.beginPath(); ctx.arc(M + 14, 64, 14, 0, Math.PI * 2); ctx.fillStyle = stripe[0]; ctx.fill();
+        ctx.beginPath(); ctx.arc(M + 14, 64, 7, 0, Math.PI * 2); ctx.fillStyle = paper; ctx.fill();
+        ctx.fillStyle = "#fff"; ctx.font = `700 40px ${UI}`; ctx.fillText("지금 내 자리에서", M + 52, 78);
+
+        // heading
+        ctx.fillStyle = ink2; ctx.font = `600 34px ${UI}`; ctx.fillText("찾기 대화로 찾은", M, 238);
+        ctx.fillStyle = ink; ctx.font = `400 96px ${DISPLAY}`; ctx.fillText(title, M, 340);
+        stripe.forEach((col, k) => { ctx.fillStyle = col; ctx.fillRect(M + k * 90, 378, 90, 14); });
+
+        // the picks as a short line of stations, like the result page
+        const n = lastPicks.length, top = 530, gap = n >= 3 ? 200 : 230, cx = M + 50, R = 48;
+        for (let k = 0; k < n - 1; k++) { ctx.fillStyle = colors[k]; ctx.fillRect(cx - 8, top + k * gap, 16, gap); }
+        lastPicks.forEach((f, k) => {
+          const y = top + k * gap;
+          ctx.beginPath(); ctx.arc(cx, y, R, 0, Math.PI * 2); ctx.fillStyle = "#fff"; ctx.fill();
+          ctx.lineWidth = 14; ctx.strokeStyle = colors[k]; ctx.stroke();
+          ctx.fillStyle = ink; ctx.font = `400 50px ${DISPLAY}`; ctx.textAlign = "center"; ctx.fillText(String(k + 1), cx, y + 18);
+          ctx.textAlign = "left";
+          const x = cx + R + 44, max = W - M - x;
+          fit(ctx, f.title, max, 84, DISPLAY);
+          ctx.fillStyle = ink; ctx.fillText(f.title, x, y + (f.jobs.length ? 12 : 28));
+          if (f.jobs.length) {
+            ctx.font = `400 30px ${UI}`; ctx.fillStyle = ink2;
+            ctx.fillText(clip(ctx, f.jobs.slice(0, 4).join(" · "), max), x, y + 62);
+          }
+        });
+
+        // foot: where to try it
+        const fy = 1150;
+        ctx.fillStyle = ink; ctx.fillRect(M, fy, W - M * 2, 3);
+        ctx.font = `700 38px ${UI}`; ctx.fillText("나도 찾아보기", M, fy + 70);
+        fit(ctx, site, W - M * 2, 32, UI, 600);
+        ctx.fillStyle = green; ctx.fillText(site, M, fy + 122);
+        stripe.forEach((col, k) => { ctx.fillStyle = col; ctx.fillRect((W / 4) * k, HH - 16, W / 4, 16); });
+
+        const blob = await new Promise((r) => c.toBlob(r, "image/png"));
+        return { canvas: c, blob };
+      }
+
+      const shareBox = $("share"), shareBtn = $("share-btn"), shareOut = $("share-out");
+      function resetShare() {
+        shareOut.hidden = true; shareOut.innerHTML = "";
+        if (shareObjUrl) { URL.revokeObjectURL(shareObjUrl); shareObjUrl = ""; }
+        shareBox.hidden = lastPicks.length === 0;
+      }
+      async function copy(text, input) {
+        try { await navigator.clipboard.writeText(text); return true; } catch {}
+        try { input.select(); return document.execCommand("copy"); } catch { return false; }
+      }
+      function showFallback(blob, link) {
+        shareObjUrl = URL.createObjectURL(blob);
+        shareOut.innerHTML =
+          `<img class="share-img" src="${shareObjUrl}" alt="공유 그림: 해 볼 만한 분야 ${esc(lastPicks.map((f) => f.title).join(", "))}" width="270" height="338">` +
+          `<div class="share-acts"><a class="share-dl" href="${shareObjUrl}" download="jigeum-nae-jari.png">그림 저장하기</a>` +
+          `<label class="share-link"><span>친구에게 보낼 링크</span><input type="text" readonly value="${esc(link)}" id="share-link-in"></label>` +
+          `<button type="button" class="share-copy" id="share-copy">링크 복사</button><p class="share-msg" id="share-msg" aria-live="polite"></p></div>`;
+        shareOut.hidden = false;
+        $("share-copy").addEventListener("click", async () => {
+          const ok = await copy(link, $("share-link-in"));
+          $("share-msg").textContent = ok ? "링크를 복사했어요." : "복사가 안 돼요. 위 링크를 길게 눌러 복사해 주세요.";
+        });
+      }
+      shareBtn.addEventListener("click", async () => {
+        if (!lastPicks.length || shareBtn.disabled) return;
+        const label = shareBtn.querySelector("span");
+        shareBtn.disabled = true; label.textContent = "그림 만드는 중…";
+        try {
+          resetShare();
+          const { blob } = await drawCard();
+          if (!blob) throw new Error("no image");
+          count("find-talk/share");
+          const link = shareLink();
+          const file = new File([blob], "jigeum-nae-jari.png", { type: "image/png" });
+          if (navigator.canShare && navigator.share && navigator.canShare({ files: [file] })) {
+            try {
+              await navigator.share({ files: [file], title: "지금 내 자리에서", text: `해 볼 만한 분야: ${lastPicks.map((f) => f.title).join(", ")}\n${link}` });
+              return;
+            } catch (e) {
+              if (e && e.name === "AbortError") return;
+            }
+          }
+          showFallback(blob, link);
+        } catch {
+          const link = esc(shareLink());
+          shareOut.innerHTML = `<p class="share-msg">그림을 만들지 못했어요. 이 링크를 대신 보내 주세요: <a href="${link}">${link}</a></p>`;
+          shareOut.hidden = false;
+        } finally {
+          shareBtn.disabled = false; label.textContent = "결과 공유하기";
+        }
+      });
+
+      // ---------- a shared link (/?f=a,b,c): the friend's fields, then the normal talk ----------
+      (() => {
+        const q = new URLSearchParams(location.search).get("f");
+        if (!q) return;
+        const ids = [...new Set(q.split(",").map((x) => x.trim()))].filter((x) => /^[a-z0-9-]{1,40}$/.test(x));
+        const fs = ids.map((id) => D.cat.find((f) => f.id === id)).filter(Boolean).slice(0, 3);
+        if (!fs.length) return;
+        const box = $("friend");
+        box.innerHTML = `<p><b>친구의 결과:</b>` + fs.map((f, k) =>
+          `<a href="${esc(f.ready ? f.href : `${D.fieldsIdx}#${f.id}`)}" style="--c:${["var(--line-1)", "var(--line-2)", "var(--line-3)"][k]}"><i aria-hidden="true"></i>${esc(f.title)}${f.ready ? "" : "<small>노선도 준비 중</small>"}</a>`).join("") +
+          `</p><p class="fr-sub">나는 어떤 분야일까? 아래 대화로 찾아봐요.</p>`;
+        box.hidden = false;
+        holdTop = true;
+      })();
 
       result.addEventListener("click", (e) => {
         const ed = e.target.closest("[data-edit]");
@@ -831,6 +1006,38 @@ const data = {
   .ft .mine-empty { margin: 0; padding: 16px; font-size: 15px; }
   .ft .mine-foot { margin: 0; padding: 4px 16px 12px; border-top: 1.5px solid var(--ink); display: flex; flex-direction: column; font-size: 13px; color: var(--ink-2); }
   .ft .mine-foot a { display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; font-weight: 700; color: var(--ink); text-underline-offset: 4px; }
+
+  /* share card */
+  .ft .share { margin-top: 16px; padding: 12px 0 4px; border-top: 1px solid var(--rule); }
+  .ft .share-btn {
+    display: inline-flex; align-items: stretch; min-height: 48px; padding: 0; border: 2px solid var(--ink); background: var(--ink); color: #fff;
+    font: 700 16px var(--ui); cursor: pointer;
+  }
+  .ft .share-btn span { display: flex; align-items: center; padding: 0 16px; }
+  .ft .share-btn i { display: grid; place-items: center; width: 44px; background: var(--carrot); font-style: normal; font-size: 20px; }
+  .ft .share-btn:disabled { opacity: .7; cursor: progress; }
+  .ft .share-btn:hover span { text-decoration: underline; text-underline-offset: 4px; }
+  .ft .share-note { margin: 6px 0 0; font-size: 13px; color: var(--ink-2); }
+  .ft .share-out { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; align-items: flex-start; }
+  .ft .share-out[hidden] { display: none; }
+  .ft .share-img { width: 180px; height: auto; border: 2px solid var(--ink); background: #fff; }
+  .ft .share-acts { flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  .ft .share-dl, .ft .share-copy {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 14px;
+    border: 2px solid var(--ink); background: #fff; color: var(--ink); font: 700 15px var(--ui); text-decoration: none; cursor: pointer;
+  }
+  .ft .share-link { display: flex; flex-direction: column; font-size: 13px; color: var(--ink-2); }
+  .ft .share-link input { min-height: 44px; padding: 0 10px; border: 1.5px solid var(--rule); background: var(--bubble-bg); font: 14px var(--ui); color: var(--ink); width: 100%; }
+  .ft .share-msg { margin: 0; font-size: 14px; color: var(--me); font-weight: 600; overflow-wrap: anywhere; }
+  html:not(.js) .ft .share { display: none; }
+
+  /* a friend's shared result */
+  .ft .friend { margin: 16px 0 0; padding: 8px 14px; background: #fff; border: 2px solid var(--ink); border-left: 8px solid var(--carrot); }
+  .ft .friend p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; font-size: 16px; }
+  .ft .friend a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 700; text-underline-offset: 4px; }
+  .ft .friend a i { flex: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 4px solid var(--c); }
+  .ft .friend a small { font-size: 12px; font-weight: 600; color: var(--ink-2); }
+  .ft .friend .fr-sub { font-size: 14px; color: var(--ink-2); padding-bottom: 4px; }
 
   @media (prefers-reduced-motion: reduce) {
     .ft *, .ft .row.new, .ft .typing i { transition: none !important; animation: none !important; }

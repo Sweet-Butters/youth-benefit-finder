@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-27T06:31:31+09:00",
+ "updatedAt": "2026-09-27T06:49:34+09:00",
  "items": [
   {
    "source": "certi",
@@ -29017,6 +29017,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "it-dev-programming-license"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.85,
@@ -29024,7 +29027,7 @@
     "stepConf": 0.77
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29054,6 +29057,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "it-dev-programming-license"
+   ],
    "jev": {
     "youth": 0.81,
     "out_of_school": 0.84,
@@ -29061,7 +29067,7 @@
     "stepConf": 0.73
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -29092,6 +29098,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "it-dev-programming-license"
+   ],
    "jev": {
     "youth": 0.83,
     "out_of_school": 0.86,
@@ -29099,7 +29108,7 @@
     "stepConf": 0.76
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29130,6 +29139,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "it-dev-programming-license"
+   ],
    "jev": {
     "youth": 0.83,
     "out_of_school": 0.86,
@@ -29137,7 +29149,7 @@
     "stepConf": 0.76
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29470,6 +29482,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "design-video-cg-license"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.86,
@@ -29477,7 +29492,7 @@
     "stepConf": 0.81
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29508,6 +29523,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "design-video-cg-license"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.87,
@@ -29515,7 +29533,7 @@
     "stepConf": 0.81
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -29546,6 +29564,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "design-video-cg-license"
+   ],
    "jev": {
     "youth": 0.86,
     "out_of_school": 0.87,
@@ -29553,7 +29574,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29584,6 +29605,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "design-video-cg-license"
+   ],
    "jev": {
     "youth": 0.86,
     "out_of_school": 0.87,
@@ -29591,7 +29615,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -33922,6 +33946,9 @@
     "implSeq": 16,
     "description": "국가기술자격 기능사 (2026년도 제16회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.8,
@@ -33929,7 +33956,7 @@
     "stepConf": 0.86
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -33959,6 +33986,9 @@
     "implSeq": 17,
     "description": "국가기술자격 기능사 (2026년도 제17회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.78,
@@ -33966,7 +33996,7 @@
     "stepConf": 0.86
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -33996,6 +34026,9 @@
     "implSeq": 18,
     "description": "국가기술자격 기능사 (2026년도 제18회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.74,
     "out_of_school": 0.78,
@@ -34003,7 +34036,7 @@
     "stepConf": 0.85
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34033,6 +34066,9 @@
     "implSeq": 19,
     "description": "국가기술자격 기능사 (2026년도 제19회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -34040,7 +34076,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34070,6 +34106,9 @@
     "implSeq": 20,
     "description": "국가기술자격 기능사 (2026년도 제20회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -34077,7 +34116,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34107,6 +34146,9 @@
     "implSeq": 201,
     "description": "국가기술자격 기능사 (2026년도 제201회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.8,
@@ -34114,7 +34156,7 @@
     "stepConf": 0.87
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34144,6 +34186,9 @@
     "implSeq": 201,
     "description": "국가기술자격 기능사 (2026년도 제201회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -34151,7 +34196,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34181,6 +34226,9 @@
     "implSeq": 21,
     "description": "국가기술자격 기능사 (2026년도 제21회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -34188,7 +34236,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34218,6 +34266,9 @@
     "implSeq": 22,
     "description": "국가기술자격 기능사 (2026년도 제22회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -34225,7 +34276,7 @@
     "stepConf": 0.87
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34255,6 +34306,9 @@
     "implSeq": 23,
     "description": "국가기술자격 기능사 (2026년도 제23회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -34262,7 +34316,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34292,6 +34346,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -34299,7 +34356,7 @@
     "stepConf": 0.87
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34329,6 +34386,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -34336,7 +34396,7 @@
     "stepConf": 0.87
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34366,6 +34426,9 @@
     "implSeq": 25,
     "description": "국가기술자격 기능사 (2026년도 제25회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -34373,7 +34436,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34403,6 +34466,9 @@
     "implSeq": 26,
     "description": "국가기술자격 기능사 (2026년도 제26회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -34410,7 +34476,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34440,6 +34506,9 @@
     "implSeq": 27,
     "description": "국가기술자격 기능사 (2026년도 제27회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.77,
@@ -34447,7 +34516,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34477,6 +34546,9 @@
     "implSeq": 28,
     "description": "국가기술자격 기능사 (2026년도 제28회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -34484,7 +34556,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34514,6 +34586,9 @@
     "implSeq": 29,
     "description": "국가기술자격 기능사 (2026년도 제29회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.77,
@@ -34521,7 +34596,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -34551,6 +34626,9 @@
     "implSeq": 30,
     "description": "국가기술자격 기능사 (2026년도 제30회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -34558,7 +34636,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34588,6 +34666,9 @@
     "implSeq": 31,
     "description": "국가기술자격 기능사 (2026년도 제31회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -34595,7 +34676,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34625,6 +34706,9 @@
     "implSeq": 32,
     "description": "국가기술자격 기능사 (2026년도 제32회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -34632,7 +34716,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34662,6 +34746,9 @@
     "implSeq": 33,
     "description": "국가기술자격 기능사 (2026년도 제33회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -34669,7 +34756,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34699,6 +34786,9 @@
     "implSeq": 34,
     "description": "국가기술자격 기능사 (2026년도 제34회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.78,
@@ -34706,7 +34796,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34736,6 +34826,9 @@
     "implSeq": 35,
     "description": "국가기술자격 기능사 (2026년도 제35회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.78,
@@ -34743,7 +34836,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34773,6 +34866,9 @@
     "implSeq": 36,
     "description": "국가기술자격 기능사 (2026년도 제36회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -34780,7 +34876,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34810,6 +34906,9 @@
     "implSeq": 37,
     "description": "국가기술자격 기능사 (2026년도 제37회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -34817,7 +34916,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34847,6 +34946,9 @@
     "implSeq": 38,
     "description": "국가기술자격 기능사 (2026년도 제38회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.78,
@@ -34854,7 +34956,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34884,6 +34986,9 @@
     "implSeq": 39,
     "description": "국가기술자격 기능사 (2026년도 제39회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -34891,7 +34996,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34921,6 +35026,9 @@
     "implSeq": 40,
     "description": "국가기술자격 기능사 (2026년도 제40회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -34928,7 +35036,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34958,6 +35066,9 @@
     "implSeq": 41,
     "description": "국가기술자격 기능사 (2026년도 제41회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -34965,7 +35076,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -34995,6 +35106,9 @@
     "implSeq": 16,
     "description": "국가기술자격 기능사 (2026년도 제16회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.76,
@@ -35002,7 +35116,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35032,6 +35146,9 @@
     "implSeq": 17,
     "description": "국가기술자격 기능사 (2026년도 제17회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.76,
@@ -35039,7 +35156,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35069,6 +35186,9 @@
     "implSeq": 18,
     "description": "국가기술자격 기능사 (2026년도 제18회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.76,
@@ -35076,7 +35196,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35106,6 +35226,9 @@
     "implSeq": 19,
     "description": "국가기술자격 기능사 (2026년도 제19회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -35113,7 +35236,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35143,6 +35266,9 @@
     "implSeq": 20,
     "description": "국가기술자격 기능사 (2026년도 제20회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.77,
@@ -35150,7 +35276,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35180,6 +35306,9 @@
     "implSeq": 21,
     "description": "국가기술자격 기능사 (2026년도 제21회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.77,
@@ -35187,7 +35316,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35217,6 +35346,9 @@
     "implSeq": 22,
     "description": "국가기술자격 기능사 (2026년도 제22회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.77,
@@ -35224,7 +35356,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35254,6 +35386,9 @@
     "implSeq": 23,
     "description": "국가기술자격 기능사 (2026년도 제23회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.78,
@@ -35261,7 +35396,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35291,6 +35426,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.78,
@@ -35298,7 +35436,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35328,6 +35466,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.77,
@@ -35335,7 +35476,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35365,6 +35506,9 @@
     "implSeq": 25,
     "description": "국가기술자격 기능사 (2026년도 제25회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.64,
     "out_of_school": 0.75,
@@ -35372,7 +35516,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35402,6 +35546,9 @@
     "implSeq": 26,
     "description": "국가기술자격 기능사 (2026년도 제26회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.75,
@@ -35409,7 +35556,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35439,6 +35586,9 @@
     "implSeq": 27,
     "description": "국가기술자격 기능사 (2026년도 제27회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.75,
@@ -35446,7 +35596,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35476,6 +35626,9 @@
     "implSeq": 28,
     "description": "국가기술자격 기능사 (2026년도 제28회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.77,
@@ -35483,7 +35636,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35513,6 +35666,9 @@
     "implSeq": 29,
     "description": "국가기술자격 기능사 (2026년도 제29회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.76,
@@ -35520,7 +35676,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -35550,6 +35706,9 @@
     "implSeq": 30,
     "description": "국가기술자격 기능사 (2026년도 제30회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.76,
@@ -35557,7 +35716,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35587,6 +35746,9 @@
     "implSeq": 31,
     "description": "국가기술자격 기능사 (2026년도 제31회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.74,
@@ -35594,7 +35756,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35624,6 +35786,9 @@
     "implSeq": 32,
     "description": "국가기술자격 기능사 (2026년도 제32회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.75,
@@ -35631,7 +35796,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35661,6 +35826,9 @@
     "implSeq": 33,
     "description": "국가기술자격 기능사 (2026년도 제33회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.76,
@@ -35668,7 +35836,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35698,6 +35866,9 @@
     "implSeq": 34,
     "description": "국가기술자격 기능사 (2026년도 제34회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.65,
     "out_of_school": 0.75,
@@ -35705,7 +35876,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35735,6 +35906,9 @@
     "implSeq": 35,
     "description": "국가기술자격 기능사 (2026년도 제35회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.65,
     "out_of_school": 0.75,
@@ -35742,7 +35916,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35772,6 +35946,9 @@
     "implSeq": 36,
     "description": "국가기술자격 기능사 (2026년도 제36회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.76,
@@ -35779,7 +35956,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35809,6 +35986,9 @@
     "implSeq": 37,
     "description": "국가기술자격 기능사 (2026년도 제37회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.75,
@@ -35816,7 +35996,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35846,6 +36026,9 @@
     "implSeq": 38,
     "description": "국가기술자격 기능사 (2026년도 제38회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.76,
@@ -35853,7 +36036,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35883,6 +36066,9 @@
     "implSeq": 39,
     "description": "국가기술자격 기능사 (2026년도 제39회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.76,
@@ -35890,7 +36076,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35920,6 +36106,9 @@
     "implSeq": 40,
     "description": "국가기술자격 기능사 (2026년도 제40회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.66,
     "out_of_school": 0.74,
@@ -35927,7 +36116,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35957,6 +36146,9 @@
     "implSeq": 41,
     "description": "국가기술자격 기능사 (2026년도 제41회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.67,
     "out_of_school": 0.76,
@@ -35964,7 +36156,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -35994,6 +36186,9 @@
     "implSeq": 16,
     "description": "국가기술자격 기능사 (2026년도 제16회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -36001,7 +36196,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36031,6 +36226,9 @@
     "implSeq": 17,
     "description": "국가기술자격 기능사 (2026년도 제17회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -36038,7 +36236,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36068,6 +36266,9 @@
     "implSeq": 18,
     "description": "국가기술자격 기능사 (2026년도 제18회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.8,
@@ -36075,7 +36276,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36105,6 +36306,9 @@
     "implSeq": 19,
     "description": "국가기술자격 기능사 (2026년도 제19회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -36112,7 +36316,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36142,6 +36346,9 @@
     "implSeq": 20,
     "description": "국가기술자격 기능사 (2026년도 제20회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -36149,7 +36356,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36179,6 +36386,9 @@
     "implSeq": 21,
     "description": "국가기술자격 기능사 (2026년도 제21회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -36186,7 +36396,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36216,6 +36426,9 @@
     "implSeq": 22,
     "description": "국가기술자격 기능사 (2026년도 제22회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -36223,7 +36436,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36253,6 +36466,9 @@
     "implSeq": 23,
     "description": "국가기술자격 기능사 (2026년도 제23회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.78,
@@ -36260,7 +36476,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36290,6 +36506,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -36297,7 +36516,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36327,6 +36546,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.78,
@@ -36334,7 +36556,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36364,6 +36586,9 @@
     "implSeq": 25,
     "description": "국가기술자격 기능사 (2026년도 제25회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.78,
@@ -36371,7 +36596,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36401,6 +36626,9 @@
     "implSeq": 26,
     "description": "국가기술자격 기능사 (2026년도 제26회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.77,
@@ -36408,7 +36636,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36438,6 +36666,9 @@
     "implSeq": 27,
     "description": "국가기술자격 기능사 (2026년도 제27회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -36445,7 +36676,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36475,6 +36706,9 @@
     "implSeq": 28,
     "description": "국가기술자격 기능사 (2026년도 제28회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.8,
@@ -36482,7 +36716,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36512,6 +36746,9 @@
     "implSeq": 29,
     "description": "국가기술자격 기능사 (2026년도 제29회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -36519,7 +36756,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -36549,6 +36786,9 @@
     "implSeq": 30,
     "description": "국가기술자격 기능사 (2026년도 제30회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -36556,7 +36796,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36586,6 +36826,9 @@
     "implSeq": 31,
     "description": "국가기술자격 기능사 (2026년도 제31회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -36593,7 +36836,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36623,6 +36866,9 @@
     "implSeq": 32,
     "description": "국가기술자격 기능사 (2026년도 제32회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.77,
@@ -36630,7 +36876,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36660,6 +36906,9 @@
     "implSeq": 33,
     "description": "국가기술자격 기능사 (2026년도 제33회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.78,
@@ -36667,7 +36916,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36697,6 +36946,9 @@
     "implSeq": 34,
     "description": "국가기술자격 기능사 (2026년도 제34회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.77,
@@ -36704,7 +36956,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36734,6 +36986,9 @@
     "implSeq": 35,
     "description": "국가기술자격 기능사 (2026년도 제35회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -36741,7 +36996,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36771,6 +37026,9 @@
     "implSeq": 36,
     "description": "국가기술자격 기능사 (2026년도 제36회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.77,
@@ -36778,7 +37036,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36808,6 +37066,9 @@
     "implSeq": 37,
     "description": "국가기술자격 기능사 (2026년도 제37회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.77,
@@ -36815,7 +37076,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36845,6 +37106,9 @@
     "implSeq": 38,
     "description": "국가기술자격 기능사 (2026년도 제38회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -36852,7 +37116,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36882,6 +37146,9 @@
     "implSeq": 39,
     "description": "국가기술자격 기능사 (2026년도 제39회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -36889,7 +37156,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36919,6 +37186,9 @@
     "implSeq": 40,
     "description": "국가기술자격 기능사 (2026년도 제40회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.76,
@@ -36926,7 +37196,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36956,6 +37226,9 @@
     "implSeq": 41,
     "description": "국가기술자격 기능사 (2026년도 제41회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.78,
@@ -36963,7 +37236,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -36993,6 +37266,9 @@
     "implSeq": 16,
     "description": "국가기술자격 기능사 (2026년도 제16회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.8,
@@ -37000,7 +37276,7 @@
     "stepConf": 0.9
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37030,6 +37306,9 @@
     "implSeq": 17,
     "description": "국가기술자격 기능사 (2026년도 제17회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -37037,7 +37316,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37067,6 +37346,9 @@
     "implSeq": 18,
     "description": "국가기술자격 기능사 (2026년도 제18회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.74,
     "out_of_school": 0.79,
@@ -37074,7 +37356,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37104,6 +37386,9 @@
     "implSeq": 19,
     "description": "국가기술자격 기능사 (2026년도 제19회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.74,
     "out_of_school": 0.79,
@@ -37111,7 +37396,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37141,6 +37426,9 @@
     "implSeq": 20,
     "description": "국가기술자격 기능사 (2026년도 제20회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.8,
@@ -37148,7 +37436,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37178,6 +37466,9 @@
     "implSeq": 21,
     "description": "국가기술자격 기능사 (2026년도 제21회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.8,
@@ -37185,7 +37476,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37215,6 +37506,9 @@
     "implSeq": 22,
     "description": "국가기술자격 기능사 (2026년도 제22회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.8,
@@ -37222,7 +37516,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37252,6 +37546,9 @@
     "implSeq": 23,
     "description": "국가기술자격 기능사 (2026년도 제23회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.78,
@@ -37259,7 +37556,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37289,6 +37586,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.72,
     "out_of_school": 0.79,
@@ -37296,7 +37596,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37326,6 +37626,9 @@
     "implSeq": 24,
     "description": "국가기술자격 기능사 (2026년도 제24회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.78,
@@ -37333,7 +37636,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37363,6 +37666,9 @@
     "implSeq": 25,
     "description": "국가기술자격 기능사 (2026년도 제25회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.78,
@@ -37370,7 +37676,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37400,6 +37706,9 @@
     "implSeq": 26,
     "description": "국가기술자격 기능사 (2026년도 제26회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.77,
@@ -37407,7 +37716,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37437,6 +37746,9 @@
     "implSeq": 27,
     "description": "국가기술자격 기능사 (2026년도 제27회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.78,
@@ -37444,7 +37756,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37474,6 +37786,9 @@
     "implSeq": 28,
     "description": "국가기술자격 기능사 (2026년도 제28회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.78,
@@ -37481,7 +37796,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37511,6 +37826,9 @@
     "implSeq": 29,
     "description": "국가기술자격 기능사 (2026년도 제29회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.79,
@@ -37518,7 +37836,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -37548,6 +37866,9 @@
     "implSeq": 30,
     "description": "국가기술자격 기능사 (2026년도 제30회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.79,
@@ -37555,7 +37876,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37585,6 +37906,9 @@
     "implSeq": 31,
     "description": "국가기술자격 기능사 (2026년도 제31회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -37592,7 +37916,7 @@
     "stepConf": 0.92
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37622,6 +37946,9 @@
     "implSeq": 32,
     "description": "국가기술자격 기능사 (2026년도 제32회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.68,
     "out_of_school": 0.77,
@@ -37629,7 +37956,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37659,6 +37986,9 @@
     "implSeq": 33,
     "description": "국가기술자격 기능사 (2026년도 제33회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -37666,7 +37996,7 @@
     "stepConf": 0.95
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37696,6 +38026,9 @@
     "implSeq": 34,
     "description": "국가기술자격 기능사 (2026년도 제34회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.69,
     "out_of_school": 0.79,
@@ -37703,7 +38036,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37733,6 +38066,9 @@
     "implSeq": 35,
     "description": "국가기술자격 기능사 (2026년도 제35회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.8,
@@ -37740,7 +38076,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37770,6 +38106,9 @@
     "implSeq": 36,
     "description": "국가기술자격 기능사 (2026년도 제36회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.79,
@@ -37777,7 +38116,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37807,6 +38146,9 @@
     "implSeq": 37,
     "description": "국가기술자격 기능사 (2026년도 제37회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.77,
@@ -37814,7 +38156,7 @@
     "stepConf": 0.95
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37844,6 +38186,9 @@
     "implSeq": 38,
     "description": "국가기술자격 기능사 (2026년도 제38회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -37851,7 +38196,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37881,6 +38226,9 @@
     "implSeq": 39,
     "description": "국가기술자격 기능사 (2026년도 제39회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.71,
     "out_of_school": 0.78,
@@ -37888,7 +38236,7 @@
     "stepConf": 0.94
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37918,6 +38266,9 @@
     "implSeq": 40,
     "description": "국가기술자격 기능사 (2026년도 제40회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.7,
     "out_of_school": 0.77,
@@ -37925,7 +38276,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -37955,6 +38306,9 @@
     "implSeq": 41,
     "description": "국가기술자격 기능사 (2026년도 제41회)"
    },
+   "step_ids": [
+    "beauty-license-exam"
+   ],
    "jev": {
     "youth": 0.73,
     "out_of_school": 0.79,
@@ -37962,7 +38316,7 @@
     "stepConf": 0.93
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -38002,6 +38356,9 @@
     "full_title": "2026 해봄위크(광진진로박람회) 교육봉사",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.88,
     "out_of_school": 0.66,
@@ -38009,7 +38366,7 @@
     "stepConf": 0.75
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -38049,6 +38406,9 @@
     "full_title": "2026 해봄위크(광진진로박람회) 교육봉사",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.88,
     "out_of_school": 0.66,
@@ -38056,7 +38416,7 @@
     "stepConf": 0.75
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -38566,6 +38926,9 @@
     "full_title": "2026년 남구청소년방과후아카데미자원봉사자 모집",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.54,
@@ -38573,7 +38936,7 @@
     "stepConf": 0.95
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -38613,6 +38976,9 @@
     "full_title": "2026년 남구청소년방과후아카데미자원봉사자 모집",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.54,
@@ -38620,7 +38986,7 @@
     "stepConf": 0.95
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40069,6 +40435,9 @@
     "full_title": "2026년 청소년동아리연합회 15기 도담 운영지원 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.87,
     "out_of_school": 0.61,
@@ -40076,7 +40445,7 @@
     "stepConf": 0.77
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40116,6 +40485,9 @@
     "full_title": "2026년 청소년동아리연합회 15기 도담 운영지원 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.87,
     "out_of_school": 0.61,
@@ -40123,7 +40495,7 @@
     "stepConf": 0.77
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40163,6 +40535,9 @@
     "full_title": "2026년 청소년동아리연합회 15기 도담 운영지원 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.87,
     "out_of_school": 0.61,
@@ -40170,7 +40545,7 @@
     "stepConf": 0.77
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40681,6 +41056,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40688,7 +41066,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40728,6 +41106,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40735,7 +41116,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40775,6 +41156,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40782,7 +41166,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40822,6 +41206,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40829,7 +41216,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40869,6 +41256,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40876,7 +41266,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40916,6 +41306,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40923,7 +41316,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -40963,6 +41356,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -40970,7 +41366,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -41010,6 +41406,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -41017,7 +41416,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -41057,6 +41456,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -41064,7 +41466,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -41104,6 +41506,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -41111,7 +41516,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -41151,6 +41556,9 @@
     "full_title": "2026년 방과후아카데미 E-루리 학습 멘토링 봉사활동",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.85,
     "out_of_school": 0.59,
@@ -41158,7 +41566,7 @@
     "stepConf": 0.97
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"
@@ -45371,6 +45779,9 @@
     "full_title": "2026년 Korea! 창원틴틴페스티벌 부스 운영",
     "how_to_apply": "e청소년(두볼) 봉사활동 페이지에서 로그인한 뒤 신청해요."
    },
+   "step_ids": [
+    "care-volunteer"
+   ],
    "jev": {
     "youth": 0.76,
     "out_of_school": 0.3,
@@ -45378,7 +45789,7 @@
     "stepConf": 0.91
    },
    "youth_reason": "youth words",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "open"

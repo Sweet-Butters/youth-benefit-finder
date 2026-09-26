@@ -1,11 +1,120 @@
 {
   "note": "수집한 항목을 로드맵 단계에 붙이는 규칙 (collection-strategy.md 4절). 맞는 규칙을 모두 적용한다. any는 제목·요약·대상 글, title_any는 제목만 본다. 맞는 규칙이 없으면 검토 목록으로 간다.",
   "rules": [
-    { "tag": "qnet:7910", "step_ids": ["korean-cook-license"] },
-    { "title_any": ["한식조리"], "step_ids": ["korean-cook-license"] },
-    { "title_any": ["검정고시", "학교밖", "학교 밖", "꿈드림"], "step_ids": ["ged-high"] },
-    { "any": ["조리", "요리", "제과", "제빵", "바리스타", "쿠킹"], "all_types": ["experience", "course"], "step_ids": ["cooking-oneday-class"] },
-    { "any": ["직업훈련", "국비", "직업교육", "내일이룸"], "any2": ["조리", "요리", "외식"], "step_ids": ["cooking-training-course"] },
-    { "any": ["조리", "요리", "외식", "호텔조리", "식품조리"], "all_types": ["scholarship"], "field_ids": ["cooking"] }
+    {
+      "tag": "qnet:7910",
+      "step_ids": [
+        "korean-cook-license"
+      ]
+    },
+    {
+      "title_any": [
+        "한식조리"
+      ],
+      "step_ids": [
+        "korean-cook-license"
+      ]
+    },
+    {
+      "title_any": [
+        "검정고시",
+        "학교밖",
+        "학교 밖",
+        "꿈드림"
+      ],
+      "step_ids": [
+        "ged-high"
+      ]
+    },
+    {
+      "any": [
+        "조리",
+        "요리",
+        "제과",
+        "제빵",
+        "바리스타",
+        "쿠킹"
+      ],
+      "all_types": [
+        "experience",
+        "course"
+      ],
+      "step_ids": [
+        "cooking-oneday-class"
+      ]
+    },
+    {
+      "any": [
+        "직업훈련",
+        "국비",
+        "직업교육",
+        "내일이룸"
+      ],
+      "any2": [
+        "조리",
+        "요리",
+        "외식"
+      ],
+      "step_ids": [
+        "cooking-training-course"
+      ]
+    },
+    {
+      "any": [
+        "조리",
+        "요리",
+        "외식",
+        "호텔조리",
+        "식품조리"
+      ],
+      "all_types": [
+        "scholarship"
+      ],
+      "field_ids": [
+        "cooking"
+      ]
+    },
+    {
+      "tag": "qnet:7796",
+      "step_ids": [
+        "design-video-cg-license"
+      ]
+    },
+    {
+      "tag": "qnet:7937",
+      "step_ids": [
+        "beauty-license-exam"
+      ]
+    },
+    {
+      "tag": "qnet:7947",
+      "step_ids": [
+        "beauty-license-exam"
+      ]
+    },
+    {
+      "tag": "qnet:7957",
+      "step_ids": [
+        "beauty-license-exam"
+      ]
+    },
+    {
+      "tag": "qnet:7967",
+      "step_ids": [
+        "beauty-license-exam"
+      ]
+    },
+    {
+      "tag": "qnet:6921",
+      "step_ids": [
+        "it-dev-programming-license"
+      ]
+    },
+    {
+      "tag": "volunteer:교육(지도)봉사",
+      "step_ids": [
+        "care-volunteer"
+      ]
+    }
   ]
 }

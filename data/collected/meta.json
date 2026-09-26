@@ -5,11 +5,11 @@
    "label": "큐넷 시험일정",
    "fetched": 625,
    "kept": 625,
-   "general": 560,
+   "general": 272,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 2.2
+   "seconds": 2.8
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,7 +19,7 @@
    "review": 23,
    "dropped": 2,
    "error": null,
-   "seconds": 4.5
+   "seconds": 4.0
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
@@ -29,7 +29,7 @@
    "review": 0,
    "dropped": 74,
    "error": null,
-   "seconds": 44.2
+   "seconds": 39.4
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 7.2
+   "seconds": 5.9
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
    "fetched": 169,
    "kept": 169,
-   "general": 169,
+   "general": 150,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 65.7
+   "seconds": 39.0
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,29 +59,27 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.2
+   "seconds": 7.4
   }
  },
  "total": 1112,
  "review": 31,
  "jev": {
-  "requests": 529,
-  "ok": 529,
+  "requests": 0,
+  "ok": 0,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 212,
-   "p95": 354,
-   "mean": 246
+   "p50": null,
+   "p95": null,
+   "mean": null
   },
-  "inputTokens": 597542,
-  "costUsd": 0.025097,
-  "models": {
-   "jev-1.13.0": 529
-  },
-  "asked": 529,
+  "inputTokens": 0,
+  "costUsd": 0.0,
+  "models": {},
+  "asked": 0,
   "failed": 0,
-  "cached": 1074,
+  "cached": 1603,
   "outcomes": {
    "agreed": 1601,
    "dropped": 2
