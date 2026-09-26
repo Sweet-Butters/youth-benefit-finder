@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+export async function getStaticPaths() {
+  // Drafts are visible in `astro dev` only, never in the built site.
+  const posts = await getCollection("guide", (p) => import.meta.env.DEV || !p.data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, updated, sources, draft, field } = post.data;
+---
+<Base title={title} description={description}>
+  <article class="guide">
+    {draft && <p class="draft">초안 · 팀 검토 전이에요</p>}
+    <h1>{title}</h1>
+    <p class="muted">{updated.toISOString().slice(0, 10)} 업데이트</p>
+    <Content />
+    {field && <p class="cta"><a href={`/fields/${field}`}>이 분야의 길 지도 보기 →</a></p>}
+    {sources.length > 0 && (
+      <section class="sources">
+        <h2>출처</h2>
+        <ul>{sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a> <span class="muted">· 확인 {s.checked_at}</span></li>)}</ul>
+      </section>
+    )}
+  </article>
+</Base>

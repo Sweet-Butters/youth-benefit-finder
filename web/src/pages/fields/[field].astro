@@ -8,62 +8,106 @@ export function getStaticPaths() {
 const { field } = Astro.props as { field: Field };
 const paths = field.paths.filter((p) => !p.retired);
 const fieldHelps = helpsForField(field.id);
+const helpCount = (pathSteps: { step: string }[]) =>
+  pathSteps.reduce((n, ps) => n + helpsForStep(ps.step).length, 0);
 ---
-<Base title={field.title} description={field.summary}>
-  <h1>{field.title}가 되는 여러 길</h1>
-  <p>{field.summary}</p>
-  <p class="muted">어느 길이 더 낫다고 정하지 않아요. 나란히 보고 지금 내 상황에 맞는 길을 골라 보세요.</p>
+<Base title={`${field.title}가 되는 여러 길`} description={field.summary} wide>
+  <header class="intro">
+    <p class="eyebrow">길 지도</p>
+    <h1>{field.title}가 되는 여러 길</h1>
+    <p class="lead">{field.summary}</p>
+    <p class="muted">어느 길이 더 낫다고 정하지 않아요. 나란히 보고 지금 내 상황에 맞는 길을 골라 보세요.</p>
+  </header>
 
-  {paths.map((p) => (
-    <section class="path" id={p.id}>
-      <h2>{p.title}</h2>
-      <p class="muted">{p.summary}</p>
-      <ol class="steps">
-        {p.steps.map((ps) => {
-          const s = steps.get(ps.step);
-          if (!s) return null;
-          const hs = helpsForStep(s.id);
-          return (
-            <li class="step">
-              <div class="step-head"><span class="kind">{KIND_LABEL[s.kind] ?? s.kind}</span> <strong>{s.title}</strong></div>
-              <p>{s.summary}</p>
-              {ps.note && <p class="note">{ps.note}</p>}
-              {s.official_url && <p><a href={s.official_url} rel="noopener">공식 안내</a></p>}
-              {hs.length > 0 ? (
-                <ul class="helps">
-                  {hs.map((h) => (
-                    <li>
-                      <span class="kind">{HELP_LABEL[h.type]}</span> <a href={h.url} rel="noopener">{h.title}</a>
-                      <span class="muted"> · {h.provider} · 확인 {h.checked_at}{h.sponsored ? " · 후원" : ""}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p class="muted empty">이 단계에서 받을 수 있는 도움은 확인하는 대로 채워 둘게요.</p>
-              )}
-            </li>
-          );
-        })}
-      </ol>
-    </section>
-  ))}
+  <nav class="jump" aria-label="길 바로가기">
+    {paths.map((p, i) => (
+      <a href={`#${p.id}`}><span class="num">{i + 1}</span>{p.title}</a>
+    ))}
+  </nav>
+
+  <div class="paths">
+    {paths.map((p, i) => {
+      const count = helpCount(p.steps);
+      return (
+        <section class="path" id={p.id}>
+          <div class="path-head">
+            <span class="num big">{i + 1}</span>
+            <div>
+              <h2>{p.title}</h2>
+              <p class="muted">{p.summary}</p>
+            </div>
+          </div>
+          <ol class="timeline">
+            {p.steps.map((ps) => {
+              const s = steps.get(ps.step);
+              if (!s) return null;
+              const hs = helpsForStep(s.id);
+              return (
+                <li class:list={["step", `k-${s.kind}`]}>
+                  <div class="step-head">
+                    <span class="pill">{KIND_LABEL[s.kind] ?? s.kind}</span>
+                    <strong>{s.title}</strong>
+                  </div>
+                  <p>{s.summary}</p>
+                  {ps.note && <p class="note">{ps.note}</p>}
+                  {s.official_url && <p class="link"><a href={s.official_url} rel="noopener">공식 안내 보기</a></p>}
+                  {hs.length > 0 && (
+                    <ul class="helps">
+                      {hs.map((h) => (
+                        <li>
+                          <span class="pill help">{HELP_LABEL[h.type]}</span>
+                          <a href={h.url} rel="noopener">{h.title}</a>
+                          <span class="muted"> · {h.provider} · {h.checked_at} 확인{h.sponsored ? " · 후원" : ""}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+          {count === 0 && <p class="pending">이 길에서 받을 수 있는 지원·대회·체험은 공식 출처로 확인하는 대로 채워 둘게요.</p>}
+        </section>
+      );
+    })}
+  </div>
 
   {fieldHelps.length > 0 && (
-    <section>
+    <section class="field-helps">
       <h2>{field.title} 분야 전체에 쓸 수 있는 도움</h2>
-      <ul>{fieldHelps.map((h) => <li><a href={h.url} rel="noopener">{h.title}</a> <span class="muted">· {h.provider}</span></li>)}</ul>
+      <ul>{fieldHelps.map((h) => <li><span class="pill help">{HELP_LABEL[h.type]}</span> <a href={h.url} rel="noopener">{h.title}</a> <span class="muted">· {h.provider}</span></li>)}</ul>
     </section>
   )}
 </Base>
 
 <style>
-  .path { border:1px solid var(--line); border-radius:12px; padding:16px; margin:20px 0; background:var(--soft); }
-  .path h2 { margin-top:0; }
-  .steps { padding-left:20px; }
-  .step { margin:12px 0; }
-  .step p { margin:4px 0; }
-  .kind { display:inline-block; font-size:12px; border:1px solid var(--accent); color:var(--accent); border-radius:999px; padding:0 8px; }
-  .note { font-size:14px; border-left:3px solid var(--accent); padding-left:8px; }
-  .helps { padding-left:16px; font-size:14px; }
-  .empty { font-size:14px; }
+  .intro { max-width: 720px; }
+  .eyebrow { color: var(--accent-ink); font-weight: 700; margin: 0; }
+  .lead { font-size: 18px; }
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 8px; }
+  .jump a { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); text-decoration: none; font-size: 15px; }
+  .jump a:hover { border-color: var(--accent); }
+  .num { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13px; font-weight: 800; flex: none; }
+  .num.big { width: 34px; height: 34px; font-size: 17px; }
+
+  .paths { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr)); gap: 18px; margin-top: 18px; }
+  @media (max-width: 520px) { .paths { grid-template-columns: 1fr; } }
+  .path { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--card); scroll-margin-top: 72px; }
+  .path-head { display: flex; gap: 12px; align-items: flex-start; }
+  .path-head h2 { margin: 0 0 2px; font-size: 21px; }
+  .path-head p { margin: 0; }
+
+  .timeline { list-style: none; margin: 18px 0 0; padding: 0 0 0 18px; border-left: 2px dashed #f1c7b2; }
+  .step { position: relative; margin: 0 0 16px; padding-left: 12px; }
+  .step::before { content: ""; position: absolute; left: -27px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--card); border: 3px solid var(--accent); }
+  .step.k-mission::before, .step.k-experience::before { border-color: #3a9d6e; }
+  .step-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .step p { margin: 4px 0; }
+  .note { font-size: 15px; background: var(--soft); border-radius: 8px; padding: 4px 10px; }
+  .link { font-size: 15px; }
+  .helps { list-style: none; padding: 0; margin: 8px 0 0; font-size: 15px; }
+  .helps li { margin: 4px 0; }
+  .pill.help { background: #e3f2ea; color: #226b49; }
+  .pending { margin: 4px 0 0; font-size: 14px; color: var(--muted); background: var(--soft); border-radius: 10px; padding: 8px 12px; }
+  .field-helps { margin-top: 36px; }
 </style>
