@@ -3,6 +3,7 @@
 // one clear way in, a four-row legend and the latest reading. Everything is computed from the data.
 import { getCollection } from "astro:content";
 import Site from "../layouts/Site.astro";
+import { url } from "../lib/url";
 import { fields, steps } from "../lib/content";
 
 const live = fields.filter((f) => !f.retired);
@@ -117,7 +118,7 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
             </svg>
           </figure>
 
-          <a class="go" href={`/fields/${first.id}`}>
+          <a class="go" href={url(`/fields/${first.id}`)}>
             <span class="go-t">
               <small>노선 {firstStats.paths.length}개를 나란히 봐요</small>
               <b>{first.title} 노선도 보기</b>
@@ -159,7 +160,7 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
           const s = fieldStats(f);
           return (
             <li class="field">
-              <a class="field-head" href={`/fields/${f.id}`}>
+              <a class="field-head" href={url(`/fields/${f.id}`)}>
                 <span class="stripe" aria-hidden="true">{s.paths.map((_, i) => <i style={`background:${LINE[i % LINE.length]}`} />)}</span>
                 <span class="fh-t"><b class="display">{f.title}</b><small>노선 {s.paths.length}개 · 역 {s.stationCount}개</small></span>
                 <span class="fh-go" aria-hidden="true">→</span>
@@ -167,7 +168,7 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
               <ul class="path-list" aria-label={`${f.title} 노선`}>
                 {s.paths.map((p, i) => (
                   <li style={`--c:${LINE[i % LINE.length]}`}>
-                    <a href={`/fields/${f.id}#${p.id}`}>
+                    <a href={url(`/fields/${f.id}#${p.id}`)}>
                       <span class="sym" aria-hidden="true"></span>
                       <span class="pt"><b>{p.title}</b><span>{p.summary}</span></span>
                       <span class="cnt">역 {p.steps.length}개</span>
@@ -189,12 +190,12 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
       <section class="reads" aria-labelledby="reads-h">
         <div class="reads-head">
           <h2 id="reads-h" class="display">읽을거리</h2>
-          <a href="/guide">전체 보기</a>
+          <a href={url("/guide")}>전체 보기</a>
         </div>
         <ul>
           {posts.map((p) => (
             <li>
-              <a href={`/guide/${p.id}`}>
+              <a href={url(`/guide/${p.id}`)}>
                 <time datetime={p.data.updated.toISOString().slice(0, 10)}>{fmt(p.data.updated)}</time>
                 <b>{p.data.title}{p.data.draft && <span class="draft">초안</span>}</b>
                 <span>{p.data.description}</span>
