@@ -4,7 +4,7 @@
 // View counts are fetched only for the rows on screen (window.ycFillViews from Site.astro).
 import Site from "../../layouts/Site.astro";
 import ViewCount from "../../components/ViewCount.astro";
-import { boardEntries, stateOn, todayKst, daysBetween, shortRange, md, KIND, KIND_ORDER, STATUS_LABEL, type KindKey, type BoardEntry } from "../../lib/board";
+import { boardEntries, stateOn, todayKst, daysBetween, shortRange, md, KIND, KIND_ORDER, KIND_COLOR, STATUS_LABEL, ALWAYS_SORT, type BoardEntry } from "../../lib/board";
 import { collected } from "../../lib/collected";
 import { REGION_LABEL } from "../../lib/content";
 import { countPath, GC_CODE } from "../../lib/stats";
@@ -13,8 +13,9 @@ import { url } from "../../lib/url";
 const PER = 20;
 const today = todayKst();
 const entries = boardEntries();
-const KIND_COLOR: Record<KindKey, string> = { scholarship: "var(--line-1)", volunteer: "var(--line-2)", activity: "var(--line-3)", exam: "var(--line-4)" };
-const counts = KIND_ORDER.map((k) => ({ k, label: KIND[k], n: entries.filter((e) => e.kind === k).length }));
+// A kind with nothing on the board today gets no button (and no filter choice).
+const counts = KIND_ORDER.map((k) => ({ k, label: KIND[k], n: entries.filter((e) => e.kind === k).length })).filter((c) => c.n > 0);
+const kindList = counts.map((c) => c.label).join("·");
 // 전국 first as its own choice, then every 시·도 in the usual order.
 const regionOpts = Object.entries(REGION_LABEL);
 const helpsBase = url("/helps/");
@@ -22,39 +23,42 @@ const viewBase = `${countPath(url("/helps/x")).slice(0, -1)}`;
 const updated = collected.updatedAt.slice(0, 10);
 
 // The same row the script draws (row() below), for the first page and for no-JS.
+// 상시 has no D-day, only its badge; a deadline today reads "오늘 마감".
 function view(e: BoardEntry) {
   const st = stateOn(e, today);
   const n = st.date ? daysBetween(today, st.date) : 0;
-  const dd = n === 0 ? "오늘" : `D-${n}`;
-  const sub = st.status === "open" ? "마감" : st.status === "upcoming" ? "접수 시작" : "활동일";
-  const date = st.window ? { k: "신청", v: shortRange(st.window.s, st.window.e) } : { k: "활동", v: st.date ? md(st.date) : "" };
-  return { e, st, dd, sub, date, urgent: st.status === "open" && n <= 7 };
+  const always = st.status === "always";
+  const todayEnd = st.status === "open" && n === 0;
+  const dd = always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
+  const sub = always ? "언제든 신청" : todayEnd ? "" : st.status === "open" ? "마감" : st.status === "upcoming" ? "접수 시작" : "활동일";
+  const date = st.window ? { k: "신청", v: shortRange(st.window.s, st.window.e) } : always ? { k: "신청", v: "상시" } : { k: "활동", v: st.date ? md(st.date) : "" };
+  return { e, st, dd, sub, date, todayEnd, urgent: st.status === "open" && n <= 7 };
 }
 const first = entries.slice(0, PER).map(view);
 
 // Compact data for the script: w = [start, end] windows, s = session days, q = text to search.
 const data = {
-  today, per: PER, base: helpsBase, viewBase, counting: !!GC_CODE,
+  today, per: PER, base: helpsBase, viewBase, counting: !!GC_CODE, alwaysSort: ALWAYS_SORT,
   kinds: KIND, colors: KIND_COLOR, status: STATUS_LABEL, regions: REGION_LABEL,
   items: entries.map((e) => ({
     i: e.id, k: e.kind, t: e.title, p: e.provider, r: e.regions, rl: e.regionLabel,
-    w: e.windows.map((w) => [w.s, w.e]), s: e.sessions,
+    w: e.windows.map((w) => [w.s, w.e]), s: e.sessions, ...(e.always ? { a: 1 } : {}),
     q: `${e.title} ${e.provider} ${e.target} ${e.summary}`.toLowerCase(),
   })),
 };
 ---
-<Site title="혜택" description={`청소년이 받을 수 있는 장학금·봉사·체험·시험 ${entries.length}개를 마감이 가까운 순서로 모았어요. 기관 공식 자료에서 자동으로 모은 정보예요.`}>
+<Site title="혜택" description={`청소년이 받을 수 있는 ${kindList} ${entries.length}개를 마감이 가까운 순서로 모았어요. 기관 공식 자료에서 자동으로 모은 정보예요.`}>
   <main class="hb">
     <header class="head">
       <p class="eyebrow">혜택 · 공식 자동 <ViewCount /></p>
       <h1 class="display">지금 받을 수 있는 혜택</h1>
       <p class="lead">
-        장학금, 봉사, 체험, 시험 접수를 마감이 가까운 순서로 모았어요. 모두 <b>공식 자동</b>이에요. 기관 공식 자료에서 자동으로 모았고, 사람이 아직 확인하지 않았어요. 신청 전에 원문 공고를 꼭 확인하세요.
+        {counts.map((c) => c.label).join(", ")} 접수를 마감이 가까운 순서로 모았어요. 모두 <b>공식 자동</b>이에요. 기관 공식 자료에서 자동으로 모았고, 사람이 아직 확인하지 않았어요. 신청 전에 원문 공고를 꼭 확인하세요.
       </p>
-      <p class="asof">{updated && `${updated.replaceAll("-", ".")} 모음 · `}전체 {entries.length}개</p>
+      <p class="asof">{updated && `${updated.replaceAll("-", ".")} 모음 · `}전체 {entries.length}개 · <span class="gone">마감 지난 혜택은 자동으로 사라져요</span></p>
     </header>
 
-    <div class="kstrip" role="group" aria-label="분류별 개수와 거르기">
+    <div class="kstrip" role="group" aria-label="분류별 개수와 거르기" style={`--n:${counts.length + 1}`}>
       <button type="button" class="kc" data-kind="" aria-pressed="true" style="--c:var(--ink)">
         <b>{entries.length}</b><span>전체</span>
       </button>
@@ -80,6 +84,7 @@ const data = {
           <option value="open">접수 중</option>
           <option value="upcoming">곧 열림</option>
           <option value="check">일정 확인</option>
+          {entries.some((e) => e.always) && <option value="always">상시</option>}
         </select>
       </label>
       <label class="f q">
@@ -94,15 +99,15 @@ const data = {
       <p class="nojs">자바스크립트가 꺼져 있어서 마감이 가까운 {Math.min(PER, entries.length)}개만 보여요. 거르기와 다음 쪽은 자바스크립트를 켜면 쓸 수 있어요.</p>
       <div class="thead" aria-hidden="true"><span>분류</span><span>혜택</span><span>지역</span><span>신청 · 활동일</span><span>남은 날</span><span>조회</span></div>
       <ol class="rows" id="rows" data-views-manual>
-        {first.map(({ e, st, dd, sub, date, urgent }) => (
-          <li class="hr" style={`--c:${KIND_COLOR[e.kind]}`}>
+        {first.map(({ e, st, dd, sub, date, urgent, todayEnd }) => (
+          <li><a class="hr" href={`${helpsBase}${e.id}/`} style={`--c:${KIND_COLOR[e.kind]}`}>
             <span class="h-kind"><i aria-hidden="true"></i>{e.kindLabel}</span>
-            <span class="h-main"><a class="h-title" href={`${helpsBase}${e.id}/`}>{e.title}</a><span class="h-prov">{e.provider}</span></span>
+            <span class="h-main"><span class="h-title">{e.title}</span><span class="h-prov">{e.provider}</span></span>
             <span class="h-reg">{e.regionLabel}</span>
             <span class="h-date"><small>{date.k}</small> {date.v}</span>
-            <span class:list={["h-dd", `s-${st.status}`, { urgent }]}><b>{dd}</b><small>{sub}</small></span>
+            <span class:list={["h-dd", `s-${st.status}`, { urgent, today: todayEnd }]}><b>{dd}</b>{sub && <small>{sub}</small>}</span>
             <span class="h-views">{GC_CODE && <span class="views" data-views={`${viewBase}${e.id}`} data-label="조회" hidden></span>}</span>
-          </li>
+          </a></li>
         ))}
       </ol>
       <p class="empty" id="empty" hidden>조건에 맞는 혜택이 없어요. 조건을 줄여 보세요.</p>
@@ -134,15 +139,16 @@ const data = {
           win = open || w[0];
           st = open ? "open" : "upcoming"; date = open ? win[1] : win[0]; sortKey = win[1];
         } else if (s.length) { st = "check"; date = s[0]; sortKey = s[0]; }
+        else if (x.a) { st = "always"; date = ""; sortKey = D.alwaysSort; }
         else return null;
         return { ...x, st, date, sortKey, win };
       }).filter(Boolean).sort((a, b) => (a.sortKey < b.sortKey ? -1 : a.sortKey > b.sortKey ? 1 : a.t.localeCompare(b.t, "ko")));
 
       const qs = new URLSearchParams(location.search);
       const S = { kind: qs.get("kind") || "", region: qs.get("region") || "", status: qs.get("status") || "", q: qs.get("q") || "", page: Math.max(1, +qs.get("page") || 1) };
-      if (!D.kinds[S.kind]) S.kind = "";
+      if (!D.kinds[S.kind] || !document.querySelector(`.kc[data-kind="${S.kind}"]`)) S.kind = "";
       if (S.region && !D.regions[S.region]) S.region = "";
-      if (!D.status[S.status]) S.status = "";
+      if (!D.status[S.status] || !document.querySelector(`#f-status option[value="${S.status}"]`)) S.status = "";
 
       const kbtns = [...document.querySelectorAll(".kc")];
       const fRegion = $("f-region"), fStatus = $("f-status"), fQ = $("f-q"), reset = $("f-reset");
@@ -156,19 +162,22 @@ const data = {
         return true;
       }
 
+      // Same row as view() in the frontmatter: 상시 has no D-day, a deadline today reads "오늘 마감".
       function row(x) {
-        const n = days(today, x.date);
-        const dd = n === 0 ? "오늘" : `D-${n}`;
-        const sub = x.st === "open" ? "마감" : x.st === "upcoming" ? "접수 시작" : "활동일";
-        const date = x.win ? ["신청", range(x.win[0], x.win[1])] : ["활동", md(x.date)];
-        const urgent = x.st === "open" && n <= 7 ? " urgent" : "";
-        return `<li class="hr" style="--c:${D.colors[x.k]}">` +
+        const always = x.st === "always";
+        const n = always ? 0 : days(today, x.date);
+        const todayEnd = x.st === "open" && n === 0;
+        const dd = always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
+        const sub = always ? "언제든 신청" : todayEnd ? "" : x.st === "open" ? "마감" : x.st === "upcoming" ? "접수 시작" : "활동일";
+        const date = x.win ? ["신청", range(x.win[0], x.win[1])] : always ? ["신청", "상시"] : ["활동", md(x.date)];
+        const cls = (x.st === "open" && n <= 7 ? " urgent" : "") + (todayEnd ? " today" : "");
+        return `<li><a class="hr" href="${D.base}${esc(x.i)}/" style="--c:${D.colors[x.k]}">` +
           `<span class="h-kind"><i aria-hidden="true"></i>${esc(D.kinds[x.k])}</span>` +
-          `<span class="h-main"><a class="h-title" href="${D.base}${esc(x.i)}/">${esc(x.t)}</a><span class="h-prov">${esc(x.p)}</span></span>` +
+          `<span class="h-main"><span class="h-title">${esc(x.t)}</span><span class="h-prov">${esc(x.p)}</span></span>` +
           `<span class="h-reg">${esc(x.rl)}</span>` +
           `<span class="h-date"><small>${date[0]}</small> ${esc(date[1])}</span>` +
-          `<span class="h-dd s-${x.st}${urgent}"><b>${dd}</b><small>${sub}</small></span>` +
-          `<span class="h-views">${D.counting ? `<span class="views" data-views="${D.viewBase}${esc(x.i)}" data-label="조회" hidden></span>` : ""}</span></li>`;
+          `<span class="h-dd s-${x.st}${cls}"><b>${dd}</b>${sub ? `<small>${sub}</small>` : ""}</span>` +
+          `<span class="h-views">${D.counting ? `<span class="views" data-views="${D.viewBase}${esc(x.i)}" data-label="조회" hidden></span>` : ""}</span></a></li>`;
       }
 
       function pages(cur, last) {
@@ -241,17 +250,19 @@ const data = {
   .hb .lead { margin: 14px 0 0; max-width: 40em; line-height: 1.7; }
   .hb .lead b { background: linear-gradient(transparent 55%, var(--mark) 55%); font-weight: 700; }
   .hb .asof { margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+  .hb .asof .gone { white-space: nowrap; }
   .hb .views { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
   /* count strip, doubling as the kind filter */
-  .kstrip { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 22px; border-top: 3px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+  .kstrip { display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); margin-top: 22px; border-top: 3px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
   .kc {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 8px 10px 10px; min-height: 64px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 4px 10px 8px; min-height: 64px; min-width: 0;
     border: 0; border-left: 1px solid var(--rule); background: none; text-align: left; cursor: pointer; position: relative;
   }
   .kc:first-child { border-left: 0; padding-left: 2px; }
   .kc::before { content: ""; position: absolute; left: 0; right: 0; top: -3px; height: 3px; background: var(--c); }
-  .kc b { font: 400 clamp(24px, 6.5vw, 36px)/1.1 var(--display); font-variant-numeric: tabular-nums; }
+  /* sized by the number of cells (--n), so a 3-digit count still fits one line on a phone */
+  .kc b { font: 400 clamp(20px, calc(34vw / var(--n, 5)), 36px)/1.1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .kc span { font-size: 14px; font-weight: 600; color: var(--ink-2); }
   .kc[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 12%, transparent); }
   .kc[aria-pressed="true"]::before { height: 7px; top: -5px; }
@@ -278,22 +289,21 @@ const data = {
   .js .nojs { display: none; }
   .thead { display: none; }
   .rows { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+  .rows > li { border-bottom: 1px solid var(--rule); }
 
   /* one row: phone layout first */
   .hr {
     position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto 68px; column-gap: 10px; row-gap: 2px;
     grid-template-areas: "kind reg views dd" "main main main dd" "date date date dd";
-    padding: 12px 0 12px; border-bottom: 1px solid var(--rule); align-items: center;
+    padding: 12px 0 12px; min-height: 44px; align-items: center; color: inherit; text-decoration: none;
   }
   .h-kind { grid-area: kind; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; }
   .h-kind i { width: 18px; height: 6px; border-radius: 3px; background: var(--c); flex: none; }
   .h-reg { grid-area: reg; font-size: 13px; color: var(--ink-2); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .h-main { grid-area: main; display: flex; flex-direction: column; min-width: 0; }
   .h-title { font-weight: 700; font-size: 17px; line-height: 1.4; text-decoration: none; }
-  .h-title::after { content: ""; position: absolute; inset: 0; }
   .hr:hover .h-title { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 3px; text-underline-offset: 3px; }
-  .h-title:focus-visible { outline: none; }
-  .hr:focus-within { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .hr:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
   .h-prov { font-size: 14px; color: var(--ink-2); line-height: 1.45; }
   .h-date { grid-area: date; font-size: 14px; font-variant-numeric: tabular-nums; }
   .h-date small { font-size: 12px; font-weight: 600; color: var(--ink-2); margin-right: 2px; }
@@ -309,6 +319,8 @@ const data = {
   .h-dd.urgent small { color: #fff; }
   .h-dd.s-upcoming { border-style: dashed; }
   .h-dd.s-check { border-color: var(--lead); background: var(--board); }
+  .h-dd.s-always { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); }
+  .h-dd.today b { font-size: 16px; line-height: 1.1; }
 
   .empty { margin: 0; padding: 22px 0; font-size: 16px; border-bottom: 1px solid var(--rule); }
   .pager { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-top: 14px; flex-wrap: wrap; }

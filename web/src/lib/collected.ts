@@ -29,6 +29,7 @@ export interface AutoGroup {
 
 export const SOURCE_LABEL: Record<string, string> = {
   qnet: "큐넷", kosaf: "한국장학재단", certi: "청소년활동정보서비스", vms: "1365 자원봉사", volunteer: "청소년자원봉사 두볼",
+  gov24: "보조금24",
 };
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -52,7 +53,14 @@ const norm = (s: string) => s.normalize("NFKC").replace(/\s+/g, " ").trim().toLo
 export function boardKey(it: CollectedItem): string {
   const exam = it.source === "qnet" && it.tags?.find((t) => t.startsWith("qnet:"));
   if (exam) return exam;
-  if (it.source === "volunteer" || it.source === "certi") return `${norm(it.title)}|${norm(it.provider)}`;
+  // 봉사 used to carry the activity place as its provider; the place now sits in extra.place (or the raw
+  // actvPlcCn) and provider is the real organisation. Keying on the place keeps the old ids, so links survive.
+  if (it.source === "volunteer") {
+    const x = it.extra && typeof it.extra === "object" ? it.extra : {};
+    const place = [x.place, x.actvPlcCn, it.provider].map((v) => (typeof v === "string" ? v : "")).find((v) => v.trim()) ?? "";
+    return `${norm(it.title)}|${norm(norm(place).slice(0, 60))}`;
+  }
+  if (it.source === "certi") return `${norm(it.title)}|${norm(it.provider)}`;
   return it.source_id;
 }
 /** Short, URL-safe and stable: source plus 10 hex characters of sha1(source|key). */
