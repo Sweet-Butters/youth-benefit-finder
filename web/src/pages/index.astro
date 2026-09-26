@@ -11,11 +11,11 @@ const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.dat
   <section class="hero">
     <p class="eyebrow">학교에 다니든, 그만뒀든</p>
     <h1>지금 내 자리에서<br />시작하는 진로</h1>
-    <p class="lead">어디서 시작해도 갈 수 있는 길이 있어요. 대학도 여러 길 중 하나예요.<br />길마다 무엇을 하면 되는지, 어떤 도움을 받을 수 있는지 한 번에 보여 줄게요.</p>
+    <p class="lead">어디서 시작해도 갈 수 있는 길이 있어요. 대학도 여러 길 중 하나예요.<br />길마다 무엇을 하면 되는지 순서대로 보여 줄게요.</p>
     <div class="actions">
-      <a class="btn primary" href="/fields/cooking">요리사 길 지도 보기</a>
-      <a class="btn ghost" href="/quiz" aria-disabled="true" title="준비 중">관심 찾기 (준비 중)</a>
+      <a class="btn primary" href="/fields/cooking">요리사부터 볼게요</a>
     </div>
+    <p class="light">3분이면 봐요 · 가입 없이 볼 수 있어요 · 첫 번째 분야는 요리사, 다른 분야와 관심 찾기는 준비 중이에요</p>
   </section>
 
   <section class="block">
@@ -24,11 +24,11 @@ const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.dat
       {live.map((f) => (
         <a class="card" href={`/fields/${f.id}`}>
           <strong>{f.title}</strong>
-          <span class="muted">{f.summary}</span>
+          <span class="muted">{f.paths.map((p) => p.title).join(" · ")}</span>
           <span class="pill">길 {f.paths.length}개</span>
         </a>
       ))}
-      <div class="card soon" aria-hidden="true"><strong>다른 분야</strong><span class="muted">하나씩 채우고 있어요</span></div>
+      <p class="soon muted">다음 분야를 하나씩 채우고 있어요.</p>
     </div>
   </section>
 
@@ -46,7 +46,7 @@ const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.dat
     <ol>
       <li><strong>길을 나란히 봐요.</strong> 한 분야에 여러 길이 있어요. 어느 길이 낫다고 정하지 않아요.</li>
       <li><strong>단계를 봐요.</strong> 시험, 자격증, 훈련, 체험처럼 거칠 단계를 순서대로 보여 줘요.</li>
-      <li><strong>도움을 챙겨요.</strong> 단계마다 받을 수 있는 지원, 대회, 체험을 공식 출처와 함께 적어요.</li>
+      <li><strong>도움을 챙겨요.</strong> 단계마다 받을 수 있는 지원, 대회, 체험을 공식 출처로 확인해서 하나씩 적을 거예요.</li>
     </ol>
   </section>
 </Base>
@@ -63,7 +63,8 @@ const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.dat
   .card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(31, 35, 40, 0.08); }
   .card strong { font-size: 19px; }
   .card .pill { align-self: flex-start; }
-  .card.soon { border-style: dashed; background: transparent; }
+  .soon { align-self: center; margin: 0; }
+  .light { font-size: 14px; color: var(--muted); margin-top: 12px; }
   .posts { padding-left: 18px; }
   .how ol { padding-left: 20px; }
   .how li { margin: 6px 0; }
