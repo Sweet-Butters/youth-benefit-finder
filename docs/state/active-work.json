@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 20:14",
+  "updated_at": "2026-09-26 21:23",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "cooking-slice",
+      "id": "pr-dreamspon",
       "who": "claude",
       "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/cooking-slice",
+      "branch": "Sweet-Butters/competitor-dreamspon",
       "started": "2026-09-26",
-      "summary": "요리사 완성본: 디자인, 글 초안, 도움 후보, Fable 검토 반영"
+      "summary": "competitors.md 드림스폰 상세"
     }
   ],
   "queued_tasks": [
@@ -145,6 +145,12 @@
       "summary": "통계 소수 칸 숨김 기준 k와 쪼개는 기준 최대 개수, events 원본 보관 기간",
       "default": "k=10, 최대 2개, 원본 1년 (data-strategy.md 9절)",
       "by": "가입 기능을 열기 전"
+    },
+    {
+      "id": "first-step-grant-ops",
+      "summary": "첫걸음 지원(D21) 운영 방식: 기부금 처리, 선발 기준, 세무·법적 요건",
+      "default": "v1(가입·나의 기록) 전에는 시작하지 않음",
+      "by": "첫 후원자를 받기 전"
     }
   ],
   "user_todo": [
