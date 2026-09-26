@@ -1,0 +1,500 @@
+---
+// 시안 3 · 대화형 — asks one question at a time, then shows a path to start from.
+// Rule-based and page-only: answers never leave the browser tab.
+import { fields, steps, KIND_LABEL } from "../../lib/content";
+
+const field = fields.find((f) => f.id === "cooking")!;
+const paths = field.paths
+  .filter((p) => !p.retired)
+  .map((p) => ({
+    id: p.id,
+    title: p.title,
+    summary: p.summary,
+    steps: p.steps.map((ps) => {
+      const s = steps.get(ps.step)!;
+      return { id: s.id, title: s.title, summary: s.summary, kind: KIND_LABEL[s.kind] ?? s.kind, note: ps.note ?? "", url: s.official_url ?? "" };
+    }),
+  }));
+const m = steps.get("mission-cook-one-recipe")!;
+const mission = { id: m.id, title: m.title, summary: m.summary, kind: KIND_LABEL[m.kind] ?? m.kind };
+const data = { field: { id: field.id, title: field.title, summary: field.summary }, paths, mission };
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{`${field.title}, 어디서 시작할까 · 시안 3`}</title>
+  <meta name="description" content="질문 세 개에 답하면 요리사가 되는 길 중 먼저 볼 만한 길을 보여 줘요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style is:global>
+    :root {
+      --bg: #dfe6df;
+      --bg-deep: #cfd9d1;
+      --paper: #fffdf8;
+      --ink: #1f2a26;
+      --ink-soft: #4d5b55;
+      --line: #b9c6bd;
+      --me: #22594a;
+      --me-ink: #f6fbf7;
+      --accent: #b8562f;
+      --mark: #f3e3a8;
+      --focus: #1b4fd1;
+      --bubble: "Gowun Dodum", "IBM Plex Sans KR", system-ui, sans-serif;
+      --ui: "IBM Plex Sans KR", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.6 var(--ui); word-break: keep-all; overflow-wrap: anywhere;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    button { font: inherit; color: inherit; }
+
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 0 16px; min-height: 52px; background: var(--paper);
+      border-bottom: 1px solid var(--line); font-size: 15px;
+    }
+    .top a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-weight: 500; }
+    .top a:hover { text-decoration: underline; }
+    .top .tag { color: var(--ink-soft); }
+
+    .stage { display: grid; gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .phone { width: 100%; max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; min-height: calc(100dvh - 53px); }
+
+    .room { padding: 14px 16px 6px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .room h1 { margin: 0; font: 600 17px/1.4 var(--ui); }
+    .room p { margin: 2px 0 0; font-size: 14px; color: var(--ink-soft); }
+
+    .thread { list-style: none; margin: 0; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .row { display: flex; gap: 8px; align-items: flex-start; max-width: 100%; }
+    .row.me { justify-content: flex-end; margin: 6px 0; }
+    .row.bot.first { margin-top: 8px; }
+    .face {
+      flex: none; width: 38px; height: 38px; border-radius: 14px; background: var(--me); color: var(--me-ink);
+      display: grid; place-items: center; font: 600 12px var(--ui);
+    }
+    .row.bot:not(.first) .face { visibility: hidden; }
+    .col { display: flex; flex-direction: column; gap: 4px; min-width: 0; max-width: calc(100% - 46px); }
+    .name { font-size: 13px; color: var(--ink-soft); }
+    .row.bot:not(.first) .name { display: none; }
+    .b {
+      font: 17px/1.55 var(--bubble); padding: 10px 14px; border-radius: 4px 18px 18px 18px;
+      background: var(--paper); box-shadow: 0 1px 0 rgba(31,42,38,.08);
+    }
+    .row.bot:not(.first) .b { border-radius: 18px; }
+    .row.me .b { background: var(--me); color: var(--me-ink); border-radius: 18px 4px 18px 18px; max-width: 80%; }
+    .b strong { font-weight: 400; background: linear-gradient(transparent 55%, var(--mark) 55%); }
+    .row.me .b strong { background: none; text-decoration: underline; text-underline-offset: 3px; }
+    .b.small { font-size: 15px; color: var(--ink-soft); background: transparent; box-shadow: none; padding: 2px 4px; }
+
+    /* a step on the path: a bubble with a ruled edge and a kind label */
+    .b.step { border-left: 4px solid var(--me); padding-left: 12px; }
+    .b.step .k { display: block; font: 500 13px/1.3 var(--ui); color: var(--me); letter-spacing: .02em; margin-bottom: 2px; }
+    .b.step .t { display: block; font-size: 18px; }
+    .b.step .s { display: block; font: 15px/1.6 var(--ui); color: var(--ink-soft); margin-top: 4px; }
+    .b.step .n { display: block; font: 15px/1.6 var(--ui); margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--line); }
+    .b.step a { font: 500 15px var(--ui); display: inline-flex; min-height: 44px; align-items: center; }
+    .b.mission { border-left-color: var(--accent); background: #fff6ec; }
+    .b.mission .k { color: var(--accent); }
+
+    .b.pathhead .label { display: block; font: 500 13px/1.3 var(--ui); color: var(--ink-soft); }
+    .b.pathhead .t { display: block; font-size: 20px; margin: 2px 0; }
+
+    .typing { display: inline-flex; gap: 4px; padding: 14px; }
+    .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft); opacity: .4; animation: blink 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+    @keyframes blink { 50% { opacity: 1; } }
+    .row.new { animation: rise .22s ease-out; }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+    @media (prefers-reduced-motion: reduce) { .row.new, .typing i { animation: none; } }
+
+    /* other paths, compact, inside a bubble */
+    .others { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .others button {
+      width: 100%; text-align: left; min-height: 48px; padding: 10px 12px; border-radius: 12px;
+      border: 1px solid var(--line); background: #f3f6f2; cursor: pointer; font: 16px/1.45 var(--bubble);
+    }
+    .others button span { display: block; font: 14px/1.5 var(--ui); color: var(--ink-soft); }
+    .others button:hover { border-color: var(--me); }
+
+    /* composer: the replies the teen can tap */
+    .composer {
+      position: sticky; bottom: 0; background: var(--paper); border-top: 1px solid var(--line);
+      padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+    .composer .q { margin: 0 0 8px; font-size: 14px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .dots { display: inline-flex; gap: 4px; }
+    .dots i { width: 18px; height: 4px; border-radius: 2px; background: var(--line); }
+    .dots i.on { background: var(--me); }
+    .choices { display: grid; gap: 8px; }
+    .choices.two { grid-template-columns: 1fr 1fr; }
+    .choice {
+      min-height: 48px; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--me);
+      background: var(--paper); color: var(--me); text-align: left; font: 500 16px/1.35 var(--ui); cursor: pointer;
+    }
+    .choice:hover { background: #eaf2ee; }
+    .choice.solid { background: var(--me); color: var(--me-ink); }
+    .tools { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .tool {
+      min-height: 44px; padding: 0 6px; border: 0; background: none; color: var(--ink-soft);
+      font-size: 15px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+    }
+    .tool[hidden] { display: none; }
+    .privacy { margin: 4px 0 0; font-size: 13px; color: var(--ink-soft); }
+
+    /* full map: the no-JS view and the desktop side panel share this markup */
+    .map { padding: 20px 16px 32px; }
+    .map h2 { margin: 0 0 4px; font: 600 18px/1.4 var(--ui); }
+    .map > p { margin: 0 0 16px; color: var(--ink-soft); font-size: 15px; }
+    .route { border-top: 2px solid var(--ink); padding: 12px 0 16px; }
+    .route h3 { margin: 0; font: 400 19px/1.4 var(--bubble); }
+    .route h3 .now { display: none; font: 500 13px var(--ui); color: var(--accent); margin-left: 6px; vertical-align: 2px; }
+    .route.is-now h3 .now { display: inline; }
+    .route.is-now { border-top-color: var(--accent); }
+    .route > p { margin: 2px 0 8px; font-size: 15px; color: var(--ink-soft); }
+    .route ol { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+    .route li { counter-increment: s; position: relative; padding: 4px 0 4px 34px; font-size: 15px; }
+    .route li::before {
+      content: counter(s); position: absolute; left: 0; top: 5px; width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--me); color: var(--me); font: 500 12px/19px var(--ui); text-align: center;
+    }
+    .route li:not(:last-child)::after { content: ""; position: absolute; left: 10.5px; top: 28px; bottom: -6px; width: 1.5px; background: var(--line); }
+    .route li small { color: var(--ink-soft); font-size: 13px; margin-left: 4px; }
+    .route li .note { display: block; font-size: 14px; color: var(--ink-soft); }
+    .map .fine { font-size: 14px; color: var(--ink-soft); margin-top: 8px; }
+
+    .js .nojs-only { display: none; }
+    .side { display: none; }
+
+    @media (min-width: 900px) {
+      body { background: var(--bg-deep); }
+      .stage { grid-template-columns: 440px minmax(0, 1fr); padding: 24px; align-items: start; }
+      .phone {
+        margin: 0; min-height: calc(100dvh - 101px); background: var(--bg); border-radius: 22px;
+        border: 1px solid var(--line); overflow: clip;
+      }
+      .room { padding-top: 18px; }
+      .js .side { display: block; position: sticky; top: 24px; background: var(--paper); border-radius: 22px; border: 1px solid var(--line); max-height: calc(100dvh - 48px); overflow: auto; }
+      .js .side .map { padding: 24px 28px; }
+      .route-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+    }
+  </style>
+  <script is:inline>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <header class="top">
+    <a href="/">← 처음으로</a>
+    <span class="tag">시안 3 · 대화형</span>
+  </header>
+
+  <div class="stage">
+    <main class="phone" aria-labelledby="room-title">
+      <div class="room">
+        <h1 id="room-title">{field.title}, 어디서 시작할까</h1>
+        <p>질문 세 개만 할게요. 답은 이 화면에만 남아요.</p>
+      </div>
+
+      <ol class="thread" id="thread" aria-live="polite" aria-label="대화"></ol>
+
+      <div class="composer" id="composer" hidden>
+        <p class="q"><span id="q-label">답을 골라 주세요</span><span class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i></span></p>
+        <div class="choices" id="choices" role="group" aria-labelledby="q-label"></div>
+        <div class="tools">
+          <button type="button" class="tool" id="back" hidden>← 이전 질문으로</button>
+          <button type="button" class="tool" id="restart" hidden>처음부터 다시</button>
+        </div>
+        <p class="privacy">고른 답은 저장하거나 보내지 않아요. 새로고침하면 사라져요.</p>
+      </div>
+
+      <section class="map nojs-only" aria-labelledby="nojs-title">
+        <h2 id="nojs-title">{field.title}가 되는 길 {paths.length}개</h2>
+        <p>대화는 자바스크립트가 켜져 있어야 움직여요. 대신 길을 전부 펼쳐 둘게요. 순서는 순위가 아니에요.</p>
+        <div class="route-list">
+          {paths.map((p) => (
+            <article class="route">
+              <h3>{p.title}</h3>
+              <p>{p.summary}</p>
+              <ol>
+                {p.steps.map((s) => (
+                  <li>{s.title}<small>{s.kind}</small>{s.note && <span class="note">{s.note}</span>}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+        <p class="fine">요리를 아직 안 해 봤다면, 이번 주에 {mission.title}부터 해 봐도 좋아요.</p>
+      </section>
+    </main>
+
+    <aside class="side" aria-labelledby="side-title">
+      <div class="map">
+        <h2 id="side-title">길 전체 지도</h2>
+        <p>대화에서 어떤 길이 나와도, 나머지 길은 여기 그대로 있어요. 위아래는 순위가 아니에요.</p>
+        <div class="route-list">
+          {paths.map((p) => (
+            <article class="route" data-path={p.id}>
+              <h3>{p.title}<span class="now">지금 보는 길</span></h3>
+              <p>{p.summary}</p>
+              <ol>
+                {p.steps.map((s) => (
+                  <li>{s.title}<small>{s.kind}</small>{s.note && <span class="note">{s.note}</span>}</li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script type="application/json" id="chat-data" set:html={JSON.stringify(data)}></script>
+
+  <script is:inline>
+    (() => {
+      const D = JSON.parse(document.getElementById("chat-data").textContent);
+      const byId = Object.fromEntries(D.paths.map((p) => [p.id, p]));
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+      // The three questions. Only the third picks a path; the first two change wording.
+      const Q = [
+        { ask: "요리, 해 본 적 있어요?", opts: [["none", "아직 없어요"], ["some", "조금 해 봤어요"], ["often", "자주 해요"]] },
+        { ask: "지금 학교는요?", opts: [["in", "다니고 있어요"], ["left", "그만뒀어요"], ["done", "졸업했어요"]] },
+        { ask: "어떻게 배우고 싶어요?", opts: [
+          ["hands", "손으로 빨리"], ["study", "차근차근 공부"], ["center", "기관에서 실무"], ["school", "학교에서 친구들과"],
+        ] },
+      ];
+      const PICK = { hands: "cooking-license-job", study: "cooking-college", center: "cooking-training", school: "cooking-vocational-hs" };
+      const label = (qi, v) => Q[qi].opts.find((o) => o[0] === v)[1];
+
+      // state: answers so far, whether the "other paths" list is open, and a path the teen chose from that list
+      let S = { a: [], others: false, picked: null };
+      let shown = 0;   // how many messages are already on screen (so only new ones animate)
+      let token = 0;   // cancels a running reveal when the teen goes back
+
+      const bot = (html, cls = "") => ({ from: "bot", html, cls });
+      const me = (html) => ({ from: "me", html });
+
+      const stepBubble = (s, cls = "step") =>
+        bot(`<span class="k">${esc(s.kind)}</span><span class="t">${esc(s.title)}</span><span class="s">${esc(s.summary)}</span>` +
+          (s.note ? `<span class="n">${esc(s.note)}</span>` : "") +
+          (s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">공식 안내 보기 ↗</a>` : ""), cls);
+
+      function schoolLine(a2, pid) {
+        if (a2 === "left" && pid === "cooking-college") return "학교를 그만뒀다면 이 길이 딱 그 경우를 생각한 길이에요. 검정고시로 학력을 먼저 인정받아요.";
+        if (a2 === "left") return "학교를 그만뒀어도 괜찮아요. 나중에 대학도 가고 싶어지면, 검정고시를 보고 조리학과로 가는 길도 있어요.";
+        if (a2 === "in" && pid === "cooking-college") return "지금 학교에 다니고 있다면 검정고시 단계는 건너뛰고, 졸업한 뒤 바로 지원해도 돼요.";
+        if (a2 === "done" && pid === "cooking-college") return "이미 졸업했다면 검정고시 단계는 건너뛰어도 돼요.";
+        if (a2 === "done" && pid === "cooking-vocational-hs") return "고등학교를 이미 졸업했다면, 이 길의 학교 단계 대신 직업훈련으로 기술을 배우는 길도 같이 봐 둬요.";
+        return "";
+      }
+
+      function pathMessages(p, a1, a2, why) {
+        const out = [];
+        out.push(bot(`<span class="label">이 길부터 봐도 좋아요</span><span class="t">${esc(p.title)}</span>${esc(p.summary)}`, "pathhead"));
+        if (why) out.push(bot(why, "small"));
+        const line = schoolLine(a2, p.id);
+        if (line) out.push(bot(line));
+        out.push(bot(`단계는 ${p.steps.length}개예요. 하나씩 보여 줄게요.`));
+        p.steps.forEach((s, i) => {
+          if (s.id === D.mission.id && a1 === "none") return; // already offered as this week's task
+          out.push(stepBubble(s));
+        });
+        return out;
+      }
+
+      function messages() {
+        const [a1, a2, a3] = S.a;
+        const out = [bot(`안녕하세요! ${esc(D.field.title)}가 되는 길은 여러 개예요. 몇 가지만 물어보고, 먼저 볼 만한 길을 골라 줄게요.`), bot(Q[0].ask)];
+        if (!a1) return out;
+        out.push(me(esc(label(0, a1))));
+        out.push(bot(a1 === "none" ? "괜찮아요, 다들 처음은 있어요." : a1 === "some" ? "오, 시작은 했네요." : "좋아요, 손에 익은 게 있겠네요."));
+        out.push(bot(Q[1].ask));
+        if (!a2) return out;
+        out.push(me(esc(label(1, a2))));
+        out.push(bot(a2 === "left" ? "알려 줘서 고마워요. 그만둔 뒤에 갈 수 있는 길도 충분히 있어요." : "알겠어요."));
+        out.push(bot(Q[2].ask));
+        if (!a3) return out;
+        out.push(me(esc(label(2, a3))));
+
+        if (a1 === "none") {
+          out.push(bot("길을 고르기 전에, 요리가 나랑 맞는지부터 확인해 보면 좋아요."));
+          out.push(stepBubble({ ...D.mission, kind: "이번 주에 해 볼 일" }, "step mission"));
+          out.push(bot(`해 보고 재밌었다면, 이어서 이 길을 봐요.`));
+        }
+        const p = byId[PICK[a3]];
+        const why = `‘어떻게 배우고 싶어요?’에 <strong>${esc(label(2, a3))}</strong>라고 해서 이 길을 먼저 보여 줘요. 다른 길이 틀린 건 아니에요.`;
+        out.push(...pathMessages(p, a1, a2, why));
+
+        if (S.others) {
+          out.push(me("다른 길도 볼래요"));
+          const rest = D.paths.filter((x) => x.id !== p.id);
+          out.push(bot(`물론이죠. 나머지 ${rest.length}개예요. 눌러 보면 단계를 보여 줄게요.<ul class="others">` +
+            rest.map((x) => `<li><button type="button" data-pick="${x.id}">${esc(x.title)}<span>${esc(x.summary)}</span></button></li>`).join("") + "</ul>"));
+          if (S.picked) {
+            const q = byId[S.picked];
+            out.push(me(`‘${esc(q.title)}’ 보여 주세요`));
+            out.push(bot(`<span class="label">이 길도 있어요</span><span class="t">${esc(q.title)}</span>${esc(q.summary)}`, "pathhead"));
+            const line = schoolLine(a2, q.id);
+            if (line) out.push(bot(line));
+            q.steps.forEach((s) => out.push(stepBubble(s)));
+          }
+        }
+        out.push(bot("궁금한 길이 바뀌면 언제든 답을 바꿔 봐도 돼요."));
+        return out;
+      }
+
+      const thread = document.getElementById("thread");
+      const composer = document.getElementById("composer");
+      const choices = document.getElementById("choices");
+      const qLabel = document.getElementById("q-label");
+      const dots = document.getElementById("dots").children;
+      const backBtn = document.getElementById("back");
+      const restartBtn = document.getElementById("restart");
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      composer.hidden = false;
+
+      function rowEl(msg, prev, isNew) {
+        const li = document.createElement("li");
+        const first = msg.from === "bot" && (!prev || prev.from !== "bot");
+        li.className = `row ${msg.from}${first ? " first" : ""}${isNew ? " new" : ""}`;
+        li.innerHTML = msg.from === "bot"
+          ? `<span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span><div class="b ${msg.cls}">${msg.html}</div></div>`
+          : `<div class="b">${msg.html}</div>`;
+        return li;
+      }
+
+      function currentView() {
+        const [, , a3] = S.a;
+        const pid = a3 ? (S.picked || PICK[a3]) : null;
+        document.querySelectorAll(".side .route").forEach((r) => r.classList.toggle("is-now", r.dataset.path === pid));
+      }
+
+      function setChoices() {
+        const qi = S.a.length;
+        choices.innerHTML = "";
+        choices.className = "choices";
+        [...dots].forEach((d, i) => d.classList.toggle("on", i < Math.min(qi + 1, 3)));
+        backBtn.hidden = qi === 0;
+        restartBtn.hidden = qi === 0;
+        if (qi < 3) {
+          qLabel.textContent = `${qi + 1} / 3 · ${Q[qi].ask}`;
+          if (Q[qi].opts.length === 4) choices.classList.add("two");
+          Q[qi].opts.forEach(([v, t]) => {
+            const b = document.createElement("button");
+            b.type = "button"; b.className = "choice"; b.textContent = t;
+            b.addEventListener("click", () => { S.a = [...S.a, v]; update(); });
+            choices.append(b);
+          });
+          backBtn.textContent = "← 이전 질문으로";
+        } else {
+          qLabel.textContent = "다음엔 뭘 할까요?";
+          if (!S.others) {
+            const b = document.createElement("button");
+            b.type = "button"; b.className = "choice solid"; b.textContent = "다른 길도 볼래요";
+            b.addEventListener("click", () => { S.others = true; update(); });
+            choices.append(b);
+          }
+          const r = document.createElement("button");
+          r.type = "button"; r.className = "choice"; r.textContent = "답 바꿔서 다시 해 볼래요";
+          r.addEventListener("click", restart);
+          choices.append(r);
+          backBtn.textContent = "← 마지막 답 바꾸기";
+          restartBtn.hidden = true;
+        }
+      }
+
+      function update() {
+        const my = ++token;
+        const msgs = messages();
+        const keep = Math.min(shown, msgs.length);
+        thread.innerHTML = "";
+        msgs.slice(0, keep).forEach((m, i) => thread.append(rowEl(m, msgs[i - 1], false)));
+        shown = keep;
+        currentView();
+        choices.innerHTML = "";
+        const rest = msgs.slice(keep);
+        const done = () => {
+          setChoices();
+          const first = choices.querySelector("button");
+          if (first && keep > 0) first.focus({ preventScroll: true });
+        };
+        if (!rest.length || reduce) {
+          rest.forEach((m, i) => thread.append(rowEl(m, msgs[keep + i - 1], false)));
+          shown = msgs.length;
+          done();
+          if (rest.length) scrollToNew(thread.children[keep]);
+          return;
+        }
+        let i = 0;
+        const firstNew = keep;
+        const next = () => {
+          if (my !== token) return;
+          const m = rest[i];
+          const idx = keep + i;
+          if (m.from === "bot") {
+            const t = document.createElement("li");
+            t.className = "row bot" + (msgs[idx - 1]?.from === "bot" ? "" : " first");
+            t.innerHTML = `<span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span><div class="b" aria-label="입력 중"><span class="typing"><i></i><i></i><i></i></span></div></div>`;
+            thread.append(t);
+            setTimeout(() => {
+              if (my !== token) return;
+              t.replaceWith(rowEl(m, msgs[idx - 1], true));
+              step();
+            }, i === 0 ? 380 : 260);
+          } else {
+            thread.append(rowEl(m, msgs[idx - 1], true));
+            step();
+          }
+          if (i === 0) scrollToNew(thread.children[firstNew]);
+        };
+        const step = () => {
+          i++; shown = keep + i;
+          if (i < rest.length) next(); else done();
+          const last = thread.lastElementChild;
+          if (last && rest.length <= 4) last.scrollIntoView({ block: "nearest" });
+        };
+        next();
+      }
+
+      function scrollToNew(el) {
+        if (!el) return;
+        const r = el.getBoundingClientRect();
+        if (r.top > innerHeight * 0.6 || r.top < 0) el.scrollIntoView({ block: "start", behavior: reduce ? "auto" : "smooth" });
+      }
+
+      function restart() {
+        S = { a: [], others: false, picked: null };
+        shown = 2; // keep the greeting, re-ask quietly
+        update();
+        choices.querySelector("button")?.focus({ preventScroll: true });
+        scrollTo({ top: 0 });
+      }
+
+      thread.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-pick]");
+        if (!b) return;
+        S.picked = b.dataset.pick;
+        const msgs = messages();
+        // keep everything up to the list; drop an earlier pick so the new one animates in
+        shown = Math.min(shown, msgs.findIndex((m) => m.html.includes('class="others"')) + 1);
+        update();
+      });
+      backBtn.addEventListener("click", () => {
+        S = { ...S, a: S.a.slice(0, -1), others: false, picked: null };
+        const n = messages().length;
+        shown = n;
+        update();
+      });
+      restartBtn.addEventListener("click", restart);
+
+      update();
+    })();
+  </script>
+</body>
+</html>
