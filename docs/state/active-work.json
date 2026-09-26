@@ -1,20 +1,25 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 23:28",
+  "updated_at": "2026-09-26 23:43",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "apply-d22",
-      "who": "claude + 에이전트",
+      "id": "collection-strategy",
+      "who": "claude",
       "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/apply-d22",
+      "branch": "Sweet-Butters/collection-strategy",
       "started": "2026-09-26",
-      "summary": "시안 4를 본 사이트에 적용, 홈·글 재디자인, 후보 1차 확인"
+      "summary": "혜택 수집 설계 문서"
     }
   ],
   "queued_tasks": [
+    {
+      "id": "crawler-stage1",
+      "stage": "1-mvp",
+      "summary": "crawler/ 뼈대(공통 HTTP·robots·출처 모듈·건강 기록) + 장학재단 CSV + 큐넷 시험일정 (collection-strategy.md 8절)"
+    },
     {
       "id": "cooking-helps",
       "stage": "1-mvp",
@@ -62,6 +67,12 @@
     }
   ],
   "pending_decisions": [
+    {
+      "id": "auto-publish",
+      "summary": "정부 공식 API에서 자동 수집한 혜택을 사람 확인 없이 보여 줄지",
+      "default": "대상·마감이 규칙으로 확실한 것만 '공식 데이터 · 수집일' 표시와 함께 보여 준다 (collection-strategy.md 5절 추천). 결정 전에는 보여 주지 않음",
+      "by": "수집기 2단계(장학재단·큐넷)를 켜기 전"
+    },
     {
       "id": "guide-publish",
       "summary": "글 '요리사가 되는 여러 길'을 공개할지 (지금은 draft라 실제 빌드에 안 나옴). 대학 길의 '넓고 체계적으로' 표현 등 팀 검토 필요",
@@ -154,6 +165,7 @@
     }
   ],
   "user_todo": [
+    "data.go.kr 회원가입 후 활용신청: 보조금24(대한민국 공공서비스 정보), 청소년 활동정보, 청소년 자원봉사, 국가자격 시험일정 → 키를 GitHub Secrets에",
     "국민내일배움카드를 미성년 학교 밖 청소년이 받을 수 있는지 고용노동부 콜센터(1350)에 확인",
     "1주차 미션 PPT 확인·제출 (Downloads, 팀명 Team 유이정)",
     "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
