@@ -1,20 +1,25 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 21:23",
+  "updated_at": "2026-09-26 22:28",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-dreamspon",
-      "who": "claude",
-      "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/competitor-dreamspon",
+      "id": "design-concepts",
+      "who": "claude + 에이전트",
+      "state": "in-progress",
+      "branch": "Sweet-Butters/design-concepts",
       "started": "2026-09-26",
-      "summary": "competitors.md 드림스폰 상세"
+      "summary": "시안 3개 완성, 합친 시안(대화+노선도+혜택, D22) 제작 중"
     }
   ],
   "queued_tasks": [
+    {
+      "id": "apply-d22",
+      "stage": "1-mvp",
+      "summary": "합친 시안을 본 사이트(/fields/<id>)의 기본 화면으로 옮기기, 홈·글 페이지도 같은 디자인 언어로"
+    },
     {
       "id": "cooking-helps",
       "stage": "1-mvp",
