@@ -10,6 +10,7 @@ const path = unbase(Astro.url.pathname);
 const fullTitle = `${title} · 지금 내 자리에서`;
 const nav = [
   { href: url("/fields/cooking"), label: "노선도", match: "/fields" },
+  { href: url("/helps/"), label: "혜택", match: "/helps" },
   { href: url("/guide"), label: "읽을거리", match: "/guide" },
 ];
 ---
@@ -34,22 +35,33 @@ const nav = [
     <slot name="head" />
     {GC_CODE && (
       <>
-        {/* Count the same path ViewCount asks for (no trailing slash), then fill every [data-views]. */}
+        {/* Count the same path ViewCount asks for (no trailing slash), then fill every [data-views].
+            Lists that draw rows in the browser mark their container data-views-manual and call
+            window.ycFillViews(container) after each render, so only the rows on screen are fetched. */}
         <script is:inline>window.goatcounter = { path: function (p) { p = p.split(/[?#]/)[0]; return p.length > 1 ? p.replace(/\/+$/, "") : p; } };</script>
         <script is:inline async data-goatcounter={`${GC_ORIGIN}/count`} src="https://gc.zgo.at/count.js"></script>
         <script is:inline define:vars={{ origin: GC_ORIGIN, min: MIN_SHOWN }}>
-          addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll("[data-views]").forEach(function (el) {
-              var key = el.dataset.views;
-              fetch(origin + "/counter/" + (key === "TOTAL" ? "TOTAL" : encodeURIComponent(key)) + ".json")
-                .then(function (r) { return r.ok ? r.json() : null; })
-                .then(function (d) {
-                  var n = d ? parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) : 0;
+          (function () {
+            var cache = {};
+            function count(key) {
+              if (!cache[key]) {
+                cache[key] = fetch(origin + "/counter/" + (key === "TOTAL" ? "TOTAL" : encodeURIComponent(key)) + ".json")
+                  .then(function (r) { return r.ok ? r.json() : null; })
+                  .then(function (d) { return d ? parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) || 0 : 0; })
+                  .catch(function () { return 0; });
+              }
+              return cache[key];
+            }
+            window.ycFillViews = function (root) {
+              (root || document).querySelectorAll("[data-views]").forEach(function (el) {
+                if (!root && el.closest("[data-views-manual]")) return;
+                count(el.dataset.views).then(function (n) {
                   if (n >= min) { el.textContent = el.dataset.label + " " + n.toLocaleString("ko-KR"); el.hidden = false; }
-                })
-                .catch(function () {});
-            });
-          });
+                });
+              });
+            };
+            addEventListener("DOMContentLoaded", function () { window.ycFillViews(); });
+          })();
         </script>
       </>
     )}

@@ -1,3 +1,5 @@
+import { createHash } from "node:crypto";
+
 // Reads the crawler's output (../data/collected/items.json) at build time, for the "공식 자동" tier:
 // collected from an official source, not yet checked by a person. A missing, empty or broken file means no items.
 // Repeated rounds of one exam (Q-Net) become one entry with a list of windows so the panel is not flooded.
@@ -6,10 +8,14 @@ export interface CollectedItem {
   source: string; source_id: string; type: string; title: string; provider: string; url: string; summary?: string;
   apply_start?: string | null; apply_end?: string | null; regions?: string[]; tags?: string[]; cost_text?: string;
   target_text?: string; step_ids?: string[]; last_seen?: string; status?: string;
+  event_start?: string | null; event_end?: string | null; age_min?: number | null; age_max?: number | null;
+  scope?: string; extra?: Record<string, unknown>;
 }
 export interface AutoWindow { s: string; e: string; k: string }
 export interface AutoGroup {
-  id: string; source: string; sourceLabel: string; type: string; title: string; provider: string; url: string;
+  id: string;
+  /** Id of this item's entry on the benefits board (/helps/<boardId>/), see lib/board.ts. */
+  boardId: string; source: string; sourceLabel: string; type: string; title: string; provider: string; url: string;
   summary: string; regions: string[]; stepIds: string[]; costText: string; seen: string;
   /** "out_of_school" only when the item itself is for 학교 밖 청소년; otherwise "any". */
   audience: "any" | "out_of_school";
@@ -21,7 +27,9 @@ export interface AutoGroup {
   windows: AutoWindow[];
 }
 
-const SOURCE_LABEL: Record<string, string> = { qnet: "큐넷", kosaf: "한국장학재단", certi: "청소년활동정보서비스", vms: "1365 자원봉사" };
+export const SOURCE_LABEL: Record<string, string> = {
+  qnet: "큐넷", kosaf: "한국장학재단", certi: "청소년활동정보서비스", vms: "1365 자원봉사", volunteer: "청소년자원봉사 두볼",
+};
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 
 function load(): { updatedAt: string; items: CollectedItem[] } {
@@ -36,6 +44,20 @@ function load(): { updatedAt: string; items: CollectedItem[] } {
   }
 }
 const data = load();
+export const collected = data;
+
+// One board entry per group of repeated rounds. The key must stay the same between daily crawls:
+// Q-Net by exam code, 봉사·체험 by the normalised title and provider, anything else by its source id.
+const norm = (s: string) => s.normalize("NFKC").replace(/\s+/g, " ").trim().toLowerCase();
+export function boardKey(it: CollectedItem): string {
+  const exam = it.source === "qnet" && it.tags?.find((t) => t.startsWith("qnet:"));
+  if (exam) return exam;
+  if (it.source === "volunteer" || it.source === "certi") return `${norm(it.title)}|${norm(it.provider)}`;
+  return it.source_id;
+}
+/** Short, URL-safe and stable: source plus 10 hex characters of sha1(source|key). */
+export const boardId = (it: CollectedItem) =>
+  `${it.source}-${createHash("sha1").update(`${it.source}|${boardKey(it)}`).digest("hex").slice(0, 10)}`;
 
 // "한식조리기능사 2026년 16회 실기 원서접수" -> name "한식조리기능사 원서접수", kind "실기".
 const ROUND = /\s*\d{4}년\s*\d+회\s*(필기|실기)?\s*/;
@@ -61,6 +83,7 @@ export function autoGroups(): AutoGroup[] {
       .sort((a, b) => (a.s < b.s ? -1 : a.s > b.s ? 1 : a.e < b.e ? -1 : 1));
     return {
       id,
+      boardId: boardId(first),
       source: first.source,
       sourceLabel: SOURCE_LABEL[first.source] ?? first.provider,
       type: first.type,

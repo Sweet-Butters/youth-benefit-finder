@@ -3,7 +3,7 @@
     python -m crawler.main            # all sources
     python -m crawler.main qnet       # only the named sources
 
-Writes data/collected/items.json (kept items), review.json (unsure ones) and meta.json (per-source health).
+Writes data/collected/items.json (kept items: attached to a step, or "general" youth benefits), review.json (unsure ones) and meta.json (per-source health).
 Nothing here is shown on the site until the auto-publish decision; the site reads data/processed/ only.
 """
 import datetime as dt
@@ -60,7 +60,7 @@ def main(only: set[str] | None = None):
 
     kept, review, meta = [], [], {}
     for src, raw, err, secs in results:
-        n_keep = n_review = n_drop = 0
+        n_keep = n_review = n_drop = n_general = 0
         for it in raw:
             ok, why = youth.judge(it)
             attached = attach.attach(it)
@@ -71,8 +71,9 @@ def main(only: set[str] | None = None):
             if extra_tags := attached.pop("tags_add", None):
                 rec["tags"] = rec.get("tags", []) + extra_tags
             rec |= attached | {"youth_reason": why}
+            # Youth items no rule attaches to a step still go on the public benefits list (D26) as "general".
+            rec["scope"] = "step" if {"step_ids", "field_ids"} & rec.keys() else "general"
             reason = (why if ok is None
-                      else "no matching step" if not ({"step_ids", "field_ids"} & rec.keys())
                       else "region unknown" if not rec.get("regions")
                       else "no dates" if "undated" in rec.get("tags", [])
                       else None)
@@ -85,9 +86,10 @@ def main(only: set[str] | None = None):
             else:
                 kept.append(rec)
                 n_keep += 1
-        meta[src.NAME] = {"label": src.LABEL, "fetched": len(raw), "kept": n_keep, "review": n_review,
+                n_general += rec["scope"] == "general"
+        meta[src.NAME] = {"label": src.LABEL, "fetched": len(raw), "kept": n_keep, "general": n_general, "review": n_review,
                           "dropped": n_drop, "error": err, "seconds": round(secs, 1)}
-        print(f"{src.NAME:12} fetched={len(raw):5} kept={n_keep:4} review={n_review:4} dropped={n_drop:4} {err or ''}")
+        print(f"{src.NAME:12} fetched={len(raw):5} kept={n_keep:4} (general {n_general:4}) review={n_review:4} dropped={n_drop:4} {err or ''}")
 
     items = merge(previous, kept, run_date)
     dump(OUT / "items.json", {"updatedAt": dt.datetime.now(KST).isoformat(timespec="seconds"), "items": items})
