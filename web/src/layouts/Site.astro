@@ -2,6 +2,8 @@
 // Shared page shell for the D22 design language. Pages own their main content.
 import "../styles/tokens.css";
 import { url, unbase } from "../lib/url";
+import { GC_CODE, GC_ORIGIN, MIN_SHOWN } from "../lib/stats";
+import ViewCount from "../components/ViewCount.astro";
 interface Props { title: string; description?: string; noindex?: boolean }
 const { title, description = "지금 내 자리에서 시작하는 진로. 어디서 시작해도 갈 수 있는 길을 노선도로 보여 줘요.", noindex = false } = Astro.props;
 const path = unbase(Astro.url.pathname);
@@ -30,6 +32,27 @@ const nav = [
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script is:inline>document.documentElement.classList.add("js");</script>
     <slot name="head" />
+    {GC_CODE && (
+      <>
+        {/* Count the same path ViewCount asks for (trailing slash), then fill every [data-views]. */}
+        <script is:inline>window.goatcounter = { path: function (p) { p = p.split(/[?#]/)[0]; return p.endsWith("/") ? p : p + "/"; } };</script>
+        <script is:inline async data-goatcounter={`${GC_ORIGIN}/count`} src="https://gc.zgo.at/count.js"></script>
+        <script is:inline define:vars={{ origin: GC_ORIGIN, min: MIN_SHOWN }}>
+          addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("[data-views]").forEach(function (el) {
+              var key = el.dataset.views;
+              fetch(origin + "/counter/" + (key === "TOTAL" ? "TOTAL" : encodeURIComponent(key)) + ".json")
+                .then(function (r) { return r.ok ? r.json() : null; })
+                .then(function (d) {
+                  var n = d ? parseInt(String(d.count).replace(/[^0-9]/g, ""), 10) : 0;
+                  if (n >= min) { el.textContent = el.dataset.label + " " + n.toLocaleString("ko-KR"); el.hidden = false; }
+                })
+                .catch(function () {});
+            });
+          });
+        </script>
+      </>
+    )}
   </head>
   <body>
     <header class="site-top">
@@ -42,7 +65,7 @@ const nav = [
     <footer class="site-foot">
       <div class="rule-lines" aria-hidden="true"></div>
       <p>어느 노선이 더 좋은 건 아니에요. 정보는 공식 출처로 확인하고, 확인한 날짜를 함께 적어요.</p>
-      <p class="quiet">광고 없음 · 학생 정보를 팔지 않아요</p>
+      <p class="quiet">광고 없음 · 학생 정보를 팔지 않아요{GC_CODE && <> · <a href={url("/stats")}>숫자로 보기</a> <ViewCount total label="누적 조회" /></>}</p>
     </footer>
   </body>
 </html>

@@ -1,0 +1,14 @@
+---
+// "조회 N" for one page, filled in by the script in Site.astro. Stays empty and hidden when counting is
+// off, the counter is unreachable, or the number is below MIN_SHOWN.
+import { countPath, GC_CODE } from "../lib/stats";
+import { url } from "../lib/url";
+interface Props { path?: string; total?: boolean; label?: string }
+const { path, total = false, label = "조회" } = Astro.props;
+const target = total ? "TOTAL" : countPath(path ? url(path) : Astro.url.pathname);
+---
+{GC_CODE && <span class="views" data-views={target} data-label={label} hidden></span>}
+
+<style>
+  .views { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+</style>

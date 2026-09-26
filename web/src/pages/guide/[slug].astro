@@ -3,6 +3,7 @@
 // then the way to the field's 노선도 and the checked sources.
 import { getCollection, render } from "astro:content";
 import Site from "../../layouts/Site.astro";
+import ViewCount from "../../components/ViewCount.astro";
 import { url } from "../../lib/url";
 import { fields } from "../../lib/content";
 
@@ -26,7 +27,7 @@ const iso = updated.toISOString().slice(0, 10);
         <p class="crumbs"><a href={url("/guide")}>읽을거리</a>{fieldData && <span class="fld">{fieldData.title} 노선</span>}</p>
         {draft && <p class="draft">초안 · 팀 검토 전이에요</p>}
         <h1 class="display">{title}</h1>
-        <p class="meta"><time datetime={iso}>{iso.replaceAll("-", ".")}</time> 업데이트</p>
+        <p class="meta"><time datetime={iso}>{iso.replaceAll("-", ".")}</time> 업데이트 <ViewCount /></p>
       </header>
 
       <div class="prose">

@@ -13,7 +13,7 @@
 | 사용자 데이터 | Supabase (Auth, Postgres, Storage). 무료 티어 | 저장소에 절대 두지 않는다 (`CLAUDE.md`) |
 | 호스팅 | Cloudflare Pages 또는 Vercel 무료 티어. 정적 파일만 올린다 | 서버 코드 없음 |
 | 호스팅 (지금) | **GitHub Pages** `https://sweet-butters.github.io/youth-benefit-finder/` (`base: /youth-benefit-finder`, `.github/workflows/deploy.yml`). 이 컴퓨터에 Cloudflare 로그인이 없어서 먼저 이걸로 공개했다. GitHub Pages는 301 리다이렉트 파일을 못 쓰므로 `redirects.json`이 생기기 전이나 도메인을 정할 때 다시 본다 | 내부 링크는 `web/src/lib/url.ts`를 거쳐 base를 따른다 |
-| 방문 통계 | 쿠키 없고 개인을 못 알아보는 도구 (예: Cloudflare Web Analytics, Umami) | 3절 참고 |
+| 방문 통계 | 쿠키 없고 개인을 못 알아보는 도구. **GoatCounter**로 정함(D25): 페이지별 조회수를 JSON으로 공개할 수 있어 "조회 N"과 `/stats`를 만든다 | 3절 참고 |
 | 팀 | 학생 3명, 파트타임. React 경험은 한 명이 조금 | 그래서 **서버를 만들지 않는다** |
 
 - 위 기술 선택은 `decisions.md`에 아직 없다. **D20으로 기록하기를 제안한다.** README의 "기술 스택 (예정)" 표도 그때 고친다.
