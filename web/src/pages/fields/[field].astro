@@ -4,6 +4,7 @@
 // "공식 자동" items the crawler collected from official sources (data/collected, see lib/collected.ts).
 // Rule-based and page-only: answers never leave the browser tab.
 import Site from "../../layouts/Site.astro";
+import ViewCount from "../../components/ViewCount.astro";
 import PerkCard from "../../components/field/PerkCard.astro";
 import { fields, steps, helps, KIND_LABEL, REGION_LABEL, COST_LABEL, HELP_LABEL, type Field, type Path, type Help } from "../../lib/content";
 import { autoGroups } from "../../lib/collected";
@@ -271,7 +272,7 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
     <!-- 2. map + benefits -->
     <section class="result" id="result" aria-labelledby="result-title">
       <div class="intro">
-        <p class="eyebrow">{field.title} 분야 · 노선 {lines.length}개 · 역 {order.length}개</p>
+        <p class="eyebrow">{field.title} 분야 · 노선 {lines.length}개 · 역 {order.length}개 <ViewCount /></p>
         <h1 id="result-title" tabindex="-1">{field.title} 길 지도</h1>
         <div class="stripe" aria-hidden="true">{lines.map((l) => <span style={`background:${l.color}`}></span>)}</div>
         <p class="nojs-note">

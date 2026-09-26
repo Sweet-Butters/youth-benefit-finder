@@ -44,6 +44,9 @@ jobs:
           npm run validate
       - name: Build site
         working-directory: web
+        env:
+          # GoatCounter code for public view counts (D25). Repo variable, not a secret; unset = no counting.
+          PUBLIC_GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
         run: |
           npm ci
           npm run build

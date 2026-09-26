@@ -1,0 +1,74 @@
+---
+// Public numbers (D25): what we have and how many people look at it, for visitors and sponsors.
+// View counts come from GoatCounter (no cookies, no personal data); content counts are computed at build.
+import Site from "../layouts/Site.astro";
+import ViewCount from "../components/ViewCount.astro";
+import { fields, steps, helps } from "../lib/content";
+import { autoGroups } from "../lib/collected";
+import { GC_CODE, GC_ORIGIN, MIN_SHOWN } from "../lib/stats";
+import { url } from "../lib/url";
+
+const live = fields.filter((f) => !f.retired);
+const auto = autoGroups();
+const content = [
+  { n: live.length, label: "분야 노선도" },
+  { n: live.reduce((a, f) => a + f.paths.filter((p) => !p.retired).length, 0), label: "노선 (가는 길)" },
+  { n: [...steps.values()].filter((s) => !s.retired).length, label: "역 (단계)" },
+  { n: helps.length + auto.length, label: "지금 보여 주는 혜택", note: `사람이 확인 ${helps.length} · 공식 자동 ${auto.length}` },
+];
+const pages = [
+  ...live.map((f) => ({ path: `/fields/${f.id}`, label: `${f.title} 노선도` })),
+  { path: "/guide", label: "읽을거리" },
+  { path: "/", label: "첫 화면" },
+];
+---
+<Site title="숫자로 보기" description="지금 내 자리에서가 가진 정보와 조회수를 그대로 공개해요.">
+  <main class="stats">
+    <header class="head">
+      <p class="eyebrow">숫자로 보기</p>
+      <h1 class="display">있는 그대로 보여 드려요</h1>
+      <p class="lead">무엇을 얼마나 모았는지, 몇 명이 보는지 공개해요. 조회수는 쿠키 없이 페이지를 연 횟수만 세요. 누가 봤는지는 우리도 몰라요.</p>
+    </header>
+
+    <section aria-labelledby="c-h">
+      <h2 id="c-h">모은 정보</h2>
+      <ul class="nums">
+        {content.map((c) => <li><b>{c.n.toLocaleString("ko-KR")}</b><span>{c.label}</span>{c.note && <small>{c.note}</small>}</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="v-h">
+      <h2 id="v-h">조회수</h2>
+      {GC_CODE ? (
+        <>
+          <p class="total"><ViewCount total label="누적 조회" /></p>
+          <ul class="pages">
+            {pages.map((p) => <li><a href={url(p.path)}>{p.label}</a><ViewCount path={p.path} /></li>)}
+          </ul>
+          <p class="fine">{MIN_SHOWN}회가 안 된 숫자는 아직 보여 주지 않아요. 날짜별 자세한 숫자는 <a href={GC_ORIGIN} rel="noopener">공개 통계판</a>에서 볼 수 있어요.</p>
+        </>
+      ) : (
+        <p class="fine">조회수는 곧 여기에 떠요.</p>
+      )}
+    </section>
+  </main>
+</Site>
+
+<style>
+  .stats { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  .head { padding: 28px 0 8px; }
+  .eyebrow { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+  h1 { margin: 0; font-size: clamp(34px, 9vw, 52px); line-height: 1.1; }
+  .lead { margin: 14px 0 0; max-width: 34em; line-height: 1.7; }
+  h2 { margin: 36px 0 12px; font-size: 20px; }
+  .nums { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 3px solid var(--ink); }
+  .nums li { padding: 14px 12px 14px 0; border-bottom: 1.5px solid var(--ink); display: flex; flex-direction: column; gap: 2px; }
+  .nums b { font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 36px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .nums span { font-weight: 600; }
+  .nums small { color: var(--ink-2); font-size: 13px; }
+  .total :global(.views) { font-size: 18px; color: var(--ink); font-weight: 700; }
+  .pages { list-style: none; margin: 8px 0 0; padding: 0; }
+  .pages li { display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 44px; border-bottom: 1px dashed var(--ink-2); }
+  .fine { margin: 14px 0 0; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+  @media (min-width: 700px) { .nums { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>
