@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import Site from "../layouts/Site.astro";
 import { url } from "../lib/url";
 import { fields, steps } from "../lib/content";
+import { boardEntries, stateOn, todayKst } from "../lib/board";
 
 const live = fields.filter((f) => !f.retired);
 const first = live[0];
@@ -53,6 +54,8 @@ if (first) {
   };
 }
 const firstStats = first ? fieldStats(first) : null;
+// "지금 신청할 수 있는" = the application window is open today (체험 without a deadline is not counted).
+const openNow = boardEntries().filter((e) => stateOn(e, todayKst()).status === "open").length;
 const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
 ---
 <Site title="처음" description="학교에 다니든 그만뒀든, 지금 있는 자리에서 갈 수 있는 길을 지하철 노선도처럼 보여 줘요. 가입 없이 볼 수 있어요.">
@@ -126,6 +129,12 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
             <span class="go-arrow" aria-hidden="true">→</span>
           </a>
           <p class="free">가입 없이 볼 수 있어요 · 3분이면 봐요</p>
+          {openNow > 0 && (
+            <a class="now" href={url("/helps/")}>
+              <span>지금 신청할 수 있는 혜택 <b>{openNow}개</b></span>
+              <small>장학금 · 봉사 · 체험 · 시험, 마감 가까운 순</small>
+            </a>
+          )}
         </div>
       )}
     </section>
@@ -259,6 +268,15 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10).replaceAll("-", ".");
   .go:hover .go-t b { text-decoration: underline; text-decoration-color: var(--line-1); text-decoration-thickness: 3px; text-underline-offset: 4px; }
   .go:hover .go-arrow { background: #000; }
   .free { margin: 10px 0 0; font-size: 15px; color: var(--ink-2); }
+  .now {
+    display: flex; flex-direction: column; margin-top: 18px; padding: 10px 0 10px 14px; min-height: 44px;
+    border-left: 6px solid var(--carrot); text-decoration: none;
+  }
+  .now span { font-weight: 700; font-size: 17px; }
+  .now span::after { content: " →"; }
+  .now b { color: var(--carrot); }
+  .now small { font-size: 14px; color: var(--ink-2); }
+  .now:hover span { text-decoration: underline; text-underline-offset: 4px; }
 
   /* ---------- legend ---------- */
   .legend { margin-top: 48px; }

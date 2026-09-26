@@ -8,6 +8,8 @@ import ViewCount from "../../components/ViewCount.astro";
 import PerkCard from "../../components/field/PerkCard.astro";
 import { fields, steps, helps, KIND_LABEL, REGION_LABEL, COST_LABEL, HELP_LABEL, type Field, type Path, type Help } from "../../lib/content";
 import { autoGroups } from "../../lib/collected";
+import { boardEntries } from "../../lib/board";
+import { url } from "../../lib/url";
 
 type LearnStyle = "hands" | "study" | "institution" | "school";
 type FieldX = Field & { try_phrase?: string; paths: (Path & { learn_style?: LearnStyle })[] };
@@ -165,6 +167,7 @@ const perks = (helps as HelpX[])
 // 공식 자동: collected from an official source, not checked by a person. Always after the verified helps.
 const md = (d: string) => `${+d.slice(5, 7)}월 ${+d.slice(8, 10)}일`;
 const windowLabel = (w: { s: string; e: string }) => (w.s === w.e ? md(w.s) : `${md(w.s)}~${md(w.e)}`);
+const onBoard = new Set(boardEntries().map((e) => e.id));
 const autoPerks = autoGroups()
   .map((g) => {
     const windows = g.windows.filter((w) => w.e >= today);
@@ -192,6 +195,7 @@ const autoPerks = autoGroups()
       sponsored: false,
       windows: windows.map((w) => ({ ...w, label: windowLabel(w) })),
       sourceLabel: g.sourceLabel,
+      detailUrl: onBoard.has(g.boardId) ? url(`/helps/${g.boardId}/`) : "",
       seenLabel: g.seen ? md(g.seen) : "",
       oosOk: g.outOfSchoolOk,
       openAll: g.openToAll,
@@ -314,6 +318,7 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
               {stationViews.map((s) => (
                 <button
                   type="button"
+                  id={`st-${s.id}`}
                   class:list={["st", { tr: s.transfer }]}
                   data-st={s.id}
                   data-lines={s.lineIds}
@@ -731,7 +736,8 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
           (p.summary ? `<p class="p-sum">${esc(p.summary)}</p>` : "") +
           `<dl class="p-meta">${meta}</dl>${more}${hint}` +
           `<p class="p-check">기관 원문에서 한 번 더 확인하세요.</p>` +
-          `<a class="p-link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.sourceLabel)} 원문<span class="sr"> · ${esc(p.title)}</span></a></li>`;
+          `<p class="p-links">${p.detailUrl ? `<a class="p-detail" href="${esc(p.detailUrl)}">자세히 보기<span class="sr"> · ${esc(p.title)}</span></a>` : ""}` +
+          `<a class="p-link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.sourceLabel)} 원문<span class="sr"> · ${esc(p.title)}</span></a></p></li>`;
       }
       function card(p) {
         if (p.tier === "auto") return autoCard(p);
@@ -880,7 +886,20 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
       });
       mobile.addEventListener("change", () => { if (S.done) renderRecap(); });
 
-      update();
+      // "#st-<station>" (from a benefit's page): skip the questions, show every benefit, open that station.
+      const jump = decodeURIComponent(location.hash.slice(1));
+      if (jump.startsWith("st-") && ST[jump.slice(3)]) {
+        S.a = Q.map(() => "skip");
+        S.all = true;
+        if (allToggle) allToggle.checked = true;
+        shown = messages().length;
+        update();
+        token++; // drop the delayed enterResult that update() queued
+        enterResult();
+        openStation(jump.slice(3), false);
+        document.querySelector(`.st[data-st="${jump.slice(3)}"]`)?.scrollIntoView({ block: "center" });
+        if (mobile.matches) $("perks").scrollIntoView({ block: "start" });
+      } else update();
     })();
   </script>
 </Site>
@@ -1187,6 +1206,8 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
   .p-hint { margin: 6px 0 0; font-size: 14px; }
   .p-check { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
   .perk.auto .p-link { font-weight: 600; text-decoration-thickness: 1px; }
+  .p-links { margin: 0; display: flex; flex-wrap: wrap; gap: 0 18px; align-items: center; }
+  .p-detail { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 15px; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
   .closed { margin: 8px 0 8px; border-top: 2px solid var(--ink); }
   .closed summary {

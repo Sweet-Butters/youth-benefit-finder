@@ -5,7 +5,7 @@ interface Props {
   p: {
     typeLabel: string; title: string; provider: string; url: string; summary: string; steps: string[];
     regionLabel: string; deadlineLabel: string; ageLabel: string; costLabel: string; closed: boolean; sponsored: boolean;
-    tier?: "auto"; windows?: { label: string; k: string }[]; sourceLabel?: string; seenLabel?: string;
+    tier?: "auto"; windows?: { label: string; k: string }[]; sourceLabel?: string; seenLabel?: string; detailUrl?: string;
   };
   stationTitle?: (sid: string) => string;
 }
@@ -30,7 +30,10 @@ const [next, ...rest] = p.windows ?? [];
       </details>
     )}
     <p class="p-check">기관 원문에서 한 번 더 확인하세요.</p>
-    <a class="p-link" href={p.url} target="_blank" rel="noopener">{p.sourceLabel} 원문<span class="sr"> · {p.title}</span></a>
+    <p class="p-links">
+      {p.detailUrl && <a class="p-detail" href={p.detailUrl}>자세히 보기<span class="sr"> · {p.title}</span></a>}
+      <a class="p-link" href={p.url} target="_blank" rel="noopener">{p.sourceLabel} 원문<span class="sr"> · {p.title}</span></a>
+    </p>
   </li>
 ) : (
   <li class:list={["perk", { "is-closed": p.closed, "is-sponsored": p.sponsored }]}>
