@@ -1,0 +1,134 @@
+{
+  "id": "nursing-health",
+  "title": "간호·보건",
+  "holland": [
+    "S",
+    "I"
+  ],
+  "summary": "아픈 사람을 돌보고 건강을 지키는 일이에요. 간호조무사는 대학 없이 고등학교 졸업 학력(검정고시 포함)과 교육으로 갈 수 있어요. 간호사, 치과위생사, 임상병리사, 물리치료사는 대학이나 전문대를 꼭 졸업해야 해요.",
+  "try_phrase": "아픈 사람 돌보기",
+  "paths": [
+    {
+      "id": "nursing-health-aide-path",
+      "title": "검정고시 보고 간호조무사 교육으로",
+      "learn_style": "institution",
+      "summary": "응급처치를 먼저 해 보고, 고졸 검정고시로 학력을 갖춘 뒤 지정 교육기관에서 교육을 받고 국가시험을 봐서 간호조무사로 일해요.",
+      "steps": [
+        {
+          "step": "nursing-health-mission-find-aed"
+        },
+        {
+          "step": "ged-high",
+          "note": "학원 과정을 들으려면 고등학교 졸업 학력이 먼저 있어야 해요."
+        },
+        {
+          "step": "nursing-health-aide-training"
+        },
+        {
+          "step": "nursing-health-aide-exam"
+        },
+        {
+          "step": "nursing-health-work",
+          "note": "주로 의원, 병원, 요양병원 같은 곳에서 간호사를 도와 일해요."
+        }
+      ],
+      "pros": [
+        "대학에 가지 않아도 의료 현장에서 일할 수 있어요.",
+        "학교를 그만뒀어도 검정고시로 시작할 수 있어요."
+      ],
+      "cons": [
+        "간호조무사는 간호사가 아니에요. 간호사가 되려면 간호학과를 따로 졸업해야 해요.",
+        "이론과 실습을 합쳐 1,520시간 이상이라 시간이 오래 걸리고 학원비가 들어요.",
+        "할 수 있는 일이 간호사 보조로 정해져 있어요."
+      ]
+    },
+    {
+      "id": "nursing-health-hs-path",
+      "title": "특성화고 간호 관련 학과에서 준비",
+      "learn_style": "school",
+      "summary": "간호 관련 학과가 있는 특성화고에서 친구들과 배우고, 졸업할 때쯤 간호조무사 국가시험을 봐요.",
+      "steps": [
+        {
+          "step": "nursing-health-vocational-hs"
+        },
+        {
+          "step": "nursing-health-aide-exam",
+          "note": "응시일부터 6개월 안에 졸업할 예정이면 졸업 전에 미리 시험을 볼 수 있어요."
+        },
+        {
+          "step": "nursing-health-work"
+        }
+      ],
+      "pros": [
+        "고등학교를 다니면서 자격을 준비해요.",
+        "검정고시를 따로 보지 않아도 돼요."
+      ],
+      "cons": [
+        "학교를 그만뒀다면 다시 들어갈 수 있는지부터 확인해야 해요.",
+        "간호 관련 학과가 있는 학교가 지역마다 달라요."
+      ]
+    },
+    {
+      "id": "nursing-health-nurse-path",
+      "title": "간호학과 가서 간호사로",
+      "learn_style": "study",
+      "summary": "응급처치를 해 보고, 학력을 갖춰 간호학과에 들어가 졸업한 뒤 국가시험을 봐서 간호사가 돼요.",
+      "steps": [
+        {
+          "step": "nursing-health-mission-find-aed"
+        },
+        {
+          "step": "ged-high",
+          "note": "고등학교에 다니고 있다면 졸업으로 대신해요."
+        },
+        {
+          "step": "nursing-health-nursing-college"
+        },
+        {
+          "step": "nursing-health-national-exam"
+        },
+        {
+          "step": "nursing-health-work"
+        }
+      ],
+      "pros": [
+        "간호사 면허로 병원, 보건소, 학교 등 일할 수 있는 곳이 넓어요.",
+        "간호조무사와 달리 법에 정한 간호사 일 전체를 할 수 있어요."
+      ],
+      "cons": [
+        "간호학과 졸업 말고는 간호사가 되는 방법이 없어요.",
+        "입시와 대학 공부를 거쳐 시간이 오래 걸리고 학비가 들어요."
+      ]
+    },
+    {
+      "id": "nursing-health-allied-path",
+      "title": "전문대 보건 학과로 (치위생·임상병리 등)",
+      "learn_style": "study",
+      "summary": "학력을 갖추고 전문대 이상에서 치위생, 임상병리, 물리치료, 응급구조 같은 학과를 졸업한 뒤 국가시험을 봐서 면허를 받아요.",
+      "steps": [
+        {
+          "step": "ged-high",
+          "note": "고등학교에 다니고 있다면 졸업으로 대신해요."
+        },
+        {
+          "step": "nursing-health-allied-college"
+        },
+        {
+          "step": "nursing-health-national-exam"
+        },
+        {
+          "step": "nursing-health-work",
+          "note": "치과, 병원 검사실, 재활 병원, 구급 현장 등 학과에 따라 일하는 곳이 달라요."
+        }
+      ],
+      "pros": [
+        "전공한 분야의 전문 면허를 받아요.",
+        "4년제가 아닌 전문대 졸업으로도 시험을 볼 수 있어요."
+      ],
+      "cons": [
+        "대학이나 전문대를 꼭 졸업해야 해요.",
+        "학과를 고르면 그 면허 하나로 이어져서, 처음에 잘 알아보고 골라야 해요."
+      ]
+    }
+  ]
+}

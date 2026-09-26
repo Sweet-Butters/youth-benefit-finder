@@ -1,0 +1,136 @@
+{
+  "id": "mechanic",
+  "title": "정비·기계",
+  "holland": [
+    "R",
+    "I"
+  ],
+  "summary": "자동차, 기계, 전기 설비를 뜯어 보고 고치거나 용접으로 만드는 일이에요. 기능사 자격증은 나이·학력 제한이 없어서 학교를 그만뒀어도 바로 도전할 수 있어요. 몸을 많이 쓰고 다칠 위험이 있어서 안전을 먼저 배워요.",
+  "try_phrase": "물건 뜯어 보고 고치기",
+  "paths": [
+    {
+      "id": "mechanic-shop-path",
+      "title": "정비소에서 일하며 배우기",
+      "learn_style": "hands",
+      "summary": "한 번 뜯어 보고, 정비소나 공장에서 보조로 일하며 현장을 익히고, 기능사를 따서 정비·기계 일을 시작해요.",
+      "steps": [
+        {
+          "step": "mechanic-mission-take-apart"
+        },
+        {
+          "step": "mechanic-shop-helper"
+        },
+        {
+          "step": "mechanic-craftsman-exam",
+          "note": "일하면서 따로 시간을 내서 준비해요."
+        },
+        {
+          "step": "mechanic-field-work"
+        },
+        {
+          "step": "mechanic-industrial-engineer",
+          "note": "기능사를 따고 1년 이상 일하면 볼 수 있어요."
+        }
+      ],
+      "pros": [
+        "일하면서 돈을 벌고 현장을 바로 봐요.",
+        "학교나 학원에 다니지 않아도 시작할 수 있어요.",
+        "일한 경력이 산업기사 응시 자격이 돼요."
+      ],
+      "cons": [
+        "만 18세 미만은 기름 다루기, 운전처럼 법으로 막힌 일이 있어서 배울 수 있는 게 좁아요.",
+        "가르쳐 주는 정도와 근무 조건이 곳마다 달라요. 근로계약서를 꼭 받아요.",
+        "무거운 것을 들고 소음·기름 속에서 일해서 몸이 힘들 수 있어요."
+      ]
+    },
+    {
+      "id": "mechanic-polytech-path",
+      "title": "폴리텍에서 1년 배우기",
+      "learn_style": "institution",
+      "summary": "폴리텍 전문기술과정에서 1년 동안 실습하며 기능사를 따고, 현장에서 경력을 쌓아 산업기사로 올라가요.",
+      "steps": [
+        {
+          "step": "mechanic-mission-take-apart"
+        },
+        {
+          "step": "mechanic-polytech-course"
+        },
+        {
+          "step": "mechanic-craftsman-exam",
+          "note": "과정 안에서 준비해요."
+        },
+        {
+          "step": "mechanic-field-work"
+        },
+        {
+          "step": "mechanic-industrial-engineer"
+        }
+      ],
+      "pros": [
+        "만 15세 이상이면 학력과 상관없이 지원할 수 있어요.",
+        "교육훈련비를 국비로 지원받고, 출석하면 훈련장려금도 있어요.",
+        "장비가 갖춰진 곳에서 실습 위주로 배워요."
+      ],
+      "cons": [
+        "면접으로 뽑고, 캠퍼스마다 학과와 모집 시기가 달라요.",
+        "주 5일 낮 수업이라 일과 함께 하기 어려워요.",
+        "가까운 캠퍼스에 원하는 학과가 없으면 이사나 기숙사를 알아봐야 해요."
+      ]
+    },
+    {
+      "id": "mechanic-hs-path",
+      "title": "마이스터고·특성화고에서 배우기",
+      "learn_style": "school",
+      "summary": "자동차·기계·전기 학과가 있는 고등학교에서 친구들과 실습하며 기능사를 따고 현장으로 가요.",
+      "steps": [
+        {
+          "step": "mechanic-meister-hs"
+        },
+        {
+          "step": "mechanic-craftsman-exam",
+          "note": "학교 수업과 함께 준비해요."
+        },
+        {
+          "step": "mechanic-field-work"
+        }
+      ],
+      "pros": [
+        "친구들과 함께 실습 장비로 배워요.",
+        "고등학교 졸업장과 기능사를 함께 준비해요."
+      ],
+      "cons": [
+        "학교를 그만뒀다면 다시 들어갈 수 있는지부터 확인해야 해요.",
+        "원하는 학과가 있는 학교가 지역마다 달라요."
+      ]
+    },
+    {
+      "id": "mechanic-college-path",
+      "title": "검정고시 보고 전문대로",
+      "learn_style": "study",
+      "summary": "학력을 인정받고 전문대에서 자동차·기계·전기를 넓게 배운 뒤, 졸업 자격으로 산업기사에 도전해요.",
+      "steps": [
+        {
+          "step": "ged-high"
+        },
+        {
+          "step": "mechanic-college"
+        },
+        {
+          "step": "mechanic-industrial-engineer",
+          "note": "관련 학과 졸업(예정)이면 경력 없이 볼 수 있어요."
+        },
+        {
+          "step": "mechanic-field-work"
+        }
+      ],
+      "pros": [
+        "이론과 실습을 넓게 배워요.",
+        "졸업하면 경력 없이 산업기사를 볼 수 있어요."
+      ],
+      "cons": [
+        "검정고시와 입시를 거쳐서 시간이 오래 걸려요.",
+        "학비가 들어요."
+      ]
+    }
+  ]
+}

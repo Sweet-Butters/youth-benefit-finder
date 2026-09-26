@@ -94,6 +94,8 @@ def main(only: set[str] | None = None):
     items = merge(previous, kept, run_date)
     dump(OUT / "items.json", {"updatedAt": dt.datetime.now(KST).isoformat(timespec="seconds"), "items": items})
     dump(OUT / "review.json", {"runDate": run_date, "items": review})
+    # A run of only some sources keeps the other sources' last health record.
+    meta = {**load(OUT / "meta.json", {}).get("sources", {}), **meta}
     dump(OUT / "meta.json", {"runDate": run_date, "sources": meta, "total": len(items), "review": len(review),
                              "jev": dict(jev_stats, outcomes=dict(outcomes)) if jev_stats else None})
     if jev_stats:
