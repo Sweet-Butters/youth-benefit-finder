@@ -58,7 +58,9 @@ export function boardKey(it: CollectedItem): string {
   if (it.source === "volunteer") {
     const x = it.extra && typeof it.extra === "object" ? it.extra : {};
     const place = [x.place, x.actvPlcCn, it.provider].map((v) => (typeof v === "string" ? v : "")).find((v) => v.trim()) ?? "";
-    return `${norm(it.title)}|${norm(norm(place).slice(0, 60))}`;
+    // The crawler drops a leading "2026년" from titles and keeps the original in extra.full_title.
+    const title = typeof x.full_title === "string" && x.full_title.trim() ? x.full_title : it.title;
+    return `${norm(title)}|${norm(norm(place).slice(0, 60))}`;
   }
   if (it.source === "certi") return `${norm(it.title)}|${norm(it.provider)}`;
   return it.source_id;

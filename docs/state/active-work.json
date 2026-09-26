@@ -1,19 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 04:31",
+  "updated_at": "2026-09-27 04:34",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
-  "active_tasks": [
-    {
-      "id": "crawler-cleanup",
-      "who": "claude + 에이전트",
-      "state": "in-progress",
-      "branch": "Sweet-Butters/crawler-cleanup",
-      "started": "2026-09-27",
-      "summary": "남은 것: 봉사·체험 개별 공고 링크와 실제 기관 이름 (에이전트 작업 중, 다음 PR). 끝난 것: 장학금 지역(시·군→시·도) 240개 해결, 장학금 글 정리, 보조금24 모듈(키 승인 대기), 혜택 페이지 다듬기·사이트맵"
-    }
-  ],
+  "active_tasks": [],
   "queued_tasks": [
     {
       "id": "cooking-helps",
