@@ -272,7 +272,7 @@
         "군인"
       ],
       "try_first": "가까운 소방서·경찰서 견학이나 안전체험관 무료 체험 하나 예약해 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "경찰",
         "소방",
@@ -299,7 +299,7 @@
         "공무원"
       ],
       "try_first": "한 주 용돈 쓴 곳을 스프레드시트에 적고 합계·그래프 만들어 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "회계",
         "사무",
@@ -328,7 +328,7 @@
         "매장관리자"
       ],
       "try_first": "안 쓰는 물건 하나를 중고거래 앱에 사진·설명 붙여 올려 보기 (보호자와 함께)",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "창업",
         "마케팅",
@@ -356,7 +356,7 @@
         "콘텐츠기획자"
       ],
       "try_first": "오늘 있었던 일 하나로 짧은 글 한 편 써서 블로그나 메모 앱에 올려 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "글쓰기",
         "작가",
@@ -384,7 +384,7 @@
         "생명과학연구원"
       ],
       "try_first": "집에서 식초·베이킹소다로 작은 실험을 하고 결과를 표로 적어 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "과학",
         "실험",

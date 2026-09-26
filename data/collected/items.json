@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-27T07:29:58+09:00",
+ "updatedAt": "2026-09-27T08:52:01+09:00",
  "items": [
   {
    "source": "certi",
@@ -28890,6 +28890,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "science-lab-analysis-exam"
+   ],
    "jev": {
     "youth": 0.78,
     "out_of_school": 0.83,
@@ -28897,7 +28900,7 @@
     "stepConf": 0.7
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28927,6 +28930,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "science-lab-analysis-exam"
+   ],
    "jev": {
     "youth": 0.79,
     "out_of_school": 0.84,
@@ -28934,7 +28940,7 @@
     "stepConf": 0.75
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -28965,6 +28971,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "science-lab-analysis-exam"
+   ],
    "jev": {
     "youth": 0.81,
     "out_of_school": 0.85,
@@ -28972,7 +28981,7 @@
     "stepConf": 0.73
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29003,6 +29012,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "science-lab-analysis-exam"
+   ],
    "jev": {
     "youth": 0.81,
     "out_of_school": 0.85,
@@ -29010,7 +29022,7 @@
     "stepConf": 0.73
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"

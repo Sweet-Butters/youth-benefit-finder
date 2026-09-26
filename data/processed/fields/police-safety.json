@@ -1,0 +1,131 @@
+{
+  "id": "police-safety",
+  "title": "경찰·소방·안전",
+  "holland": [
+    "S",
+    "R"
+  ],
+  "summary": "위험한 순간에 사람을 지키는 일이에요. 경찰관·소방관은 채용시험에 합격해야 하는데, 공채는 학력 조건이 없고 만 18세부터 볼 수 있어요. 대학 학과를 거쳐 가는 길과, 만 18세부터 경비원·청원경찰로 일하는 길도 있어요.",
+  "try_phrase": "심폐소생술이나 안전 봉사",
+  "paths": [
+    {
+      "id": "police-safety-police-path",
+      "title": "순경 공채로 경찰관 되기",
+      "learn_style": "study",
+      "summary": "동네 안전부터 살펴보고, 운전면허를 딴 뒤 순경 공채를 준비해 합격하면 신임교육을 받고 경찰관이 돼요.",
+      "steps": [
+        {
+          "step": "police-safety-mission-safety-map"
+        },
+        {
+          "step": "police-safety-driver-license",
+          "note": "응시하려면 꼭 있어야 해요. 만 18세가 되면 바로 준비해요."
+        },
+        {
+          "step": "police-safety-police-exam",
+          "note": "법령에 학력 조건이 없어서 학교를 그만뒀어도 볼 수 있어요."
+        },
+        {
+          "step": "police-safety-academy"
+        }
+      ],
+      "pros": [
+        "법령에 학력 조건이 없어서 학교 밖에서도 준비할 수 있어요.",
+        "최종시험이 있는 해에 만 18세가 되면 응시할 수 있고, 40세까지 볼 수 있어요."
+      ],
+      "cons": [
+        "필기만이 아니라 체력검사와 면접도 통과해야 해요.",
+        "선발 인원 안에 들어야 해서 준비 기간이 길어질 수 있어요.",
+        "운전면허와 시험 준비에 비용이 들어요."
+      ]
+    },
+    {
+      "id": "police-safety-fire-path",
+      "title": "소방사 공채로 소방관 되기",
+      "learn_style": "study",
+      "summary": "동네 안전부터 살펴보고, 운전면허를 딴 뒤 소방사 공채를 준비해 합격하면 소방학교에서 교육을 받고 소방관이 돼요.",
+      "steps": [
+        {
+          "step": "police-safety-mission-safety-map"
+        },
+        {
+          "step": "police-safety-driver-license",
+          "note": "응시하려면 꼭 있어야 해요. 만 18세가 되면 바로 준비해요."
+        },
+        {
+          "step": "police-safety-fire-exam",
+          "note": "학력 제한이 없어서 학교를 그만뒀어도 볼 수 있어요."
+        },
+        {
+          "step": "police-safety-academy"
+        }
+      ],
+      "pros": [
+        "학력 제한이 없어서 학교 밖에서도 준비할 수 있어요.",
+        "체력시험이 있어서 운동한 만큼 도움이 돼요."
+      ],
+      "cons": [
+        "필기는 선발 인원의 3배수 안에 들어야 다음 단계로 가요.",
+        "체력시험과 면접까지 모두 통과해야 해요.",
+        "영어와 한국사는 인정 시험 점수를 미리 따 둬야 하고, 규정이 자주 바뀌어서 공고를 꼭 확인해야 해요."
+      ]
+    },
+    {
+      "id": "police-safety-college-path",
+      "title": "대학 경찰행정·소방학과에서 배우고 경력채용으로",
+      "learn_style": "school",
+      "summary": "학력을 인정받고 대학에서 경찰행정이나 소방을 배운 뒤, 학과 출신을 뽑는 경력경쟁채용에 응시해요.",
+      "steps": [
+        {
+          "step": "ged-high",
+          "note": "학교에 다니고 있다면 이 역은 건너뛰어요."
+        },
+        {
+          "step": "police-safety-college"
+        },
+        {
+          "step": "police-safety-police-exam",
+          "note": "학과 출신은 경력경쟁채용으로 응시할 수 있어요. 소방학과라면 소방공무원 경력경쟁채용을 봐요."
+        },
+        {
+          "step": "police-safety-academy"
+        }
+      ],
+      "pros": [
+        "친구들과 함께 법과 안전을 넓게 배워요.",
+        "공채 말고 학과 출신 경력경쟁채용으로도 응시할 수 있어요."
+      ],
+      "cons": [
+        "검정고시와 입시, 대학 공부를 거쳐서 시간이 오래 걸려요.",
+        "학비가 들어요.",
+        "학과를 나와도 채용시험에 합격해야 해요."
+      ]
+    },
+    {
+      "id": "police-safety-security-path",
+      "title": "경비원·청원경찰로 현장부터",
+      "learn_style": "hands",
+      "summary": "동네 안전부터 살펴보고, 일반경비원 신임교육을 받은 뒤 만 18세부터 경비원이나 청원경찰로 일하며 현장을 익혀요.",
+      "steps": [
+        {
+          "step": "police-safety-mission-safety-map"
+        },
+        {
+          "step": "police-safety-security-training"
+        },
+        {
+          "step": "police-safety-security-work"
+        }
+      ],
+      "pros": [
+        "교육이 짧아서 빨리 일을 시작할 수 있어요.",
+        "일하면서 안전 현장을 직접 겪어 봐요."
+      ],
+      "cons": [
+        "만 18세가 되기 전에는 경비원으로 일할 수 없어요.",
+        "경찰·소방 공무원과는 다른 일이라, 공무원이 되려면 채용시험을 따로 봐야 해요.",
+        "근무 시간과 교대 방식이 곳마다 달라서 근로계약서로 꼭 확인해요."
+      ]
+    }
+  ]
+}

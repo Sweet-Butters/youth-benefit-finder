@@ -133,6 +133,12 @@
       "step_ids": [
         "mechanic-craftsman-exam"
       ]
+    },
+    {
+      "tag": "qnet:6560",
+      "step_ids": [
+        "science-lab-analysis-exam"
+      ]
     }
   ]
 }
