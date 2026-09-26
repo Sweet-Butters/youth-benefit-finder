@@ -1,0 +1,1221 @@
+{
+ "updatedAt": "2026-09-27T00:42:26+09:00",
+ "items": [
+  {
+   "source": "kosaf",
+   "source_id": "hs-13c479818515",
+   "type": "scholarship",
+   "title": "(재)전남광주통합특별시 서구 장학재단 학교밖청소년(기관추천)장학금",
+   "provider": "(재)전남광주통합특별시 서구 장학재단",
+   "url": "http://seogu.gwangju.kr",
+   "summary": "고등학생을 위한 (재)전남광주통합특별시 서구 장학재단의 장학금이에요. 자격과 서류는 공고에서 확인해요.",
+   "apply_start": "2026-08-03",
+   "apply_end": "2026-09-30",
+   "regions": [
+    "gwangju"
+   ],
+   "target_text": "고등학생 대상 학교: 제한없음 학년: 제한없음 2026년도 초중고졸 검정고시에 응시 또는 합격한 학교 밖 청소년으로서 학교 밖 청소년 지원시설장의 추천을 받은 자",
+   "cost_text": "70만원",
+   "tags": [
+    "kosaf:hs",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "dataset": "https://www.data.go.kr/data/15116988/fileData.do",
+    "provider_kind": "지자체(출자출연기관)",
+    "aid_kind": "해당없음",
+    "residence": "공고일 현재 전남광주통합특별시 서구에 주민등록 상 1년 이상 주소를 둔 주민과 그 자녀",
+    "selection": "기관확인필요",
+    "quota": "4명",
+    "recommendation": "학교 밖 청소년 지원시설장 추천",
+    "documents": "장학금 지원 신청서 / 개인정보 수집·이용·제공 및 조회 동의서 / 주민등록등본 / 통장사본 / 장학생 추천서※ 자세한 사항은 첨부파일 또는 홈페이지 참고",
+    "restrictions": "서구장학재단으로 선발되어 장학금을 지원받은 학생※ 자세한 사항은 첨부파일 또는 홈페이지 참고"
+   },
+   "step_ids": [
+    "ged-high"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.96,
+    "step": "ged-high",
+    "stepConf": 0.93
+   },
+   "youth_reason": "youth words",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "open"
+  },
+  {
+   "source": "kosaf",
+   "source_id": "hs-dc2662bc26d6",
+   "type": "scholarship",
+   "title": "사단법인 광주광역시 동구 인재육성장학회 학교 밖 청소년",
+   "provider": "사단법인 광주광역시 동구 인재육성장학회",
+   "url": "https://www.donggu.kr",
+   "summary": "고등학생을 위한 사단법인 광주광역시 동구 인재육성장학회의 장학금이에요. 자격과 서류는 공고에서 확인해요.",
+   "apply_start": "2026-08-03",
+   "apply_end": "2026-08-31",
+   "regions": [
+    "gwangju"
+   ],
+   "target_text": "고등학생 대상 학교: 해당없음 학년: 해당없음 학교 밖 청소년으로서 초·중등교육법 시행령 제98조에 따른 고등학교 졸업 학력 검정고시에 합격한 자",
+   "cost_text": "50만원",
+   "tags": [
+    "kosaf:hs",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "dataset": "https://www.data.go.kr/data/15116988/fileData.do",
+    "provider_kind": "지자체(출자출연기관)",
+    "aid_kind": "해당없음",
+    "residence": "공고일 현재 광주광역시 동구에 1년 이상 주소를 두고 있는 주민과 그 자녀(주민등록 기준)",
+    "selection": "시험성적 70점 심사위원 종합평점 30점",
+    "quota": "2명",
+    "recommendation": "학교장 추천",
+    "documents": "장학생 신청서 / 개인정보 동의서 / 신청인 서약서 / 주민등록 초본 / 통장사본 / 학교장 추천서 / 검정고시 성적증명서※ 자세한 사항은 첨부파일 또는 홈페이지 참고",
+    "restrictions": "신청일 현재 휴학 중이거나 2026년도 휴학 예정인 자 / 성적우수/저소득분야/특정분야 중복 접수 시 심사 제외 (1개 분야만 신청) / 정규학기 초과 학생(졸업유예자) 및 타 장학금을 수령하여 지원 가능 금액이 50만원 미만인 경우※ 자세한 사항은 첨부파일 또는 홈페이지 참고"
+   },
+   "step_ids": [
+    "ged-high"
+   ],
+   "jev": {
+    "youth": 0.76,
+    "out_of_school": 0.91,
+    "step": "ged-high",
+    "stepConf": 0.71
+   },
+   "youth_reason": "youth words",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "kosaf",
+   "source_id": "hs-fd5dceaedbd8",
+   "type": "scholarship",
+   "title": "전라남도 해남군청 꿈드림 장학금",
+   "provider": "전라남도 해남군청",
+   "url": "https://www.haenam.go.kr",
+   "summary": "고등학생을 위한 전라남도 해남군청의 장학금이에요 (지역연고). 자격과 서류는 공고에서 확인해요.",
+   "apply_start": "2026-08-18",
+   "apply_end": "2026-09-04",
+   "regions": [
+    "jeonnam"
+   ],
+   "target_text": "고등학생 대상 학교: 제한없음 학년: 제한없음 최근 1년 이내 초·중·고등학교 졸업 학력 검정고시에 합격한 청소년 / 학교 밖 청소년 지원에 관한 법률 제2조의 학교 밖 청소년",
+   "cost_text": "60만원",
+   "tags": [
+    "kosaf:hs",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "dataset": "https://www.data.go.kr/data/15116988/fileData.do",
+    "provider_kind": "지자체(출자출연기관)",
+    "aid_kind": "지역연고",
+    "residence": "학생 또는 청소년 본인 및 보호자(부 또는 모/후견인)의 주민등록이 장학생 선발 공고일 현재 해남군에 등재",
+    "selection": "기관확인필요",
+    "quota": "20명",
+    "documents": "해남군장학금 신청서 / 주민등록등본 및 가족관계증명서 / 지방세 세목별과세증명서 / 건강보험료 납부확인서 / 건강보험 자격확인서 / 개인정보 수집·이용 및 제공·조회 동의서 / 신청인서약서 / 통장 사본 / 검정고시 성적증명서※ 자세한 사항은 첨부파일 또는 홈페이지 참고",
+    "restrictions": "분야별 중복 신청 제한※ 자세한 사항은 첨부파일 또는 홈페이지 참고"
+   },
+   "step_ids": [
+    "ged-high"
+   ],
+   "jev": {
+    "youth": 0.84,
+    "out_of_school": 0.95,
+    "step": "none",
+    "stepConf": 0.36
+   },
+   "youth_reason": "youth words",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "kosaf",
+   "source_id": "univ-b63d3cc9e9b6",
+   "type": "scholarship",
+   "title": "문주장학재단 검정고시 출신 대학생 학비지원",
+   "provider": "문주장학재단",
+   "url": "https://moonju.or.kr",
+   "summary": "대학생을 위한 문주장학재단의 장학금이에요. 자격과 서류는 공고에서 확인해요.",
+   "apply_start": "2026-07-27",
+   "apply_end": "2026-08-11",
+   "regions": [
+    "all"
+   ],
+   "target_text": "대학생 대상 학교: 해당없음 학년: 해당없음 학과: 해당없음 검정고시 출신 국내 대학생 중 신입생 또는 재학생",
+   "cost_text": "1인당 100만원",
+   "tags": [
+    "kosaf:univ"
+   ],
+   "extra": {
+    "dataset": "https://www.data.go.kr/data/15028252/fileData.do",
+    "provider_kind": "기타",
+    "aid_kind": "해당없음",
+    "selection": "기관확인필요",
+    "quota": "총 2명",
+    "documents": "장학생 신청서 1부 / 자기계발 계획서 1부",
+    "restrictions": "국가장학금 등 장학금을 제외한 본인 부담 등록금이 100만원 미만인 경우에는 신청 불가"
+   },
+   "step_ids": [
+    "ged-high"
+   ],
+   "jev": {
+    "youth": 0.54,
+    "out_of_school": 0.06,
+    "step": "culinary-college",
+    "stepConf": 0.91
+   },
+   "youth_reason": "youth words",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-16-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 16회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-08-06",
+   "apply_end": "2026-08-07",
+   "event_start": "2026-08-18",
+   "event_end": "2026-08-28",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 16,
+    "description": "국가기술자격 기능사 (2026년도 제16회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-17-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 17회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-08-20",
+   "apply_end": "2026-08-21",
+   "event_start": "2026-08-31",
+   "event_end": "2026-09-11",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 17,
+    "description": "국가기술자격 기능사 (2026년도 제17회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-18-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 18회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-09-03",
+   "apply_end": "2026-09-04",
+   "event_start": "2026-09-14",
+   "event_end": "2026-09-21",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 18,
+    "description": "국가기술자격 기능사 (2026년도 제18회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-19-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 19회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-09-17",
+   "apply_end": "2026-09-18",
+   "event_start": "2026-09-30",
+   "event_end": "2026-10-08",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 19,
+    "description": "국가기술자격 기능사 (2026년도 제19회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-20-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 20회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-01",
+   "apply_end": "2026-10-02",
+   "event_start": "2026-10-12",
+   "event_end": "2026-10-23",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 20,
+    "description": "국가기술자격 기능사 (2026년도 제20회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-21-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 21회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-15",
+   "apply_end": "2026-10-16",
+   "event_start": "2026-10-26",
+   "event_end": "2026-11-06",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 21,
+    "description": "국가기술자격 기능사 (2026년도 제21회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-22-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 22회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-29",
+   "apply_end": "2026-10-30",
+   "event_start": "2026-11-09",
+   "event_end": "2026-11-20",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 22,
+    "description": "국가기술자격 기능사 (2026년도 제22회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.78,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-23-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 23회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-12",
+   "apply_end": "2026-11-13",
+   "event_start": "2026-11-23",
+   "event_end": "2026-12-04",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 23,
+    "description": "국가기술자격 기능사 (2026년도 제23회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-24-실기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 24회 실기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 실기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-26",
+   "apply_end": "2026-11-27",
+   "event_start": "2026-12-07",
+   "event_end": "2026-12-16",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 24,
+    "description": "국가기술자격 기능사 (2026년도 제24회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.77,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-24-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 24회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-07-28",
+   "apply_end": "2026-07-29",
+   "event_start": "2026-08-03",
+   "event_end": "2026-08-07",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 24,
+    "description": "국가기술자격 기능사 (2026년도 제24회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-25-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 25회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-08-04",
+   "apply_end": "2026-08-05",
+   "event_start": "2026-08-10",
+   "event_end": "2026-08-14",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 25,
+    "description": "국가기술자격 기능사 (2026년도 제25회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-26-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 26회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-08-12",
+   "apply_end": "2026-08-13",
+   "event_start": "2026-08-18",
+   "event_end": "2026-08-21",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 26,
+    "description": "국가기술자격 기능사 (2026년도 제26회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.86,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-27-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 27회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-08-25",
+   "apply_end": "2026-08-25",
+   "event_start": "2026-08-31",
+   "event_end": "2026-09-04",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 27,
+    "description": "국가기술자격 기능사 (2026년도 제27회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-28-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 28회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-09-01",
+   "apply_end": "2026-09-02",
+   "event_start": "2026-09-07",
+   "event_end": "2026-09-11",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 28,
+    "description": "국가기술자격 기능사 (2026년도 제28회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-29-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 29회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-09-08",
+   "apply_end": "2026-09-09",
+   "event_start": "2026-09-14",
+   "event_end": "2026-09-18",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 29,
+    "description": "국가기술자격 기능사 (2026년도 제29회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "closed"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-30-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 30회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-09-30",
+   "apply_end": "2026-10-01",
+   "event_start": "2026-10-06",
+   "event_end": "2026-10-08",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 30,
+    "description": "국가기술자격 기능사 (2026년도 제30회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.82,
+    "out_of_school": 0.86,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-31-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 31회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-06",
+   "apply_end": "2026-10-07",
+   "event_start": "2026-10-12",
+   "event_end": "2026-10-16",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 31,
+    "description": "국가기술자격 기능사 (2026년도 제31회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-32-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 32회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-13",
+   "apply_end": "2026-10-14",
+   "event_start": "2026-10-19",
+   "event_end": "2026-10-23",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 32,
+    "description": "국가기술자격 기능사 (2026년도 제32회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.86,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-33-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 33회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-20",
+   "apply_end": "2026-10-21",
+   "event_start": "2026-10-26",
+   "event_end": "2026-10-30",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 33,
+    "description": "국가기술자격 기능사 (2026년도 제33회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-34-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 34회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-10-27",
+   "apply_end": "2026-10-28",
+   "event_start": "2026-11-02",
+   "event_end": "2026-11-06",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 34,
+    "description": "국가기술자격 기능사 (2026년도 제34회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.82,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-35-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 35회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-03",
+   "apply_end": "2026-11-04",
+   "event_start": "2026-11-09",
+   "event_end": "2026-11-13",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 35,
+    "description": "국가기술자격 기능사 (2026년도 제35회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.82,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-36-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 36회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-10",
+   "apply_end": "2026-11-11",
+   "event_start": "2026-11-16",
+   "event_end": "2026-11-20",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 36,
+    "description": "국가기술자격 기능사 (2026년도 제36회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.86,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-37-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 37회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-17",
+   "apply_end": "2026-11-18",
+   "event_start": "2026-11-23",
+   "event_end": "2026-11-27",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 37,
+    "description": "국가기술자격 기능사 (2026년도 제37회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.79,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-38-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 38회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-11-24",
+   "apply_end": "2026-11-25",
+   "event_start": "2026-11-30",
+   "event_end": "2026-12-04",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 38,
+    "description": "국가기술자격 기능사 (2026년도 제38회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.8,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-39-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 39회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-12-01",
+   "apply_end": "2026-12-02",
+   "event_start": "2026-12-07",
+   "event_end": "2026-12-11",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 39,
+    "description": "국가기술자격 기능사 (2026년도 제39회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-40-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 40회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-12-08",
+   "apply_end": "2026-12-09",
+   "event_start": "2026-12-14",
+   "event_end": "2026-12-18",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 40,
+    "description": "국가기술자격 기능사 (2026년도 제40회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.84,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  },
+  {
+   "source": "qnet",
+   "source_id": "7910-2026-41-필기",
+   "type": "resource",
+   "title": "한식조리기능사 2026년 41회 필기 원서접수",
+   "provider": "한국산업인력공단 (큐넷)",
+   "url": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+   "summary": "한식조리기능사 필기 시험 원서접수 기간이에요. 시험 장소와 응시료는 큐넷에서 확인해요.",
+   "apply_start": "2026-12-15",
+   "apply_end": "2026-12-16",
+   "event_start": "2026-12-21",
+   "event_end": "2026-12-23",
+   "regions": [
+    "all"
+   ],
+   "tags": [
+    "qnet:7910",
+    "open_to_all",
+    "out_of_school_ok"
+   ],
+   "extra": {
+    "implYy": "2026",
+    "implSeq": 41,
+    "description": "국가기술자격 기능사 (2026년도 제41회)"
+   },
+   "step_ids": [
+    "korean-cook-license"
+   ],
+   "jev": {
+    "youth": 0.81,
+    "out_of_school": 0.85,
+    "step": "korean-cook-license",
+    "stepConf": 1.0
+   },
+   "youth_reason": "open to all ages",
+   "first_seen": "2026-09-27",
+   "last_seen": "2026-09-27",
+   "status": "upcoming"
+  }
+ ]
+}

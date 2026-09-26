@@ -191,7 +191,7 @@ youth-benefit-finder/
 
 - 글(Markdown)은 `web/src/content/`에, 구조화된 지도 데이터는 `data/processed/`에 둔다. 글은 사이트의 일부이고, 지도 데이터는 나중에 크롤러·AI·다른 앱도 읽는 **공유 자산**이기 때문이다. Astro는 빌드 때 `../data/processed`를 import한다.
 - `check.yml`은 브랜치 보호에서 **필수 검사**로 건다. `data/processed/**`는 `CODEOWNERS`로 사실 확인 담당(C)의 리뷰를 요구한다.
-- 환경 변수: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`(공개돼도 되는 값), `SUPABASE_SERVICE_ROLE_KEY`(GitHub Secrets에만). `.env.example`은 코드가 생길 때 고친다. 기존의 `JEV_API_KEY`, `LLM_API_KEY`는 크롤러·v1 전까지 쓰지 않는다.
+- 환경 변수: `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`(공개돼도 되는 값), `SUPABASE_SERVICE_ROLE_KEY`(GitHub Secrets에만). `.env.example`은 코드가 생길 때 고친다. 수집기는 `DATA_GO_KR_KEY`와 `TYPESAFE_API_KEY`(Jev)를 GitHub Secrets에서 읽는다. `LLM_API_KEY`는 v1 전까지 쓰지 않는다.
 - 검토한 대안: **모노레포 도구(turborepo, pnpm workspace)** → 패키지가 `web/` 하나뿐이라 필요 없다. 패키지가 둘이 되면 그때.
 
 ## 7. 일부러 미루는 것
