@@ -1,25 +1,50 @@
 ---
-// One benefit card for the no-JS view of the field map. Mirrors card() in pages/fields/[field].astro.
+// One benefit card for the no-JS view of the field map. Mirrors card() and autoCard() in pages/fields/[field].astro.
+// Without JS there is no live D-n, so 공식 자동 cards show the dates only (the build already dropped closed windows).
 interface Props {
   p: {
     typeLabel: string; title: string; provider: string; url: string; summary: string; steps: string[];
     regionLabel: string; deadlineLabel: string; ageLabel: string; costLabel: string; closed: boolean; sponsored: boolean;
+    tier?: "auto"; windows?: { label: string; k: string }[]; sourceLabel?: string; seenLabel?: string;
   };
   stationTitle?: (sid: string) => string;
 }
 const { p, stationTitle } = Astro.props;
+const [next, ...rest] = p.windows ?? [];
 ---
-<li class:list={["perk", { "is-closed": p.closed, "is-sponsored": p.sponsored }]}>
-  <p class="p-top"><span class="p-type">{p.typeLabel}</span>{p.sponsored && <span class="p-spon">후원</span>}</p>
-  <h4 class="p-title">{p.title}</h4>
-  <p class="p-prov">{p.provider}</p>
-  <p class="p-sum">{p.summary}</p>
-  <dl class="p-meta">
-    <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
-    <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
-    {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
-    {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
-  </dl>
-  {stationTitle && p.steps.length > 1 && <p class="p-at">이어지는 역: {p.steps.map(stationTitle).join(" · ")}</p>}
-  <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
-</li>
+{p.tier === "auto" ? (
+  <li class="perk auto">
+    <p class="p-tier"><span class="t-auto">공식 자동</span><span>출처 {p.sourceLabel}</span>{p.seenLabel && <span>{p.seenLabel} 확인</span>}</p>
+    <h4 class="p-title">{p.title}</h4>
+    <p class="p-prov">{p.provider}</p>
+    {p.summary && <p class="p-sum">{p.summary}</p>}
+    <dl class="p-meta">
+      {next && <div><dt>{rest.length ? "다음 접수" : "신청"}</dt><dd>{next.label}{next.k && ` · ${next.k}`}</dd></div>}
+      <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+      {p.costLabel && <div><dt>금액</dt><dd>{p.costLabel}</dd></div>}
+    </dl>
+    {rest.length > 0 && (
+      <details class="p-more">
+        <summary>다음 회차 {rest.length}개 더</summary>
+        <ol>{rest.map((w) => <li><span>{w.label}</span>{w.k && <span>{w.k}</span>}</li>)}</ol>
+      </details>
+    )}
+    <p class="p-check">기관 원문에서 한 번 더 확인하세요.</p>
+    <a class="p-link" href={p.url} target="_blank" rel="noopener">{p.sourceLabel} 원문<span class="sr"> · {p.title}</span></a>
+  </li>
+) : (
+  <li class:list={["perk", { "is-closed": p.closed, "is-sponsored": p.sponsored }]}>
+    <p class="p-top"><span class="p-type">{p.typeLabel}</span>{p.sponsored && <span class="p-spon">후원</span>}</p>
+    <h4 class="p-title">{p.title}</h4>
+    <p class="p-prov">{p.provider}</p>
+    <p class="p-sum">{p.summary}</p>
+    <dl class="p-meta">
+      <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+      <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
+      {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
+      {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
+    </dl>
+    {stationTitle && p.steps.length > 1 && <p class="p-at">이어지는 역: {p.steps.map(stationTitle).join(" · ")}</p>}
+    <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
+  </li>
+)}
