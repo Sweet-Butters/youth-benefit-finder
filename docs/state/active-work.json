@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 19:06",
+  "updated_at": "2026-09-26 19:08",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
@@ -16,9 +16,10 @@
     {
       "id": "data-strategy-doc",
       "who": "claude",
-      "state": "in-progress",
+      "state": "pr-ready",
       "started": "2026-09-26",
-      "summary": "B2G·B2B 데이터 수요 조사 결과로 docs/data-strategy.md 작성"
+      "summary": "B2G·B2B 데이터 수요 조사 결과로 docs/data-strategy.md 작성",
+      "branch": "Sweet-Butters/data-strategy"
     }
   ],
   "queued_tasks": [
@@ -135,6 +136,12 @@
       "summary": "track을 learner/supporter로 바꾸기 (architecture.md 검토 메모 1)",
       "default": "바꾼다 (코드 생기기 전이라 비용이 거의 없음)",
       "by": "supabase 마이그레이션 작성 전"
+    },
+    {
+      "id": "stats-k",
+      "summary": "통계 소수 칸 숨김 기준 k와 쪼개는 기준 최대 개수, events 원본 보관 기간",
+      "default": "k=10, 최대 2개, 원본 1년 (data-strategy.md 9절)",
+      "by": "가입 기능을 열기 전"
     }
   ],
   "user_todo": [
