@@ -7,8 +7,9 @@ export const GC_ORIGIN = GC_CODE ? `https://${GC_CODE}.goatcounter.com` : "";
 /** Counts below this stay hidden: "조회 3" tells a new visitor nobody comes here. */
 export const MIN_SHOWN = 50;
 
-/** The path we count under. Same rule as the counting script: always a trailing slash, no query. */
+/** The path we count under. Same rule as the counting script in Site.astro: no query, no trailing slash
+ * (the home page was stored as "/youth-benefit-finder" while other pages kept their slash). */
 export function countPath(pathname: string): string {
   const p = pathname.split(/[?#]/)[0];
-  return p.endsWith("/") ? p : `${p}/`;
+  return p.length > 1 ? p.replace(/\/+$/, "") : p;
 }
