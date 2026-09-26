@@ -3,7 +3,7 @@
 // The info table follows dreamspon.com's order and keeps only the rows the source has.
 import Site from "../../layouts/Site.astro";
 import ViewCount from "../../components/ViewCount.astro";
-import { boardEntries, stateOn, todayKst, daysBetween, rangeLabel, ymd, md, STATUS_LABEL, type BoardEntry, type KindKey } from "../../lib/board";
+import { boardEntries, stateOn, similarTo, todayKst, daysBetween, rangeLabel, ymd, md, STATUS_LABEL, KIND_COLOR, type BoardEntry } from "../../lib/board";
 import { fields, steps } from "../../lib/content";
 import { url } from "../../lib/url";
 
@@ -15,9 +15,9 @@ const { e } = Astro.props as { e: BoardEntry };
 const today = todayKst();
 const st = stateOn(e, today);
 const n = st.date ? daysBetween(today, st.date) : 0;
-const dd = n === 0 ? "오늘" : `D-${n}`;
-const sub = st.status === "open" ? (n === 0 ? "마감" : "마감까지") : st.status === "upcoming" ? "접수 시작까지" : n === 0 ? "활동일" : "다음 활동일까지";
-const KIND_COLOR: Record<KindKey, string> = { scholarship: "var(--line-1)", volunteer: "var(--line-2)", activity: "var(--line-3)", exam: "var(--line-4)" };
+const always = st.status === "always";
+const dd = always ? "상시" : n === 0 ? "오늘" : `D-${n}`;
+const sub = always ? "언제든 신청" : st.status === "open" ? (n === 0 ? "마감" : "마감까지") : st.status === "upcoming" ? "접수 시작까지" : n === 0 ? "활동일" : "다음 활동일까지";
 
 // Stations this benefit sits at: every live field whose live lines pass the step.
 const stations = e.stepIds.flatMap((sid) =>
@@ -26,10 +26,8 @@ const stations = e.stepIds.flatMap((sid) =>
     .map((f) => ({ href: url(`/fields/${f.id}#st-${sid}`), field: f.title, station: steps.get(sid)?.title ?? sid })),
 );
 
-// 비슷한 혜택: same kind, sharing a region (전국 counts as everywhere), soonest first; topped up with the same kind.
-const others = boardEntries().filter((o) => o.id !== e.id && o.kind === e.kind);
-const near = (o: BoardEntry) => o.regions.some((r) => e.regions.includes(r)) || o.regions.includes("all") || e.regions.includes("all");
-const similar = [...others.filter(near), ...others.filter((o) => !near(o))].slice(0, 3);
+// 비슷한 혜택: same kind, never another region's (rules in similarTo, lib/board.ts).
+const similar = similarTo(e, boardEntries(), today);
 
 // Windows or sessions, when there is more than one.
 // 봉사 rounds share one apply window, so the activity day leads; exams lead with the apply window.
@@ -44,10 +42,57 @@ const listTitle = e.kind === "exam" ? "접수 회차" : e.kind === "activity" ? 
 const multi = winList.length > 1 || e.sessions.length > 1;
 const seen = e.seen ? e.seen.replaceAll("-", ".") : "";
 const pageTitle = `${e.title} · ${e.kindLabel}`;
-const desc = `${e.provider}의 ${e.kindLabel}. ${e.summary || ""}${st.window ? ` 신청 ${rangeLabel(st.window.s, st.window.e)}.` : st.date ? ` 다음 활동 ${ymd(st.date)}.` : ""}`.trim();
-const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+// Search snippet: who runs it, what you get, and until when, before the summary (people search the name).
+const when = st.window
+  ? st.status === "open" ? `${ymd(st.window.e)} 마감` : `${ymd(st.window.s)}부터 신청`
+  : always ? "상시 신청" : st.date ? `다음 활동 ${ymd(st.date)}` : "";
+const clip = (t: string, max: number) => (t.length > max ? `${t.slice(0, max - 1).trimEnd()}…` : t);
+const cost = clip(e.cost.split("※")[0].trim(), 40);
+const what = !cost ? e.kindLabel
+  : e.kind === "scholarship" || e.kind === "support" ? `${e.kindLabel} ${cost}` : `${e.kindLabel} · ${e.kind === "exam" ? "응시료" : "비용"} ${cost}`;
+const desc = clip([e.provider, e.regionLabel !== "전국" ? e.regionLabel : "", what, when].filter(Boolean).join(" · ") + ". " + (e.summary || ""), 160).trim();
+const pageUrl = new URL(Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`, Astro.site).href;
+
+// JSON-LD: a WebPage about the service; GovernmentService for public providers, Service otherwise.
+// The application window is an Offer (validFrom/validThrough), which is where schema.org puts such dates.
+const GOV_SOURCES = new Set(["gov24", "qnet"]);
+const deadline = st.window?.e;
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage", "@id": pageUrl, url: pageUrl, name: e.title, description: desc, inLanguage: "ko",
+      ...(e.seen ? { dateModified: e.seen } : {}),
+      isPartOf: { "@type": "WebSite", name: "지금 내 자리에서", url: new URL(url("/"), Astro.site).href },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "혜택", item: new URL(url("/helps/"), Astro.site).href },
+          { "@type": "ListItem", position: 2, name: e.title, item: pageUrl },
+        ],
+      },
+      mainEntity: {
+        "@type": GOV_SOURCES.has(e.source) ? "GovernmentService" : "Service",
+        name: e.title, description: e.summary || desc, url: e.url, serviceType: e.kindLabel,
+        ...(e.provider ? { provider: { "@type": "Organization", name: e.provider } } : {}),
+        areaServed: e.regions.includes("all") ? { "@type": "Country", name: "대한민국" } : e.regionLabel.split(" · ").map((r) => ({ "@type": "AdministrativeArea", name: r })),
+        ...(e.target ? { audience: { "@type": "Audience", audienceType: clip(e.target, 200) } } : {}),
+        ...(st.window || always ? {
+          offers: {
+            "@type": "Offer", url: e.url, availability: "https://schema.org/InStock",
+            ...(e.cost ? { description: e.cost } : {}),
+            ...(st.window ? { validFrom: st.window.s } : {}),
+            ...(deadline ? { validThrough: deadline } : {}),
+          },
+        } : {}),
+      },
+    },
+  ],
+};
+const ldJson = JSON.stringify(ld).replace(/</g, "\\u003c");
 ---
 <Site title={pageTitle} description={desc}>
+  <script slot="head" type="application/ld+json" is:inline set:html={ldJson}></script>
   <main class="hd" style={`--c:${KIND_COLOR[e.kind]}`}>
     <p class="crumb"><a href={url("/helps/")}>← 혜택 전체</a></p>
 
@@ -124,7 +169,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
               {similar.map((o) => {
                 const os = stateOn(o, today);
                 return (
-                  <li><a href={url(`/helps/${o.id}/`)}><b>{o.title}</b><small>{o.regionLabel} · {os.window ? `신청 ${rangeLabel(os.window.s, os.window.e)}` : os.date ? `활동 ${ymd(os.date)}` : ""}</small></a></li>
+                  <li><a href={url(`/helps/${o.id}/`)}><b>{o.title}</b><small>{o.regionLabel} · {os.window ? `신청 ${rangeLabel(os.window.s, os.window.e)}` : os.status === "always" ? "상시 신청" : os.date ? `활동 ${ymd(os.date)}` : ""}</small></a></li>
                 );
               })}
             </ul>
@@ -134,7 +179,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
     </div>
   </main>
 
-  <script type="application/json" id="hd-data" set:html={JSON.stringify({ w: e.windows.map((w) => [w.s, w.e]), s: e.sessions })}></script>
+  <script type="application/json" id="hd-data" set:html={JSON.stringify({ w: e.windows.map((w) => [w.s, w.e]), s: e.sessions, a: e.always })}></script>
   <script is:inline>
     (() => {
       const pad = (n) => String(n).padStart(2, "0");
@@ -150,13 +195,17 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
         cur = open || w[0];
         state = open ? "open" : "upcoming"; date = open ? cur[1] : cur[0];
       } else if (ss.length) { state = "check"; date = ss[0]; cur = [ss[0], ss[0]]; }
+      else if (T.a) state = "always";
       document.querySelectorAll(".ses-list li").forEach((li) => {
         li.classList.toggle("past", li.dataset.e < today);
         li.classList.toggle("next", !!cur && li.dataset.s === cur[0] && li.dataset.e === cur[1]);
       });
       const dd = document.getElementById("dd");
-      const L = { open: "접수 중", upcoming: "곧 열림", check: "일정 확인" };
-      if (state === "closed") {
+      const L = { open: "접수 중", upcoming: "곧 열림", check: "일정 확인", always: "상시" };
+      if (state === "always") {
+        dd.className = "dd s-always";
+        document.getElementById("status").textContent = L.always;
+      } else if (state === "closed") {
         dd.className = "dd s-closed";
         dd.querySelector("b").textContent = "마감";
         dd.querySelector("small").textContent = "다음 공고를 기다려요";
@@ -206,6 +255,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
   .dd.urgent small { color: #fff; }
   .dd.s-upcoming { border-style: dashed; }
   .dd.s-check { border-color: var(--lead); background: var(--board); }
+  .dd.s-always { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); }
   .dd.s-closed { border-color: var(--lead); color: var(--ink-2); }
   .prov { margin: 6px 0 0; font-size: 15px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
   .tier { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; font-size: 13px; color: var(--ink-2); }

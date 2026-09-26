@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 const BASE = "/youth-benefit-finder";
 
@@ -21,5 +22,8 @@ export default defineConfig({
   site: "https://sweet-butters.github.io",
   base: BASE,
   markdown: { remarkPlugins: [remarkBaseLinks] },
+  // sitemap-index.xml + sitemap-0.xml under the base, every built page except design concepts and 404.
+  // Drafts are never built, so they never get listed. robots.txt (src/pages/robots.txt.ts) points here.
+  integrations: [sitemap({ filter: (page) => !/\/(concepts\/|404\/?$)/.test(new URL(page).pathname) })],
   vite: { server: { fs: { allow: [".."] } } },
 });
