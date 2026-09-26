@@ -1,0 +1,18 @@
+{
+  "note": "한국장학재단 학자금지원정보 (data.go.kr 파일데이터, 키 불필요). 실행할 때마다 page에서 최신 CSV 링크(contentUrl)를 찾고, 못 찾으면 fallback_csv를 쓴다. 데이터셋이 새 판으로 바뀌어 fallback이 죽으면 page의 다운로드 링크로 고친다.",
+  "datasets": [
+    {
+      "key": "hs",
+      "label": "고등학생",
+      "page": "https://www.data.go.kr/data/15116988/fileData.do",
+      "fallback_csv": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668278&fileDetailSn=1&insertDataPrcus=N"
+    },
+    {
+      "key": "univ",
+      "label": "대학생",
+      "page": "https://www.data.go.kr/data/15028252/fileData.do",
+      "fallback_csv": "https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668238&fileDetailSn=1&insertDataPrcus=N"
+    }
+  ],
+  "keep_closed_days": 60
+}

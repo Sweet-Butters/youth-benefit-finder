@@ -1,0 +1,6 @@
+{
+  "note": "로드맵 단계가 쓰는 국가자격만 가져온다. jmCd는 큐넷 종목 코드. 단계 연결은 attach-rules.json의 qnet 태그로 한다.",
+  "qualifications": [
+    { "name": "한식조리기능사", "qualgbCd": "T", "jmCd": "7910", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910" }
+  ]
+}

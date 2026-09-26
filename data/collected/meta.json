@@ -1,0 +1,75 @@
+{
+ "runDate": "2026-09-27",
+ "sources": {
+  "qnet": {
+   "label": "큐넷 시험일정",
+   "fetched": 65,
+   "kept": 65,
+   "review": 0,
+   "dropped": 0,
+   "error": null,
+   "seconds": 1.2
+  },
+  "kosaf": {
+   "label": "한국장학재단 학자금지원정보",
+   "fetched": 591,
+   "kept": 4,
+   "review": 585,
+   "dropped": 2,
+   "error": null,
+   "seconds": 2.4
+  },
+  "certi": {
+   "label": "청소년활동 인증프로그램",
+   "fetched": 199,
+   "kept": 0,
+   "review": 125,
+   "dropped": 74,
+   "error": null,
+   "seconds": 43.6
+  },
+  "report": {
+   "label": "청소년활동 신고프로그램",
+   "fetched": 19,
+   "kept": 0,
+   "review": 8,
+   "dropped": 11,
+   "error": null,
+   "seconds": 4.8
+  },
+  "volunteer": {
+   "label": "청소년 자원봉사 (두볼)",
+   "fetched": 169,
+   "kept": 0,
+   "review": 169,
+   "dropped": 0,
+   "error": null,
+   "seconds": 33.8
+  }
+ },
+ "total": 31,
+ "review": 887,
+ "jev": {
+  "requests": 262,
+  "ok": 262,
+  "retries": 0,
+  "errors": {},
+  "latencyMs": {
+   "p50": 209,
+   "p95": 273,
+   "mean": 255
+  },
+  "inputTokens": 299550,
+  "costUsd": 0.012581,
+  "models": {
+   "jev-1.13.0": 262
+  },
+  "asked": 262,
+  "failed": 0,
+  "cached": 781,
+  "outcomes": {
+   "agreed": 1041,
+   "dropped": 2
+  }
+ }
+}

@@ -35,3 +35,6 @@ Thumbs.db
 
 # Astro
 .astro/
+
+# 수집기 검토 목록 - 매일 바뀌고 커서 커밋하지 않음 (Actions 산출물로 올림)
+data/collected/review.json
