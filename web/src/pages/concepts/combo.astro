@@ -3,6 +3,7 @@
 // with one line lit and the benefits ("받을 수 있는 혜택") that fit the answers beside it.
 // Rule-based and page-only: answers never leave the browser tab.
 import { fields, steps, KIND_LABEL, helps, REGION_LABEL, COST_LABEL, HELP_LABEL } from "../../lib/content";
+import { url } from "../../lib/url";
 import candidates from "../../../../data/candidates/cooking-helps.json";
 
 const field = fields.find((f) => f.id === "cooking")!;
@@ -530,7 +531,7 @@ const pageTitle = `${field.title} · 시안 4`;
 </head>
 <body>
   <header class="topbar">
-    <a href="/">← 처음으로</a>
+    <a href={url("/")}>← 처음으로</a>
     <span class="label">시안 4 · 대화 + 노선도 + 혜택</span>
   </header>
 

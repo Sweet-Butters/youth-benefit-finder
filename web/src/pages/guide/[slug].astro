@@ -3,6 +3,7 @@
 // then the way to the field's 노선도 and the checked sources.
 import { getCollection, render } from "astro:content";
 import Site from "../../layouts/Site.astro";
+import { url } from "../../lib/url";
 import { fields } from "../../lib/content";
 
 export async function getStaticPaths() {
@@ -22,7 +23,7 @@ const iso = updated.toISOString().slice(0, 10);
   <main class="wrap">
     <article class="guide">
       <header class="head">
-        <p class="crumbs"><a href="/guide">읽을거리</a>{fieldData && <span class="fld">{fieldData.title} 노선</span>}</p>
+        <p class="crumbs"><a href={url("/guide")}>읽을거리</a>{fieldData && <span class="fld">{fieldData.title} 노선</span>}</p>
         {draft && <p class="draft">초안 · 팀 검토 전이에요</p>}
         <h1 class="display">{title}</h1>
         <p class="meta"><time datetime={iso}>{iso.replaceAll("-", ".")}</time> 업데이트</p>
@@ -33,7 +34,7 @@ const iso = updated.toISOString().slice(0, 10);
       </div>
 
       {field && (
-        <a class="go" href={`/fields/${field}`}>
+        <a class="go" href={url(`/fields/${field}`)}>
           <span class="go-t">
             <small>{pathCount ? `노선 ${pathCount}개를 나란히 봐요` : "길을 나란히 봐요"}</small>
             <b>{fieldTitle} 노선도 보기</b>

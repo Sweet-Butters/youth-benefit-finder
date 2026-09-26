@@ -1,17 +1,25 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 00:43",
+  "updated_at": "2026-09-27 01:39",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "crawler-stage1",
-      "who": "claude + 에이전트",
-      "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/crawler-stage1",
-      "started": "2026-09-26",
-      "summary": "혜택 수집기 1단계: 공식 출처 5개(큐넷, 장학재단, 청소년활동 인증·신고, 자원봉사) + Jev 두 번째 의견. 결과는 data/collected/에만, 사이트는 아직 안 읽음"
+      "id": "deploy-pages",
+      "who": "에이전트",
+      "state": "in-progress",
+      "branch": "Sweet-Butters/deploy-pages",
+      "started": "2026-09-27",
+      "summary": "GitHub Pages로 배포 (sweet-butters.github.io/youth-benefit-finder). Cloudflare 로그인이 없어 GitHub Pages로"
+    },
+    {
+      "id": "show-collected",
+      "who": "에이전트",
+      "state": "in-progress",
+      "branch": "Sweet-Butters/show-collected",
+      "started": "2026-09-27",
+      "summary": "수집한 공식 항목(큐넷 일정, 학교 밖 장학금)을 요리사 페이지 혜택 칸에 '공식 자동' 표시로"
     }
   ],
   "queued_tasks": [

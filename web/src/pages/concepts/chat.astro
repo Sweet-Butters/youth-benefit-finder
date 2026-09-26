@@ -2,6 +2,7 @@
 // 시안 3 · 대화형 — asks one question at a time, then shows a path to start from.
 // Rule-based and page-only: answers never leave the browser tab.
 import { fields, steps, KIND_LABEL } from "../../lib/content";
+import { url } from "../../lib/url";
 
 const field = fields.find((f) => f.id === "cooking")!;
 const paths = field.paths
@@ -23,6 +24,7 @@ const data = { field: { id: field.id, title: field.title, summary: field.summary
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{`${field.title}, 어디서 시작할까 · 시안 3`}</title>
   <meta name="description" content="질문 세 개에 답하면 요리사가 되는 길 중 먼저 볼 만한 길을 보여 줘요." />
@@ -189,7 +191,7 @@ const data = { field: { id: field.id, title: field.title, summary: field.summary
 </head>
 <body>
   <header class="top">
-    <a href="/">← 처음으로</a>
+    <a href={url("/")}>← 처음으로</a>
     <span class="tag">시안 3 · 대화형</span>
   </header>
 

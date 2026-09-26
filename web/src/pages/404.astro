@@ -1,6 +1,7 @@
 ---
 // Not found (D22): a platform sign for a station that isn't on the map.
 import Site from "../layouts/Site.astro";
+import { url } from "../lib/url";
 ---
 <Site title="없는 역" description="찾는 페이지가 없어요." noindex>
   <main class="nf">
@@ -14,8 +15,8 @@ import Site from "../layouts/Site.astro";
       <p class="b">주소가 바뀌었거나 아직 없는 역이에요. 괜찮아요, 처음 역으로 돌아가서 다시 골라 봐요.</p>
     </div>
     <ul class="ways">
-      <li><a href="/">처음으로 돌아가기</a></li>
-      <li><a href="/guide">읽을거리 보기</a></li>
+      <li><a href={url("/")}>처음으로 돌아가기</a></li>
+      <li><a href={url("/guide")}>읽을거리 보기</a></li>
     </ul>
   </main>
 </Site>
