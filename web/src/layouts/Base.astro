@@ -1,6 +1,11 @@
 ---
-interface Props { title: string; description?: string }
-const { title, description = "지금 내 자리에서 시작하는 진로" } = Astro.props;
+interface Props { title: string; description?: string; wide?: boolean }
+const { title, description = "지금 내 자리에서 시작하는 진로. 어디서 시작해도 갈 수 있는 길을 보여 줘요.", wide = false } = Astro.props;
+const path = Astro.url.pathname;
+const nav = [
+  { href: "/fields/cooking", label: "길 지도", match: "/fields" },
+  { href: "/guide", label: "읽을거리", match: "/guide" },
+];
 ---
 <!doctype html>
 <html lang="ko">
@@ -9,20 +14,72 @@ const { title, description = "지금 내 자리에서 시작하는 진로" } = A
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} · 지금 내 자리에서 시작하는 진로</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <style is:global>
-      :root { --ink:#1f2328; --muted:#5b636e; --line:#e3e6ea; --accent:#e86a33; --bg:#fff; --soft:#fbf6f2; }
-      * { box-sizing: border-box; }
-      body { margin:0; font-family: system-ui, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
-      main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
-      header.site { border-bottom:1px solid var(--line); padding:12px 16px; }
-      header.site a { color:var(--ink); text-decoration:none; font-weight:700; }
-      a { color: var(--accent); }
-      .muted { color: var(--muted); }
-    </style>
+    <link rel="canonical" href={new URL(path, Astro.site)} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#e86a33" />
   </head>
   <body>
-    <header class="site"><a href="/">지금 내 자리에서 시작하는 진로</a></header>
-    <main><slot /></main>
+    <header class="site">
+      <div class="bar">
+        <a class="brand" href="/"><span class="dot" aria-hidden="true"></span>지금 내 자리에서</a>
+        <nav aria-label="주요 메뉴">
+          {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.match) ? "page" : undefined}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main class:list={[{ wide }]}><slot /></main>
+    <footer class="site">
+      <p>어느 길이 더 낫다고 정하지 않아요. 정보는 공식 출처로 확인하고, 확인한 날짜를 함께 적어요.</p>
+      <p class="muted">광고 없음 · 학생 정보를 팔지 않아요</p>
+    </footer>
   </body>
 </html>
+
+<style is:global>
+  :root {
+    --ink: #1f2328; --muted: #5b636e; --line: #e6e2dd; --accent: #e86a33; --accent-ink: #b8481a;
+    --bg: #fffdfb; --soft: #fbf3ec; --card: #ffffff; --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 17px;
+    font-family: system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  h1, h2, h3 { line-height: 1.35; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(26px, 5vw, 36px); margin: 8px 0 12px; }
+  .muted { color: var(--muted); }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 16px 72px; }
+  main.wide { max-width: 1040px; }
+
+  header.site { position: sticky; top: 0; z-index: 10; background: rgba(255, 253, 251, 0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  header.site .bar { max-width: 1040px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { font-weight: 800; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px #f8d9c8; }
+  header.site nav { display: flex; gap: 4px; }
+  header.site nav a { color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 999px; font-size: 15px; }
+  header.site nav a[aria-current="page"], header.site nav a:hover { color: var(--ink); background: var(--soft); }
+
+  footer.site { border-top: 1px solid var(--line); padding: 20px 16px 40px; text-align: center; font-size: 14px; color: var(--muted); }
+  footer.site p { margin: 4px 0; }
+
+  .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; text-decoration: none; font-weight: 700; }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+  .btn[aria-disabled="true"] { opacity: 0.55; pointer-events: none; }
+  .pill { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 1px 9px; background: #fde7dc; color: var(--accent-ink); vertical-align: 2px; }
+
+  .guide h2 { margin-top: 32px; }
+  .guide .draft { background: #fff4d6; border: 1px solid #f0d58a; border-radius: 10px; padding: 6px 12px; font-size: 14px; display: inline-block; }
+  .guide .cta { margin-top: 28px; font-weight: 700; }
+  .guide .sources { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; }
+  .guide .sources h2 { font-size: 16px; }
+  .guide blockquote { margin: 20px 0; padding: 12px 16px; background: var(--soft); border-left: 4px solid var(--accent); border-radius: 10px; }
+  .guide blockquote p { margin: 4px 0; }
+
+  @media (max-width: 480px) { body { font-size: 16px; } }
+</style>

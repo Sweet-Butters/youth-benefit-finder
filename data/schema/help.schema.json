@@ -4,33 +4,146 @@
   "title": "도움 (help) 하나: 지원·장학금·무료 강의·대회·체험",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "type", "title", "provider", "url", "summary", "checked_at", "deadline", "regions", "sponsored"],
-  "anyOf": [{ "required": ["step_ids"] }, { "required": ["field_ids"] }],
+  "required": [
+    "id",
+    "type",
+    "title",
+    "provider",
+    "url",
+    "summary",
+    "checked_at",
+    "deadline",
+    "regions",
+    "sponsored"
+  ],
+  "anyOf": [
+    {
+      "required": [
+        "step_ids"
+      ]
+    },
+    {
+      "required": [
+        "field_ids"
+      ]
+    }
+  ],
   "properties": {
-    "id": { "$ref": "common.schema.json#/$defs/id" },
-    "type": { "type": "string", "enum": ["support", "scholarship", "course", "contest", "experience"] },
-    "title": { "type": "string", "minLength": 1, "maxLength": 80 },
-    "provider": { "type": "string", "minLength": 1, "maxLength": 60 },
-    "url": { "$ref": "common.schema.json#/$defs/https_url" },
-    "summary": { "type": "string", "minLength": 1, "maxLength": 200, "description": "직접 요약. 원문 복사 금지" },
-    "checked_at": { "$ref": "common.schema.json#/$defs/date" },
+    "id": {
+      "$ref": "common.schema.json#/$defs/id"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "support",
+        "scholarship",
+        "course",
+        "contest",
+        "experience",
+        "resource"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "url": {
+      "$ref": "common.schema.json#/$defs/https_url"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "직접 요약. 원문 복사 금지"
+    },
+    "checked_at": {
+      "$ref": "common.schema.json#/$defs/date"
+    },
     "deadline": {
-      "anyOf": [{ "$ref": "common.schema.json#/$defs/date" }, { "const": "rolling" }, { "type": "null" }]
+      "anyOf": [
+        {
+          "$ref": "common.schema.json#/$defs/date"
+        },
+        {
+          "const": "rolling"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "regions": {
-      "type": "array", "minItems": 1, "uniqueItems": true,
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "type": "string",
-        "enum": ["all", "seoul", "busan", "daegu", "incheon", "gwangju", "daejeon", "ulsan", "sejong",
-                 "gyeonggi", "gangwon", "chungbuk", "chungnam", "jeonbuk", "jeonnam", "gyeongbuk", "gyeongnam", "jeju"]
+        "enum": [
+          "all",
+          "seoul",
+          "busan",
+          "daegu",
+          "incheon",
+          "gwangju",
+          "daejeon",
+          "ulsan",
+          "sejong",
+          "gyeonggi",
+          "gangwon",
+          "chungbuk",
+          "chungnam",
+          "jeonbuk",
+          "jeonnam",
+          "gyeongbuk",
+          "gyeongnam",
+          "jeju"
+        ]
       }
     },
-    "step_ids": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/id" } },
-    "field_ids": { "type": "array", "minItems": 1, "items": { "$ref": "common.schema.json#/$defs/id" } },
-    "sponsored": { "type": "boolean", "description": "후원 게재. 추천 계산에서는 제외한다 (architecture.md 1절)" },
-    "age_min": { "type": "integer", "minimum": 0, "maximum": 99 },
-    "age_max": { "type": "integer", "minimum": 0, "maximum": 99 },
-    "cost": { "type": "string", "enum": ["free", "paid", "partly"] },
-    "retired": { "type": "boolean" }
+    "step_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "field_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "common.schema.json#/$defs/id"
+      }
+    },
+    "sponsored": {
+      "type": "boolean",
+      "description": "후원 게재. 추천 계산에서는 제외한다 (architecture.md 1절)"
+    },
+    "age_min": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 99
+    },
+    "age_max": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 99
+    },
+    "cost": {
+      "type": "string",
+      "enum": [
+        "free",
+        "paid",
+        "partly"
+      ]
+    },
+    "retired": {
+      "type": "boolean"
+    }
   }
 }

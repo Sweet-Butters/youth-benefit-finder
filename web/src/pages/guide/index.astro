@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.data.draft))
+  .sort((a, b) => b.data.updated.getTime() - a.data.updated.getTime());
+---
+<Base title="읽을거리" description="진로를 고민할 때 읽어 보면 좋은 글. 상황별 선택지와 직업별 여러 길.">
+  <h1>읽을거리</h1>
+  <p class="muted">상황별 선택지와 직업별 여러 길을 정리해요. 사실은 공식 출처로 확인해 적어요.</p>
+  {posts.length === 0 ? (
+    <p>첫 글을 준비하고 있어요.</p>
+  ) : (
+    <ul class="list">
+      {posts.map((p) => (
+        <li>
+          <a href={`/guide/${p.id}`}><strong>{p.data.title}</strong></a>
+          {p.data.draft && <span class="pill">초안</span>}
+          <p class="muted">{p.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  )}
+</Base>
+
+<style>
+  .list { list-style: none; padding: 0; }
+  .list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .list p { margin: 4px 0 0; }
+</style>

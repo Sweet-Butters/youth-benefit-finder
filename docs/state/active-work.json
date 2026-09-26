@@ -1,37 +1,34 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 19:08",
+  "updated_at": "2026-09-26 20:14",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "week1-dev",
+      "id": "cooking-slice",
       "who": "claude",
-      "state": "pr-ready",
-      "branch": "Sweet-Butters/week1-data",
+      "state": "pr-open-waiting-merge",
+      "branch": "Sweet-Butters/cooking-slice",
       "started": "2026-09-26",
-      "summary": "1주차: 스키마, 요리사 초안, 검사, Astro 뼈대, CI"
-    },
-    {
-      "id": "data-strategy-doc",
-      "who": "claude",
-      "state": "pr-ready",
-      "started": "2026-09-26",
-      "summary": "B2G·B2B 데이터 수요 조사 결과로 docs/data-strategy.md 작성",
-      "branch": "Sweet-Butters/data-strategy"
+      "summary": "요리사 완성본: 디자인, 글 초안, 도움 후보, Fable 검토 반영"
     }
   ],
   "queued_tasks": [
     {
       "id": "cooking-helps",
       "stage": "1-mvp",
-      "summary": "요리사 도움(help) 항목을 공식 공고로 확인해 채우기, 항목당 걸린 시간 기록 (사실 확인 담당)"
+      "summary": "요리사 도움 후보 9개(data/candidates/cooking-helps.md)를 공식 원문으로 확인해 data/processed/helps/로 옮기기. 확인 순서는 파일 맨 위. 항목당 걸린 시간 기록 (사실 확인 담당)"
     },
     {
       "id": "cooking-review",
       "stage": "1-mvp",
       "summary": "요리사 길 4개·단계 8개 초안 검토 (기획 담당)"
+    },
+    {
+      "id": "guide-fact-additions",
+      "stage": "1-mvp",
+      "summary": "글 보강(출처 확인 필요): 검정고시 자퇴 후 응시 제한 기간, 전체 합격 기준(평균), 청소년 야간근로 제한·15세 미만 취직인허증"
     },
     {
       "id": "privacy-policy",
@@ -65,6 +62,12 @@
     }
   ],
   "pending_decisions": [
+    {
+      "id": "guide-publish",
+      "summary": "글 '요리사가 되는 여러 길'을 공개할지 (지금은 draft라 실제 빌드에 안 나옴). 대학 길의 '넓고 체계적으로' 표현 등 팀 검토 필요",
+      "default": "팀 검토 전까지 초안 유지. 봉사 수업 데모는 개발 서버로 보여 준다",
+      "by": "봉사 수업 데모 전"
+    },
     {
       "id": "pi-expansion",
       "summary": "개인정보 선택 항목 확대 (사용자는 최대로 모으기를 원함: 예 재학 여부, 학교급, 시·군·구, 관심 직업)와 개인 단위 B2B·B2G 제공 여부",
