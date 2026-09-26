@@ -1,0 +1,489 @@
+---
+// 시안 2 · 다꾸 스크랩북 — the real "요리사" field drawn as a teen's diary/zine spread.
+import { fields, steps, KIND_LABEL } from "../../lib/content";
+
+const field = fields.find((f) => f.id === "cooking")!;
+const paths = field.paths.filter((p) => !p.retired);
+const MISSION_ID = "mission-cook-one-recipe";
+const mission = steps.get(MISSION_ID);
+
+// How many paths use each step: a step used by 2+ paths becomes a repeated "sticker".
+const useCount = new Map<string, number>();
+for (const p of paths) for (const s of new Set(p.steps.map((x) => x.step))) useCount.set(s, (useCount.get(s) ?? 0) + 1);
+const sharedIds = [...useCount].filter(([, n]) => n > 1).map(([id]) => id);
+const everyPathIds = [...useCount].filter(([, n]) => n === paths.length).map(([id]) => id);
+
+// Each shared sticker gets its own ink so the same sticker is recognisable on every page.
+const STICKER_INK = ["#e2563d", "#2f7d6d", "#3c5fb0", "#b8527f", "#9a6a12"];
+const stickerInk = new Map(sharedIds.map((id, i) => [id, STICKER_INK[i % STICKER_INK.length]]));
+
+// Walk the pages in order and decide full vs compact ("앞에서 본 스티커").
+// The mission is shown first on the sticky note, so it already counts as "seen".
+const seen = new Set<string>(mission ? [MISSION_ID] : []);
+const PAPERS = ["lined", "grid", "kraft", "dots"] as const;
+const TAPES = ["tape-mint", "tape-pink", "tape-yellow", "tape-blue"];
+const TILTS = [-1.2, 0.9, -0.6, 1.1];
+const TABS = ["가", "나", "다", "라"];
+
+const pages = paths.map((p, i) => ({
+  ...p,
+  paper: PAPERS[i % PAPERS.length],
+  tape: TAPES[i % TAPES.length],
+  tilt: TILTS[i % TILTS.length],
+  tab: TABS[i] ?? String(i + 1),
+  items: p.steps
+    .map((ps) => {
+      const step = steps.get(ps.step);
+      if (!step || step.retired) return null;
+      const repeat = seen.has(ps.step);
+      seen.add(ps.step);
+      return {
+        step,
+        note: ps.note,
+        repeat,
+        shared: stickerInk.has(ps.step) || ps.step === MISSION_ID,
+        ink: stickerInk.get(ps.step) ?? (ps.step === MISSION_ID ? "#d99a00" : undefined),
+        firstId: `${ps.step}-first`,
+      };
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null),
+}));
+
+// Deterministic torn-edge polygon for clip-path (no randomness between builds).
+function torn(edge: "top" | "bottom", teeth = 34, depth = 7) {
+  const pts: string[] = [];
+  for (let i = 0; i <= teeth; i++) {
+    const x = (i / teeth) * 100;
+    const d = ((i * 37) % 11) / 10 * depth; // pseudo-random 0..depth px
+    pts.push(edge === "top" ? `${x.toFixed(2)}% ${d.toFixed(1)}px` : `${x.toFixed(2)}% calc(100% - ${d.toFixed(1)}px)`);
+  }
+  return edge === "top"
+    ? `polygon(${pts.join(",")}, 100% 100%, 0 100%)`
+    : `polygon(0 0, 100% 0, ${pts.reverse().join(",")})`;
+}
+const tornTop = torn("top");
+const tornBottom = torn("bottom");
+const firstShared = everyPathIds.map((id) => steps.get(id)?.title).filter(Boolean);
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{field.title} 길 지도 · 다꾸 스크랩북 시안</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet" />
+  <style define:vars={{ tornTop, tornBottom }}>
+    :root {
+      --desk: #efe6d6;
+      --ink: #2a2622;
+      --ink-soft: #4d4640;
+      --pencil: #6b6159;
+      --red: #d8452f;
+      --paper: #fffdf7;
+      --hand: "Gaegu", "Gowun Dodum", sans-serif;
+      --pen: "Nanum Pen Script", "Gaegu", cursive;
+      --body: "Gowun Dodum", system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body, h1, h2, h3, p, a { word-break: keep-all; overflow-wrap: break-word; }
+    h1, h2, h3, .step-title, .sticker, .toc a, .kicker, .top, .recipe-label, .tab, .what { letter-spacing: -0.03em; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 16px/1.65 var(--body);
+      background-color: var(--desk);
+      /* cork-ish desk: speckle noise + faint fibres */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(115deg, transparent 0 22px, rgba(120, 90, 50, .035) 22px 23px);
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px dashed var(--red); outline-offset: 3px; }
+
+    /* ---------- tiny header ---------- */
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 16px; font: 700 18px/1.2 var(--hand);
+    }
+    .top a { text-decoration: none; border-bottom: 2px solid currentColor; }
+    .top .label { background: var(--ink); color: var(--desk); padding: 2px 8px 3px; transform: rotate(-1deg); }
+
+    /* ---------- the book ---------- */
+    .book { max-width: 1120px; margin: 0 auto; padding: 8px 16px 64px; overflow-x: clip; }
+    .spread { display: grid; gap: 34px; }
+    @media (min-width: 900px) {
+      .spread {
+        grid-template-columns: 1fr 1fr; gap: 0;
+        background: var(--paper);
+        box-shadow: 0 2px 0 #d8ccb6, 0 18px 40px -18px rgba(60, 40, 20, .45);
+        border-radius: 6px 6px 4px 4px;
+        position: relative; padding: 40px 0 48px; margin-top: 12px;
+      }
+      /* the spine / gutter shadow */
+      .spread::before {
+        content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 28px); width: 56px;
+        background: linear-gradient(90deg, transparent, rgba(80, 55, 25, .13) 45%, rgba(80, 55, 25, .2) 50%, rgba(80, 55, 25, .13) 55%, transparent);
+        pointer-events: none;
+      }
+      .leaf { padding: 0 52px; min-width: 0; }
+      .spread + .spread { margin-top: 44px; }
+    }
+
+    /* ---------- page 1: title ---------- */
+    .title-block { position: relative; padding-top: 6px; }
+    .kicker { font: 700 19px/1 var(--hand); color: var(--pencil); margin: 0 0 4px; }
+    h1 {
+      font: 700 clamp(46px, 13vw, 72px)/0.95 var(--hand); margin: 0;
+      position: relative; display: inline-block;
+    }
+    /* highlighter swipe under the title */
+    h1 .hl { background: linear-gradient(transparent 58%, #ffd84d 58% 90%, transparent 90%); padding: 0 4px; }
+    .doodle-pan { position: absolute; right: 0; top: 0; width: 92px; height: auto; transform: rotate(8deg); }
+    .summary-card {
+      margin: 20px 4px 0; padding: 18px 18px 16px; background: #fff;
+      border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink);
+      transform: rotate(-0.8deg); position: relative; max-width: 460px;
+    }
+    .summary-card p { margin: 0; font-size: 17px; }
+    .summary-card .tape { left: 50%; margin-left: -46px; top: -14px; }
+
+    /* 목차 — 4 ways, no ranking */
+    .toc { margin: 34px 0 0; padding: 0; list-style: none; }
+    .toc h2 { font: 700 26px/1.1 var(--hand); margin: 0 0 6px; }
+    .toc .sub { font-size: 16px; color: var(--ink-soft); margin: 0 0 12px; }
+    .toc li { margin: 0; }
+    .toc a {
+      display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: baseline;
+      padding: 9px 2px; text-decoration: none; border-bottom: 2px dashed #cbbfa9;
+      font: 700 21px/1.25 var(--hand);
+    }
+    .toc a:hover .t { text-decoration: underline wavy var(--red) 1.5px; text-underline-offset: 4px; }
+    .toc .tabdot {
+      width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+      font: 700 17px/1 var(--hand); border: 2px solid var(--ink); background: var(--c);
+    }
+    .toc-foot { margin: 14px 0 0; font: 400 24px/1.25 var(--pen); color: var(--red); transform: rotate(-1.5deg); }
+
+    /* ---------- page 2: sticky + sticker legend ---------- */
+    .sticky {
+      position: relative; background: #ffe869; padding: 26px 20px 20px; margin: 10px 8px 0;
+      transform: rotate(1.4deg);
+      box-shadow: 0 14px 18px -12px rgba(70, 50, 0, .45), inset 0 -18px 24px -20px rgba(160, 120, 0, .35);
+      clip-path: var(--tornBottom);
+      padding-bottom: 30px;
+    }
+    .sticky .pin {
+      position: absolute; top: 8px; left: 50%; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff8c7a, var(--red) 60%, #8b2213);
+      box-shadow: 1px 2px 2px rgba(0, 0, 0, .35);
+    }
+    .sticky h2 { font: 700 27px/1.1 var(--hand); margin: 6px 0 10px; }
+    .sticky .what { font: 700 22px/1.3 var(--hand); margin: 0 0 6px; }
+    .sticky p { margin: 0; }
+    .sticky .check {
+      margin-top: 14px; display: flex; gap: 10px; align-items: center; font: 700 19px/1.2 var(--hand);
+    }
+    .sticky .box { width: 22px; height: 22px; border: 2.5px solid var(--ink); border-radius: 3px 5px 4px 2px; flex: none; }
+
+    .legend { margin-top: 38px; position: relative; }
+    .legend h2 { font: 700 24px/1.1 var(--hand); margin: 0 0 4px; }
+    .legend p { margin: 0 0 14px; color: var(--ink-soft); }
+    .sheet {
+      display: flex; flex-wrap: wrap; gap: 14px 12px; padding: 18px 14px;
+      background:
+        linear-gradient(#fff0 0 0),
+        repeating-linear-gradient(45deg, #f4efe6 0 6px, #fbf8f2 6px 12px);
+      border: 2px dashed #b9ab93; border-radius: 10px;
+    }
+
+    /* ---------- stickers (shared steps) ---------- */
+    .sticker {
+      --ink-c: var(--ink);
+      display: inline-flex; align-items: center; gap: 8px; max-width: 100%;
+      background: var(--ink-c); color: #fff;
+      font: 700 18px/1.2 var(--hand);
+      padding: 7px 14px 8px 8px;
+      border-radius: 999px 40px 999px 36px / 60px 999px 50px 999px;
+      /* white die-cut border + lift */
+      box-shadow: 0 0 0 3.5px #fff, 2px 4px 0 3.5px rgba(40, 30, 20, .22);
+      transform: rotate(var(--r, -2deg));
+    }
+    .sticker .star {
+      width: 26px; height: 26px; flex: none; display: grid; place-items: center;
+      background: #fff; color: var(--ink-c); border-radius: 50%; font-size: 15px; line-height: 1;
+    }
+    .sticker.small { font-size: 16px; padding: 4px 11px 5px 6px; }
+    .sticker.small .star { width: 21px; height: 21px; font-size: 13px; }
+
+    /* ---------- path pages ---------- */
+    .paths-head { margin: 56px 0 18px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+    .paths-head h2 { font: 700 34px/1 var(--hand); margin: 0; }
+    .paths-head p { margin: 0; font: 400 23px/1.2 var(--pen); color: var(--pencil); }
+
+    .scrap { display: grid; gap: 44px; padding: 10px 0; }
+    @media (min-width: 900px) {
+      .scrap { grid-template-columns: 1fr 1fr; gap: 56px 44px; align-items: start; }
+      .scrap .card:nth-child(even) { margin-top: 36px; }
+    }
+
+    .card {
+      position: relative; padding: 34px 20px 26px; min-width: 0;
+      transform: rotate(var(--tilt));
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 16px 26px -18px rgba(60, 40, 20, .55);
+      scroll-margin-top: 20px;
+    }
+    .card.lined {
+      background: #fffdf6 repeating-linear-gradient(transparent 0 29px, #b9d3e8 29px 30px);
+      background-position: 0 22px;
+      border-left: 0;
+      box-shadow: inset 34px 0 0 -32px #f19a9a, 0 16px 26px -18px rgba(60, 40, 20, .55);
+    }
+    .card.grid {
+      background-color: #f3f9f1;
+      background-image: linear-gradient(#cfe3cc 1px, transparent 1px), linear-gradient(90deg, #cfe3cc 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    .card.kraft {
+      background: #e8cfa6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .28 0 0 0 0 .12 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E");
+      clip-path: var(--tornTop);
+      padding-top: 40px;
+    }
+    .card.dots {
+      background-color: #fdf2f5;
+      background-image: radial-gradient(#e2b6c3 1.3px, transparent 1.6px);
+      background-size: 18px 18px;
+      border-radius: 2px 2px 14px 2px;
+    }
+    /* recipe-card corner fold on the dotted page */
+    .card.dots::after {
+      content: ""; position: absolute; right: 0; bottom: 0; width: 30px; height: 30px;
+      background: linear-gradient(315deg, var(--desk) 50%, #e9cbd4 50%);
+      border-radius: 0 0 14px 0;
+    }
+    @media (min-width: 900px) { .card.dots::after { background: linear-gradient(315deg, var(--desk) 50%, #e9cbd4 50%); } }
+
+    /* washi tape */
+    .tape {
+      position: absolute; width: 92px; height: 26px; z-index: 2;
+      opacity: .88;
+      clip-path: polygon(3% 8%, 0 22%, 4% 40%, 0 58%, 3% 78%, 0 94%, 97% 100%, 100% 82%, 96% 64%, 100% 46%, 96% 26%, 100% 6%);
+    }
+    .card > .tape { top: -12px; left: 22px; transform: rotate(-6deg); }
+    .card > .tape.two { top: auto; bottom: -10px; left: auto; right: 18px; transform: rotate(-8deg); width: 64px; }
+    .tape-mint { background: repeating-linear-gradient(90deg, #9fdcc8 0 8px, #b9e8d8 8px 16px); }
+    .tape-pink { background: repeating-linear-gradient(45deg, #f6a9bd 0 6px, #fbc7d4 6px 12px); }
+    .tape-yellow { background: #f9d85e radial-gradient(#fff6 2px, transparent 2.5px) 0 0 / 10px 10px; }
+    .tape-blue { background: repeating-linear-gradient(0deg, #9cc0f0 0 5px, #b9d3f6 5px 10px); }
+    .kraft > .tape { top: 4px; }
+
+    .card .tab {
+      position: absolute; top: 12px; right: 14px;
+      font: 700 15px/1 var(--hand); color: var(--pencil);
+    }
+    .card h3 { font: 700 26px/1.15 var(--hand); margin: 4px 0 8px; padding-right: 30px; }
+    .card .psum { margin: 0 0 16px; }
+    .recipe-label {
+      display: inline-block; font: 700 16px/1 var(--hand); letter-spacing: 2px;
+      border: 2px solid var(--ink); padding: 4px 8px 3px; margin-bottom: 12px; background: #fff;
+      transform: rotate(-2deg);
+    }
+
+    ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+    ol.steps > li { counter-increment: s; position: relative; padding: 0 0 18px 42px; }
+    ol.steps > li:last-child { padding-bottom: 0; }
+    /* hand-drawn number bubble */
+    ol.steps > li::before {
+      content: counter(s); position: absolute; left: 0; top: 0;
+      width: 30px; height: 30px; display: grid; place-items: center;
+      font: 700 19px/1 var(--hand); border: 2px solid var(--ink); background: #fff;
+      border-radius: 52% 48% 55% 45% / 45% 55% 48% 52%;
+    }
+    /* pencil line linking the steps */
+    ol.steps > li:not(:last-child)::after {
+      content: ""; position: absolute; left: 14px; top: 34px; bottom: 4px;
+      border-left: 2px dashed rgba(42, 38, 34, .45);
+    }
+    .step-title { font: 700 21px/1.25 var(--hand); margin: 2px 0 2px; }
+    .kind {
+      display: inline-block; font: 700 14px/1 var(--hand); color: var(--red);
+      border: 1.5px solid var(--red); border-radius: 3px; padding: 3px 5px 2px; margin-right: 6px;
+      transform: rotate(-3deg); vertical-align: 2px;
+    }
+    .step-sum { margin: 4px 0 0; font-size: 16px; color: var(--ink-soft); }
+    .step-link { font: 700 16px/1.2 var(--hand); display: inline-block; margin-top: 4px; }
+
+    .repeat { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding-top: 2px; }
+    .repeat .seen { font: 400 20px/1 var(--pen); color: var(--pencil); text-decoration: none; }
+    .repeat .seen:hover { text-decoration: underline; }
+
+    /* margin note — handwritten, with a curly arrow */
+    .margin-note {
+      position: relative; margin: 10px 0 2px -4px; padding: 6px 10px 6px 34px;
+      font: 400 23px/1.15 var(--pen); color: #1f4fa3;
+      transform: rotate(-2deg);
+    }
+    .margin-note svg { position: absolute; left: 2px; top: -8px; width: 30px; height: 34px; }
+    @media (min-width: 1180px) {
+      /* on wide spreads the note escapes into the real margin */
+      .card { overflow: visible; }
+    }
+
+    .end-note { margin: 56px auto 0; max-width: 560px; text-align: left; position: relative; }
+    .end-note p { font: 400 25px/1.3 var(--pen); color: var(--ink-soft); margin: 0; transform: rotate(-1deg); }
+
+    @media (min-width: 900px) {
+      .sticky { margin-top: 40px; }
+      .paths-head { margin-top: 0; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .sticker { transition: transform .15s; }
+      .sticker:hover { transform: rotate(0) scale(1.04); }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a href="/">← 처음으로</a>
+    <span class="label">시안 2 · 다꾸 스크랩북</span>
+  </header>
+
+  <main class="book">
+    <!-- spread 1: title + index | this week + sticker sheet -->
+    <section class="spread" aria-labelledby="map-title">
+      <div class="leaf">
+        <div class="title-block">
+          <p class="kicker">나의 진로 스크랩 · p.1</p>
+          <h1 id="map-title"><span class="hl">{field.title}</span><br />길 지도</h1>
+          <svg class="doodle-pan" viewBox="0 0 120 100" aria-hidden="true" fill="none" stroke="#2a2622" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 58c0 14 14 24 38 24s38-10 38-24z" fill="#fff" />
+            <path d="M90 62l24-8" />
+            <path d="M40 44c-4-6 4-10 0-17M54 42c-4-6 4-10 0-17M68 44c-4-6 4-10 0-17" stroke="#d8452f" stroke-width="2.5" />
+            <circle cx="52" cy="62" r="7" fill="#ffd84d" stroke-width="2.5" />
+          </svg>
+          <div class="summary-card">
+            <span class="tape tape-yellow" aria-hidden="true"></span>
+            <p>{field.summary}</p>
+          </div>
+        </div>
+
+        <nav class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">여기 모아 둔 길 {pages.length}개</h2>
+          <p class="sub">순서는 아무 의미 없어요. 끌리는 페이지부터 넘겨 봐요.</p>
+          <ul style="list-style:none;margin:0;padding:0">
+            {pages.map((p, i) => (
+              <li>
+                <a href={`#${p.id}`}>
+                  <span class="tabdot" style={`--c:${["#bfe8da", "#d6ecd2", "#ecd6b0", "#f8d3dd"][i % 4]}`} aria-hidden="true">{p.tab}</span>
+                  <span class="t">{p.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          {firstShared.length > 0 && (
+            <p class="toc-foot">→ 어느 길이든 결국 '{firstShared.join("', '")}'에서 만나요!</p>
+          )}
+        </nav>
+      </div>
+
+      <div class="leaf">
+        {mission && (
+          <aside class="sticky" aria-labelledby="week-title">
+            <span class="pin" aria-hidden="true"></span>
+            <h2 id="week-title">이번 주에 해 볼 일</h2>
+            <p class="what">{mission.title}</p>
+            <p>{mission.summary}</p>
+            <div class="check"><span class="box" aria-hidden="true"></span>다 하면 여기에 체크!</div>
+          </aside>
+        )}
+
+        <div class="legend">
+          <h2>자주 나오는 스티커</h2>
+          <p>여러 길에 똑같이 들어가는 단계예요. 페이지마다 같은 스티커로 붙여 뒀어요.</p>
+          <div class="sheet">
+            {sharedIds.map((id, i) => {
+              const s = steps.get(id);
+              return s && (
+                <span class="sticker" style={`--ink-c:${stickerInk.get(id)};--r:${i % 2 ? 2.5 : -2.5}deg`}>
+                  <span class="star" aria-hidden="true">★</span>{s.title}
+                  <span class="visually-hidden" style="position:absolute;left:-9999px">({useCount.get(id)}개 길에 나와요)</span>
+                </span>
+              );
+            })}
+            {mission && (
+              <span class="sticker" style="--ink-c:#b98200;--r:1.5deg">
+                <span class="star" aria-hidden="true">✎</span>{mission.title}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- spread 2: the four path pages -->
+    <section class="spread" aria-labelledby="paths-title" style="display:block">
+      <div class="leaf" style="max-width:none">
+        <div class="paths-head">
+          <h2 id="paths-title">길마다 한 장씩</h2>
+          <p>레시피 카드처럼, 위에서부터 순서대로!</p>
+        </div>
+
+        <div class="scrap">
+          {pages.map((p) => (
+            <article class={`card ${p.paper}`} id={p.id} style={`--tilt:${p.tilt}deg`} aria-labelledby={`${p.id}-t`}>
+              <span class={`tape ${p.tape}`} aria-hidden="true"></span>
+              {p.paper === "grid" && <span class={`tape two tape-yellow`} aria-hidden="true"></span>}
+              <span class="tab">페이지 {p.tab}</span>
+              <h3 id={`${p.id}-t`}>{p.title}</h3>
+              <p class="psum">{p.summary}</p>
+              <span class="recipe-label" aria-hidden="true">만드는 순서</span>
+              <ol class="steps">
+                {p.items.map((it, j) => (
+                  <li id={!it.repeat ? it.firstId : undefined}>
+                    {it.repeat ? (
+                      <div class="repeat">
+                        <span class="sticker small" style={`--ink-c:${it.ink ?? "#2a2622"};--r:${j % 2 ? 2 : -2}deg`}>
+                          <span class="star" aria-hidden="true">{it.step.id === MISSION_ID ? "✎" : "★"}</span>{it.step.title}
+                        </span>
+                        <a class="seen" href={it.step.id === MISSION_ID ? "#week-title" : `#${it.firstId}`}>
+                          {it.step.id === MISSION_ID ? "↑ 포스트잇에 붙여 둔 일" : "↑ 앞에서 본 스티커"}
+                        </a>
+                      </div>
+                    ) : (
+                      <>
+                        {it.shared ? (
+                          <span class="sticker" style={`--ink-c:${it.ink};--r:-1.5deg`}>
+                            <span class="star" aria-hidden="true">★</span>{it.step.title}
+                          </span>
+                        ) : (
+                          <p class="step-title">{it.step.title}</p>
+                        )}
+                        <p class="step-sum"><span class="kind">{KIND_LABEL[it.step.kind] ?? it.step.kind}</span>{it.step.summary}</p>
+                        {it.step.official_url && (
+                          <a class="step-link" href={it.step.official_url} rel="noopener" target="_blank">공식 안내 보러 가기 ↗</a>
+                        )}
+                      </>
+                    )}
+                    {it.note && (
+                      <p class="margin-note">
+                        <svg viewBox="0 0 30 34" aria-hidden="true" fill="none" stroke="#1f4fa3" stroke-width="2.2" stroke-linecap="round"><path d="M24 30C8 28 4 18 10 8" /><path d="M5 12l5-5 4 6" /></svg>
+                        {it.note}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </article>
+          ))}
+        </div>
+
+        <div class="end-note">
+          <p>남은 빈칸은 내 몫이에요. 다른 길을 찾으면 여기에 붙여 둬요 ✂</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

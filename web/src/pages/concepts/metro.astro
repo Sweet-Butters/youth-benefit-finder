@@ -1,0 +1,639 @@
+---
+// 시안 1 · 지하철 노선도 — renders one field's paths as a subway map.
+// Every coordinate below is derived from the data, so adding a path adds a line.
+import { fields, steps, KIND_LABEL } from "../../lib/content";
+
+const field = fields.find((f) => f.id === "cooking")!;
+const paths = field.paths.filter((p) => !p.retired);
+
+// Subway-inspired line colors (not ranked; order only follows the data file).
+const PALETTE = ["#1a8f4e", "#2458c6", "#d23c6e", "#b88400", "#7b52ae", "#0a93ad", "#8a5a2b", "#5c6b00"];
+const lines = paths.map((p, i) => ({
+  id: p.id,
+  title: p.title,
+  summary: p.summary,
+  color: PALETTE[i % PALETTE.length],
+  steps: p.steps.map((s) => s.step),
+}));
+
+// One station per step, however many lines pass through it.
+type Station = { id: string; lines: number[]; notes: Record<number, string>; preds: Set<string> };
+const stations = new Map<string, Station>();
+paths.forEach((p, li) =>
+  p.steps.forEach((ps, i) => {
+    const st = stations.get(ps.step) ?? { id: ps.step, lines: [], notes: {}, preds: new Set<string>() };
+    if (!st.lines.includes(li)) st.lines.push(li);
+    if (ps.note) st.notes[li] = ps.note;
+    if (i > 0) st.preds.add(p.steps[i - 1].step);
+    stations.set(ps.step, st);
+  }),
+);
+
+// Topological order that keeps a line's consecutive stops together,
+// so a station's label rarely has to cross another line.
+const order: string[] = [];
+const placed = new Set<string>();
+let last: string | null = null;
+const isNextOf = (prev: string, id: string) =>
+  lines.some((l) => {
+    const i = l.steps.indexOf(prev);
+    return i >= 0 && l.steps[i + 1] === id;
+  });
+while (order.length < stations.size) {
+  const unplaced = [...stations.values()].filter((s) => !placed.has(s.id));
+  let avail = unplaced.filter((s) => [...s.preds].every((p) => placed.has(p)));
+  if (!avail.length) avail = unplaced; // cycle guard
+  avail.sort((a, b) => Math.min(...a.lines) - Math.min(...b.lines));
+  const pick = (last && avail.find((s) => isNextOf(last!, s.id))) || avail[0];
+  order.push(pick.id);
+  placed.add(pick.id);
+  last = pick.id;
+}
+const pos = new Map(order.map((id, i) => [id, i]));
+
+const laneCount = lines.length;
+const lineSegs = lines.map((l, li) => ({
+  ...l,
+  lane: li,
+  a: pos.get(l.steps[0])!,
+  b: pos.get(l.steps[l.steps.length - 1])!,
+}));
+
+const stationViews = order.map((id) => {
+  const st = stations.get(id)!;
+  const step = steps.get(id);
+  const lanes = [...st.lines].sort((a, b) => a - b);
+  const transfer = lanes.length > 1;
+  const title = step?.title ?? id;
+  const kindLabel = KIND_LABEL[step?.kind ?? "other"] ?? "기타";
+  return {
+    id,
+    title,
+    kindLabel,
+    transfer,
+    o: pos.get(id)!,
+    l0: lanes[0],
+    l1: lanes[lanes.length - 1],
+    color: lines[lanes[0]].color,
+    lineIds: lanes.map((i) => lines[i].id).join(" "),
+    aria: `${title}, ${kindLabel}${transfer ? `, 환승역, ${lanes.length}개 노선이 지나요` : ""}`,
+  };
+});
+
+const data = {
+  lines: lines.map(({ id, title, color, steps }) => ({ id, title, color, steps })),
+  stations: Object.fromEntries(
+    order.map((id) => {
+      const st = stations.get(id)!;
+      const step = steps.get(id);
+      return [
+        id,
+        {
+          title: step?.title ?? id,
+          kind: KIND_LABEL[step?.kind ?? "other"] ?? "기타",
+          summary: step?.summary ?? "",
+          url: step?.official_url ?? null,
+          lines: [...st.lines].sort((a, b) => a - b),
+          notes: st.notes,
+        },
+      ];
+    }),
+  ),
+};
+const stripe = lines.map((l) => l.color);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>요리사 길 지도 · 시안 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="/" class="back">← 처음으로</a>
+      <span class="label">시안 1 · 지하철 노선도</span>
+    </header>
+
+    <main>
+      <section class="intro">
+        <p class="eyebrow">{field.title} 분야 · 노선 {lines.length}개 · 역 {order.length}개</p>
+        <h1>{field.title} 길 지도</h1>
+        <div class="stripe" aria-hidden="true">
+          {stripe.map((c) => <span style={`background:${c}`}></span>)}
+        </div>
+        <p class="hint">역을 누르면 무엇을 하는지 보여요. 여러 노선이 지나는 역은 환승역이에요.</p>
+      </section>
+
+      <section class="legend" aria-labelledby="legend-h">
+        <h2 id="legend-h">노선 고르기</h2>
+        <p class="legend-note">어느 노선이 더 좋은 건 아니에요. 누르면 그 노선만 또렷하게 보이고 설명이 나와요.</p>
+        <ul>
+          {
+            lineSegs.map((l) => (
+              <li>
+                <button class="line-btn" type="button" data-line={l.id} aria-pressed="false" style={`--c:${l.color}`}>
+                  <span class="sym" aria-hidden="true"><i></i></span>
+                  <span class="lt">
+                    <strong>{l.title}</strong>
+                    <span>{l.summary}</span>
+                  </span>
+                  <span class="count">역 {l.steps.length}개</span>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="board" aria-label="노선도">
+        <div class="map-scroll">
+          <div class="map" id="map" style={`--n:${order.length};--lanes:${laneCount}`}>
+            {
+              lineSegs.map((l) => (
+                <span class="ln" data-line={l.id} style={`--l:${l.lane};--a:${l.a};--b:${l.b};--c:${l.color}`} />
+              ))
+            }
+            {
+              stationViews.map((s) => (
+                <button
+                  type="button"
+                  class:list={["st", { tr: s.transfer }]}
+                  data-st={s.id}
+                  data-lines={s.lineIds}
+                  aria-label={s.aria}
+                  aria-controls="sheet"
+                  style={`--o:${s.o};--l0:${s.l0};--l1:${s.l1};--c:${s.color}`}
+                >
+                  <span class="leader" aria-hidden="true" />
+                  <span class="dot" aria-hidden="true" />
+                  <span class="name" aria-hidden="true">
+                    <b>{s.title}</b>
+                    <small>
+                      {s.kindLabel}
+                      {s.transfer && <em>환승</em>}
+                    </small>
+                  </span>
+                </button>
+              ))
+            }
+          </div>
+        </div>
+        <p class="key" aria-hidden="true">
+          <span><i class="k-dot"></i>역</span>
+          <span><i class="k-tr"></i>환승역</span>
+        </p>
+      </section>
+
+      <button class="scrim" id="scrim" type="button" tabindex="-1" aria-label="닫기"></button>
+      <aside class="sheet" id="sheet" aria-live="polite" aria-labelledby="sheet-title">
+        <div class="sheet-empty" id="sheet-empty">
+          <p class="se-h">역을 골라 보세요</p>
+          <p>노선도의 동그라미나 역 이름을 누르면 여기에 자세한 내용이 나와요.</p>
+        </div>
+        <div class="sheet-body" id="sheet-body" hidden>
+          <div class="sheet-head">
+            <p class="kind" id="sheet-kind"></p>
+            <button type="button" class="close" id="sheet-close" aria-label="닫기">닫기</button>
+          </div>
+          <h2 id="sheet-title" tabindex="-1"></h2>
+          <p class="summary" id="sheet-summary"></p>
+          <h3 class="signs-h" id="sheet-signs-h"></h3>
+          <ol class="signs" id="sheet-signs"></ol>
+          <p class="official" id="sheet-official"></p>
+        </div>
+      </aside>
+    </main>
+
+    <script type="application/json" id="metro-data" set:html={JSON.stringify(data)} />
+
+    <script>
+      type LineD = { id: string; title: string; color: string; steps: string[] };
+      type StD = { title: string; kind: string; summary: string; url: string | null; lines: number[]; notes: Record<string, string> };
+      const data = JSON.parse(document.getElementById("metro-data")!.textContent!) as {
+        lines: LineD[];
+        stations: Record<string, StD>;
+      };
+      const $ = (id: string) => document.getElementById(id)!;
+      const sheet = $("sheet");
+      const scrim = $("scrim");
+      const stationBtns = [...document.querySelectorAll<HTMLButtonElement>(".st")];
+      const lineBtns = [...document.querySelectorAll<HTMLButtonElement>(".line-btn")];
+      const segs = [...document.querySelectorAll<HTMLElement>(".ln")];
+      const mobile = matchMedia("(max-width: 899px)");
+      let opener: HTMLElement | null = null;
+
+      const el = (tag: string, cls?: string, text?: string) => {
+        const e = document.createElement(tag);
+        if (cls) e.className = cls;
+        if (text != null) e.textContent = text;
+        return e;
+      };
+
+      function neighbour(id: string | undefined, fallback: string) {
+        if (!id) return el("span", "nb none", fallback);
+        const b = el("button", "nb", data.stations[id].title) as HTMLButtonElement;
+        b.type = "button";
+        b.addEventListener("click", () => openStation(id, false));
+        return b;
+      }
+
+      function openStation(id: string, fromMap = true) {
+        const st = data.stations[id];
+        if (!st) return;
+        if (fromMap) opener = document.activeElement as HTMLElement;
+        stationBtns.forEach((b) => b.classList.toggle("on", b.dataset.st === id));
+        $("sheet-empty").hidden = true;
+        $("sheet-body").hidden = false;
+        $("sheet-kind").textContent = st.kind + (st.lines.length > 1 ? ` · 환승역 · ${st.lines.length}개 노선` : "");
+        $("sheet-title").textContent = st.title;
+        $("sheet-summary").textContent = st.summary;
+        $("sheet-signs-h").textContent = st.lines.length > 1 ? "이 역을 지나는 노선" : "이 역이 있는 노선";
+        const list = $("sheet-signs");
+        list.replaceChildren();
+        for (const li of st.lines) {
+          const line = data.lines[li];
+          const i = line.steps.indexOf(id);
+          const item = el("li", "sign");
+          item.style.setProperty("--c", line.color);
+          item.append(el("p", "sign-line", line.title));
+          const board = el("div", "sign-board");
+          const prev = el("div", "sb prev");
+          prev.append(el("span", "dir", "← 앞 역"), neighbour(line.steps[i - 1], "처음 역이에요"));
+          const cur = el("div", "sb cur", st.title);
+          const next = el("div", "sb next");
+          next.append(el("span", "dir", "다음 역 →"), neighbour(line.steps[i + 1], "마지막 역이에요"));
+          board.append(prev, cur, next);
+          item.append(board);
+          const note = st.notes[String(li)];
+          if (note) item.append(el("p", "sign-note", note));
+          list.append(item);
+        }
+        const off = $("sheet-official");
+        off.replaceChildren();
+        if (st.url) {
+          const a = el("a", "", "공식 안내 보기") as HTMLAnchorElement;
+          a.href = st.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          let host = "";
+          try { host = new URL(st.url).hostname.replace(/^www\./, ""); } catch {}
+          off.append(a);
+          if (host) off.append(el("span", "host", host));
+        }
+        document.body.classList.add("sheet-open");
+        sheet.classList.add("open");
+        if (mobile.matches || !fromMap) ($("sheet-title") as HTMLElement).focus({ preventScroll: !mobile.matches });
+        if (!mobile.matches && fromMap) sheet.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function closeSheet() {
+        if (!sheet.classList.contains("open")) return;
+        sheet.classList.remove("open");
+        document.body.classList.remove("sheet-open");
+        if (mobile.matches) opener?.focus();
+      }
+
+      function focusLine(id: string | null) {
+        lineBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.line === id)));
+        document.getElementById("map")!.classList.toggle("focused", !!id);
+        segs.forEach((s) => s.classList.toggle("dim", !!id && s.dataset.line !== id));
+        stationBtns.forEach((b) => b.classList.toggle("dim", !!id && !b.dataset.lines!.split(" ").includes(id)));
+      }
+
+      stationBtns.forEach((b) => b.addEventListener("click", () => openStation(b.dataset.st!)));
+      lineBtns.forEach((b) =>
+        b.addEventListener("click", () => focusLine(b.getAttribute("aria-pressed") === "true" ? null : b.dataset.line!)),
+      );
+      $("sheet-close").addEventListener("click", closeSheet);
+      scrim.addEventListener("click", closeSheet);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeSheet();
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        --ink: #1b1f2a;
+        --ink-2: #4a5061;
+        --paper: #f2efe8;
+        --board: #fbfaf6;
+        --rule: #d9d4c8;
+        --lead: #a9a397;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 400 16px/1.6 "IBM Plex Sans KR", system-ui, sans-serif;
+        overflow-x: hidden;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+      }
+      button { font: inherit; color: inherit; }
+      :focus-visible { outline: 3px solid #1b1f2a; outline-offset: 2px; }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 16px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 14px;
+      }
+      .topbar a { color: #fff; text-decoration: none; font-weight: 600; }
+      .topbar a:hover { text-decoration: underline; }
+      .topbar .label { letter-spacing: 0.02em; opacity: 0.85; }
+
+      main { max-width: 1240px; margin: 0 auto; padding: 0 16px 48px; }
+
+      .intro { padding: 28px 0 8px; }
+      .eyebrow { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+      h1 {
+        margin: 0;
+        font: 400 clamp(40px, 11vw, 72px)/1.05 "Black Han Sans", "IBM Plex Sans KR", sans-serif;
+        letter-spacing: -0.01em;
+      }
+      .stripe { display: flex; height: 8px; margin: 14px 0 12px; max-width: 320px; }
+      .stripe span { flex: 1; }
+      .hint { margin: 0; max-width: 34em; font-size: 17px; }
+
+      /* ---------- legend ---------- */
+      .legend { margin-top: 28px; }
+      .legend h2, .signs-h {
+        margin: 0;
+        font: 400 20px/1.3 "Black Han Sans", sans-serif;
+      }
+      .legend-note { margin: 4px 0 10px; color: var(--ink-2); font-size: 16px; }
+      .legend ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+      .legend li { border-bottom: 1px solid var(--rule); }
+      .line-btn {
+        display: grid;
+        grid-template-columns: 44px 1fr auto;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 12px 4px;
+        border: 0;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+      }
+      .line-btn .sym { position: relative; height: 8px; background: var(--c); border-radius: 4px; }
+      .line-btn .sym i {
+        position: absolute; left: 50%; top: 50%;
+        width: 16px; height: 16px; margin: -8px 0 0 -8px;
+        border-radius: 50%; background: #fff; border: 3.5px solid var(--c);
+      }
+      .line-btn .lt { display: flex; flex-direction: column; min-width: 0; }
+      .line-btn strong { font-weight: 700; font-size: 17px; line-height: 1.4; }
+      .line-btn .lt span { color: var(--ink-2); font-size: 16px; line-height: 1.5; }
+      @media (max-width: 899px) {
+        .line-btn { padding: 10px 4px; }
+        .line-btn .lt span { display: none; }
+        .line-btn[aria-pressed="true"] .lt span { display: block; }
+      }
+      .line-btn .count { font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+      .line-btn:hover strong { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 3px; }
+      .line-btn[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 12%, transparent); box-shadow: inset 6px 0 0 var(--c); }
+      .line-btn[aria-pressed="true"] .count::after { content: " · 보는 중"; font-weight: 700; color: var(--ink); }
+
+      /* ---------- the map ---------- */
+      .board {
+        margin-top: 28px;
+        background: var(--board);
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 16px 16px 8px;
+      }
+      .map-scroll { overflow-x: auto; overscroll-behavior-x: contain; container-type: inline-size; }
+      .st .name { word-break: keep-all; overflow-wrap: anywhere; }
+      .map { position: relative; }
+      .ln { position: absolute; background: var(--c); border-radius: 4px; z-index: 2; transition: opacity 0.2s; }
+      .st {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        text-align: left;
+      }
+      .st .dot {
+        position: absolute;
+        z-index: 3;
+        background: #fff;
+        border: 3.5px solid var(--c);
+        border-radius: 999px;
+        transition: transform 0.15s, opacity 0.2s;
+      }
+      .st.tr .dot { border: 3.5px solid var(--ink); box-shadow: 0 0 0 2px #fff; }
+      .st .leader { position: absolute; z-index: 1; border: 0 dotted var(--lead); transition: opacity 0.2s; }
+      .st .name { position: absolute; z-index: 3; display: flex; flex-direction: column; transition: opacity 0.2s; }
+      .st .name b { font-weight: 700; font-size: 16px; line-height: 1.35; }
+      .st .name small { font-size: 14px; color: var(--ink-2); line-height: 1.4; }
+      .st .name em {
+        font-style: normal;
+        font-weight: 700;
+        color: var(--ink);
+        margin-left: 6px;
+        padding-left: 6px;
+        border-left: 1px solid var(--rule);
+      }
+      .st.tr .name b { font-size: 17px; }
+      .st:hover .name b, .st.on .name b { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+      .st.on .dot { transform: scale(1.18); }
+      .st:focus-visible { outline: none; }
+      .st:focus-visible .name { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+      .st:focus-visible .dot { box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--ink); }
+      .ln.dim, .st.dim .dot, .st.dim .name, .st.dim .leader { opacity: 0.16; }
+
+      .key { display: flex; gap: 20px; margin: 10px 0 0; font-size: 14px; color: var(--ink-2); }
+      .key span { display: inline-flex; align-items: center; gap: 8px; }
+      .k-dot { width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--ink-2); background: #fff; }
+      .k-tr { width: 30px; height: 16px; border-radius: 8px; border: 3px solid var(--ink); background: #fff; }
+
+      /* vertical map: phones and tablets */
+      @media (max-width: 899px) {
+        .map {
+          --lane: 24px;
+          --row: 72px;
+          --px: 4px;
+          --label: calc(var(--px) + var(--lanes) * var(--lane) + 16px);
+          height: calc(var(--n) * var(--row));
+        }
+        .ln {
+          width: 6px;
+          left: calc(var(--px) + (var(--l) + 0.5) * var(--lane) - 3px);
+          top: calc((var(--a) + 0.5) * var(--row));
+          height: calc((var(--b) - var(--a)) * var(--row));
+        }
+        .st { left: 0; right: 0; top: calc(var(--o) * var(--row)); height: var(--row); }
+        .st .dot {
+          top: calc(50% - 9px);
+          height: 18px;
+          left: calc(var(--px) + (var(--l0) + 0.5) * var(--lane) - 9px);
+          width: calc((var(--l1) - var(--l0)) * var(--lane) + 18px);
+        }
+        .st.tr .dot { top: calc(50% - 11px); height: 22px; left: calc(var(--px) + (var(--l0) + 0.5) * var(--lane) - 11px); width: calc((var(--l1) - var(--l0)) * var(--lane) + 22px); }
+        .st .leader {
+          top: 50%;
+          border-top-width: 2px;
+          left: calc(var(--px) + (var(--l1) + 0.5) * var(--lane));
+          width: calc(var(--label) - var(--px) - (var(--l1) + 0.5) * var(--lane) - 6px);
+        }
+        .st .name { left: var(--label); right: 0; top: 50%; transform: translateY(-50%); }
+      }
+
+      /* horizontal map: desktop */
+      @media (min-width: 900px) {
+        main { padding: 0 40px 64px; }
+        .topbar { padding: 10px 40px; }
+        .intro { padding-top: 44px; }
+        .legend ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
+        .board { margin-left: 0; margin-right: 0; padding: 24px 24px 12px; }
+        .map {
+          --col: max(136px, 100cqw / var(--n));
+          --lane: 26px;
+          --py: 18px;
+          --label: calc(var(--py) + var(--lanes) * var(--lane) + 18px);
+          width: calc(var(--n) * var(--col));
+          height: calc(var(--label) + 72px);
+          margin: 0 auto;
+        }
+        .ln {
+          height: 6px;
+          top: calc(var(--py) + (var(--l) + 0.5) * var(--lane) - 3px);
+          left: calc((var(--a) + 0.5) * var(--col));
+          width: calc((var(--b) - var(--a)) * var(--col));
+        }
+        .st { top: 0; bottom: 0; left: calc(var(--o) * var(--col)); width: var(--col); }
+        .st .dot {
+          left: calc(50% - 9px);
+          width: 18px;
+          top: calc(var(--py) + (var(--l0) + 0.5) * var(--lane) - 9px);
+          height: calc((var(--l1) - var(--l0)) * var(--lane) + 18px);
+        }
+        .st.tr .dot { left: calc(50% - 11px); width: 22px; top: calc(var(--py) + (var(--l0) + 0.5) * var(--lane) - 11px); height: calc((var(--l1) - var(--l0)) * var(--lane) + 22px); }
+        .st .leader {
+          left: 50%;
+          border-left-width: 2px;
+          top: calc(var(--py) + (var(--l1) + 0.5) * var(--lane));
+          height: calc(var(--label) - var(--py) - (var(--l1) + 0.5) * var(--lane) - 6px);
+        }
+        .st .name { top: var(--label); left: 6px; right: 6px; text-align: center; align-items: center; }
+        .st .name small { display: flex; justify-content: center; }
+      }
+
+      /* ---------- detail sheet ---------- */
+      .sheet { background: #fff; }
+      .sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+      .kind { margin: 0; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+      .close {
+        border: 2px solid var(--ink);
+        background: #fff;
+        padding: 4px 14px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #sheet-title { margin: 4px 0 8px; font: 400 30px/1.2 "Black Han Sans", sans-serif; }
+      #sheet-title:focus { outline: none; }
+      .summary { margin: 0 0 20px; font-size: 17px; max-width: 38em; }
+      .signs { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+      .sign-line { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink-2); }
+      .sign-line::before {
+        content: ""; display: inline-block; width: 22px; height: 6px; margin-right: 8px;
+        vertical-align: middle; background: var(--c); border-radius: 3px;
+      }
+      .sign-board {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+        border: 2px solid var(--ink);
+        border-bottom: 8px solid var(--c);
+        background: #fff;
+      }
+      .sb { padding: 8px 10px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+      .sb.next { text-align: right; align-items: flex-end; }
+      .sb.cur {
+        background: var(--c);
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        max-width: 11em;
+        line-height: 1.35;
+      }
+      .dir { font-size: 13px; color: var(--ink-2); }
+      .nb {
+        border: 0; background: none; padding: 0; text-align: inherit; font-size: 15px; font-weight: 600; line-height: 1.35;
+        cursor: pointer; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px;
+      }
+      .nb:hover { text-decoration-color: var(--ink); }
+      .nb.none { color: var(--ink-2); font-weight: 400; text-decoration: none; cursor: default; }
+      .sign-note { margin: 6px 0 0; font-size: 16px; padding-left: 10px; border-left: 3px solid var(--c); }
+      .official { margin: 20px 0 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+      .official a {
+        color: #fff; background: var(--ink); padding: 8px 14px; font-weight: 700; text-decoration: none;
+      }
+      .official a::after { content: " ↗"; }
+      .official a:hover { background: #000; }
+      .host { font-size: 14px; color: var(--ink-2); }
+      .sheet-empty .se-h { margin: 0 0 4px; font: 400 22px/1.3 "Black Han Sans", sans-serif; }
+      .sheet-empty p { margin: 0; color: var(--ink-2); }
+
+      .scrim { display: none; }
+
+      @media (max-width: 899px) {
+        .sheet {
+          position: fixed;
+          left: 0; right: 0; bottom: 0;
+          z-index: 20;
+          max-height: 78vh;
+          overflow-y: auto;
+          padding: 18px 16px calc(24px + env(safe-area-inset-bottom));
+          border-top: 4px solid var(--ink);
+          transform: translateY(100%);
+          visibility: hidden;
+          transition: transform 0.25s ease, visibility 0s linear 0.25s;
+        }
+        .sheet.open { transform: none; visibility: visible; transition: transform 0.25s ease; }
+        .sheet-empty { display: none; }
+        .scrim {
+          position: fixed; inset: 0; z-index: 19; border: 0; padding: 0;
+          background: rgba(27, 31, 42, 0.45);
+        }
+        body.sheet-open .scrim { display: block; }
+        .sign-board { grid-template-columns: 1fr 1fr; }
+        .sb.cur { grid-column: 1 / -1; grid-row: 1; max-width: none; }
+      }
+      @media (min-width: 900px) {
+        .sheet {
+          margin-top: 28px;
+          padding: 24px 28px;
+          border: 2px solid var(--ink);
+          scroll-margin-bottom: 24px;
+        }
+        .close { display: none; }
+        .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 16px 24px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * { transition: none !important; scroll-behavior: auto !important; }
+      }
+    </style>
+  </body>
+</html>
