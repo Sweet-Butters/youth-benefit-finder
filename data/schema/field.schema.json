@@ -9,6 +9,10 @@
     "id": { "$ref": "common.schema.json#/$defs/id" },
     "title": { "type": "string", "minLength": 1, "maxLength": 40 },
     "summary": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "try_phrase": {
+      "type": "string", "minLength": 1, "maxLength": 20,
+      "description": "첫 질문 '○○, 해 본 적 있어요?'에 들어갈 짧은 말 (예: 요리). 없으면 일반 문구로 묻는다"
+    },
     "holland": {
       "type": "array", "minItems": 1, "maxItems": 2, "uniqueItems": true,
       "items": { "$ref": "common.schema.json#/$defs/holland" }
@@ -23,6 +27,10 @@
           "id": { "$ref": "common.schema.json#/$defs/id" },
           "title": { "type": "string", "minLength": 1, "maxLength": 60 },
           "summary": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "learn_style": {
+            "type": "string", "enum": ["hands", "study", "institution", "school"],
+            "description": "'어떻게 배우고 싶어요?' 답과 잇는다. hands 손으로 빨리 · study 차근차근 공부 · institution 기관에서 실무 · school 학교에서 친구들과"
+          },
           "steps": {
             "type": "array", "minItems": 1,
             "items": {
