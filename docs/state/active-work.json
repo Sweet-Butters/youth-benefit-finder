@@ -1,19 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 02:18",
+  "updated_at": "2026-09-27 02:24",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
-  "active_tasks": [
-    {
-      "id": "view-counts",
-      "who": "claude",
-      "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/view-counts",
-      "started": "2026-09-27",
-      "summary": "공개 조회수(D25): 노선도·글에 '조회 N', 푸터 누적 조회, /stats 페이지. GoatCounter 코드가 등록되면 켜진다"
-    }
-  ],
+  "active_tasks": [],
   "queued_tasks": [
     {
       "id": "cooking-helps",
@@ -160,7 +151,7 @@
     }
   ],
   "user_todo": [
-    "goatcounter.com 가입(무료) → 코드 정하기(예: jigeum) → Settings에서 'Allow adding visitor counts on your website'와 공개 통계판(public dashboard) 켜기 → 코드를 알려 주면 저장소 변수 GOATCOUNTER_CODE로 등록. 무료(작은 사업 이용 가능, 하루 수백만 회만 아니면 됨)",
+    "GoatCounter(sweetbutters) Settings에서 'Allow adding visitor counts on your website'와 공개 통계판(public dashboard) 켜기. 켜기 전에는 세기만 하고 사이트에 숫자가 안 뜬다",
     "GitHub Secrets에 DATA_GO_KR_KEY(새로 발급한 키)와 TYPESAFE_API_KEY(공모전 레이더와 같은 키) 등록 → Actions의 collect를 수동 실행. 채팅에 키를 붙여 넣지 않는다",
     "보조금24 승인 나면 알려 주기 (수집 출처 추가)",
     "국민내일배움카드를 미성년 학교 밖 청소년이 받을 수 있는지 고용노동부 콜센터(1350)에 확인",
