@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 1.2
+   "seconds": 1.8
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,7 +19,7 @@
    "review": 23,
    "dropped": 2,
    "error": null,
-   "seconds": 1.8
+   "seconds": 3.8
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
@@ -29,7 +29,7 @@
    "review": 0,
    "dropped": 74,
    "error": null,
-   "seconds": 44.4
+   "seconds": 41.0
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,7 +39,7 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 8.4
+   "seconds": 6.0
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
@@ -49,31 +49,41 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 142.0
+   "seconds": 34.3
+  },
+  "gov24": {
+   "label": "보조금24 공공서비스",
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
+   "review": 0,
+   "dropped": 0,
+   "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
+   "seconds": 7.3
   }
  },
  "total": 887,
  "review": 31,
  "jev": {
-  "requests": 591,
-  "ok": 591,
+  "requests": 240,
+  "ok": 240,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 206,
-   "p95": 249,
-   "mean": 216
+   "p50": 202,
+   "p95": 248,
+   "mean": 245
   },
-  "inputTokens": 719037,
-  "costUsd": 0.0302,
+  "inputTokens": 274860,
+  "costUsd": 0.011544,
   "models": {
-   "jev-1.13.0": 591
+   "jev-1.13.0": 240
   },
-  "asked": 591,
+  "asked": 240,
   "failed": 0,
-  "cached": 0,
+  "cached": 803,
   "outcomes": {
-   "agreed": 589,
+   "agreed": 1041,
    "dropped": 2
   }
  }
