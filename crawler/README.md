@@ -1,7 +1,7 @@
 # 혜택 수집기
 
 공식 출처에서 청소년 혜택(시험 일정, 장학금, 체험, 봉사)을 모아 `data/collected/`에 둔다.
-사이트는 아직 이 폴더를 읽지 않는다 (자동 공개 여부 결정 전). 설계 이유는 `docs/collection-strategy.md`.
+사이트는 빌드할 때 `items.json`을 읽어 분야 페이지 혜택 칸에 **공식 자동** 표시로 띄운다 (열림·곧 열림만, `web/src/lib/collected.ts`). 파일이 없거나 비어도 빌드된다. 설계 이유는 `docs/collection-strategy.md`.
 
 ```bash
 pip install -r requirements.txt

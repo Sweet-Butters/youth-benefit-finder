@@ -1,10 +1,12 @@
 ---
 // 분야 길 지도 (D22): a short conversation, then the subway map with the fitting line lit,
-// and the verified benefits that fit the answers beside it (under it on phones).
+// and the benefits that fit the answers beside it (under it on phones): verified helps first, then the quieter
+// "공식 자동" items the crawler collected from official sources (data/collected, see lib/collected.ts).
 // Rule-based and page-only: answers never leave the browser tab.
 import Site from "../../layouts/Site.astro";
 import PerkCard from "../../components/field/PerkCard.astro";
 import { fields, steps, helps, KIND_LABEL, REGION_LABEL, COST_LABEL, HELP_LABEL, type Field, type Path, type Help } from "../../lib/content";
+import { autoGroups } from "../../lib/collected";
 
 type LearnStyle = "hands" | "study" | "institution" | "school";
 type FieldX = Field & { try_phrase?: string; paths: (Path & { learn_style?: LearnStyle })[] };
@@ -109,13 +111,15 @@ const questions = [
   { id: "age", key: "나이", ask: "몇 살이에요?", sub: "나이 조건이 있는 혜택을 거르려고 물어봐요.", skip: true,
     opts: [["14-15", "14~15살"], ["16-17", "16~17살"], ["18-19", "18~19살"], ["20-24", "20~24살"]] },
   { id: "region", key: "사는 곳", ask: "어디 살아요?", sub: "지역마다 받을 수 있는 혜택이 달라서요.", skip: true,
-    opts: [["seoul", "서울"], ["gyeonggi", "경기"], ["incheon", "인천"], ["other", "그 외 지역"]] },
+    // Every 시·도 (수도권 first), so regional items such as a 광주 scholarship can match; "all" is not a place to live.
+    opts: ["seoul", "gyeonggi", "incheon", ...Object.keys(REGION_LABEL).filter((k) => !["all", "seoul", "gyeonggi", "incheon"].includes(k))]
+      .map((k) => [k, REGION_LABEL[k]]) },
   // With fewer than two learning styles in the data there is nothing to choose between, so the question is skipped.
   ...(learnOpts.length >= 2 ? [{ id: "learn", key: "배우는 방식", ask: "어떻게 배우고 싶어요?", opts: learnOpts }] : []),
 ];
 const nQ = questions.length;
 
-// ---------- benefits: verified helps only ----------
+// ---------- benefits: verified helps, then 공식 자동 items ----------
 type HelpX = Help & { audience?: string };
 const fmtDeadline = (d: string | null, closed: boolean) => {
   if (d === "rolling") return "상시";
@@ -156,20 +160,57 @@ const perks = (helps as HelpX[])
   .filter((p) => p.field || p.steps.length)
   // Sponsored items are never ranked first: every list keeps them after the rest.
   .sort((a, b) => Number(a.sponsored) - Number(b.sponsored));
-const hasPerks = perks.length > 0;
+
+// 공식 자동: collected from an official source, not checked by a person. Always after the verified helps.
+const md = (d: string) => `${+d.slice(5, 7)}월 ${+d.slice(8, 10)}일`;
+const windowLabel = (w: { s: string; e: string }) => (w.s === w.e ? md(w.s) : `${md(w.s)}~${md(w.e)}`);
+const autoPerks = autoGroups()
+  .map((g) => {
+    const windows = g.windows.filter((w) => w.e >= today);
+    const next = windows[0];
+    return {
+      id: g.id,
+      tier: "auto" as const,
+      typeLabel: g.source === "qnet" ? "자격시험 접수" : HELP_LABEL[g.type as keyof typeof HELP_LABEL] ?? "기타",
+      title: g.title,
+      provider: g.provider,
+      url: g.url,
+      summary: g.summary,
+      steps: g.stepIds.filter((s) => inField.has(s)),
+      field: false,
+      regions: g.regions,
+      regionLabel: g.regions.map((r) => REGION_LABEL[r] ?? r).join(" · "),
+      deadline: windows.length ? windows[windows.length - 1].e : null,
+      closed: !next,
+      deadlineLabel: next ? `${windowLabel(next)}${next.k ? ` · ${next.k}` : ""}` : "이번에는 마감",
+      ageMin: null,
+      ageMax: null,
+      ageLabel: "",
+      audience: g.audience,
+      costLabel: g.costText,
+      sponsored: false,
+      windows: windows.map((w) => ({ ...w, label: windowLabel(w) })),
+      sourceLabel: g.sourceLabel,
+      seenLabel: g.seen ? md(g.seen) : "",
+      oosOk: g.outOfSchoolOk,
+    };
+  })
+  .filter((p) => p.steps.length && !p.closed);
+const allPerks = [...perks, ...autoPerks];
+const hasPerks = allPerks.length > 0;
 
 // Static grouping for the no-JS view: every station in map order, then the whole field, then closed.
 const seen = new Set<string>();
 const ssrGroups = order
   .map((sid) => {
-    const items = perks.filter((p) => !p.closed && p.steps.includes(sid) && !seen.has(p.id));
+    const items = allPerks.filter((p) => !p.closed && p.steps.includes(sid) && !seen.has(p.id));
     items.forEach((p) => seen.add(p.id));
     return { sid, title: stationData[sid].title, kind: stationData[sid].kind, color: lines[stationData[sid].lines[0]].color, items };
   })
   .filter((g) => g.items.length);
 const ssrField = perks.filter((p) => !p.closed && p.field && !seen.has(p.id));
 const ssrClosed = perks.filter((p) => p.closed);
-const ssrCount = (sid: string) => perks.filter((p) => !p.closed && p.steps.includes(sid)).length;
+const ssrCount = (sid: string) => allPerks.filter((p) => !p.closed && p.steps.includes(sid)).length;
 const stationTitle = (sid: string) => stationData[sid]?.title ?? sid;
 
 const stationViews = order.map((id) => {
@@ -198,7 +239,7 @@ const data = {
   order,
   stations: stationData,
   mission,
-  perks,
+  perks: allPerks,
   hasPerks,
   checkingAsOf: CHECKING_AS_OF,
 };
@@ -306,7 +347,7 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
             <p class="perks-scope" id="perks-scope" tabindex="-1"><i aria-hidden="true"></i><span>노선 전체</span></p>
             {hasPerks && (
               <div class="count-row">
-                <p id="perks-count">전체 <b>{perks.length}개</b></p>
+                <p id="perks-count">전체 <b>{allPerks.length}개</b></p>
                 <label class="all-toggle"><input type="checkbox" id="all-toggle" /> 조건 없이 모두 보기</label>
               </div>
             )}
@@ -343,7 +384,10 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
               </details>
             )}
           </div>
-          <p class="perks-foot">혜택은 광고를 받고 고르지 않아요. 후원을 받은 것은 ‘후원’ 표시를 붙이고 앞자리에 두지 않아요. 순서는 노선의 역 순서를 따라요.</p>
+          <p class="perks-foot">
+            혜택은 광고를 받고 고르지 않아요. 후원을 받은 것은 ‘후원’ 표시를 붙이고 앞자리에 두지 않아요. 순서는 노선의 역 순서를 따라요.
+            {autoPerks.length > 0 && " ‘공식 자동’은 기관의 공식 자료에서 자동으로 모은 것이라 사람이 아직 확인하지 않았어요. 사람이 확인한 혜택 뒤에 둬요."}
+          </p>
         </aside>
       </div>
     </section>
@@ -375,6 +419,14 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
           p.deadlineLabel = "이번에는 마감";
         }
       });
+      // 공식 자동 items keep only the windows still open or ahead; one with none left is not shown at all.
+      D.perks = D.perks.filter((p) => {
+        if (p.tier !== "auto") return true;
+        p.windows = p.windows.filter((w) => w.e >= todayIso);
+        return p.windows.length > 0;
+      });
+      D.hasPerks = D.perks.length > 0;
+      const daysTo = (d) => Math.round((Date.parse(d) - Date.parse(todayIso)) / 864e5);
 
       const blank = () => Array(N).fill(null);
       let S = { a: blank(), done: false, line: null, rec: null, station: null, all: false, undo: null };
@@ -458,7 +510,8 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
           return;
         }
         qLabel.textContent = `${qi + 1} / ${N} · ${Q[qi].ask}`;
-        if (Q[qi].opts.length >= 4 && Q[qi].opts.length % 2 === 0) choices.classList.add("two");
+        if (Q[qi].opts.length > 6) choices.classList.add("three");
+        else if (Q[qi].opts.length >= 4 && Q[qi].opts.length % 2 === 0) choices.classList.add("two");
         Q[qi].opts.forEach(([v, t]) => choiceBtn(t, "choice", () => answer(qi, v)));
         if (Q[qi].skip) choiceBtn("건너뛰기", "choice ghost", () => answer(qi, "skip"));
         if (S.undo && S.undo.i === qi) choiceBtn("그대로 둘게요", "choice ghost", () => answer(qi, S.undo.v));
@@ -656,7 +709,29 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
       }
 
       const titleOf = (sid) => ST[sid]?.title ?? sid;
+      // 공식 자동: quieter than a verified card, with the tier, source and date it was collected, and live D-n.
+      function autoCard(p) {
+        const [w, ...rest] = p.windows;
+        const open = w.s <= todayIso;
+        const n = daysTo(open ? w.e : w.s);
+        const left = open ? (n === 0 ? "오늘 마감" : `접수 중 · 마감 D-${n}`) : `D-${n} 접수 시작`;
+        const meta = [[rest.length ? "다음 접수" : "신청", w.label + (w.k ? ` · ${w.k}` : "")], ["남은 날", left], ["지역", p.regionLabel], ["금액", p.costLabel]]
+          .filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+        const more = rest.length
+          ? `<details class="p-more"><summary>다음 회차 ${rest.length}개 더</summary><ol>${rest.map((r) => `<li><span>${esc(r.label)}</span>${r.k ? `<span>${esc(r.k)}</span>` : ""}</li>`).join("")}</ol></details>`
+          : "";
+        const hint = p.oosOk && ans("school") === "left" ? `<p class="p-hint">학교 밖 청소년도 신청할 수 있다고 적혀 있어요.</p>` : "";
+        return `<li class="perk auto">` +
+          `<p class="p-tier"><span class="t-auto">공식 자동</span><span>출처 ${esc(p.sourceLabel)}</span>${p.seenLabel ? `<span>${esc(p.seenLabel)} 확인</span>` : ""}</p>` +
+          `<p class="p-top"><span class="p-type">${esc(p.typeLabel)}</span></p>` +
+          `<h4 class="p-title">${esc(p.title)}</h4><p class="p-prov">${esc(p.provider)}</p>` +
+          (p.summary ? `<p class="p-sum">${esc(p.summary)}</p>` : "") +
+          `<dl class="p-meta">${meta}</dl>${more}${hint}` +
+          `<p class="p-check">기관 원문에서 한 번 더 확인하세요.</p>` +
+          `<a class="p-link" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.sourceLabel)} 원문<span class="sr"> · ${esc(p.title)}</span></a></li>`;
+      }
       function card(p) {
+        if (p.tier === "auto") return autoCard(p);
         const meta = [["지역", p.regionLabel], ["신청", p.deadlineLabel], ["나이", p.ageLabel], ["비용", p.costLabel]]
           .filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
         return `<li class="perk${p.closed ? " is-closed" : ""}${p.sponsored ? " is-sponsored" : ""}">` +
@@ -866,6 +941,8 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
   .dots i.now { background: var(--carrot); }
   .choices { display: grid; gap: 8px; }
   .choices.two { grid-template-columns: 1fr 1fr; }
+  .choices.three { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .choices.three .choice { min-height: 44px; padding: 8px 10px; text-align: center; }
   .choice {
     min-height: 48px; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--me);
     background: var(--bubble-bg); color: var(--me); text-align: left; font: 500 16px/1.35 var(--ui); cursor: pointer;
@@ -1083,6 +1160,30 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
   }
   .p-link::after { content: " ↗"; white-space: pre; }
   .perk.is-closed .p-title, .perk.is-closed .p-sum { color: var(--ink-2); }
+
+  /* 공식 자동: same card bones, set quieter (smaller title, lighter rules, no bold link) */
+  .perk.auto { padding-top: 14px; }
+  .perk.auto:first-child { border-top: 1px dashed var(--rule); }
+  .p-tier { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; font-size: 13px; color: var(--ink-2); }
+  .p-tier > span + span::before { content: "·"; margin: 0 6px; }
+  .t-auto { font-weight: 700; color: var(--ink-2); border: 1.5px dashed var(--lead); padding: 0 6px; line-height: 20px; border-radius: 2px; }
+  .perk.auto .p-top { display: none; }
+  .perk.auto .p-title { font-size: 17px; font-weight: 600; }
+  .perk.auto .p-sum { font-size: 15px; color: var(--ink-2); }
+  .perk.auto .p-meta { margin-top: 6px; border-top: 1px solid var(--lead); grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+  .perk.auto .p-meta dd { font-weight: 500; }
+  .p-more { margin: 0; border-bottom: 1px solid var(--rule); }
+  .p-more summary {
+    list-style: none; min-height: 44px; display: flex; align-items: center; cursor: pointer;
+    font-size: 14px; font-weight: 600; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px;
+  }
+  .p-more summary::-webkit-details-marker { display: none; }
+  .p-more ol { list-style: none; margin: 0 0 8px; padding: 0; font-size: 14px; }
+  .p-more li { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; border-top: 1px dotted var(--rule); }
+  .p-more li span + span { color: var(--ink-2); }
+  .p-hint { margin: 6px 0 0; font-size: 14px; }
+  .p-check { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
+  .perk.auto .p-link { font-weight: 600; text-decoration-thickness: 1px; }
 
   .closed { margin: 8px 0 8px; border-top: 2px solid var(--ink); }
   .closed summary {
