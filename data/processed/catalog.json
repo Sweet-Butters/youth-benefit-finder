@@ -159,7 +159,7 @@
         "펫시터"
       ],
       "try_first": "가까운 유기동물 보호소 봉사 모집을 찾아보고, 산책 봉사 하루 신청해 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "반려",
         "동물",
@@ -186,7 +186,7 @@
         "드론정비사"
       ],
       "try_first": "집에 있는 고장 난 물건 하나를 영상 보며 분해하고 사진으로 순서 기록해 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "정비사",
         "자동차정비",
@@ -215,7 +215,7 @@
         "물리치료사"
       ],
       "try_first": "적십자나 소방서 무료 심폐소생술 교육 하나 찾아 신청해 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "간호",
         "보건",
@@ -243,7 +243,7 @@
         "수상안전요원"
       ],
       "try_first": "동네 공공 체육시설 무료·저가 강좌 하나 찾아 한 번 나가 보기",
-      "status": "coming",
+      "status": "ready",
       "benefit_words": [
         "체육",
         "스포츠",

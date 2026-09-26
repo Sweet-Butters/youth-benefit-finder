@@ -115,6 +115,24 @@
       "step_ids": [
         "care-volunteer"
       ]
+    },
+    {
+      "tag": "qnet:6281",
+      "step_ids": [
+        "mechanic-craftsman-exam"
+      ]
+    },
+    {
+      "tag": "qnet:7780",
+      "step_ids": [
+        "mechanic-craftsman-exam"
+      ]
+    },
+    {
+      "tag": "qnet:6223",
+      "step_ids": [
+        "mechanic-craftsman-exam"
+      ]
     }
   ]
 }

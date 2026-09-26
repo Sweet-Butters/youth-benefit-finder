@@ -5,11 +5,11 @@
    "label": "큐넷 시험일정",
    "fetched": 625,
    "kept": 625,
-   "general": 272,
+   "general": 233,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 2.8
+   "seconds": 1.2
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -63,7 +63,7 @@
   }
  },
  "total": 1112,
- "review": 31,
+ "review": 0,
  "jev": {
   "requests": 0,
   "ok": 0,
@@ -79,10 +79,9 @@
   "models": {},
   "asked": 0,
   "failed": 0,
-  "cached": 1603,
+  "cached": 625,
   "outcomes": {
-   "agreed": 1601,
-   "dropped": 2
+   "agreed": 625
   }
  }
 }

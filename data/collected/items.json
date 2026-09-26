@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-27T06:49:34+09:00",
+ "updatedAt": "2026-09-27T07:29:58+09:00",
  "items": [
   {
    "source": "certi",
@@ -28570,6 +28570,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.75,
     "out_of_school": 0.82,
@@ -28577,7 +28580,7 @@
     "stepConf": 0.88
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28607,6 +28610,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.75,
     "out_of_school": 0.82,
@@ -28614,7 +28620,7 @@
     "stepConf": 0.89
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -28644,6 +28650,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.76,
     "out_of_school": 0.83,
@@ -28651,7 +28660,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28681,6 +28690,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.76,
     "out_of_school": 0.83,
@@ -28688,7 +28700,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28718,6 +28730,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.79,
     "out_of_school": 0.82,
@@ -28725,7 +28740,7 @@
     "stepConf": 0.86
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28755,6 +28770,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.81,
@@ -28762,7 +28780,7 @@
     "stepConf": 0.86
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -28792,6 +28810,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.83,
@@ -28799,7 +28820,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -28829,6 +28850,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.8,
     "out_of_school": 0.83,
@@ -28836,7 +28860,7 @@
     "stepConf": 0.84
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29179,6 +29203,9 @@
     "implSeq": 3,
     "description": "국가기술자격 기능사 (2026년도 제3회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.76,
     "out_of_school": 0.83,
@@ -29186,7 +29213,7 @@
     "stepConf": 0.81
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29216,6 +29243,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.76,
     "out_of_school": 0.83,
@@ -29223,7 +29253,7 @@
     "stepConf": 0.81
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "upcoming"
@@ -29254,6 +29284,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.78,
     "out_of_school": 0.85,
@@ -29261,7 +29294,7 @@
     "stepConf": 0.82
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
@@ -29292,6 +29325,9 @@
     "implSeq": 4,
     "description": "국가기술자격 기능사 (2026년도 제4회)"
    },
+   "step_ids": [
+    "mechanic-craftsman-exam"
+   ],
    "jev": {
     "youth": 0.78,
     "out_of_school": 0.85,
@@ -29299,7 +29335,7 @@
     "stepConf": 0.82
    },
    "youth_reason": "open to all ages",
-   "scope": "general",
+   "scope": "step",
    "first_seen": "2026-09-27",
    "last_seen": "2026-09-27",
    "status": "closed"
