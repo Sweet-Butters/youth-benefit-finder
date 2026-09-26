@@ -1,0 +1,33 @@
+---
+// A small, flat preview of one field's subway map for lists (the /fields/ index). Same layout as the full map
+// (lib/subway.ts), turned sideways: stations run left to right, each line is one lane. Decorative: the card carries the text.
+import type { Path } from "../lib/content";
+import { layout } from "../lib/subway";
+interface Props { paths: Path[] }
+const { paths } = Astro.props;
+const { order, stations, lineSegs } = layout(paths);
+const STEP = 30, LANE = 16, PAD = 10, R = 5;
+const n = Math.max(order.length, 2);
+const w = PAD * 2 + (n - 1) * STEP;
+const h = PAD * 2 + (Math.max(lineSegs.length, 1) - 1) * LANE;
+const x = (o: number) => PAD + o * STEP;
+const y = (lane: number) => PAD + lane * LANE;
+const dots = order.map((id, o) => {
+  const lanes = [...stations.get(id)!.lines].sort((a, b) => a - b);
+  return { o, l0: lanes[0], l1: lanes[lanes.length - 1], transfer: lanes.length > 1 };
+});
+---
+<svg class="minimap" viewBox={`0 0 ${w} ${h}`} width={w} height={h} aria-hidden="true" focusable="false">
+  {lineSegs.map((l) => (
+    <line x1={x(l.a)} x2={x(l.b)} y1={y(l.lane)} y2={y(l.lane)} style={`stroke:${l.color}`} stroke-width="6" stroke-linecap="round" />
+  ))}
+  {dots.map((d) =>
+    d.transfer
+      ? <rect x={x(d.o) - R - 1} y={y(d.l0) - R - 1} width={(R + 1) * 2} height={y(d.l1) - y(d.l0) + (R + 1) * 2} rx={R + 1} fill="#fff" stroke="#1b1f2a" stroke-width="2.5" />
+      : <circle cx={x(d.o)} cy={y(d.l0)} r={R} fill="#fff" stroke="#1b1f2a" stroke-width="2" />,
+  )}
+</svg>
+
+<style>
+  .minimap { display: block; width: 100%; height: auto; max-height: 120px; }
+</style>

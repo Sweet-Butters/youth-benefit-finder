@@ -9,7 +9,7 @@ const { title, description = "지금 내 자리에서 시작하는 진로. 어�
 const path = unbase(Astro.url.pathname);
 const fullTitle = `${title} · 지금 내 자리에서`;
 const nav = [
-  { href: url("/fields/cooking"), label: "노선도", match: "/fields" },
+  { href: url("/fields/"), label: "노선도", match: "/fields" },
   { href: url("/helps/"), label: "혜택", match: "/helps" },
   { href: url("/guide"), label: "읽을거리", match: "/guide" },
 ];

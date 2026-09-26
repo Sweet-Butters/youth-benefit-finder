@@ -1,0 +1,131 @@
+{
+  "id": "beauty",
+  "title": "미용·뷰티",
+  "holland": [
+    "A",
+    "R"
+  ],
+  "summary": "머리, 피부, 손톱, 얼굴을 가꿔 주는 일이에요. 일하려면 법에 따라 미용사 면허가 꼭 있어야 해서, 어느 길로 가든 면허 역을 지나요. 학교에 다니든 그만뒀든 갈 수 있는 길이 있어요.",
+  "try_phrase": "머리 손질이나 네일",
+  "paths": [
+    {
+      "id": "beauty-staff-path",
+      "title": "미용실 스태프로 일하며 배우기",
+      "learn_style": "hands",
+      "summary": "한 번 해 보고, 미용실에서 보조로 일하며 현장을 익히고, 자격증과 면허를 받아 미용 일을 시작해요.",
+      "steps": [
+        {
+          "step": "beauty-mission-try-once"
+        },
+        {
+          "step": "beauty-salon-staff"
+        },
+        {
+          "step": "beauty-license-exam",
+          "note": "일하면서 따로 시간을 내서 준비해요."
+        },
+        {
+          "step": "beauty-license"
+        },
+        {
+          "step": "beauty-work"
+        }
+      ],
+      "pros": [
+        "일하면서 돈을 벌고 현장을 바로 봐요.",
+        "학교나 학원에 다니지 않아도 시작할 수 있어요."
+      ],
+      "cons": [
+        "면허를 받기 전에는 보조 일만 할 수 있어요.",
+        "가르쳐 주는 정도와 근무 조건이 매장마다 달라요. 근로계약서를 꼭 받아요.",
+        "시험 공부는 일과 별도로 시간을 내야 해요."
+      ]
+    },
+    {
+      "id": "beauty-training-path",
+      "title": "직업훈련으로 기술부터",
+      "learn_style": "institution",
+      "summary": "훈련기관에서 실기를 배우고 자격증을 딴 뒤 면허를 받아 일을 시작해요.",
+      "steps": [
+        {
+          "step": "beauty-training-course"
+        },
+        {
+          "step": "beauty-license-exam"
+        },
+        {
+          "step": "beauty-license"
+        },
+        {
+          "step": "beauty-work"
+        }
+      ],
+      "pros": [
+        "실기를 순서대로 배워요.",
+        "조건이 맞으면 훈련비를 지원받을 수 있어요."
+      ],
+      "cons": [
+        "지원 조건에 맞지 않으면 학원비가 부담될 수 있어요.",
+        "실기 시험 준비물은 직접 챙겨야 해서 재료비가 들어요.",
+        "과정마다 내용과 질이 달라서 미리 비교해 봐야 해요."
+      ]
+    },
+    {
+      "id": "beauty-hs-path",
+      "title": "특성화고에서 배우며 준비",
+      "learn_style": "school",
+      "summary": "미용 관련 학과가 있는 특성화고에서 친구들과 배우며 면허를 준비해요.",
+      "steps": [
+        {
+          "step": "beauty-vocational-hs"
+        },
+        {
+          "step": "beauty-license-exam",
+          "note": "필수는 아니에요. 1년 이상 과정을 마치면 자격증 없이도 면허를 신청할 수 있어요."
+        },
+        {
+          "step": "beauty-license"
+        },
+        {
+          "step": "beauty-work"
+        }
+      ],
+      "pros": [
+        "친구들과 함께 여러 분야를 배워요.",
+        "과정을 마치면 자격증 없이도 면허를 신청할 수 있어요."
+      ],
+      "cons": [
+        "학교를 그만뒀다면 다시 들어갈 수 있는지부터 확인해야 해요.",
+        "미용 관련 학과가 있는 학교가 지역마다 달라요."
+      ]
+    },
+    {
+      "id": "beauty-college-path",
+      "title": "검정고시 보고 전문대 뷰티학과로",
+      "learn_style": "study",
+      "summary": "학력을 인정받고 전문대에서 미용을 넓게 배운 뒤, 졸업으로 면허를 받아요.",
+      "steps": [
+        {
+          "step": "ged-high"
+        },
+        {
+          "step": "beauty-college"
+        },
+        {
+          "step": "beauty-license"
+        },
+        {
+          "step": "beauty-work"
+        }
+      ],
+      "pros": [
+        "미용을 넓게 배우고 졸업하면 자격증 없이도 면허를 신청할 수 있어요.",
+        "학과 졸업으로 받은 면허는 미용 일 전체를 할 수 있어요."
+      ],
+      "cons": [
+        "검정고시와 입시를 거쳐서 시간이 오래 걸려요.",
+        "학비가 들어요."
+      ]
+    }
+  ]
+}

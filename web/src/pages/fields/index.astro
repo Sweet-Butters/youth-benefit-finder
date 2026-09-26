@@ -1,0 +1,154 @@
+---
+// 노선도 모음: every field the find-talk can point to (data/processed/catalog.json). A field whose 노선도 really exists
+// (status ready + data/processed/fields/<id>.json) gets a card with a small map drawn from its paths, the number of
+// lines and stations, and how many benefits hang on it (board entries or verified helps on one of its stations, or
+// tagged with the field). The rest are listed quieter as 노선도 준비 중 with the one thing to try first.
+// All of it comes from the data, so the page reads the same with 1 or 15 ready fields.
+import Site from "../../layouts/Site.astro";
+import MiniMap from "../../components/MiniMap.astro";
+import { fields, helps } from "../../lib/content";
+import { catalog } from "../../lib/findtalk";
+import { boardEntries, stateOn, todayKst } from "../../lib/board";
+import { layout } from "../../lib/subway";
+import { url } from "../../lib/url";
+
+const live = fields.filter((f) => !f.retired);
+const byId = new Map(live.map((f) => [f.id, f]));
+const today = todayKst();
+const board = boardEntries().filter((e) => stateOn(e, today).live);
+const openHelps = helps.filter((h) => !(h.deadline && /^\d{4}-\d{2}-\d{2}$/.test(h.deadline) && h.deadline < today));
+
+function stats(id: string) {
+  const f = byId.get(id)!;
+  const paths = f.paths.filter((p) => !p.retired);
+  const { order, lineSegs } = layout(paths);
+  const inField = new Set(order);
+  const onField = (stepIds: string[] | undefined, fieldIds: string[] | undefined) =>
+    (fieldIds ?? []).includes(id) || (stepIds ?? []).some((s) => inField.has(s));
+  const benefits = board.filter((e) => onField(e.stepIds, e.fieldIds)).length + openHelps.filter((h) => onField(h.step_ids, h.field_ids)).length;
+  return { paths, nLines: lineSegs.length, nStations: order.length, benefits, colors: lineSegs.map((l) => l.color) };
+}
+
+// Catalog order; a field with a map but no catalog row (should not happen) still gets its card, after the rest.
+const inCatalog = new Set(catalog.map((c) => c.id));
+const ready = [
+  ...catalog.filter((c) => c.status === "ready" && byId.has(c.id)).map((c) => ({ id: c.id, oneLine: c.one_line, jobs: c.jobs ?? [] })),
+  ...live.filter((f) => !inCatalog.has(f.id)).map((f) => ({ id: f.id, oneLine: f.summary, jobs: [] as string[] })),
+].map((c) => ({ ...c, title: byId.get(c.id)!.title, href: url(`/fields/${c.id}`), ...stats(c.id) }));
+const coming = catalog.filter((c) => !(c.status === "ready" && byId.has(c.id)));
+const total = ready.length + coming.length;
+---
+<Site title="노선도 모음" description={`분야별 길을 지하철 노선도처럼 그려 뒀어요. 노선도가 있는 분야 ${ready.length}개, 준비 중인 분야 ${coming.length}개.`}>
+  <main class="fx">
+    <header class="fx-head">
+      <p class="eyebrow">분야 {total}개 · 노선도 {ready.length}개</p>
+      <h1 class="display">노선도 모음</h1>
+      <div class="rule-lines short" aria-hidden="true"></div>
+      <p class="lead">
+        분야마다 갈 수 있는 길을 노선으로, 거치는 단계를 역으로 그렸어요. 어느 노선이 더 좋은 건 아니에요.
+        뭘 볼지 모르겠으면 <a href={url("/")}>찾기 대화</a>부터 해 봐요.
+      </p>
+    </header>
+
+    {ready.length > 0 && (
+      <section aria-labelledby="ready-h">
+        <h2 id="ready-h" class="fx-h">노선도 있는 분야 <span>{ready.length}</span></h2>
+        <ul class="fx-ready">
+          {ready.map((f) => (
+            <li id={f.id} style={`--c:${f.colors[0] ?? "var(--ink)"}`}>
+              <a class="fx-card" href={f.href}>
+                <span class="fx-top">
+                  <b class="fx-title display">{f.title}</b>
+                  <span class="fx-go" aria-hidden="true">→</span>
+                </span>
+                {f.jobs.length > 0 && <span class="fx-jobs">{f.jobs.join(" · ")}</span>}
+                <span class="fx-line">{f.oneLine}</span>
+                <span class="fx-map"><MiniMap paths={f.paths} /></span>
+                <span class="fx-stats">
+                  <span>노선 <b>{f.nLines}</b></span>
+                  <span>역 <b>{f.nStations}</b></span>
+                  <span class="fx-ben">혜택 <b>{f.benefits}</b></span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="fx-note">혜택 수는 그 분야의 역에 이어진 것과 분야 표시가 붙은 것 중, 아직 신청할 수 있거나 곧 열리는 것만 셌어요.</p>
+      </section>
+    )}
+
+    {coming.length > 0 && (
+      <section class="fx-soon" aria-labelledby="soon-h">
+        <h2 id="soon-h" class="fx-h">노선도 준비 중 <span>{coming.length}</span></h2>
+        <ul>
+          {coming.map((c) => (
+            <li id={c.id}>
+              <b class="display">{c.title}</b>
+              <span class="fx-line">{c.one_line}</span>
+              <span class="fx-try"><em>노선도 준비 중</em>{c.try_first && <> · 먼저 이것부터: {c.try_first}</>}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {total === 0 && <p class="lead">아직 그려 둔 노선도가 없어요.</p>}
+  </main>
+</Site>
+
+<style>
+  .fx { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+  .fx-head { padding: 26px 0 8px; }
+  .eyebrow { margin: 0 0 6px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+  h1 { margin: 0; font-size: clamp(38px, 10.5vw, 60px); line-height: 1.08; }
+  .rule-lines.short { max-width: 240px; margin: 12px 0 4px; }
+  .lead { margin: 12px 0 0; font-size: 17px; line-height: 1.6; max-width: 34em; }
+  .lead a { font-weight: 700; text-underline-offset: 3px; }
+  .fx-h { margin: 28px 0 10px; font-size: 17px; font-weight: 700; display: flex; align-items: baseline; gap: 8px; }
+  .fx-h span { font: 400 20px/1 var(--display); color: var(--ink-2); }
+
+  .fx-ready { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .fx-ready li { scroll-margin-top: 70px; }
+  .fx-card {
+    display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px 12px; text-decoration: none; color: inherit;
+    background: #fff; border: 2px solid var(--ink); border-bottom: 8px solid var(--c);
+  }
+  .fx-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .fx-title { font-size: 28px; line-height: 1.2; }
+  .fx-go { flex: none; display: grid; place-items: center; width: 40px; height: 40px; background: var(--ink); color: #fff; font-weight: 700; font-size: 20px; }
+  .fx-jobs { font-size: 14px; color: var(--ink-2); }
+  .fx-line { font: 16px/1.55 var(--bubble); }
+  .fx-ready .fx-line { margin-bottom: 10px; }
+  .fx-map { display: block; margin: auto 0 6px; padding: 10px 8px; background: var(--board); border: 1px solid var(--rule); }
+  .fx-stats { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--ink-2); }
+  .fx-stats b { font: 400 18px/1 var(--display); color: var(--ink); margin-left: 2px; }
+  .fx-stats .fx-ben b { color: var(--carrot); }
+  .fx-card:hover .fx-title { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+  .fx-note { margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
+
+  .fx-soon ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); display: grid; }
+  .fx-soon li {
+    display: flex; flex-direction: column; padding: 10px 2px 10px 16px; border-bottom: 1px solid var(--rule); position: relative; scroll-margin-top: 70px;
+  }
+  .fx-soon li::before {
+    content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 5px; border-radius: 3px;
+    background: repeating-linear-gradient(180deg, var(--lead) 0 5px, transparent 5px 9px);
+  }
+  .fx-soon li:target { background: var(--mark); }
+  .fx-soon b { font-size: 19px; line-height: 1.3; }
+  .fx-soon .fx-line { font-size: 15px; color: var(--ink-2); }
+  .fx-try { font-size: 14px; color: var(--ink-2); margin-top: 2px; }
+  .fx-try em { font-style: normal; font-weight: 700; }
+
+  @media (min-width: 700px) {
+    .fx-ready { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fx-soon ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  }
+  @media (min-width: 900px) {
+    .fx { padding: 0 40px; }
+    .fx-head { padding-top: 40px; }
+  }
+  @media (min-width: 1100px) {
+    .fx-ready { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+</style>

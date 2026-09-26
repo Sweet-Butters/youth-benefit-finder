@@ -10,6 +10,7 @@ import { fields, steps, helps, KIND_LABEL, REGION_LABEL, COST_LABEL, HELP_LABEL,
 import { autoGroups } from "../../lib/collected";
 import { boardEntries } from "../../lib/board";
 import { url } from "../../lib/url";
+import { layout } from "../../lib/subway";
 
 type LearnStyle = "hands" | "study" | "institution" | "school";
 type FieldX = Field & { try_phrase?: string; paths: (Path & { learn_style?: LearnStyle })[] };
@@ -32,49 +33,9 @@ const batchim = (w: string) => {
 const iga = (w: string) => w + (batchim(w) ? "이" : "가");
 const KNUM: Record<number, string> = { 1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯" };
 
-// ---------- subway map, computed from the data ----------
-const PALETTE = ["var(--line-1)", "var(--line-2)", "var(--line-3)", "var(--line-4)", "#7b52ae", "#0a93ad", "#8a5a2b", "#5c6b00"];
-const lines = paths.map((p, i) => ({
-  id: p.id,
-  title: p.title,
-  summary: p.summary,
-  color: PALETTE[i % PALETTE.length],
-  steps: p.steps.map((s) => s.step),
-}));
-
-type Station = { id: string; lines: number[]; notes: Record<number, string>; preds: Set<string> };
-const stations = new Map<string, Station>();
-paths.forEach((p, li) =>
-  p.steps.forEach((ps, i) => {
-    const st = stations.get(ps.step) ?? { id: ps.step, lines: [], notes: {}, preds: new Set<string>() };
-    if (!st.lines.includes(li)) st.lines.push(li);
-    if (ps.note) st.notes[li] = ps.note;
-    if (i > 0) st.preds.add(p.steps[i - 1].step);
-    stations.set(ps.step, st);
-  }),
-);
-
-const order: string[] = [];
-const placed = new Set<string>();
-let last: string | null = null;
-const isNextOf = (prev: string, id: string) =>
-  lines.some((l) => {
-    const i = l.steps.indexOf(prev);
-    return i >= 0 && l.steps[i + 1] === id;
-  });
-while (order.length < stations.size) {
-  const unplaced = [...stations.values()].filter((s) => !placed.has(s.id));
-  let avail = unplaced.filter((s) => [...s.preds].every((p) => placed.has(p)));
-  if (!avail.length) avail = unplaced;
-  avail.sort((a, b) => Math.min(...a.lines) - Math.min(...b.lines));
-  const pick = (last && avail.find((s) => isNextOf(last!, s.id))) || avail[0];
-  order.push(pick.id);
-  placed.add(pick.id);
-  last = pick.id;
-}
-const pos = new Map(order.map((id, i) => [id, i]));
+// ---------- subway map, computed from the data (lib/subway.ts, shared with the /fields/ previews) ----------
+const { lines, stations, order, pos, lineSegs } = layout(paths);
 const inField = new Set(order);
-const lineSegs = lines.map((l, li) => ({ ...l, lane: li, a: pos.get(l.steps[0])!, b: pos.get(l.steps[l.steps.length - 1])! }));
 
 // "아직 없어요" points to the field's first mission step, if it has one.
 const mission = order.find((id) => steps.get(id)?.kind === "mission") ?? null;
@@ -237,7 +198,7 @@ const stationViews = order.map((id) => {
 });
 
 const data = {
-  field: { id: field.id, title: field.title, subject: iga(field.title), tryIga: tryPhrase ? iga(tryPhrase) : null },
+  field: { id: field.id, title: field.title, tryIga: tryPhrase ? iga(tryPhrase) : null },
   qn: KNUM[nQ] ?? String(nQ),
   questions,
   pick: pickByStyle,
@@ -448,7 +409,7 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
       function react(i, v) {
         const id = Q[i].id;
         if (i === N - 1) return "좋아요, 다 됐어요. 노선도를 펼쳐 볼게요.";
-        if (id === "exp") return v === "none" ? "괜찮아요, 다들 처음은 있어요." : v === "some" ? "오, 시작은 했네요." : "좋아요, 손에 익은 게 있겠네요.";
+        if (id === "exp") return v === "none" ? "괜찮아요, 다들 처음은 있어요." : v === "some" ? "오, 시작은 했네요." : "좋아요, 해 본 게 있으면 시작이 빨라요.";
         if (id === "school") {
           if (v === "left") return D.hasPerks ? "알려 줘서 고마워요. 그만둔 뒤에 받을 수 있는 혜택도 꽤 있어요." : "알려 줘서 고마워요. 학교를 그만둬도 갈 수 있는 길이 여럿이에요.";
           return v === "in" && D.hasPerks ? "알겠어요. 재학생만 받는 혜택도 챙겨 볼게요." : "알겠어요.";
@@ -466,7 +427,7 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
           ? `먼저 볼 만한 노선${D.hasPerks ? "과 받을 수 있는 혜택을 같이" : "을"} 보여 줄게요.`
           : `노선도${D.hasPerks ? "와 받을 수 있는 혜택을 같이" : "를"} 보여 줄게요.`;
         const out = [
-          bot(`안녕하세요! ${esc(D.field.subject)} 되는 길은 여러 개예요. ${esc(D.qn)} 가지만 물어보고, ${intro}`),
+          bot(`안녕하세요! ${esc(D.field.title)} 쪽으로 가는 길은 여러 개예요. ${esc(D.qn)} 가지만 물어보고, ${intro}`),
           bot(askHtml(0)),
         ];
         for (let i = 0; i < N; i++) {

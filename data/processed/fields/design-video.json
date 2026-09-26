@@ -1,0 +1,124 @@
+{
+  "id": "design-video",
+  "title": "디자인·영상",
+  "holland": [
+    "A",
+    "R"
+  ],
+  "summary": "보기 좋게 꾸미고 영상을 만들어 남에게 보여 주는 일이에요. 학교에 다니든 그만뒀든 무료 도구로 오늘 시작할 수 있고, 어느 길이든 내가 만든 작품을 모으는 게 중요해요.",
+  "try_phrase": "영상 편집이나 디자인",
+  "paths": [
+    {
+      "id": "design-video-self-made",
+      "title": "혼자 만들어 보고, 작은 의뢰부터",
+      "summary": "무료 도구로 만들어 보고 작품을 모은 뒤, 아는 사람의 의뢰나 내 채널로 실제 작업을 해 봐요.",
+      "learn_style": "hands",
+      "steps": [
+        {
+          "step": "design-video-mission-one-minute"
+        },
+        {
+          "step": "design-video-portfolio"
+        },
+        {
+          "step": "design-video-freelance"
+        }
+      ],
+      "pros": [
+        "돈 들이지 않고 오늘 바로 시작할 수 있어요.",
+        "학교나 나이와 상관없이 해 볼 수 있어요."
+      ],
+      "cons": [
+        "수입이 일정하지 않고, 이것만으로 생활하기는 어려운 경우가 많아요.",
+        "혼자 배우면 막힐 때 물어볼 사람이 없어서, 도와줄 곳을 따로 찾아야 해요."
+      ]
+    },
+    {
+      "id": "design-video-naeil-irum-path",
+      "title": "내일이룸학교에서 무료로 배우기",
+      "summary": "학교 밖 청소년 직업훈련에서 영상·디자인을 배우고 자격증과 작품을 준비해 일을 시작해요.",
+      "learn_style": "institution",
+      "steps": [
+        {
+          "step": "design-video-naeil-irum",
+          "note": "고3이나 졸업생이면 국민내일배움카드로 듣는 디자인·영상 과정도 찾아볼 수 있어요. 조건과 본인 부담은 고용24에서 확인해요."
+        },
+        {
+          "step": "design-video-cg-license"
+        },
+        {
+          "step": "design-video-portfolio"
+        },
+        {
+          "step": "design-video-job"
+        }
+      ],
+      "pros": [
+        "훈련비가 무료이고, 출석하면 자립장려금이 있어요.",
+        "선생님과 같이 배우는 친구가 있어요."
+      ],
+      "cons": [
+        "영상·디자인 과정이 올해 내 지역에서 열리는지는 따로 확인해야 해요.",
+        "훈련 기간 동안 정해진 시간에 꾸준히 나가야 해요."
+      ]
+    },
+    {
+      "id": "design-video-vocational-hs-path",
+      "title": "특성화고 디자인과에서 배우며 준비",
+      "summary": "디자인·영상 관련 학과가 있는 특성화고에서 배우며 자격증과 작품을 쌓아요.",
+      "learn_style": "school",
+      "steps": [
+        {
+          "step": "design-video-vocational-hs"
+        },
+        {
+          "step": "design-video-cg-license",
+          "note": "특성화고 학생을 위한 필기시험 면제자 검정 일정이 큐넷에 따로 있어요. 조건은 학교에 물어봐요."
+        },
+        {
+          "step": "design-video-portfolio"
+        },
+        {
+          "step": "design-video-job"
+        }
+      ],
+      "pros": [
+        "학교 안에서 장비를 쓰고 친구들과 함께 배워요.",
+        "고등학교 졸업장을 받으면서 준비할 수 있어요."
+      ],
+      "cons": [
+        "학교를 그만뒀다면 재입학·편입학이 되는지 먼저 확인해야 해요.",
+        "가까운 곳에 디자인·영상 학과가 없을 수 있어요."
+      ]
+    },
+    {
+      "id": "design-video-college-path",
+      "title": "검정고시 보고 대학 디자인·영상학과로",
+      "summary": "학력을 인정받고 전문대나 대학에서 디자인·영상을 차근차근 배워요.",
+      "learn_style": "study",
+      "steps": [
+        {
+          "step": "ged-high"
+        },
+        {
+          "step": "design-video-portfolio",
+          "note": "실기나 포트폴리오를 보는 학과라면 지원 전에 미리 준비해요."
+        },
+        {
+          "step": "design-video-college"
+        },
+        {
+          "step": "design-video-job"
+        }
+      ],
+      "pros": [
+        "이론과 여러 분야를 넓게 배울 수 있어요.",
+        "학교에서 만든 작품이 자연스럽게 포트폴리오가 돼요."
+      ],
+      "cons": [
+        "학교를 다니는 몇 년 동안 시간과 등록금이 들어요.",
+        "졸업장만으로는 일자리가 정해지지 않아서, 작품을 따로 쌓아야 해요."
+      ]
+    }
+  ]
+}

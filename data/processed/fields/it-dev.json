@@ -1,0 +1,134 @@
+{
+  "id": "it-dev",
+  "title": "IT·개발",
+  "holland": [
+    "I",
+    "R"
+  ],
+  "summary": "컴퓨터가 내 말대로 움직이게 만드는 일이에요. 혼자 만들어 보며 배울 수도, 훈련기관이나 학교에서 배울 수도 있어요. 대학에 가든 가지 않든 갈 수 있는 길이 여러 개예요.",
+  "try_phrase": "코딩",
+  "paths": [
+    {
+      "id": "it-dev-self-portfolio",
+      "title": "혼자 만들어 보고, 포트폴리오로",
+      "learn_style": "hands",
+      "summary": "작은 게임부터 만들어 보고 무료 강의로 익힌 뒤, 만든 것을 모아 일을 찾아요.",
+      "steps": [
+        {
+          "step": "it-dev-mission-block-game"
+        },
+        {
+          "step": "it-dev-free-online-study"
+        },
+        {
+          "step": "it-dev-portfolio-github"
+        },
+        {
+          "step": "it-dev-programming-license",
+          "note": "필수는 아니에요. 공부한 걸 확인하고 이력서에 쓰고 싶을 때 봐요."
+        },
+        {
+          "step": "it-dev-junior-job"
+        }
+      ],
+      "pros": [
+        "오늘 바로, 돈 없이 시작할 수 있어요.",
+        "학교에 다니든 그만뒀든 상관없어요."
+      ],
+      "cons": [
+        "혼자 하면 멈추기 쉽고 어디까지 해야 할지 막막할 수 있어요.",
+        "회사마다 학력을 보는 정도가 달라서, 포트폴리오만으로는 지원하기 어려운 곳도 있어요."
+      ]
+    },
+    {
+      "id": "it-dev-training",
+      "title": "국비 훈련으로 실무 배우기",
+      "learn_style": "institution",
+      "summary": "기초를 조금 익힌 뒤 국민내일배움카드로 훈련과정을 듣고, 만든 결과물로 일을 찾아요.",
+      "steps": [
+        {
+          "step": "it-dev-free-online-study",
+          "note": "훈련 전에 기초를 해 두면 따라가기 쉬워요."
+        },
+        {
+          "step": "it-dev-kdt-bootcamp"
+        },
+        {
+          "step": "it-dev-portfolio-github"
+        },
+        {
+          "step": "it-dev-junior-job"
+        }
+      ],
+      "pros": [
+        "수강료 대부분을 지원받아요.",
+        "정해진 시간표와 강사가 있어서 혼자보다 꾸준히 하기 쉬워요."
+      ],
+      "cons": [
+        "하루 종일 몇 달 동안 이어지는 과정이 많아 시간을 크게 내야 해요.",
+        "나이가 어리면 들을 수 있는지 과정마다 미리 물어봐야 해요."
+      ]
+    },
+    {
+      "id": "it-dev-college",
+      "title": "검정고시 보고 대학 컴퓨터 관련 학과로",
+      "learn_style": "study",
+      "summary": "학력을 인정받고 대학에서 컴퓨터 원리부터 체계적으로 배워요.",
+      "steps": [
+        {
+          "step": "ged-high"
+        },
+        {
+          "step": "it-dev-programming-license",
+          "note": "필수는 아니에요. 대학 가기 전에 기초를 다지고 싶을 때 봐요."
+        },
+        {
+          "step": "it-dev-cs-college"
+        },
+        {
+          "step": "it-dev-portfolio-github"
+        },
+        {
+          "step": "it-dev-junior-job"
+        }
+      ],
+      "pros": [
+        "기초 이론을 깊이 배워요.",
+        "대학 학력을 요구하는 자리에도 지원할 수 있어요."
+      ],
+      "cons": [
+        "검정고시와 입시, 대학 기간까지 시간과 비용이 많이 들어요.",
+        "대학만 다녀서는 부족하고 따로 만들어 본 경험도 쌓아야 해요."
+      ]
+    },
+    {
+      "id": "it-dev-vocational-hs",
+      "title": "특성화고·마이스터고에서 배우며 준비",
+      "learn_style": "school",
+      "summary": "소프트웨어 관련 학과가 있는 고등학교에서 친구들과 배우며 자격증과 결과물을 쌓아요.",
+      "steps": [
+        {
+          "step": "it-dev-sw-vocational-hs"
+        },
+        {
+          "step": "it-dev-programming-license",
+          "note": "웹을 만들고 싶다면 웹디자인개발기능사도 있어요."
+        },
+        {
+          "step": "it-dev-portfolio-github"
+        },
+        {
+          "step": "it-dev-junior-job"
+        }
+      ],
+      "pros": [
+        "학교 수업으로 배우고 친구들과 함께 만들어요.",
+        "학교에서 현장실습이나 취업 상담을 받을 수 있어요."
+      ],
+      "cons": [
+        "입학 시기와 방법이 정해져 있어요.",
+        "학교를 그만뒀다면 재입학이나 편입이 되는지 먼저 확인해야 해요."
+      ]
+    }
+  ]
+}
