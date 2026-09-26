@@ -21,7 +21,7 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={new URL(Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`, Astro.site)} />
     <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -34,8 +34,8 @@ const nav = [
     <slot name="head" />
     {GC_CODE && (
       <>
-        {/* Count the same path ViewCount asks for (trailing slash), then fill every [data-views]. */}
-        <script is:inline>window.goatcounter = { path: function (p) { p = p.split(/[?#]/)[0]; return p.endsWith("/") ? p : p + "/"; } };</script>
+        {/* Count the same path ViewCount asks for (no trailing slash), then fill every [data-views]. */}
+        <script is:inline>window.goatcounter = { path: function (p) { p = p.split(/[?#]/)[0]; return p.length > 1 ? p.replace(/\/+$/, "") : p; } };</script>
         <script is:inline async data-goatcounter={`${GC_ORIGIN}/count`} src="https://gc.zgo.at/count.js"></script>
         <script is:inline define:vars={{ origin: GC_ORIGIN, min: MIN_SHOWN }}>
           addEventListener("DOMContentLoaded", function () {
