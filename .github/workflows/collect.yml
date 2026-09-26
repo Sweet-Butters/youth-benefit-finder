@@ -1,12 +1,11 @@
 name: collect
 
 # 공식 출처에서 혜택을 모아 data/collected/에 커밋한다 (docs/collection-strategy.md).
-# 사이트는 아직 이 폴더를 읽지 않는다 (자동 공개 여부 결정 전).
-# 매일 실행은 팀이 확인한 뒤 schedule 주석을 푼다.
+# 매일 06:00 KST에 돈다 (2026-09-27 첫 수동 실행 성공 뒤 켬). 끝나면 deploy가 사이트를 다시 만든다.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "0 21 * * *"   # 매일 06:00 KST
+  schedule:
+    - cron: "0 21 * * *"   # 매일 06:00 KST
 
 permissions:
   contents: write
