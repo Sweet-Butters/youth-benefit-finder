@@ -1,0 +1,20 @@
+{
+  "id": "help-yyyy-short-name",
+  "type": "support",
+  "title": "(공식 이름)",
+  "provider": "(운영 기관)",
+  "url": "https://(공식 공고 주소)",
+  "summary": "(직접 쓴 요약, 200자 이내. 원문 복사 금지)",
+  "checked_at": "YYYY-MM-DD",
+  "deadline": "rolling",
+  "regions": [
+    "all"
+  ],
+  "step_ids": [
+    "korean-cook-license"
+  ],
+  "sponsored": false,
+  "age_min": 14,
+  "age_max": 24,
+  "cost": "free"
+}

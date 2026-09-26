@@ -1,20 +1,37 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-26 18:53",
+  "updated_at": "2026-09-26 19:06",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "record-d20",
+      "id": "week1-dev",
       "who": "claude",
-      "state": "committed-local",
-      "branch": "Sweet-Butters/data-d20",
+      "state": "pr-ready",
+      "branch": "Sweet-Butters/week1-data",
       "started": "2026-09-26",
-      "summary": "D20 행동 데이터 최대 + 개인정보 확대 결정 대기"
+      "summary": "1주차: 스키마, 요리사 초안, 검사, Astro 뼈대, CI"
+    },
+    {
+      "id": "data-strategy-doc",
+      "who": "claude",
+      "state": "in-progress",
+      "started": "2026-09-26",
+      "summary": "B2G·B2B 데이터 수요 조사 결과로 docs/data-strategy.md 작성"
     }
   ],
   "queued_tasks": [
+    {
+      "id": "cooking-helps",
+      "stage": "1-mvp",
+      "summary": "요리사 도움(help) 항목을 공식 공고로 확인해 채우기, 항목당 걸린 시간 기록 (사실 확인 담당)"
+    },
+    {
+      "id": "cooking-review",
+      "stage": "1-mvp",
+      "summary": "요리사 길 4개·단계 8개 초안 검토 (기획 담당)"
+    },
     {
       "id": "privacy-policy",
       "stage": "1-mvp",
@@ -39,11 +56,6 @@
       "id": "benefit-schema",
       "stage": "4-execution-support",
       "summary": "실행 지원용 지원 정보 30~50개 수작업 수집 + 스키마 확정 (진로 대화 시험 뒤)"
-    },
-    {
-      "id": "verify-check",
-      "stage": "1-mvp",
-      "summary": "코드가 생기면 tests/verify.py 같은 end-to-end 검사 만들기 (verify 스킬이 사용)"
     },
     {
       "id": "funding-2027",

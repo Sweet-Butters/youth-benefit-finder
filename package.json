@@ -1,0 +1,11 @@
+{
+  "name": "youth-benefit-finder",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-data.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

@@ -32,3 +32,6 @@ Thumbs.db
 
 # Claude 작업 인수인계 메모 (worktree별 개인 메모)
 .claude/handoff.md
+
+# Astro
+.astro/

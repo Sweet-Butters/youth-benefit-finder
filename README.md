@@ -156,11 +156,23 @@ youth-benefit-finder/
 
 ## 시작하기
 
+필요한 것: Node.js 22 이상, Python 3 (검사 스크립트용)
+
 ```bash
-cp .env.example .env   # 실제 API 키 입력
+npm install                 # 데이터 검사 도구 (ajv)
+npm run validate            # data/processed 검사
+
+cd web
+npm install
+npm run dev                 # http://localhost:4321 에서 사이트 보기
+npm run build               # web/dist 로 정적 사이트 만들기
 ```
 
-<!-- TODO: 설치 및 실행 방법 -->
+전체 검사(데이터 검사 + 사이트 빌드)를 한 번에: `python tests/verify.py`. PR을 올리면 GitHub Actions(`.github/workflows/check.yml`)가 같은 검사를 돌린다.
+
+- 데이터 넣는 법: [`data/processed/README.md`](data/processed/README.md)
+- 설계: [`docs/architecture.md`](docs/architecture.md)
+- API 키가 필요해지면(크롤러, AI 기능) `cp .env.example .env` 후 채운다. 지금은 필요 없다.
 
 ## 원칙
 

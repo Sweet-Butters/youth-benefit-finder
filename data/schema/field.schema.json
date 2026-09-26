@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "field.schema.json",
+  "title": "분야 (field) 하나와 그 분야의 길 목록",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "holland", "paths"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 300 },
+    "holland": {
+      "type": "array", "minItems": 1, "maxItems": 2, "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/holland" }
+    },
+    "paths": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "summary", "steps"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "steps": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["step"],
+              "properties": {
+                "step": { "$ref": "common.schema.json#/$defs/id" },
+                "note": { "type": "string", "maxLength": 200 }
+              }
+            }
+          },
+          "pros": { "type": "array", "items": { "type": "string", "maxLength": 120 } },
+          "cons": { "type": "array", "items": { "type": "string", "maxLength": 120 } },
+          "retired": { "type": "boolean" }
+        }
+      }
+    },
+    "retired": { "type": "boolean" },
+    "replaced_by": { "$ref": "common.schema.json#/$defs/id" }
+  }
+}

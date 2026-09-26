@@ -1,0 +1,13 @@
+---
+import Base from "../layouts/Base.astro";
+import { fields } from "../lib/content";
+const live = fields.filter((f) => !f.retired);
+---
+<Base title="홈">
+  <h1>지금 내 자리에서 시작하는 진로</h1>
+  <p class="muted">어디서 시작해도 갈 수 있는 길이 있어요. 대학도 여러 길 중 하나예요.</p>
+  <h2>분야별 길 지도</h2>
+  <ul>
+    {live.map((f) => <li><a href={`/fields/${f.id}`}>{f.title}</a> <span class="muted">· 길 {f.paths.length}개</span></li>)}
+  </ul>
+</Base>

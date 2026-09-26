@@ -1,0 +1,28 @@
+---
+interface Props { title: string; description?: string }
+const { title, description = "지금 내 자리에서 시작하는 진로" } = Astro.props;
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · 지금 내 자리에서 시작하는 진로</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <style is:global>
+      :root { --ink:#1f2328; --muted:#5b636e; --line:#e3e6ea; --accent:#e86a33; --bg:#fff; --soft:#fbf6f2; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family: system-ui, "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+      main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+      header.site { border-bottom:1px solid var(--line); padding:12px 16px; }
+      header.site a { color:var(--ink); text-decoration:none; font-weight:700; }
+      a { color: var(--accent); }
+      .muted { color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header class="site"><a href="/">지금 내 자리에서 시작하는 진로</a></header>
+    <main><slot /></main>
+  </body>
+</html>
