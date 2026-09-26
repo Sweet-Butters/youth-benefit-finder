@@ -1,6 +1,21 @@
 {
-  "note": "로드맵 단계가 쓰는 국가자격만 가져온다. jmCd는 큐넷 종목 코드. 단계 연결은 attach-rules.json의 qnet 태그로 한다.",
+  "note": "14~24세가 응시 제한 없이 볼 수 있는 기능사 시험일정을 가져온다. jmCd는 큐넷 종목 코드, qualgbCd T는 국가기술자격. fields는 catalog.json 분야 id로, 항목에 field:<id> 태그가 붙는다. 단계 연결은 attach-rules.json의 qnet 태그로 한다. 한식조리기능사는 게시판 id와 항목을 그대로 두려고 fields를 두지 않는다. 컴퓨터그래픽기능사는 옛 컴퓨터그래픽스운용기능사, 프로그래밍기능사는 옛 정보처리기능사 (큐넷 종목 페이지의 지금 이름).",
   "qualifications": [
-    { "name": "한식조리기능사", "qualgbCd": "T", "jmCd": "7910", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910" }
+    { "name": "한식조리기능사", "qualgbCd": "T", "jmCd": "7910", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910" },
+    { "name": "양식조리기능사", "qualgbCd": "T", "jmCd": "7911", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7911", "fields": [ "cooking" ] },
+    { "name": "제과기능사", "qualgbCd": "T", "jmCd": "7892", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7892", "fields": [ "cooking" ] },
+    { "name": "제빵기능사", "qualgbCd": "T", "jmCd": "7893", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7893", "fields": [ "cooking" ] },
+    { "name": "미용사(일반)", "qualgbCd": "T", "jmCd": "7937", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7937", "fields": [ "beauty" ] },
+    { "name": "미용사(피부)", "qualgbCd": "T", "jmCd": "7947", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7947", "fields": [ "beauty" ] },
+    { "name": "미용사(네일)", "qualgbCd": "T", "jmCd": "7957", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7957", "fields": [ "beauty" ] },
+    { "name": "미용사(메이크업)", "qualgbCd": "T", "jmCd": "7967", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7967", "fields": [ "beauty" ] },
+    { "name": "컴퓨터그래픽기능사", "qualgbCd": "T", "jmCd": "7796", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7796", "fields": [ "design-video" ] },
+    { "name": "웹디자인개발기능사", "qualgbCd": "T", "jmCd": "7798", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7798", "fields": [ "design-video", "it-dev" ] },
+    { "name": "사진기능사", "qualgbCd": "T", "jmCd": "7795", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7795", "fields": [ "design-video" ] },
+    { "name": "프로그래밍기능사", "qualgbCd": "T", "jmCd": "6921", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=6921", "fields": [ "it-dev" ] },
+    { "name": "자동차정비기능사", "qualgbCd": "T", "jmCd": "6281", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=6281", "fields": [ "mechanic" ] },
+    { "name": "전기기능사", "qualgbCd": "T", "jmCd": "7780", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7780", "fields": [ "mechanic" ] },
+    { "name": "피복아크용접기능사", "qualgbCd": "T", "jmCd": "6223", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=6223", "fields": [ "mechanic" ] },
+    { "name": "화학분석기능사", "qualgbCd": "T", "jmCd": "6560", "page": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=6560", "fields": [ "science-lab" ] }
   ]
 }

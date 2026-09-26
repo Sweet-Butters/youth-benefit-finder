@@ -12241,5 +12241,3708 @@
   "step": "none",
   "stepConf": 0.91,
   "seen": "2026-09-27"
+ },
+ "cfbe6c9450edfb00": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "49d5747ec27a8ddf": {
+  "youth": 0.8,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "c502c375d7e42e79": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "099cfadbef97e8a6": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "acdd641a95b04cfa": {
+  "youth": 0.77,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "cbd23fa8ca6d52d9": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "cf0dfa3a3f848f17": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "931914afea58d96d": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "09b8e85e3f8a4389": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "6f5d5b43a634f598": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "a7f09e11e807197f": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "3cb5915772fab1b7": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "041e9f65bc84b012": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "4471dc9252574f7e": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "08418b3555d42af5": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "d4bb9ea05c37a153": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "90c2e41c010cf93f": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "8c5eb9268c682f98": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "db4e1f24a92f0e35": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "a02b7427f57b5926": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "cefa2d10a33639f1": {
+  "youth": 0.75,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "bf10042af611016c": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "b6040debc44469e8": {
+  "youth": 0.75,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "01da4044bcd83c28": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "bfd85328598f3917": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "9544301c6a4e299d": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "01ed9b4661f37b78": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "69cf24f95e5bdf8e": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "3251bcf3381b76e5": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "d6581d5b9fbfbf14": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "fde94f7a9fd01655": {
+  "youth": 0.74,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "6887fc35a62370af": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "0b5d9936cbd57faa": {
+  "youth": 0.76,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "d745757eccce8464": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "361184ba43ce3ccc": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "6277a27fd120c40a": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "334809b55d2add5a": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "8038c7721b52d174": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "93ae3e293dd97132": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "8651b6c6aeeb98e9": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "c03d691d4f4be47f": {
+  "youth": 0.77,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "8bbeb5540ea2177b": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "bbbdf616048f1e8c": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "86d0688d6505d977": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "20bc3c9ddec81af5": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "d41fc4631112803b": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "712df884758f943b": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "bbd595ed753df946": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "6d92103a85d4a13a": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "d4e86cc0e3e1e665": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "7ca3b8e8ec0bcca7": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "1496973717ac46a7": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.69,
+  "seen": "2026-09-27"
+ },
+ "ad7221f6c076f4b2": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "232d72670656ce77": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "a72f931fc8011d59": {
+  "youth": 0.76,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "98c6654ce0d71891": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "c64418463929b8fc": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "5f9459e6864f7a68": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.68,
+  "seen": "2026-09-27"
+ },
+ "aef1c41c8a4aa105": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
+ },
+ "c3fc6be41b2099e2": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.71,
+  "seen": "2026-09-27"
+ },
+ "f737eefb7331416b": {
+  "youth": 0.76,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "66693a65d1fd11f7": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "699c5663221bc914": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "e432d52de0b3b12b": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "d0e53334dd7917b7": {
+  "youth": 0.75,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "a5419f80040e03cf": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "cd37df6b0b200706": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "fdb72766d8ce5b75": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "59bccc880aef0107": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "53577174e15234bc": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "a68cf6d597007957": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "ebb656e3208219a2": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "11773f7e040024be": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "3c79b8f530c52958": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "287b9c70e0d1a69b": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "81509d7f2a7409cf": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "9bae9940ed9fb15d": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "cedfe933abbca9bf": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "ef2b34fbc0a3d514": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "24d34096155a2aff": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "7b32ad52b280eef4": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "bdaea7eac7ca54c8": {
+  "youth": 0.8,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "80d76e81734839b0": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "bf757a1ffbbc3afe": {
+  "youth": 0.76,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "783cb5668c1cde55": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "04b035c4191ec076": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "352e15dda09a69ab": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "169076a9e81e93e6": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "1783dbb79be4d7c2": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "16676002361a9e0e": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "27268f011ab8dab2": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "abbb3113cfec6a37": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "7cca1f4a5eb742ec": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "8e1743b0d50c9757": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "96be649a0e507783": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "f52f9ee6d416dfbd": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "447b463c1356875e": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "79fd1260034a9f63": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "d8a7d416dd8f6675": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "f2f3d4a973cfcfeb": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "07999f7efbbe6196": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "d93093b433232d1e": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "32622bf811873882": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "a11b65aa5b8f0944": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "aa95f6e062f54a19": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "f8aa9d07eccf0457": {
+  "youth": 0.76,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "fca5928d7fa40212": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "c70571e863d54c57": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "028d090c71e70e09": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "0d4fedc9c10a8c52": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "0bca625f4150a287": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "d069ce4bf09a7384": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "a0fdc7f5932b468f": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "0790b4f421ed04db": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "3823821f1d9d951e": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "607d7d510ad99cf2": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "d296d6313b7269b7": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "47c6ff97ade8dcf4": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "8c65f13f97f51bae": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "c7a89dff2fa24178": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "035020cb73ec304e": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "a1c151003d417769": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "c26269f042f6497a": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "98523c8348a64430": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "77b7b868906b22f8": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "74530716d7f38d3f": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "a21876d0d32fd1f5": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "4ffa3e57c2d602c2": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "733cf17630737a5b": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "024f6d13782e0b85": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "bda5786f8bcea990": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "8b67acb123b6c588": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "f225e1e2d1416ce0": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "b4d9cf6a4107f6aa": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "dfb559d3519bbb90": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "86286064fad42dde": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "f693e945dc9c4d2b": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "3ac6f87f83bd2e7e": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "0e84efbf7d274207": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "a18e6b7caee8eec3": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "56c8d8a2291fb662": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "67a6689feec0a42b": {
+  "youth": 0.78,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "28d88323e101c481": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "32dde42e766c3953": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "99bec57848b65955": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "26580b0e30bb105c": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "de911cf14ffb8a4f": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "124c646c5b817e36": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "49884a402e204b11": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "e9c33aee0dfdd8ed": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "cd63df34963d9fe8": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "292e2d09f7f99b4e": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "a420dab159d5cc0b": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "1ad605107c1e588a": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "d42f615e3f172d15": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "8a557a77a6636a61": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "72a3b5f423f09265": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "66d361830f0d5404": {
+  "youth": 0.77,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "778b27e6c9aecdfc": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "74a0dae622bddf5e": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "d2a6e462d4c94c31": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "26f3f72477810646": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "6d10a14f89a7172f": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "ee52b7065bdbfb1b": {
+  "youth": 0.78,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "101ee507827e9050": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "02c6f76500e51925": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "025ac459e8100950": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "6d6e4c92d7abddbd": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "4563c85fc281a379": {
+  "youth": 0.78,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "ce2f68c122e98512": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "01c454558294736f": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "f439be658a97b0b3": {
+  "youth": 0.78,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "dfcf26ea237e6584": {
+  "youth": 0.77,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "0c83772f86513f63": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "f1e6671308a5964f": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "d2ab7af275cda3ff": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "8547a0f6ae671fda": {
+  "youth": 0.76,
+  "out_of_school": 0.81,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "bcf4cad7f7af34d7": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "6376e74bd82dbc76": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "cddc98185d011a9d": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "c65bce8360f88f0d": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "67ad1e79f3677b62": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "325225013a447003": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "aff4b7a71b525262": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "9015ce6205491bf0": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "a4bd4e06eb95db7f": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "3bd2ce12e954c21f": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "ea676ecb1a229201": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "2836744c2a43454d": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "9098b0b453f66ac0": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "387d6aa08bae59af": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "29d527773704197f": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "0de2ebc0a45b7c6b": {
+  "youth": 0.77,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "31aa1ae2053e0d54": {
+  "youth": 0.78,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "b0d00e4083138ba8": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "korean-cook-license",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "1cc926ad02e5c591": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "korean-cook-license",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "58f1c59241b16ed2": {
+  "youth": 0.77,
+  "out_of_school": 0.82,
+  "step": "korean-cook-license",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "53580ea3ac7bba1c": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "a8cf9c497276b56a": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "a8bb6df8ffd99dec": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "78e6aba8d1d03266": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "d6bc8f2cd0e8aa2f": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "632908b78c879b28": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "47902e2a8abb17d3": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "aef91907e137ee96": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "eb4b18ef346eafdf": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "068763fe9736957f": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "013ef13481ae2b62": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "b1dcb2b6f1ac4350": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "f3cde7001a8aaefd": {
+  "youth": 0.72,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "4511f3c9f1902c5a": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "514e1b768013253a": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "f1ac198b7fb6ff5f": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "bb46562495fe086b": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "512c6e9ddf3a58e7": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "75c4adba8767529f": {
+  "youth": 0.72,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "27609b2ffded6655": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "5930cf66a8980c2f": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "c2523ba73ad15cd8": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "9eac0c9ece35eccf": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "d4f0e0fc92a2a828": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "df16c05108bae20a": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "4ce89daab5a4331f": {
+  "youth": 0.72,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "87d6a515d869737b": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "a99c9c1789e43de0": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "da4ceacef7b4e267": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "94a6fa401f732bf1": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "a3f61a15e12c9a94": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "9c9db81264f0a35a": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "b5f623eb29fdc886": {
+  "youth": 0.74,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "7ab8f33f13c11ac1": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "f30cfe6ae81c26d0": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "f5a9904755964edb": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "e73c2f4d5587c703": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "7fee1248ae46ed02": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "13f86de82160a615": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "760e6e91b5d9d2a6": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "a021497875b76fbe": {
+  "youth": 0.75,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "c906d57819d1df37": {
+  "youth": 0.69,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "39130c4a1daa8b79": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "7609890fa270ffe6": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "61c86594baecf721": {
+  "youth": 0.74,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "7292dd569ddbd753": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "daa03570760a2ea0": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "72670ebc5e0d0e8d": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "ba8c3cdb2d3b805b": {
+  "youth": 0.74,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "21d8831114e48e70": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "3703dbd2b5da62a1": {
+  "youth": 0.72,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "4f309f966c4369bc": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "373c09a2af2a97b3": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "ce35dbeb8295a2f9": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "fb0dd3b3d8607c18": {
+  "youth": 0.74,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "2fe7e310a6a6b754": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "07030d9e9ad74379": {
+  "youth": 0.74,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "7c4b2a98367d5c26": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "98ced39c4a624786": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "aa2398249e944485": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "b5d0ad06790635e6": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "c5a312ea707d000a": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "915b87b3d1f48afc": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "996fee50c14fe9bc": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "a87359715aa21bc4": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "c75f3476b275a4fe": {
+  "youth": 0.71,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "6b41f3b3d737786a": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "be67a51529282f85": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "62746e0b7531e000": {
+  "youth": 0.66,
+  "out_of_school": 0.74,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "da427f2afbb031ed": {
+  "youth": 0.68,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "7914ee925bcbf58a": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "111e22abe9ef1c32": {
+  "youth": 0.69,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "e82bc31b6d877e25": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "650611bbe3c3be17": {
+  "youth": 0.65,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "70aeb9a9d1d24407": {
+  "youth": 0.65,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "e840673633eda850": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "c87803588a35663a": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "26898d44c501241f": {
+  "youth": 0.68,
+  "out_of_school": 0.74,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "696c9691ef19692a": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "f6531ec6326ff84e": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "c7aa6269a3947693": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5f2f4001d89589b5": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "1403abffa18800c4": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "9b752c5080dce9e0": {
+  "youth": 0.64,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "3a03db9cd0444c72": {
+  "youth": 0.67,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "13c4556ccbe1b89e": {
+  "youth": 0.67,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "49887ec62ef9c342": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "f6b1a72fa718d43c": {
+  "youth": 0.67,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "76213cae949209e4": {
+  "youth": 0.67,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "9de0f3ee73aac93b": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "2f33b5a0df778683": {
+  "youth": 0.67,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "36f2f5317e847671": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "5e94ca4184778beb": {
+  "youth": 0.64,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "535d1711c38c5a5b": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "e952a9bf473015fe": {
+  "youth": 0.66,
+  "out_of_school": 0.74,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "3510095fd2a0c5b3": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "5e847a57573f89a1": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "3570f4dec7b526db": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "17117c2584d6a91e": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "2151854aefc74389": {
+  "youth": 0.68,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "b7bd14a72070b004": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "f9174ed31d4a851a": {
+  "youth": 0.69,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "a10ea67ac1da586c": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b411900b0a78f330": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "f87d91dd29fee3df": {
+  "youth": 0.68,
+  "out_of_school": 0.74,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "c7f999d686405230": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "4338d678a62d362d": {
+  "youth": 0.65,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "86c5c3c6edfaf500": {
+  "youth": 0.69,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "eee52727b784f41f": {
+  "youth": 0.68,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "0282b2e88bc6d406": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "d5873cae189d4ad9": {
+  "youth": 0.68,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "0f5514d13c90aae6": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "9b823d459a8fc101": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "20a6ddd59d0caddd": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b09cd53d8d1b4bda": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b6c5d10e7884aa25": {
+  "youth": 0.69,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "6232df2e681d0232": {
+  "youth": 0.66,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "1bb1a2b3820c5642": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "4849a790178b2007": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "34b2a7b6c346e76c": {
+  "youth": 0.67,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "c3ce1c175779d66c": {
+  "youth": 0.64,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "1bbf423d8f025252": {
+  "youth": 0.67,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "cfbec3bb1b927f07": {
+  "youth": 0.67,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "bffdc477cb5e3ac4": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "493160c0e14c86de": {
+  "youth": 0.67,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "353c7accbba04882": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "11dcc68b6d7e1521": {
+  "youth": 0.68,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "dba8efa9d1878334": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "6dc318ec298670f0": {
+  "youth": 0.64,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "e8dd02091cbd3e63": {
+  "youth": 0.67,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "3fbe2d4cbe38ab55": {
+  "youth": 0.66,
+  "out_of_school": 0.75,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "3277ed033197b858": {
+  "youth": 0.67,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "aff1ff4a65f1406f": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "f7db59113bdeb1ff": {
+  "youth": 0.7,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "6ed2cb3abad59801": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "f9e07303ceb15b9e": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "1135e521c1bbab93": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "9e71017630f7daf8": {
+  "youth": 0.72,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "7bcd3d2d96b5b17a": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "103bb34ff6a9c0e2": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "e17e51fc2bf243bd": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "22ec87b3938268d2": {
+  "youth": 0.72,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "dca0fe90650b3714": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "c1c1ddc9f137edd9": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "2139d4314e89c99b": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "b94c455c66d05aed": {
+  "youth": 0.7,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "b9e3336b0a6cc534": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "74898531d0218273": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "f0985474d87dcfe0": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "c1f73e1645be04c9": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "7ae4950edcf78f29": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "76baa7cdb3b94b36": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "d37ecd66ec60fd65": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "a4f369f3ee158536": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "b2aacdf838dc7a33": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "930d45ed11024935": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "cd6a4b4394da4c3e": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "a201962e1947a721": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "7379b312a25d9bf1": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "a3e988b45ff9efad": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "655f417ff7eb28e0": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "7fe848f511b37dc1": {
+  "youth": 0.72,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "8c63c24720d8f6e9": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "c81141b489376f5b": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "e36e6466329a0c8b": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5ed2c19cf1dafab7": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "40fc47e497e66177": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "4807b9bf848727c1": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "e2dae8f2f6f80d9f": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "aa5b95cb578e0893": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "710048a63e20b2e1": {
+  "youth": 0.74,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "b3ed91fec92edcf0": {
+  "youth": 0.74,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "a61ac34a92103018": {
+  "youth": 0.75,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "e68b01fb947ded26": {
+  "youth": 0.73,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "9bd3c50e4a91eda5": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "9e6c699a0831a2d6": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "c57146510f2d3609": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "0d767be11d247497": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "79d03b545606963c": {
+  "youth": 0.74,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "86a1be0b95ef33bd": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "c87fe5aaf03642f7": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "17626e4d3648f089": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "0aec491f3c848883": {
+  "youth": 0.72,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "f4cf2bed5207c41b": {
+  "youth": 0.71,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "3c9b2e7ef9cba3ed": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "18c72676c283ebc1": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "ffbc1c1d563a04e1": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "6ae64caf236a85f6": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "03828b25fc888c2b": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "51108ed2ac25492f": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "fa97ec7d088bb344": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "14c530ae3c7581f8": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5e2ffcbd54860a40": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "b5e7944d1e110a95": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "d3fd8c4cf7f6e507": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "49a0556a2f47196c": {
+  "youth": 0.71,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "67a12acc28ec0a25": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "f6e5fcf2373134dd": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "ed47f9091a440dd6": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "be66d8b40d2ce8a9": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "e7b24f916dd7faf6": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "af2c034e00124ff8": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "43f7139ec1ccbc1c": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5b05da7a862372c7": {
+  "youth": 0.71,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "02ab1db2c684018e": {
+  "youth": 0.69,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "95611d89a7ee93b4": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "92f6d8a5dfcb267a": {
+  "youth": 0.68,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "761c968b799b7850": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "ea8f269e7f1eea54": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "57a8778fe7d9c453": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "8ea76b3fea7d4b2c": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "840a4868b91fd453": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "798c70808c7c7d5b": {
+  "youth": 0.69,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "d5c7d29ea3876a46": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "af92b93aafc6f7c2": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "c174a4e43f20b255": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "21034d47aba8bc0e": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "ddea9e9121944334": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "e0510cd7f1bbc911": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.95,
+  "seen": "2026-09-27"
+ },
+ "a84f98091721316c": {
+  "youth": 0.71,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "95686411b69ae9e1": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "bf8748461c513867": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "a64c154d2613a73e": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "7d310b6b4229fb06": {
+  "youth": 0.71,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "ea2c3bf01cb10ed5": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "126308a15f08ecd8": {
+  "youth": 0.74,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "5fd3b7db0074c373": {
+  "youth": 0.7,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "3d2153379e25dddd": {
+  "youth": 0.74,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "f2852b67a90ec8a3": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "957fdd132a100692": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "95900fcc75e7048a": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "b436a2c9c76a7a84": {
+  "youth": 0.72,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "1ed73a16ed0402ff": {
+  "youth": 0.7,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "9bb0f5b12f44b16f": {
+  "youth": 0.74,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "0a5e48b186f07079": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "4e1fbb9b51d41492": {
+  "youth": 0.77,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "bf26745755cbe9ea": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "8ce038d512597a8a": {
+  "youth": 0.73,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "6d5f2f21fe2fc67c": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "baaff73c185c77dd": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "efb71e5b4d3601d8": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "d38894608d04acc0": {
+  "youth": 0.74,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "e0ef0828452c5f1c": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "11fd611c1059e1e8": {
+  "youth": 0.74,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "5974eba9ad21908b": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "676c94e9415d4ffb": {
+  "youth": 0.74,
+  "out_of_school": 0.81,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "a9624a51c8e05edb": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "6b53614d13e087f7": {
+  "youth": 0.73,
+  "out_of_school": 0.8,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "50c5aaaafc73bd4c": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "b6540fc69e8b7b51": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.92,
+  "seen": "2026-09-27"
+ },
+ "ba1cea868ee38fc2": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "143d2078c36d9ed2": {
+  "youth": 0.71,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "89cf96d1744ee596": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "628d5c1f435eed69": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "1435020352ac95c7": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "c4eab75c4cd9ed39": {
+  "youth": 0.71,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "0e9c053620005890": {
+  "youth": 0.71,
+  "out_of_school": 0.77,
+  "step": "none",
+  "stepConf": 0.93,
+  "seen": "2026-09-27"
+ },
+ "90b5ebf9d9a3c8a8": {
+  "youth": 0.72,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "3974cba338750036": {
+  "youth": 0.69,
+  "out_of_school": 0.76,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "4e9ce224a1d82b6e": {
+  "youth": 0.72,
+  "out_of_school": 0.79,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "0edc2f499923a154": {
+  "youth": 0.69,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.94,
+  "seen": "2026-09-27"
+ },
+ "8e662081ca0ca859": {
+  "youth": 0.7,
+  "out_of_school": 0.78,
+  "step": "none",
+  "stepConf": 0.91,
+  "seen": "2026-09-27"
+ },
+ "d44f2977ccd37ea9": {
+  "youth": 0.86,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "f0181eaa292f901f": {
+  "youth": 0.86,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "080f67600cef6352": {
+  "youth": 0.85,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "10b72e2504463137": {
+  "youth": 0.84,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "e35865dd3b473786": {
+  "youth": 0.85,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "183d0c9129bcfad7": {
+  "youth": 0.86,
+  "out_of_school": 0.88,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "49990920822bbac1": {
+  "youth": 0.85,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "1cf675678d10a8f1": {
+  "youth": 0.86,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "f392c1a56ed42ca9": {
+  "youth": 0.83,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "cf6b90c448e141f3": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "c55d2f46b054aa41": {
+  "youth": 0.84,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "1ddff4e843f4a596": {
+  "youth": 0.82,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "7d82c437d2062a9e": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "c8f993539934a32b": {
+  "youth": 0.83,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "f5f028008ac5404a": {
+  "youth": 0.82,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "603a2ec277561345": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "adea4bbdf70aa061": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "a07a8dfd1720b323": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "16c09b70cd7fbd08": {
+  "youth": 0.85,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "5e03998a73b3db01": {
+  "youth": 0.85,
+  "out_of_school": 0.87,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "087aca4c4e0b2bb7": {
+  "youth": 0.84,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "3f56eefc8118aefd": {
+  "youth": 0.85,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "b6a503431df65424": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "73c1f860b785daa0": {
+  "youth": 0.84,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "dcc2bc056c404869": {
+  "youth": 0.84,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "f9a4d1914b851f3a": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "d8b502bfbd416360": {
+  "youth": 0.83,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "4ca2a0b246cd6d0c": {
+  "youth": 0.81,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "63d77d9bc17691cd": {
+  "youth": 0.81,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.76,
+  "seen": "2026-09-27"
+ },
+ "c9b13577f9e126ea": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "f646284240a55572": {
+  "youth": 0.82,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "c9732b38b091b776": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "df8b4df6d3d66cf6": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "1f3801e983d2605c": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "417218be2b372076": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "e00ad37c9aa3884b": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "e8df68f8ccd1c94c": {
+  "youth": 0.8,
+  "out_of_school": 0.81,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "41ca3ca8447c5268": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "1dece278ef3c6465": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "99cca90cd120fad7": {
+  "youth": 0.79,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "4eeb5e7645432418": {
+  "youth": 0.78,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.83,
+  "seen": "2026-09-27"
+ },
+ "554a7a3f9ddcf996": {
+  "youth": 0.82,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.87,
+  "seen": "2026-09-27"
+ },
+ "d86654ab03fb5d6f": {
+  "youth": 0.79,
+  "out_of_school": 0.81,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "aa0dfea116112a85": {
+  "youth": 0.79,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "93575925156408fe": {
+  "youth": 0.78,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "9f0d76de699e50f1": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "3e2687e191bc77d3": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.82,
+  "seen": "2026-09-27"
+ },
+ "6e142818fba01958": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "30dd5f4565ddb6ce": {
+  "youth": 0.77,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.8,
+  "seen": "2026-09-27"
+ },
+ "042839b7facdec01": {
+  "youth": 0.78,
+  "out_of_school": 0.86,
+  "step": "none",
+  "stepConf": 0.81,
+  "seen": "2026-09-27"
+ },
+ "9df5a29e3f559226": {
+  "youth": 0.78,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "ee53e4753b010186": {
+  "youth": 0.76,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "d7dfe0a3f788c572": {
+  "youth": 0.75,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.9,
+  "seen": "2026-09-27"
+ },
+ "8e8b02490863839b": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "1072f25f207cdd46": {
+  "youth": 0.75,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.89,
+  "seen": "2026-09-27"
+ },
+ "9746fe5dddf36300": {
+  "youth": 0.75,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.84,
+  "seen": "2026-09-27"
+ },
+ "6409f15680be7e30": {
+  "youth": 0.75,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "62d8c56bc987c18b": {
+  "youth": 0.76,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "236d75ea6f894211": {
+  "youth": 0.76,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.88,
+  "seen": "2026-09-27"
+ },
+ "ce29b5922393b009": {
+  "youth": 0.75,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.85,
+  "seen": "2026-09-27"
+ },
+ "d020e342a7dcc12b": {
+  "youth": 0.75,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.86,
+  "seen": "2026-09-27"
+ },
+ "46e7bf788bede7a7": {
+  "youth": 0.8,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.78,
+  "seen": "2026-09-27"
+ },
+ "540ea11bce61e558": {
+  "youth": 0.81,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.73,
+  "seen": "2026-09-27"
+ },
+ "545c34e9cfe7747d": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "186af58b65e60a6d": {
+  "youth": 0.8,
+  "out_of_school": 0.85,
+  "step": "none",
+  "stepConf": 0.75,
+  "seen": "2026-09-27"
+ },
+ "ee39f7f27c5111ea": {
+  "youth": 0.78,
+  "out_of_school": 0.83,
+  "step": "none",
+  "stepConf": 0.7,
+  "seen": "2026-09-27"
+ },
+ "896e3eedac62f226": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.72,
+  "seen": "2026-09-27"
+ },
+ "08231e36b79ec438": {
+  "youth": 0.79,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.79,
+  "seen": "2026-09-27"
+ },
+ "324cdc0190db5ae0": {
+  "youth": 0.8,
+  "out_of_school": 0.84,
+  "step": "none",
+  "stepConf": 0.77,
+  "seen": "2026-09-27"
+ },
+ "d352f90892f49c0d": {
+  "youth": 0.79,
+  "out_of_school": 0.82,
+  "step": "none",
+  "stepConf": 0.74,
+  "seen": "2026-09-27"
  }
 }

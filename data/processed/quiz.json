@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "note": "찾기 대화의 관심 질문 (D14, D27). 홀랜드 6유형을 가볍게 묻는다. 진단이 아니라 시작점. 질문이나 점수를 바꾸면 version을 올린다. 유형별 최대 점수 균형은 web/scripts/quiz-balance.mjs로 확인한다",
+  "questions": [
+    {
+      "id": "weekend",
+      "text": "아무 약속 없는 주말이에요. 끌리는 건요?",
+      "options": [
+        { "id": "fix", "label": "고장 난 걸 고치거나 뭔가 조립해요", "score": { "R": 3 } },
+        { "id": "rabbit-hole", "label": "궁금한 게 생기면 끝까지 찾아봐요", "score": { "I": 3 } },
+        { "id": "draw", "label": "그림, 노래, 영상 편집 같은 걸 해요", "score": { "A": 3 } },
+        { "id": "friends", "label": "친구 만나서 이런저런 얘기를 들어 줘요", "score": { "S": 3 } },
+        { "id": "sell", "label": "안 쓰는 물건을 중고로 팔아 봐요", "score": { "E": 2, "C": 1 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "school-task",
+      "text": "학교나 모임에서 맡으면 그나마 괜찮은 일은요?",
+      "options": [
+        { "id": "sheet", "label": "자료를 모아서 표로 깔끔하게 정리해요", "score": { "C": 3 } },
+        { "id": "present", "label": "앞에 나가서 발표해요", "score": { "E": 3 } },
+        { "id": "poster", "label": "포스터나 발표 화면을 꾸며요", "score": { "A": 3 } },
+        { "id": "survey", "label": "설문이나 실험으로 알아봐요", "score": { "I": 3 } },
+        { "id": "setup", "label": "책상 옮기고 장비를 설치해요", "score": { "R": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "festival",
+      "text": "학교 축제에서 부스 하나를 맡는다면요?",
+      "options": [
+        { "id": "food", "label": "음식을 만들어서 팔아요", "score": { "R": 2, "E": 1 } },
+        { "id": "escape", "label": "방탈출 문제를 만들어요", "score": { "I": 3 } },
+        { "id": "photo", "label": "사진이나 페이스페인팅을 해요", "score": { "A": 3 } },
+        { "id": "guide", "label": "길 잃은 아이와 손님을 안내해요", "score": { "S": 3 } },
+        { "id": "cash", "label": "돈 받고 재료가 얼마나 남았는지 챙겨요", "score": { "C": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "team",
+      "text": "조별 과제를 하면 나는 주로 어떤 쪽이에요?",
+      "options": [
+        { "id": "lead", "label": "뭘 할지 정하고 앞에서 이끌어요", "score": { "E": 3 } },
+        { "id": "care", "label": "빠지는 사람 없게 챙겨요", "score": { "S": 3 } },
+        { "id": "deadline", "label": "할 일과 마감을 챙겨요", "score": { "C": 3 } },
+        { "id": "dig", "label": "자료를 깊게 파요", "score": { "I": 3 } },
+        { "id": "make", "label": "모형이나 결과물을 직접 만들어요", "score": { "A": 2, "R": 1 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "video",
+      "text": "영상 앱에서 자꾸 누르게 되는 건요?",
+      "options": [
+        { "id": "diy", "label": "요리하고 고치고 만드는 영상", "score": { "R": 3 } },
+        { "id": "science", "label": "과학이나 미스터리를 풀어 주는 영상", "score": { "I": 3 } },
+        { "id": "music", "label": "음악, 춤, 그림 영상", "score": { "A": 3 } },
+        { "id": "story", "label": "사람들 사연이나 고민 상담", "score": { "S": 3 } },
+        { "id": "money", "label": "가게 차리고 돈 버는 이야기", "score": { "E": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "one-day-job",
+      "text": "딱 하루 아르바이트를 한다면요?",
+      "options": [
+        { "id": "kitchen", "label": "카페나 주방에서 손을 빨리 움직여요", "score": { "R": 3 } },
+        { "id": "kids", "label": "아이들 놀아 주고 공부를 도와줘요", "score": { "S": 3 } },
+        { "id": "promo", "label": "행사장에서 손님을 끌고 물건을 팔아요", "score": { "E": 3 } },
+        { "id": "input", "label": "서류를 입력하고 재고를 정리해요", "score": { "C": 3 } },
+        { "id": "camera", "label": "행사 사진과 영상을 찍어요", "score": { "A": 2, "R": 1 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "new-phone",
+      "text": "새 휴대폰이 생기면 제일 먼저 하는 건요?",
+      "options": [
+        { "id": "settings", "label": "숨은 기능을 하나하나 찾아봐요", "score": { "I": 3 } },
+        { "id": "decorate", "label": "배경화면이랑 케이스를 꾸며요", "score": { "A": 3 } },
+        { "id": "folders", "label": "앱을 폴더별로 정리해요", "score": { "C": 3 } },
+        { "id": "show", "label": "친구들한테 자랑하고 써 보라고 해요", "score": { "E": 2, "S": 1 } },
+        { "id": "film", "label": "보호 필름을 직접 붙여요", "score": { "R": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "stuck",
+      "text": "뭔가 잘 안 풀릴 때 나는요?",
+      "options": [
+        { "id": "try", "label": "일단 이것저것 손대 봐요", "score": { "R": 2, "E": 1 } },
+        { "id": "why", "label": "왜 안 되는지 끝까지 찾아봐요", "score": { "I": 3 } },
+        { "id": "talk", "label": "누구한테 털어놓고 같이 얘기해요", "score": { "S": 3 } },
+        { "id": "plan", "label": "계획을 처음부터 다시 짜요", "score": { "C": 3 } },
+        { "id": "rally", "label": "사람을 모아서 같이 밀어붙여요", "score": { "E": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "moving",
+      "text": "친한 친구가 이사를 가요. 내가 돕는다면요?",
+      "options": [
+        { "id": "carry", "label": "짐 싸고 나르는 걸 도와요", "score": { "R": 2 } },
+        { "id": "checklist", "label": "챙길 것 목록을 만들어 줘요", "score": { "C": 3 } },
+        { "id": "party", "label": "송별회를 열고 진행해요", "score": { "E": 2, "S": 1 } },
+        { "id": "gift", "label": "편지나 영상 선물을 만들어요", "score": { "A": 3 } },
+        { "id": "listen", "label": "서운한 마음을 들어 줘요", "score": { "S": 3 } },
+        { "id": "dunno", "label": "잘 모르겠어요", "score": {} }
+      ]
+    },
+    {
+      "id": "praise",
+      "text": "이런 말을 들으면 기분이 제일 좋아요.",
+      "options": [
+        { "id": "handy", "label": "“손재주가 좋다”", "score": { "R": 3 } },
+        { "id": "smart", "label": "“어떻게 그런 걸 알아?”", "score": { "I": 3 } },
+        { "id": "unique", "label": "“센스 있다, 너만의 느낌이 있어”", "score": { "A": 3 } },
+        { "id": "thanks", "label": "“네 덕분에 힘이 났어”", "score": { "S": 3 } },
+        { "id": "trust", "label": "“너한테 맡기면 안심돼”", "score": { "C": 3 } },
+        { "id": "leader", "label": "“네가 하니까 다들 따라오네”", "score": { "E": 3 } }
+      ]
+    }
+  ]
+}

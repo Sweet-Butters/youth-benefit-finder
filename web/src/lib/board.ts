@@ -44,6 +44,14 @@ export interface BoardEntry {
   extra: Record<string, string>;
   /** How many crawled items this entry groups. */
   count: number;
+  /** Age range when known: the item's own age_min/age_max (체험), else 고등학생 15~19 / 대학생 18~29 for 장학금; null = unknown. */
+  ageMin: number | null; ageMax: number | null;
+  /** The crawler thinks 학교 밖 청소년 can apply (tag out_of_school_ok or open_to_all). A hint, not a filter. */
+  oosOk: boolean;
+  /** The item itself is for 학교 밖 청소년 (the words appear in the title or target). */
+  forOutOfSchool: boolean;
+  /** Catalog fields the crawler tagged it with ("field:<id>", e.g. 기능사 exams per field). */
+  fieldIds: string[];
 }
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
@@ -204,7 +212,7 @@ function build(): BoardEntry[] {
     const extra = kind === "scholarship" || kind === "support"
       ? Object.fromEntries(Object.entries(extraOf(first)).map(([k, v]) => [k, str(v)]).filter(([, v]) => v))
       : {};
-    const base: Omit<BoardEntry, "rows"> = {
+    const base: Omit<BoardEntry, "rows" | "ageMin" | "ageMax" | "oosOk" | "forOutOfSchool"> = {
       id, source: first.source, sourceLabel: SOURCE_LABEL[first.source] ?? (str(first.provider) || first.source), kind, kindLabel: KIND[kind],
       title: kind === "exam" || its.length > 1 ? first.title.replace(ROUND, " ").replace(/\s+/g, " ").trim() : str(first.title),
       provider: kind === "volunteer" ? cleanPlace(str(first.provider)) : str(first.provider),
@@ -217,7 +225,19 @@ function build(): BoardEntry[] {
       windows, sessions, always, deadlineText: dText,
       cost: str(first.cost_text), target: str(first.target_text), extra, count: its.length,
     };
-    return { ...base, rows: rowsFor(kind, its, base) };
+    // Age: the item's own limits win; a 장학금 without them gets the school level's usual ages (kosaf:hs / kosaf:univ).
+    const mins = its.map((i) => i.age_min).filter((n): n is number => typeof n === "number");
+    const maxs = its.map((i) => i.age_max).filter((n): n is number => typeof n === "number");
+    const tags = new Set(its.flatMap((i) => i.tags ?? []));
+    const level = tags.has("kosaf:hs") ? [15, 19] : tags.has("kosaf:univ") ? [18, 29] : null;
+    const age = {
+      ageMin: mins.length ? Math.min(...mins) : level ? level[0] : null,
+      ageMax: maxs.length ? Math.max(...maxs) : level ? level[1] : null,
+      oosOk: tags.has("out_of_school_ok") || tags.has("open_to_all"),
+      forOutOfSchool: /학교\s*밖/.test(`${first.title} ${first.target_text ?? ""}`),
+      fieldIds: [...tags].filter((t) => typeof t === "string" && t.startsWith("field:")).map((t) => t.slice(6)),
+    };
+    return { ...base, ...age, rows: rowsFor(kind, its, { ...base, ...age }) };
   });
 }
 
