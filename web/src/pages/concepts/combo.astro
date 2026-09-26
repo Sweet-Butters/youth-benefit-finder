@@ -1,0 +1,1136 @@
+---
+// 시안 4 · 대화 + 노선도 + 혜택 — asks five quick questions, then opens the subway map
+// with one line lit and the benefits ("받을 수 있는 혜택") that fit the answers beside it.
+// Rule-based and page-only: answers never leave the browser tab.
+import { fields, steps, KIND_LABEL, helps, REGION_LABEL, COST_LABEL, HELP_LABEL } from "../../lib/content";
+import candidates from "../../../../data/candidates/cooking-helps.json";
+
+const field = fields.find((f) => f.id === "cooking")!;
+const paths = field.paths.filter((p) => !p.retired);
+
+// ---------- subway map, computed from the data (same method as 시안 1) ----------
+const PALETTE = ["#1a8f4e", "#2458c6", "#d23c6e", "#b88400", "#7b52ae", "#0a93ad", "#8a5a2b", "#5c6b00"];
+const lines = paths.map((p, i) => ({
+  id: p.id,
+  title: p.title,
+  summary: p.summary,
+  color: PALETTE[i % PALETTE.length],
+  steps: p.steps.map((s) => s.step),
+}));
+
+type Station = { id: string; lines: number[]; notes: Record<number, string>; preds: Set<string> };
+const stations = new Map<string, Station>();
+paths.forEach((p, li) =>
+  p.steps.forEach((ps, i) => {
+    const st = stations.get(ps.step) ?? { id: ps.step, lines: [], notes: {}, preds: new Set<string>() };
+    if (!st.lines.includes(li)) st.lines.push(li);
+    if (ps.note) st.notes[li] = ps.note;
+    if (i > 0) st.preds.add(p.steps[i - 1].step);
+    stations.set(ps.step, st);
+  }),
+);
+
+const order: string[] = [];
+const placed = new Set<string>();
+let last: string | null = null;
+const isNextOf = (prev: string, id: string) =>
+  lines.some((l) => {
+    const i = l.steps.indexOf(prev);
+    return i >= 0 && l.steps[i + 1] === id;
+  });
+while (order.length < stations.size) {
+  const unplaced = [...stations.values()].filter((s) => !placed.has(s.id));
+  let avail = unplaced.filter((s) => [...s.preds].every((p) => placed.has(p)));
+  if (!avail.length) avail = unplaced;
+  avail.sort((a, b) => Math.min(...a.lines) - Math.min(...b.lines));
+  const pick = (last && avail.find((s) => isNextOf(last!, s.id))) || avail[0];
+  order.push(pick.id);
+  placed.add(pick.id);
+  last = pick.id;
+}
+const pos = new Map(order.map((id, i) => [id, i]));
+const inField = new Set(order);
+
+const lineSegs = lines.map((l, li) => ({ ...l, lane: li, a: pos.get(l.steps[0])!, b: pos.get(l.steps[l.steps.length - 1])! }));
+
+const MISSION = "mission-cook-one-recipe";
+const stationData = Object.fromEntries(
+  order.map((id) => {
+    const st = stations.get(id)!;
+    const step = steps.get(id);
+    return [
+      id,
+      {
+        title: step?.title ?? id,
+        kind: KIND_LABEL[step?.kind ?? "other"] ?? "기타",
+        summary: step?.summary ?? "",
+        url: step?.official_url ?? null,
+        lines: [...st.lines].sort((a, b) => a - b),
+        notes: st.notes,
+      },
+    ];
+  }),
+);
+
+// ---------- benefits: real verified helps + unverified candidates, one shape ----------
+type Raw = {
+  id: string; type: string; title: string; provider: string; url: string; summary: string;
+  step_ids?: string[]; field_ids?: string[]; regions?: string[]; deadline?: string | null;
+  age_min?: number; age_max?: number; audience?: string; cost?: string; status?: string;
+};
+const fmtDeadline = (d?: string | null) => {
+  if (!d || d === "rolling") return "상시";
+  if (d === "closed") return "이번에는 마감";
+  if (d === "unknown") return "모집일 확인 필요";
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+  return m ? `${+m[1]}년 ${+m[2]}월 ${+m[3]}일 마감` : d;
+};
+const fmtAge = (a?: number, b?: number) =>
+  a != null && b != null ? `${a}~${b}살` : a != null ? `${a}살부터` : b != null ? `${b}살까지` : "";
+const norm = (h: Raw, verified: boolean) => {
+  const regions = h.regions?.length ? h.regions : ["all"];
+  return {
+    id: h.id,
+    typeLabel: HELP_LABEL[h.type as keyof typeof HELP_LABEL] ?? "기타",
+    title: h.title,
+    provider: h.provider,
+    url: h.url,
+    summary: h.summary,
+    steps: (h.step_ids ?? []).filter((s) => inField.has(s)),
+    field: (h.field_ids ?? []).includes(field.id),
+    regions,
+    regionLabel: regions.map((r) => REGION_LABEL[r] ?? r).join(" · "),
+    closed: h.deadline === "closed",
+    deadlineLabel: fmtDeadline(h.deadline),
+    ageMin: h.age_min ?? null,
+    ageMax: h.age_max ?? null,
+    ageLabel: fmtAge(h.age_min, h.age_max),
+    audience: h.audience ?? "any",
+    costLabel: h.cost ? COST_LABEL[h.cost] ?? h.cost : "",
+    verified,
+  };
+};
+type Perk = ReturnType<typeof norm>;
+const perks: Perk[] = [
+  ...helps.map((h) => norm(h as unknown as Raw, true)),
+  ...(candidates.items as Raw[]).filter((h) => h.status !== "retired").map((h) => norm(h, false)),
+].filter((p) => p.field || p.steps.length);
+const anyUnverified = perks.some((p) => !p.verified);
+
+// Static grouping for the no-JS view: every station in map order, then the whole field, then closed.
+const seen = new Set<string>();
+const ssrGroups = order
+  .map((sid) => {
+    const items = perks.filter((p) => !p.closed && p.steps.includes(sid) && !seen.has(p.id));
+    items.forEach((p) => seen.add(p.id));
+    return { sid, title: stationData[sid].title, kind: stationData[sid].kind, color: lines[stationData[sid].lines[0]].color, items };
+  })
+  .filter((g) => g.items.length);
+const ssrField = perks.filter((p) => !p.closed && p.field && !seen.has(p.id));
+const ssrClosed = perks.filter((p) => p.closed);
+const ssrCount = (sid: string) => perks.filter((p) => !p.closed && p.steps.includes(sid)).length;
+const stationTitle = (sid: string) => stationData[sid]?.title ?? sid;
+
+const stationViews = order.map((id) => {
+  const st = stations.get(id)!;
+  const lanes = [...st.lines].sort((a, b) => a - b);
+  const transfer = lanes.length > 1;
+  const { title, kind } = stationData[id];
+  return {
+    id, title, kind, transfer,
+    o: pos.get(id)!,
+    l0: lanes[0],
+    l1: lanes[lanes.length - 1],
+    color: lines[lanes[0]].color,
+    lineIds: lanes.map((i) => lines[i].id).join(" "),
+    aria: `${title}, ${kind}${transfer ? `, 환승역, ${lanes.length}개 노선이 지나요` : ""}`,
+    count: ssrCount(id),
+  };
+});
+
+const data = {
+  field: { id: field.id, title: field.title },
+  lines: lines.map(({ id, title, color, steps }) => ({ id, title, color, steps })),
+  order,
+  stations: stationData,
+  mission: MISSION,
+  perks,
+};
+const pageTitle = `${field.title} · 시안 4`;
+---
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content="질문 다섯 개에 답하면 요리사가 되는 노선도에서 먼저 볼 노선을 밝히고, 받을 수 있는 혜택을 옆에 보여 줘요." />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style is:global>
+    :root {
+      --ink: #1b1f2a;
+      --ink-2: #4a5061;
+      --paper: #f2efe8;
+      --board: #fbfaf6;
+      --rule: #d9d4c8;
+      --lead: #a9a397;
+      --bubble-bg: #fffdf8;
+      --me: #22594a;
+      --me-ink: #f6fbf7;
+      --carrot: #b8562f;
+      --carrot-bg: #fbefe6;
+      --mark: #f3e3a8;
+      --display: "Black Han Sans", "IBM Plex Sans KR", sans-serif;
+      --bubble: "Gowun Dodum", "IBM Plex Sans KR", system-ui, sans-serif;
+      --ui: "IBM Plex Sans KR", system-ui, sans-serif;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font: 400 16px/1.6 var(--ui); overflow-x: hidden; word-break: keep-all; overflow-wrap: anywhere;
+    }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    [hidden] { display: none !important; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      padding: 0 16px; min-height: 48px; background: var(--ink); color: #fff; font-size: 14px;
+    }
+    .topbar a { color: #fff; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
+    .topbar a:hover { text-decoration: underline; }
+    .topbar .label { letter-spacing: .02em; opacity: .85; text-align: right; }
+
+    .stage { max-width: 1240px; margin: 0 auto; }
+
+    /* ================= conversation (from 시안 3) ================= */
+    .talk { width: 100%; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; min-height: calc(100dvh - 48px); }
+    html:not(.js) .talk, body.done .talk { display: none; }
+    .room { padding: 14px 16px 8px; border-bottom: 1px solid var(--rule); }
+    .room h1 { margin: 0; font: 400 22px/1.3 var(--display); }
+    .room p { margin: 2px 0 0; font-size: 14px; color: var(--ink-2); }
+
+    .thread { list-style: none; margin: 0; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .talk .thread > li { scroll-margin-bottom: var(--ch, 260px); }
+    .row { display: flex; gap: 8px; align-items: flex-start; max-width: 100%; }
+    .row.me { justify-content: flex-end; margin: 6px 0; }
+    .row.bot.first { margin-top: 8px; }
+    .face {
+      flex: none; width: 38px; height: 38px; border-radius: 14px; background: var(--me); color: var(--me-ink);
+      display: grid; place-items: center; font: 600 12px var(--ui);
+    }
+    .row.bot:not(.first) .face { visibility: hidden; }
+    .col { display: flex; flex-direction: column; gap: 4px; min-width: 0; max-width: calc(100% - 46px); }
+    .name { font-size: 13px; color: var(--ink-2); }
+    .row.bot:not(.first) .name { display: none; }
+    .b {
+      font: 17px/1.55 var(--bubble); padding: 10px 14px; border-radius: 4px 18px 18px 18px;
+      background: var(--bubble-bg); box-shadow: 0 1px 0 rgba(27,31,42,.08);
+    }
+    .row.bot:not(.first) .b { border-radius: 18px; }
+    .row.me .b { background: var(--me); color: var(--me-ink); border-radius: 18px 4px 18px 18px; max-width: 85%; }
+    .b strong { font-weight: 400; background: linear-gradient(transparent 55%, var(--mark) 55%); }
+    .b .sub { display: block; font: 14px/1.5 var(--ui); color: var(--ink-2); margin-top: 2px; }
+    .b.pathhead { border-left: 6px solid var(--c, var(--me)); }
+    .b.pathhead .label { display: block; font: 600 13px/1.3 var(--ui); color: var(--ink-2); }
+    .b.pathhead .t { display: block; font: 400 21px/1.3 var(--display); margin: 4px 0 6px; }
+    .b.mission { background: var(--carrot-bg); }
+    .b .inline-go {
+      display: inline-flex; align-items: center; min-height: 44px; margin-top: 2px; padding: 0; border: 0; background: none;
+      font: 600 15px var(--ui); color: var(--carrot); text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+    }
+
+    .typing { display: inline-flex; gap: 4px; padding: 14px; }
+    .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-2); opacity: .4; animation: blink 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .15s; } .typing i:nth-child(3) { animation-delay: .3s; }
+    @keyframes blink { 50% { opacity: 1; } }
+    .row.new { animation: rise .22s ease-out; }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+
+    .composer {
+      position: sticky; bottom: 0; background: var(--bubble-bg); border-top: 2px solid var(--ink);
+      padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
+    }
+    .composer .q { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .dots { display: inline-flex; gap: 4px; flex: none; }
+    .dots i { width: 14px; height: 4px; border-radius: 2px; background: var(--rule); }
+    .dots i.on { background: var(--me); }
+    .dots i.now { background: var(--carrot); }
+    .choices { display: grid; gap: 8px; }
+    .choices.two { grid-template-columns: 1fr 1fr; }
+    .choice {
+      min-height: 48px; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--me);
+      background: var(--bubble-bg); color: var(--me); text-align: left; font: 500 16px/1.35 var(--ui); cursor: pointer;
+    }
+    .choice:hover { background: #eaf2ee; }
+    .choice.ghost { border-style: dashed; border-color: var(--lead); color: var(--ink-2); grid-column: 1 / -1; text-align: center; }
+    .tools { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .tool {
+      min-height: 44px; padding: 0 6px; border: 0; background: none; color: var(--ink-2);
+      font: 15px var(--ui); text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+    }
+    .privacy { margin: 2px 0 0; font-size: 13px; color: var(--ink-2); }
+
+    /* ================= result: map + benefits ================= */
+    .result { padding: 0 16px 48px; }
+    .js body:not(.done) .result { display: none; }
+    .intro { padding: 24px 0 4px; }
+    .eyebrow { margin: 0 0 4px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+    .result h1 { margin: 0; font: 400 clamp(34px, 9vw, 60px)/1.05 var(--display); letter-spacing: -.01em; }
+    .result h1:focus { outline: none; }
+    .stripe { display: flex; height: 8px; margin: 12px 0 10px; max-width: 280px; }
+    .stripe span { flex: 1; }
+    .nojs-note { margin: 0; max-width: 36em; font-size: 16px; }
+    .js .nojs-note { display: none; }
+    .preview-note { display: none; }
+
+    /* recap: the conversation, folded */
+    .recap { margin: 12px 0 0; }
+    .recap .thread { padding: 0; flex: none; }
+    .answers { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; margin-top: 6px; }
+    .answers .row.me { margin: 0; }
+    .answers .row.me .b { font-size: 16px; }
+    .answer-tools { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start; gap: 4px 12px; width: 100%; }
+    .edit { width: 100%; max-width: 420px; }
+    .edit summary {
+      list-style: none; min-height: 44px; display: flex; align-items: center; justify-content: flex-end; cursor: pointer;
+      color: var(--me); font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 3px;
+    }
+    .edit summary::-webkit-details-marker { display: none; }
+    .edit[open] summary { color: var(--ink-2); }
+    .edit ul { list-style: none; margin: 0 0 6px; padding: 0; border-top: 2px solid var(--ink); background: var(--bubble-bg); }
+    .edit li { border-bottom: 1px solid var(--rule); }
+    .edit button {
+      width: 100%; min-height: 48px; display: grid; grid-template-columns: 6.5em 1fr auto; gap: 8px; align-items: center;
+      padding: 6px 10px; border: 0; background: none; text-align: left; cursor: pointer; font-size: 15px;
+    }
+    .edit button span { color: var(--ink-2); font-size: 14px; }
+    .edit button em { font-style: normal; color: var(--me); font-weight: 600; font-size: 14px; }
+    .edit button:hover { background: #eef3ef; }
+    .answer-tools .tool { align-self: flex-start; }
+
+    /* legend (line picker) */
+    .legend { margin-top: 22px; }
+    .legend h2, .perks-kicker, .pg-h, .stn-title { font-family: var(--display); font-weight: 400; }
+    .legend h2 { margin: 0; font-size: 20px; line-height: 1.3; }
+    .legend-note { margin: 2px 0 10px; color: var(--ink-2); font-size: 15px; }
+    .legend ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+    .legend li { border-bottom: 1px solid var(--rule); }
+    .line-btn {
+      display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 12px;
+      width: 100%; min-height: 56px; padding: 10px 4px; border: 0; background: none; text-align: left; cursor: pointer;
+    }
+    .line-btn .sym { position: relative; height: 8px; background: var(--c); border-radius: 4px; }
+    .line-btn .sym i { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: #fff; border: 3.5px solid var(--c); }
+    .line-btn .lt { display: flex; flex-direction: column; min-width: 0; }
+    .line-btn strong { font-weight: 700; font-size: 17px; line-height: 1.4; }
+    .line-btn .rec { font-size: 14px; font-weight: 600; color: var(--me); }
+    .line-btn .rec::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; background: var(--me); vertical-align: 0; transform: rotate(45deg) scale(.8); }
+    .line-btn .sm { color: var(--ink-2); font-size: 15px; line-height: 1.5; display: none; }
+    .line-btn[aria-pressed="true"] .sm { display: block; }
+    .line-btn .count { font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+    .line-btn:hover strong { text-decoration: underline; text-decoration-color: var(--c); text-decoration-thickness: 3px; }
+    .line-btn[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 12%, transparent); box-shadow: inset 6px 0 0 var(--c); }
+    .line-btn[aria-pressed="true"] .count::after { content: " · 보는 중"; font-weight: 700; color: var(--ink); }
+
+    /* the map (vertical at every width so benefits can sit beside it) */
+    .board {
+      margin: 22px -16px 0; background: var(--board);
+      border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 12px 16px 8px;
+    }
+    .map {
+      position: relative; --lane: 24px; --row: 80px; --px: 4px;
+      --label: calc(var(--px) + var(--lanes) * var(--lane) + 16px);
+      height: calc(var(--n) * var(--row));
+    }
+    .ln {
+      position: absolute; background: var(--c); border-radius: 4px; z-index: 2; transition: opacity .2s;
+      width: 6px; left: calc(var(--px) + (var(--l) + .5) * var(--lane) - 3px);
+      top: calc((var(--a) + .5) * var(--row)); height: calc((var(--b) - var(--a)) * var(--row));
+    }
+    .st {
+      position: absolute; left: 0; right: 0; top: calc(var(--o) * var(--row)); height: var(--row);
+      padding: 0; margin: 0; border: 0; background: transparent; cursor: pointer; text-align: left;
+    }
+    .st .dot {
+      position: absolute; z-index: 3; background: #fff; border: 3.5px solid var(--c); border-radius: 999px; transition: transform .15s, opacity .2s;
+      top: calc(50% - 9px); height: 18px;
+      left: calc(var(--px) + (var(--l0) + .5) * var(--lane) - 9px); width: calc((var(--l1) - var(--l0)) * var(--lane) + 18px);
+    }
+    .st.tr .dot {
+      border-color: var(--ink); box-shadow: 0 0 0 2px #fff;
+      top: calc(50% - 11px); height: 22px;
+      left: calc(var(--px) + (var(--l0) + .5) * var(--lane) - 11px); width: calc((var(--l1) - var(--l0)) * var(--lane) + 22px);
+    }
+    .st .leader {
+      position: absolute; z-index: 1; border: 0 dotted var(--lead); border-top-width: 2px; top: 50%; transition: opacity .2s;
+      left: calc(var(--px) + (var(--l1) + .5) * var(--lane));
+      width: calc(var(--label) - var(--px) - (var(--l1) + .5) * var(--lane) - 6px);
+    }
+    .st .name {
+      position: absolute; z-index: 3; display: flex; flex-direction: column; transition: opacity .2s;
+      left: var(--label); right: 0; top: 50%; transform: translateY(-50%);
+    }
+    .st .name b { font-weight: 700; font-size: 16px; line-height: 1.35; }
+    .st.tr .name b { font-size: 17px; }
+    .st .name small { font-size: 14px; color: var(--ink-2); line-height: 1.5; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; }
+    .st .name small > * + * { margin-left: 6px; padding-left: 6px; border-left: 1px solid var(--rule); }
+    .st .name em { font-style: normal; font-weight: 700; color: var(--ink); }
+    .st .wk { color: var(--carrot); font-weight: 700; }
+    .st .name .pn {
+      border-left: 0; padding: 0 6px; margin-left: 8px; background: var(--carrot); color: #fff;
+      font-weight: 700; font-size: 13px; line-height: 20px; border-radius: 2px;
+    }
+    .st:hover .name b, .st.on .name b { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .st.on .dot { transform: scale(1.18); }
+    .st.on { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+    .st:focus-visible { outline: none; }
+    .st:focus-visible .name { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+    .st:focus-visible .dot { box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--ink); }
+    .ln.dim, .st.dim .dot, .st.dim .name, .st.dim .leader { opacity: .2; }
+    .st.dim.mission .name { opacity: .85; }
+    .st.dim.mission .dot { opacity: .6; }
+    .key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+    .key span { display: inline-flex; align-items: center; gap: 8px; }
+    .k-dot { width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--ink-2); background: #fff; }
+    .k-tr { width: 28px; height: 16px; border-radius: 8px; border: 3px solid var(--ink); background: #fff; }
+    .k-pn { padding: 0 5px; background: var(--carrot); color: #fff; font-weight: 700; font-size: 12px; line-height: 18px; border-radius: 2px; font-style: normal; }
+
+    /* ================= benefits panel ================= */
+    .perks { margin-top: 24px; background: #fff; border: 2px solid var(--ink); border-top: 8px solid var(--carrot); }
+    .perks-head { padding: 14px 16px 12px; border-bottom: 1px solid var(--rule); }
+    .perks-kicker { margin: 0; font-size: 22px; line-height: 1.25; }
+    .perks-scope { margin: 4px 0 0; font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .perks-scope:focus { outline: none; }
+    .perks-scope i { flex: none; width: 22px; height: 6px; border-radius: 3px; background: var(--c, var(--ink)); }
+    .notice {
+      margin: 10px 0 0; padding: 8px 10px; font-size: 15px; line-height: 1.5;
+      background: var(--carrot-bg); border-left: 4px solid var(--carrot);
+    }
+    .count-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 12px; margin-top: 6px; }
+    .count-row p { margin: 0; font-size: 15px; color: var(--ink-2); }
+    .count-row b { color: var(--ink); }
+    .all-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; cursor: pointer; }
+    .all-toggle input { width: 20px; height: 20px; margin: 0; accent-color: var(--ink); }
+    html:not(.js) .all-toggle { display: none; }
+
+    .perks-body { padding: 0 16px 8px; }
+    .stn { padding: 14px 0 16px; border-bottom: 2px solid var(--ink); }
+    .stn .kind { margin: 0; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+    .stn-title { margin: 2px 0 6px; font-size: 26px; line-height: 1.2; }
+    .stn-sum { margin: 0 0 12px; font-size: 16px; }
+    .sign-line { margin: 0 0 4px; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+    .sign-line::before { content: ""; display: inline-block; width: 22px; height: 6px; margin-right: 8px; vertical-align: middle; background: var(--c); border-radius: 3px; }
+    .sign-board { display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--ink); border-bottom: 8px solid var(--c); background: #fff; }
+    .sb { padding: 6px 10px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+    .sb.cur { grid-column: 1 / -1; grid-row: 1; background: var(--c); color: #fff; font-weight: 700; text-align: center; line-height: 1.35; padding: 8px 10px; }
+    .sb.next { text-align: right; align-items: flex-end; }
+    .dir { font-size: 13px; color: var(--ink-2); }
+    .nb {
+      border: 0; background: none; padding: 0; min-height: 44px; display: inline-flex; align-items: center; text-align: inherit;
+      font-size: 15px; font-weight: 600; line-height: 1.35; cursor: pointer;
+      text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px;
+    }
+    .nb:hover { text-decoration-color: var(--ink); }
+    .nb.none { color: var(--ink-2); font-weight: 400; text-decoration: none; cursor: default; min-height: 0; padding: 12px 0; }
+    .sign-note { margin: 8px 0 0; font-size: 15px; padding-left: 10px; border-left: 3px solid var(--c); }
+    .tr-lines { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .tr-lines i { width: 18px; height: 6px; border-radius: 3px; background: var(--c); }
+    .stn-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 10px 0 0; }
+    .stn-links a, .stn-links button {
+      display: inline-flex; align-items: center; min-height: 44px; padding: 0; border: 0; background: none;
+      font-weight: 600; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+    }
+    .stn-links a::after { content: " ↗"; white-space: pre; }
+    .stn-links .to-map { display: none; }
+
+    .pg { padding: 14px 0 4px; }
+    .pg + .pg { border-top: 1px solid var(--rule); }
+    .pg-h { margin: 0 0 2px; font-size: 18px; line-height: 1.35; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .pg-h .pg-dot { flex: none; width: 14px; height: 14px; border-radius: 50%; border: 3.5px solid var(--c, var(--ink)); background: #fff; }
+    .pg-h small { font: 500 13px var(--ui); color: var(--ink-2); }
+    .pg.field .pg-dot { border-radius: 2px; border-color: var(--ink); background: var(--ink); }
+    .pg-empty { margin: 2px 0 8px; font-size: 15px; color: var(--ink-2); }
+    .plist { list-style: none; margin: 0; padding: 0; }
+
+    .perk { padding: 12px 0 8px; }
+    .perk + .perk { border-top: 1px dashed var(--rule); }
+    .p-top { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; }
+    .p-type { color: var(--ink-2); letter-spacing: .02em; }
+    .p-unv { color: var(--carrot); border: 1.5px dashed var(--carrot); padding: 0 6px; line-height: 20px; transform: rotate(-2deg); }
+    .p-title { margin: 2px 0 0; font-size: 18px; line-height: 1.4; font-weight: 700; }
+    .p-prov { margin: 0; font-size: 14px; color: var(--ink-2); }
+    .p-sum { margin: 6px 0 8px; font-size: 16px; }
+    .p-meta {
+      margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+      border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule);
+    }
+    .p-meta div { padding: 4px 8px 5px 0; min-width: 0; }
+    .p-meta dt { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+    .p-meta dd { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.35; }
+    .p-at { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
+    .p-link {
+      display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 15px;
+      text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px;
+    }
+    .p-link::after { content: " ↗"; white-space: pre; }
+    .perk.is-closed .p-title, .perk.is-closed .p-sum { color: var(--ink-2); }
+
+    .closed { margin: 8px 0 8px; border-top: 2px solid var(--ink); }
+    .closed summary {
+      list-style: none; min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      cursor: pointer; font-weight: 700; font-size: 16px;
+    }
+    .closed summary::-webkit-details-marker { display: none; }
+    .closed summary::after { content: "펼치기"; font-size: 14px; font-weight: 600; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+    .closed[open] summary::after { content: "접기"; }
+    .perks-foot { margin: 0; padding: 10px 16px 14px; font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--rule); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .row.new, .typing i { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    }
+
+    /* ================= desktop ================= */
+    @media (min-width: 900px) {
+      .topbar { padding: 0 40px; }
+      /* while talking, the map waits on the right as a quiet preview */
+      .js body:not(.done) .stage { display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 40px; padding: 24px 40px; align-items: start; }
+      .js body:not(.done) .talk {
+        margin: 0; min-height: calc(100dvh - 96px); background: #e9e5dc; border: 2px solid var(--ink); overflow: clip;
+      }
+      .js body:not(.done) .result { display: block; padding: 0; position: sticky; top: 24px; }
+      .js body:not(.done) .result .intro { padding-top: 8px; }
+      .js body:not(.done) .legend, .js body:not(.done) .perks, .js body:not(.done) .recap { display: none; }
+      .js body:not(.done) .board { opacity: .75; }
+      .js body:not(.done) .preview-note { display: block; margin: 0; font-size: 16px; color: var(--ink-2); max-width: 30em; }
+
+      .result { padding: 0 40px 64px; }
+      body.done .result-grid, html:not(.js) .result-grid {
+        display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 40px; align-items: start;
+      }
+      .intro { padding-top: 36px; }
+      .board { margin-left: 0; margin-right: 0; padding: 16px 20px 10px; }
+      .map { --row: 78px; --lane: 26px; }
+      .perks { margin-top: 22px; position: sticky; top: 16px; max-height: calc(100dvh - 32px); overflow: auto; }
+      body.done .recap { margin-top: 22px; }
+    }
+    @media (max-width: 899px) {
+      .stn-links .to-map { display: inline-flex; }
+      .perks { scroll-margin-top: 8px; }
+    }
+  </style>
+  <script is:inline>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/">← 처음으로</a>
+    <span class="label">시안 4 · 대화 + 노선도 + 혜택</span>
+  </header>
+
+  <div class="stage">
+    <!-- 1. conversation -->
+    <main class="talk" id="talk" aria-labelledby="room-title">
+      <div class="room">
+        <h1 id="room-title">{field.title}, 어디서 시작할까</h1>
+        <p>질문 다섯 개, 1분이면 돼요. 답은 이 화면에만 남아요.</p>
+      </div>
+      <ol class="thread" id="thread" aria-live="polite" aria-label="대화"></ol>
+      <div class="composer" id="composer" hidden>
+        <p class="q"><span id="q-label">답을 골라 주세요</span><span class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></p>
+        <div class="choices" id="choices" role="group" aria-labelledby="q-label"></div>
+        <div class="tools">
+          <button type="button" class="tool" id="back" hidden>← 이전 질문으로</button>
+          <button type="button" class="tool" id="restart" hidden>처음부터 다시</button>
+        </div>
+        <p class="privacy">고른 답은 저장하거나 보내지 않아요. 새로고침하면 사라져요.</p>
+      </div>
+    </main>
+
+    <!-- 2. map + benefits -->
+    <section class="result" id="result" aria-labelledby="result-title">
+      <div class="intro">
+        <p class="eyebrow">{field.title} 분야 · 노선 {lines.length}개 · 역 {order.length}개</p>
+        <h1 id="result-title" tabindex="-1">{field.title} 길 지도</h1>
+        <div class="stripe" aria-hidden="true">{lines.map((l) => <span style={`background:${l.color}`}></span>)}</div>
+        <p class="nojs-note">대화는 자바스크립트가 켜져 있어야 움직여요. 대신 노선을 모두 그려 두고, 받을 수 있는 혜택도 전부 펼쳐 둘게요. 노선 순서는 순위가 아니에요.</p>
+        <p class="preview-note">질문에 답하면 이 지도에서 먼저 볼 노선이 밝혀지고, 옆에 받을 수 있는 혜택이 떠요.</p>
+      </div>
+
+      <div class="result-grid">
+        <div class="left">
+          <div class="recap" id="recap"></div>
+          <section class="legend" aria-labelledby="legend-h">
+            <h2 id="legend-h">노선 고르기</h2>
+            <p class="legend-note">어느 노선이 더 좋은 건 아니에요. 누르면 그 노선이 또렷해지고, 혜택도 그 노선 기준으로 바뀌어요.</p>
+            <ul>
+              {lineSegs.map((l) => (
+                <li>
+                  <button class="line-btn" type="button" data-line={l.id} aria-pressed="false" style={`--c:${l.color}`}>
+                    <span class="sym" aria-hidden="true"><i></i></span>
+                    <span class="lt">
+                      <strong>{l.title}</strong>
+                      <span class="rec" hidden>이 노선부터 봐도 좋아요</span>
+                      <span class="sm">{l.summary}</span>
+                    </span>
+                    <span class="count">역 {l.steps.length}개</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="board" aria-label="노선도">
+            <div class="map" id="map" style={`--n:${order.length};--lanes:${lines.length}`}>
+              {lineSegs.map((l) => (
+                <span class="ln" data-line={l.id} style={`--l:${l.lane};--a:${l.a};--b:${l.b};--c:${l.color}`} />
+              ))}
+              {stationViews.map((s) => (
+                <button
+                  type="button"
+                  class:list={["st", { tr: s.transfer }]}
+                  data-st={s.id}
+                  data-lines={s.lineIds}
+                  aria-label={s.aria}
+                  aria-controls="perks"
+                  style={`--o:${s.o};--l0:${s.l0};--l1:${s.l1};--c:${s.color}`}
+                >
+                  <span class="leader" aria-hidden="true" />
+                  <span class="dot" aria-hidden="true" />
+                  <span class="name">
+                    <b>{s.title}</b>
+                    <small>
+                      <span>{s.kind}</span>
+                      {s.transfer && <em>환승</em>}
+                      <span class="wk" hidden>이번 주에 해 볼 일</span>
+                      <span class="pn" hidden={s.count === 0}>혜택 {s.count}</span>
+                    </small>
+                  </span>
+                </button>
+              ))}
+            </div>
+            <p class="key" aria-hidden="true">
+              <span><i class="k-dot"></i>역</span>
+              <span><i class="k-tr"></i>환승역</span>
+              <span><i class="k-pn">혜택 N</i>받을 수 있는 혜택 수</span>
+            </p>
+          </section>
+        </div>
+
+        <aside class="perks" id="perks" aria-labelledby="perks-kicker" aria-live="polite">
+          <div class="perks-head">
+            <h2 class="perks-kicker" id="perks-kicker">받을 수 있는 혜택</h2>
+            <p class="perks-scope" id="perks-scope" tabindex="-1"><i aria-hidden="true"></i><span>노선 전체</span></p>
+            {anyUnverified && <p class="notice">확인 전 후보예요. 공식 안내에서 꼭 다시 확인해 주세요.</p>}
+            <div class="count-row">
+              <p id="perks-count">전체 <b>{perks.length}개</b></p>
+              <label class="all-toggle"><input type="checkbox" id="all-toggle" /> 조건 없이 모두 보기</label>
+            </div>
+          </div>
+          <div class="perks-body" id="perks-body">
+            {ssrGroups.map((g) => (
+              <section class="pg" style={`--c:${g.color}`}>
+                <h3 class="pg-h"><i class="pg-dot" aria-hidden="true"></i>{g.title}<small>{g.kind}</small></h3>
+                <ol class="plist">
+                  {g.items.map((p) => (
+                    <li class="perk">
+                      <p class="p-top"><span class="p-type">{p.typeLabel}</span>{!p.verified && <span class="p-unv">확인 전</span>}</p>
+                      <h4 class="p-title">{p.title}</h4>
+                      <p class="p-prov">{p.provider}</p>
+                      <p class="p-sum">{p.summary}</p>
+                      <dl class="p-meta">
+                        <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+                        <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
+                        {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
+                        {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
+                      </dl>
+                      {p.steps.length > 1 && <p class="p-at">이어지는 역: {p.steps.map(stationTitle).join(" · ")}</p>}
+                      <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ))}
+            {ssrField.length > 0 && (
+              <section class="pg field">
+                <h3 class="pg-h"><i class="pg-dot" aria-hidden="true"></i>{field.title} 분야 전체</h3>
+                <ol class="plist">
+                  {ssrField.map((p) => (
+                    <li class="perk">
+                      <p class="p-top"><span class="p-type">{p.typeLabel}</span>{!p.verified && <span class="p-unv">확인 전</span>}</p>
+                      <h4 class="p-title">{p.title}</h4>
+                      <p class="p-prov">{p.provider}</p>
+                      <p class="p-sum">{p.summary}</p>
+                      <dl class="p-meta">
+                        <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+                        <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
+                        {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
+                        {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
+                      </dl>
+                      <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+            {ssrClosed.length > 0 && (
+              <details class="closed">
+                <summary>이번에는 마감됐어요 · {ssrClosed.length}개</summary>
+                <ol class="plist">
+                  {ssrClosed.map((p) => (
+                    <li class="perk is-closed">
+                      <p class="p-top"><span class="p-type">{p.typeLabel}</span>{!p.verified && <span class="p-unv">확인 전</span>}</p>
+                      <h4 class="p-title">{p.title}</h4>
+                      <p class="p-prov">{p.provider}</p>
+                      <p class="p-sum">{p.summary}</p>
+                      <dl class="p-meta">
+                        <div><dt>지역</dt><dd>{p.regionLabel}</dd></div>
+                        <div><dt>신청</dt><dd>{p.deadlineLabel}</dd></div>
+                        {p.ageLabel && <div><dt>나이</dt><dd>{p.ageLabel}</dd></div>}
+                        {p.costLabel && <div><dt>비용</dt><dd>{p.costLabel}</dd></div>}
+                      </dl>
+                      <a class="p-link" href={p.url} target="_blank" rel="noopener">공식 안내<span class="sr"> · {p.title}</span></a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
+          </div>
+          <p class="perks-foot">혜택은 사이트가 광고를 받고 넣은 게 아니에요. 순서는 노선의 역 순서를 따라요.</p>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="combo-data" set:html={JSON.stringify(data)}></script>
+
+  <script is:inline>
+    (() => {
+      const D = JSON.parse(document.getElementById("combo-data").textContent);
+      const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+      const $ = (id) => document.getElementById(id);
+      const L = Object.fromEntries(D.lines.map((l) => [l.id, l]));
+      const ST = D.stations;
+
+      // ---------- the five questions ----------
+      const Q = [
+        { key: "요리 경험", ask: "요리, 해 본 적 있어요?", opts: [["none", "아직 없어요"], ["some", "조금 해 봤어요"], ["often", "자주 해요"]] },
+        { key: "학교", ask: "지금 학교는요?", opts: [["in", "다니고 있어요"], ["left", "그만뒀어요"], ["done", "졸업했어요"]] },
+        { key: "나이", ask: "몇 살이에요?", sub: "나이 조건이 있는 혜택을 거르려고 물어봐요.", skip: true,
+          opts: [["14-15", "14~15살"], ["16-17", "16~17살"], ["18-19", "18~19살"], ["20-24", "20~24살"]] },
+        { key: "사는 곳", ask: "어디 살아요?", sub: "지역마다 받을 수 있는 혜택이 달라서요.", skip: true,
+          opts: [["seoul", "서울"], ["gyeonggi", "경기"], ["incheon", "인천"], ["other", "그 외 지역"]] },
+        { key: "배우는 방식", ask: "어떻게 배우고 싶어요?", opts: [
+          ["hands", "손으로 빨리"], ["study", "차근차근 공부"], ["center", "기관에서 실무"], ["school", "학교에서 친구들과"],
+        ] },
+      ];
+      const N = Q.length;
+      const PICK = { hands: "cooking-license-job", study: "cooking-college", center: "cooking-training", school: "cooking-vocational-hs" };
+      const AGE = { "14-15": [14, 15], "16-17": [16, 17], "18-19": [18, 19], "20-24": [20, 24] };
+      const label = (qi, v) => (v === "skip" ? "건너뛰기" : Q[qi].opts.find((o) => o[0] === v)[1]);
+
+      const blank = () => Array(N).fill(null);
+      let S = { a: blank(), done: false, line: null, rec: null, station: null, all: false, undo: null };
+      let shown = 0, token = 0, fast = false;
+
+      const bot = (html, cls = "") => ({ from: "bot", html, cls });
+      const me = (html) => ({ from: "me", html });
+      const askHtml = (i) => esc(Q[i].ask) + (Q[i].sub ? `<span class="sub">${esc(Q[i].sub)}</span>` : "");
+      const nextQ = () => S.a.findIndex((v) => v == null);
+
+      function react(i, v) {
+        if (i === 0) return v === "none" ? "괜찮아요, 다들 처음은 있어요." : v === "some" ? "오, 시작은 했네요." : "좋아요, 손에 익은 게 있겠네요.";
+        if (i === 1) return v === "left" ? "알려 줘서 고마워요. 그만둔 뒤에 받을 수 있는 혜택도 꽤 있어요." : v === "in" ? "알겠어요. 재학생만 받는 혜택도 챙겨 볼게요." : "알겠어요.";
+        if (i === 2) return v === "skip" ? "괜찮아요, 몰라도 찾아볼 수 있어요." : "알겠어요.";
+        if (i === 3) return v === "skip" ? "괜찮아요. 전국 어디서나 받는 혜택도 많아요." : v === "other" ? "그럼 전국 어디서나 받을 수 있는 혜택 위주로 보여 줄게요." : `좋아요, ${esc(label(3, v))} 기준으로 찾아볼게요.`;
+        return "좋아요, 다 됐어요. 노선도를 펼쳐 볼게요.";
+      }
+
+      function messages() {
+        const out = [
+          bot(`안녕하세요! ${esc(D.field.title)}가 되는 길은 여러 개예요. 다섯 가지만 물어보고, 먼저 볼 만한 노선과 받을 수 있는 혜택을 같이 보여 줄게요.`),
+          bot(askHtml(0)),
+        ];
+        for (let i = 0; i < N; i++) {
+          const v = S.a[i];
+          if (v == null) return out;
+          out.push(me(v === "skip" ? "건너뛸게요" : esc(label(i, v))));
+          out.push(bot(react(i, v)));
+          if (i < N - 1) out.push(bot(askHtml(i + 1)));
+        }
+        return out;
+      }
+
+      const talk = $("talk"), thread = $("thread"), composer = $("composer"), choices = $("choices");
+      const qLabel = $("q-label"), dots = $("dots").children, backBtn = $("back"), restartBtn = $("restart");
+      const result = $("result");
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const mobile = matchMedia("(max-width: 899px)");
+      composer.hidden = false;
+      result.inert = true;
+
+      function rowEl(msg, prev, isNew) {
+        const li = document.createElement("li");
+        const first = msg.from === "bot" && (!prev || prev.from !== "bot");
+        li.className = `row ${msg.from}${first ? " first" : ""}${isNew ? " new" : ""}`;
+        li.innerHTML = msg.from === "bot"
+          ? `<span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span><div class="b ${msg.cls}">${msg.html}</div></div>`
+          : `<div class="b">${msg.html}</div>`;
+        return li;
+      }
+
+      function choiceBtn(text, cls, fn) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = cls; b.textContent = text;
+        b.addEventListener("click", fn);
+        choices.append(b);
+        return b;
+      }
+
+      function setChoices() {
+        const qi = nextQ();
+        choices.innerHTML = "";
+        choices.className = "choices";
+        [...dots].forEach((d, i) => { d.className = i === qi ? "now" : S.a[i] != null ? "on" : ""; });
+        if (qi < 0) {
+          qLabel.textContent = "노선도를 펼치는 중이에요";
+          backBtn.hidden = restartBtn.hidden = true;
+          return;
+        }
+        qLabel.textContent = `${qi + 1} / ${N} · ${Q[qi].ask}`;
+        if (Q[qi].opts.length === 4) choices.classList.add("two");
+        Q[qi].opts.forEach(([v, t]) => choiceBtn(t, "choice", () => answer(qi, v)));
+        if (Q[qi].skip) choiceBtn("건너뛰기", "choice ghost", () => answer(qi, "skip"));
+        if (S.undo && S.undo.i === qi) choiceBtn("그대로 둘게요", "choice ghost", () => answer(qi, S.undo.v));
+        backBtn.hidden = qi === 0;
+        restartBtn.hidden = S.a.every((v) => v == null);
+        thread.style.setProperty("--ch", `${composer.offsetHeight + 12}px`);
+        thread.lastElementChild?.scrollIntoView({ block: "nearest" });
+      }
+
+      function answer(qi, v) {
+        const editing = !!S.undo;
+        S.a = S.a.map((x, i) => (i === qi ? v : x));
+        if (editing && nextQ() < 0) fast = true;
+        S.undo = null;
+        update();
+      }
+
+      function update() {
+        const my = ++token;
+        const msgs = messages();
+        const keep = Math.min(shown, msgs.length);
+        thread.innerHTML = "";
+        msgs.slice(0, keep).forEach((m, i) => thread.append(rowEl(m, msgs[i - 1], false)));
+        shown = keep;
+        choices.innerHTML = "";
+        const rest = msgs.slice(keep);
+        const done = () => {
+          setChoices();
+          if (nextQ() < 0) {
+            const wait = fast ? 120 : 700;
+            fast = false;
+            setTimeout(() => { if (my === token) enterResult(); }, wait);
+            return;
+          }
+          const first = choices.querySelector("button");
+          if (first && keep > 0) first.focus({ preventScroll: true });
+        };
+        if (!rest.length || reduce || fast) {
+          rest.forEach((m, i) => thread.append(rowEl(m, msgs[keep + i - 1], false)));
+          shown = msgs.length;
+          done();
+          if (rest.length) thread.lastElementChild.scrollIntoView({ block: "nearest" });
+          return;
+        }
+        let i = 0;
+        const next = () => {
+          if (my !== token) return;
+          const m = rest[i], idx = keep + i;
+          if (m.from === "bot") {
+            const t = document.createElement("li");
+            t.className = "row bot" + (msgs[idx - 1]?.from === "bot" ? "" : " first");
+            t.innerHTML = `<span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span><div class="b" aria-label="입력 중"><span class="typing"><i></i><i></i><i></i></span></div></div>`;
+            thread.append(t);
+            t.scrollIntoView({ block: "nearest" });
+            setTimeout(() => {
+              if (my !== token) return;
+              t.replaceWith(rowEl(m, msgs[idx - 1], true));
+              step();
+            }, i === 0 ? 340 : 240);
+          } else {
+            thread.append(rowEl(m, msgs[idx - 1], true));
+            step();
+          }
+        };
+        const step = () => {
+          i++; shown = keep + i;
+          thread.lastElementChild?.scrollIntoView({ block: "nearest" });
+          if (i < rest.length) next(); else done();
+        };
+        next();
+      }
+
+      function restart() {
+        S = { a: blank(), done: false, line: null, rec: null, station: null, all: false, undo: null };
+        $("all-toggle").checked = false;
+        leaveResult();
+        shown = 2;
+        update();
+        scrollTo({ top: 0 });
+        choices.querySelector("button")?.focus({ preventScroll: true });
+      }
+
+      backBtn.addEventListener("click", () => {
+        const qi = nextQ();
+        if (qi <= 0) return;
+        S.a = S.a.map((x, i) => (i === qi - 1 ? null : x));
+        S.undo = null;
+        shown = messages().length;
+        update();
+      });
+      restartBtn.addEventListener("click", restart);
+
+      // ---------- result: map + benefits ----------
+      function leaveResult() {
+        S.done = false;
+        document.body.classList.remove("done");
+        result.inert = true;
+      }
+
+      function enterResult() {
+        S.done = true;
+        S.rec = PICK[S.a[4]];
+        S.line = S.rec;
+        S.station = null;
+        document.body.classList.add("done");
+        result.inert = false;
+        renderAll();
+        scrollTo({ top: 0 });
+        $("result-title").focus({ preventScroll: true });
+      }
+
+      function editAnswer(i) {
+        S.undo = { i, v: S.a[i] };
+        S.a = S.a.map((x, j) => (j === i ? null : x));
+        leaveResult();
+        shown = messages().length;
+        update();
+        requestAnimationFrame(() => composer.scrollIntoView({ block: "end" }));
+      }
+
+      // filter by the answers
+      function passes(p) {
+        if (S.all) return true;
+        const school = S.a[1], age = S.a[2], region = S.a[3];
+        if (region && region !== "skip") {
+          const ok = p.regions.includes("all") || (region !== "other" && p.regions.includes(region));
+          if (!ok) return false;
+        }
+        if (age && age !== "skip") {
+          const [lo, hi] = AGE[age];
+          if ((p.ageMin ?? 0) > hi || (p.ageMax ?? 200) < lo) return false;
+        }
+        if (p.audience === "out_of_school" && school !== "left") return false;
+        if (p.audience === "in_school" && school !== "in") return false;
+        return true;
+      }
+      const at = (sid) => D.perks.filter((p) => p.steps.includes(sid));
+
+      function renderRecap() {
+        const a = S.a, rec = L[S.rec];
+        const how = label(4, a[4]);
+        const where = mobile.matches ? "노선도 아래에" : "노선도 옆에";
+        let h = `<ol class="thread" aria-label="대화 요약">`;
+        h += `<li class="row bot first"><span class="face" aria-hidden="true">선배</span><div class="col"><span class="name">길잡이 선배</span>` +
+          `<div class="b pathhead" style="--c:${rec.color}"><span class="label">이 노선부터 봐도 좋아요</span><span class="t">${esc(rec.title)}</span>` +
+          `‘어떻게 배우고 싶어요?’에 <strong>${esc(how)}</strong>라고 해서 먼저 밝혀 뒀어요. 다른 노선이 틀린 건 아니에요. 아래에서 바꿔 볼 수 있어요.</div></div></li>`;
+        if (a[0] === "none") {
+          h += `<li class="row bot"><span class="face" aria-hidden="true">선배</span><div class="col"><div class="b mission">요리가 처음이면, 노선보다 먼저 이번 주에 <strong>${esc(ST[D.mission].title)}</strong>부터 해 봐요. 노선도에 ‘이번 주에 해 볼 일’로 표시해 뒀어요.<br><button type="button" class="inline-go" data-go="${D.mission}">그 역 보기</button></div></div></li>`;
+        }
+        h += `<li class="row bot"><span class="face" aria-hidden="true">선배</span><div class="col"><div class="b">받을 수 있는 혜택은 답에 맞춰 골라서 ${where} 띄워 뒀어요. 역을 누르면 그 역 혜택이 먼저 나와요.</div></div></li>`;
+        h += `</ol>`;
+        const summary = a.map((v, i) => (v === "skip" ? `${Q[i].key} 건너뜀` : label(i, v))).join(" · ");
+        h += `<div class="answers"><div class="row me"><div class="b"><span class="sr">내 답: </span>${esc(summary)}</div></div><div class="answer-tools">` +
+          `<details class="edit"><summary>답 바꾸기</summary><ul>` +
+          a.map((v, i) => `<li><button type="button" data-edit="${i}"><span>${esc(Q[i].key)}</span><b>${esc(v === "skip" ? "건너뜀" : label(i, v))}</b><em>바꾸기</em></button></li>`).join("") +
+          `</ul></details><button type="button" class="tool" data-act="restart">처음부터 다시</button></div></div>`;
+        $("recap").innerHTML = h;
+      }
+
+      function applyLine() {
+        const id = S.line;
+        document.querySelectorAll(".line-btn").forEach((b) => {
+          b.setAttribute("aria-pressed", String(b.dataset.line === id));
+          b.querySelector(".rec").hidden = b.dataset.line !== S.rec;
+        });
+        document.querySelectorAll(".ln").forEach((s) => s.classList.toggle("dim", !!id && s.dataset.line !== id));
+        document.querySelectorAll(".st").forEach((b) => {
+          b.classList.toggle("dim", !!id && !b.dataset.lines.split(" ").includes(id));
+          b.classList.toggle("on", b.dataset.st === S.station);
+          const isMission = b.dataset.st === D.mission && S.a[0] === "none";
+          b.classList.toggle("mission", isMission);
+          b.querySelector(".wk").hidden = !isMission;
+        });
+      }
+
+      function renderBadges() {
+        document.querySelectorAll(".st").forEach((b) => {
+          const n = at(b.dataset.st).filter((p) => !p.closed && passes(p)).length;
+          const pn = b.querySelector(".pn");
+          pn.textContent = `혜택 ${n}`;
+          pn.hidden = n === 0;
+          const base = b.getAttribute("aria-label").replace(/, 혜택 \d+개$/, "");
+          b.setAttribute("aria-label", n ? `${base}, 혜택 ${n}개` : base);
+        });
+      }
+
+      const titleOf = (sid) => ST[sid]?.title ?? sid;
+      function card(p) {
+        const meta = [["지역", p.regionLabel], ["신청", p.deadlineLabel], ["나이", p.ageLabel], ["비용", p.costLabel]]
+          .filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+        return `<li class="perk${p.closed ? " is-closed" : ""}">` +
+          `<p class="p-top"><span class="p-type">${esc(p.typeLabel)}</span>${p.verified ? "" : `<span class="p-unv">확인 전</span>`}</p>` +
+          `<h4 class="p-title">${esc(p.title)}</h4><p class="p-prov">${esc(p.provider)}</p><p class="p-sum">${esc(p.summary)}</p>` +
+          `<dl class="p-meta">${meta}</dl>` +
+          (p.steps.length > 1 ? `<p class="p-at">이어지는 역: ${p.steps.map((s) => esc(titleOf(s))).join(" · ")}</p>` : "") +
+          `<a class="p-link" href="${esc(p.url)}" target="_blank" rel="noopener">공식 안내<span class="sr"> · ${esc(p.title)}</span></a></li>`;
+      }
+      const group = (title, small, color, items, cls = "", empty = "조건에 맞는 혜택은 아직 못 찾았어요.") =>
+        `<section class="pg ${cls}"${color ? ` style="--c:${color}"` : ""}><h3 class="pg-h"><i class="pg-dot" aria-hidden="true"></i>${esc(title)}${small ? `<small>${esc(small)}</small>` : ""}</h3>` +
+        (items.length ? `<ol class="plist">${items.map(card).join("")}</ol>` : `<p class="pg-empty">${empty}</p>`) + `</section>`;
+
+      function nb(id, fallback) {
+        return id ? `<button type="button" class="nb" data-go="${id}">${esc(titleOf(id))}</button>` : `<span class="nb none">${fallback}</span>`;
+      }
+      function stationBlock(sid) {
+        const st = ST[sid];
+        const li = S.line && L[S.line].steps.includes(sid) ? D.lines.findIndex((l) => l.id === S.line) : st.lines[0];
+        const line = D.lines[li];
+        const i = line.steps.indexOf(sid);
+        const note = st.notes[String(li)];
+        const isMission = sid === D.mission && S.a[0] === "none";
+        let h = `<section class="stn" style="--c:${line.color}">`;
+        h += `<p class="kind">${esc(isMission ? "이번 주에 해 볼 일" : st.kind)}${st.lines.length > 1 ? ` · 환승역 · 노선 ${st.lines.length}개` : ""}</p>`;
+        h += `<h3 class="stn-title">${esc(st.title)}</h3><p class="stn-sum">${esc(st.summary)}</p>`;
+        h += `<p class="sign-line">${esc(line.title)}</p><div class="sign-board">` +
+          `<div class="sb prev"><span class="dir">← 앞 역</span>${nb(line.steps[i - 1], "처음 역이에요")}</div>` +
+          `<div class="sb cur">${esc(st.title)}</div>` +
+          `<div class="sb next"><span class="dir">다음 역 →</span>${nb(line.steps[i + 1], "마지막 역이에요")}</div></div>`;
+        if (note) h += `<p class="sign-note">${esc(note)}</p>`;
+        if (st.lines.length > 1) {
+          h += `<p class="tr-lines">이 역을 지나는 노선 ${st.lines.map((k) => `<i style="--c:${D.lines[k].color}" title="${esc(D.lines[k].title)}"></i>`).join("")}</p>`;
+        }
+        h += `<p class="stn-links">`;
+        if (st.url) h += `<a href="${esc(st.url)}" target="_blank" rel="noopener">이 역 공식 안내</a>`;
+        h += `<button type="button" data-act="line-view">${S.line ? "노선 전체 혜택 보기" : "모든 역 혜택 보기"}</button>`;
+        h += `<button type="button" class="to-map" data-act="to-map" data-st="${sid}">← 노선도로</button></p></section>`;
+        return h;
+      }
+
+      function renderPanel() {
+        const line = S.line ? L[S.line] : null;
+        const sids = line ? line.steps : D.order;
+        const color = line ? line.color : null;
+        const scope = new Set();
+        if (S.station) at(S.station).forEach((p) => scope.add(p));
+        sids.forEach((sid) => at(sid).forEach((p) => scope.add(p)));
+        D.perks.filter((p) => p.field).forEach((p) => scope.add(p));
+        const all = [...scope];
+        const open = all.filter((p) => !p.closed && passes(p));
+        const closed = all.filter((p) => p.closed && passes(p));
+
+        const scopeEl = $("perks-scope");
+        scopeEl.style.setProperty("--c", S.station ? L[S.line]?.color ?? D.lines[ST[S.station].lines[0]].color : color ?? "var(--ink)");
+        scopeEl.querySelector("span").textContent = S.station
+          ? `${titleOf(S.station)} 역부터`
+          : line ? `‘${line.title}’ 노선` : "모든 노선";
+        $("perks-count").innerHTML = S.all
+          ? `조건 없이 보는 중 · 전체 <b>${all.length}개</b>`
+          : `조건에 맞는 혜택 <b>${open.length}개</b> · 전체 ${all.length}개`;
+        $("all-toggle").checked = S.all;
+
+        const used = new Set();
+        const take = (list) => list.filter((p) => !p.closed && passes(p) && !used.has(p.id)).map((p) => (used.add(p.id), p));
+        let h = "";
+        if (S.station) {
+          h += stationBlock(S.station);
+          h += group("이 역의 혜택", "", null, take(at(S.station)), "here", "이 역에 맞는 혜택은 아직 못 찾았어요. 아래 다른 역도 봐 주세요.");
+        }
+        const rest = sids.filter((sid) => sid !== S.station);
+        rest.forEach((sid) => {
+          const items = take(at(sid));
+          h += group(titleOf(sid), ST[sid].kind, color ?? D.lines[ST[sid].lines[0]].color, items);
+        });
+        const fieldItems = take(D.perks.filter((p) => p.field));
+        if (fieldItems.length) h += group(`${D.field.title} 분야 전체`, "어느 노선이든", null, fieldItems, "field");
+        if (closed.length) {
+          h += `<details class="closed"><summary>이번에는 마감됐어요 · ${closed.length}개</summary><ol class="plist">${closed.map(card).join("")}</ol></details>`;
+        }
+        $("perks-body").innerHTML = h;
+      }
+
+      function renderAll() {
+        renderRecap();
+        applyLine();
+        renderBadges();
+        renderPanel();
+      }
+
+      function openStation(sid, fromMap) {
+        if (!ST[sid]) return;
+        S.station = sid;
+        applyLine();
+        renderPanel();
+        const perks = $("perks");
+        if (mobile.matches) {
+          perks.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+          $("perks-scope").focus({ preventScroll: true });
+        } else {
+          perks.scrollTop = 0;
+          if (!fromMap) $("perks-scope").focus({ preventScroll: true });
+        }
+      }
+
+      document.querySelectorAll(".line-btn").forEach((b) =>
+        b.addEventListener("click", () => {
+          S.line = b.getAttribute("aria-pressed") === "true" ? null : b.dataset.line;
+          S.station = null;
+          applyLine();
+          renderPanel();
+        }),
+      );
+      document.querySelectorAll(".st").forEach((b) => b.addEventListener("click", () => openStation(b.dataset.st, true)));
+      $("all-toggle").addEventListener("change", (e) => {
+        S.all = e.target.checked;
+        renderBadges();
+        renderPanel();
+      });
+      result.addEventListener("click", (e) => {
+        const go = e.target.closest("[data-go]");
+        if (go) return openStation(go.dataset.go, false);
+        const ed = e.target.closest("[data-edit]");
+        if (ed) return editAnswer(+ed.dataset.edit);
+        const act = e.target.closest("[data-act]");
+        if (!act) return;
+        if (act.dataset.act === "restart") restart();
+        if (act.dataset.act === "line-view") { S.station = null; applyLine(); renderPanel(); $("perks-scope").focus({ preventScroll: true }); }
+        if (act.dataset.act === "to-map") {
+          const st = document.querySelector(`.st[data-st="${act.dataset.st}"]`);
+          st?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+          st?.focus({ preventScroll: true });
+        }
+      });
+      mobile.addEventListener("change", () => { if (S.done) renderRecap(); });
+
+      update();
+    })();
+  </script>
+</body>
+</html>

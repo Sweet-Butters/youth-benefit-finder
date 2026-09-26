@@ -1,0 +1,203 @@
+{
+  "note": "확인 전 후보. 사이트 본 데이터(data/processed/helps)가 아니다. 시안(/concepts/combo)에서만 '확인 전 후보' 표시와 함께 쓴다. 원문은 cooking-helps.md",
+  "audience_values": {
+    "any": "누구나",
+    "out_of_school": "학교 밖 청소년",
+    "in_school": "재학생(직업계고)"
+  },
+  "items": [
+    {
+      "id": "help-2026-naeil-irum-school",
+      "type": "course",
+      "title": "내일이룸학교",
+      "provider": "성평등가족부 · 한국생산성본부",
+      "url": "https://www.hskdream.or.kr/content/sub_3_3",
+      "summary": "학교 밖 청소년이 전문 훈련기관에서 무료로 직업훈련을 받아요. 한식조리 분야가 있고, 출석에 따라 자립장려금이 나와요.",
+      "step_ids": [
+        "cooking-training-course"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "rolling",
+      "age_min": 15,
+      "age_max": 24,
+      "audience": "out_of_school",
+      "cost": "free",
+      "check": "전국 공식 원문 URL로 바꾸기, 2026년 한식조리 과정 운영 기관, 자립장려금 금액",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-naeil-baeum-card",
+      "type": "support",
+      "title": "국민내일배움카드",
+      "provider": "고용노동부",
+      "url": "https://www.work24.go.kr/hr/h/a/1100/selectIssuGudn.do",
+      "summary": "정부가 인정한 직업훈련 과정의 수강료를 지원하는 카드예요. 본인 부담 비율은 사람마다 달라요.",
+      "step_ids": [
+        "cooking-training-course",
+        "korean-cook-license"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "rolling",
+      "audience": "any",
+      "cost": "partly",
+      "check": "미성년 학교 밖 청소년이 발급받을 수 있는지 (원문에 최소 나이 없음)",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-qnet-korean-cook-open-test",
+      "type": "resource",
+      "title": "한식조리기능사 실기 공개문제",
+      "provider": "한국산업인력공단 (큐넷)",
+      "url": "https://www.q-net.or.kr/cst006.do?id=cst00602&gSite=Q&gId=&artlSeq=5250945&brdId=Q006&code=1204",
+      "summary": "실기 시험에 나오는 과제를 미리 볼 수 있는 공식 자료예요. 집에서 연습할 레시피로도 쓸 수 있어요.",
+      "step_ids": [
+        "korean-cook-license",
+        "mission-cook-one-recipe"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "rolling",
+      "audience": "any",
+      "cost": "free",
+      "check": "2026년 자료가 최신인지",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-kdream-center",
+      "type": "support",
+      "title": "학교 밖 청소년 지원센터 꿈드림",
+      "provider": "성평등가족부 · 전국 꿈드림",
+      "url": "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=746&ccfNo=7&cciNo=1&cnpClsNo=1",
+      "summary": "검정고시 준비, 진로 상담, 직업 체험을 무료로 도와줘요. 가까운 센터를 찾아가면 돼요.",
+      "field_ids": [
+        "cooking"
+      ],
+      "step_ids": [
+        "ged-high"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "rolling",
+      "age_min": 9,
+      "age_max": 24,
+      "audience": "out_of_school",
+      "cost": "free",
+      "check": "꿈드림 전국 공식 사이트 복구 확인 후 URL 교체",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-seoul-oos-study-fund",
+      "type": "support",
+      "title": "서울시 학교 밖 청소년 학업비 지원",
+      "provider": "서울특별시학교밖청소년지원센터",
+      "url": "https://seoulallnet.org/Study/info",
+      "summary": "자격증 응시료 같은 학업비를 한 해에 정해진 금액까지 지원해요. 2026년 신청은 예산이 다 써서 마감됐어요.",
+      "step_ids": [
+        "korean-cook-license",
+        "ged-high"
+      ],
+      "regions": [
+        "seoul"
+      ],
+      "deadline": "closed",
+      "audience": "out_of_school",
+      "cost": "free",
+      "check": "2027년 공고",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-kosaf-hs-job-incentive",
+      "type": "scholarship",
+      "title": "고교 취업연계 장려금",
+      "provider": "교육부 · 한국장학재단",
+      "url": "https://www.kosaf.go.kr/ko/scholar.do?pg=scholarship05_18_01&hmNavi=JH%2C03%2C04%2C00",
+      "summary": "직업계고 학생이 취업과 연계된 과정에 참여하면 받는 장려금이에요.",
+      "step_ids": [
+        "culinary-vocational-hs",
+        "restaurant-job"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "2026-12-31",
+      "audience": "in_school",
+      "cost": "free",
+      "check": "금액과 세부 대상 (원문에 금액 없음)",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-national-employment-support",
+      "type": "support",
+      "title": "국민취업지원제도",
+      "provider": "고용노동부",
+      "url": "https://www.work24.go.kr/ua/z/z/1300/selectEmssRqutIntro.do",
+      "summary": "취업을 준비하는 사람에게 상담, 훈련, 일자리 연결을 도와줘요.",
+      "step_ids": [
+        "restaurant-job"
+      ],
+      "regions": [
+        "all"
+      ],
+      "deadline": "rolling",
+      "age_min": 15,
+      "age_max": 69,
+      "audience": "any",
+      "cost": "free",
+      "check": "미성년 학교 밖 청소년 참여 조건",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-jobworld-restaurant",
+      "type": "experience",
+      "title": "한국잡월드 레스토랑 체험실",
+      "provider": "한국잡월드",
+      "url": "https://www.koreajobworld.or.kr/exrPreview/exrPreViewList.do?site=2&floor=1&exhpCd=23&previewOrder=13&exhpHzCd=2300054&portalMenuNo=84",
+      "summary": "직업 체험관에서 요리사 일을 직접 해 보는 체험이에요.",
+      "step_ids": [
+        "cooking-oneday-class"
+      ],
+      "regions": [
+        "gyeonggi"
+      ],
+      "deadline": "rolling",
+      "audience": "any",
+      "check": "대상 나이와 요금 (원문에 없음)",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    },
+    {
+      "id": "help-2026-incheon-seobu-korean-cook",
+      "type": "course",
+      "title": "한식조리기능사 강좌 (서부여성회관)",
+      "provider": "인천광역시 서부여성회관",
+      "url": "https://www.incheon.go.kr/wiw/WIW010103/2050248",
+      "summary": "한식조리기능사를 준비하는 강좌예요. 수강료와 재료비가 따로 있어요.",
+      "step_ids": [
+        "korean-cook-license"
+      ],
+      "regions": [
+        "incheon"
+      ],
+      "deadline": "unknown",
+      "age_min": 18,
+      "audience": "any",
+      "cost": "paid",
+      "check": "다음 기수 모집일",
+      "status": "unverified",
+      "found_at": "2026-09-26"
+    }
+  ]
+}
