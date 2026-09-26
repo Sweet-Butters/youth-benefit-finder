@@ -1,17 +1,17 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-25 22:43",
+  "updated_at": "2026-09-26 18:53",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [
     {
-      "id": "pr-architecture",
+      "id": "record-d20",
       "who": "claude",
-      "state": "pr-open-waiting-merge",
-      "branch": "Sweet-Butters/architecture",
-      "started": "2026-09-25",
-      "summary": "PR: D16~D19 + docs/architecture.md (검토 메모 포함)"
+      "state": "committed-local",
+      "branch": "Sweet-Butters/data-d20",
+      "started": "2026-09-26",
+      "summary": "D20 행동 데이터 최대 + 개인정보 확대 결정 대기"
     }
   ],
   "queued_tasks": [
@@ -52,6 +52,12 @@
     }
   ],
   "pending_decisions": [
+    {
+      "id": "pi-expansion",
+      "summary": "개인정보 선택 항목 확대 (사용자는 최대로 모으기를 원함: 예 재학 여부, 학교급, 시·군·구, 관심 직업)와 개인 단위 B2B·B2G 제공 여부",
+      "default": "법률 검토 전까지 D11 최소 수집 유지, 개인 단위 제공은 하지 않음 (D10)",
+      "by": "가입 기능을 만들기 전"
+    },
     {
       "id": "mvp-gate",
       "summary": "MVP 다음 단계 기준 수치",
