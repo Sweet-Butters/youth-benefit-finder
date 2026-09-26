@@ -1,13 +1,14 @@
 ---
 // Shared page shell for the D22 design language. Pages own their main content.
 import "../styles/tokens.css";
+import { url, unbase } from "../lib/url";
 interface Props { title: string; description?: string; noindex?: boolean }
 const { title, description = "지금 내 자리에서 시작하는 진로. 어디서 시작해도 갈 수 있는 길을 노선도로 보여 줘요.", noindex = false } = Astro.props;
-const path = Astro.url.pathname;
+const path = unbase(Astro.url.pathname);
 const fullTitle = `${title} · 지금 내 자리에서`;
 const nav = [
-  { href: "/fields/cooking", label: "노선도", match: "/fields" },
-  { href: "/guide", label: "읽을거리", match: "/guide" },
+  { href: url("/fields/cooking"), label: "노선도", match: "/fields" },
+  { href: url("/guide"), label: "읽을거리", match: "/guide" },
 ];
 ---
 <!doctype html>
@@ -18,8 +19,8 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
-    <link rel="canonical" href={new URL(path, Astro.site)} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -32,7 +33,7 @@ const nav = [
   </head>
   <body>
     <header class="site-top">
-      <a class="brand" href="/"><span class="brand-dot" aria-hidden="true"></span>지금 내 자리에서</a>
+      <a class="brand" href={url("/")}><span class="brand-dot" aria-hidden="true"></span>지금 내 자리에서</a>
       <nav aria-label="주요 메뉴">
         {nav.map((n) => <a href={n.href} aria-current={path.startsWith(n.match) ? "page" : undefined}>{n.label}</a>)}
       </nav>

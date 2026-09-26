@@ -1,6 +1,7 @@
 ---
 // 시안 2 · 다꾸 스크랩북 — the real "요리사" field drawn as a teen's diary/zine spread.
 import { fields, steps, KIND_LABEL } from "../../lib/content";
+import { url } from "../../lib/url";
 
 const field = fields.find((f) => f.id === "cooking")!;
 const paths = field.paths.filter((p) => !p.retired);
@@ -69,6 +70,7 @@ const firstShared = everyPathIds.map((id) => steps.get(id)?.title).filter(Boolea
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
+  <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{field.title} 길 지도 · 다꾸 스크랩북 시안</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -346,7 +348,7 @@ const firstShared = everyPathIds.map((id) => steps.get(id)?.title).filter(Boolea
 </head>
 <body>
   <header class="top">
-    <a href="/">← 처음으로</a>
+    <a href={url("/")}>← 처음으로</a>
     <span class="label">시안 2 · 다꾸 스크랩북</span>
   </header>
 

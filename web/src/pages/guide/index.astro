@@ -2,6 +2,7 @@
 // Guide list (D22): articles as stations on one ink line, newest first. Drafts show in `astro dev` only.
 import { getCollection } from "astro:content";
 import Site from "../../layouts/Site.astro";
+import { url } from "../../lib/url";
 import { fields } from "../../lib/content";
 
 const posts = (await getCollection("guide", (p) => import.meta.env.DEV || !p.data.draft))
@@ -29,7 +30,7 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
           return (
             <li>
               <span class="dot" aria-hidden="true"></span>
-              <a href={`/guide/${p.id}`}>
+              <a href={url(`/guide/${p.id}`)}>
                 <span class="meta">
                   <time datetime={iso(p.data.updated)}>{iso(p.data.updated).replaceAll("-", ".")}</time>
                   {ft && <span class="fld">{ft} 노선</span>}
