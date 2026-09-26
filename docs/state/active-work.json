@@ -1,11 +1,21 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 05:13",
+  "updated_at": "2026-09-27 06:00",
   "updated_by": "claude",
   "stage": "0-validation-prep",
   "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
   "active_tasks": [],
   "queued_tasks": [
+    {
+      "id": "m1-find-talk",
+      "stage": "1-mvp",
+      "summary": "M1(~10/12): 첫 화면 찾기 대화 v0 — 상황 3개 + 관심 질문 8~10개 → 분야 3개, 결과 옆 '내 조건 혜택'(게시판을 상황으로 거름). 고민 글은 저장·전송 없음 (docs/milestones.md)"
+    },
+    {
+      "id": "m2-five-fields",
+      "stage": "1-mvp",
+      "summary": "M2(~10/31): 분야 4개 추가(팀이 고름) + 분야별 혜택 규칙 + 결과 공유 카드, 꿈드림에서 학생 5~10명 시험"
+    },
     {
       "id": "cooking-helps",
       "stage": "1-mvp",
@@ -35,11 +45,6 @@
       "id": "content-first-10",
       "stage": "1-mvp",
       "summary": "첫 콘텐츠 10개 제작 시작 (docs/mvp.md 목록), 카톡 채널·인스타 계정 개설"
-    },
-    {
-      "id": "roadmap-tool-v0",
-      "stage": "1-mvp",
-      "summary": "로드맵 도구 v0 (AI 없이, 분야 5개) + 관심 찾기 퀴즈(10문항, 체험 분야마다 2개) + 선택 가입(학생 만 14~24세) web/에 제작"
     },
     {
       "id": "benefit-schema",
@@ -142,6 +147,12 @@
       "summary": "첫걸음 지원(D21) 운영 방식: 기부금 처리, 선발 기준, 세무·법적 요건",
       "default": "v1(가입·나의 기록) 전에는 시작하지 않음",
       "by": "첫 후원자를 받기 전"
+    },
+    {
+      "id": "m2-fields",
+      "summary": "M2에서 추가할 분야 4개 (예: 디자인·영상, IT·개발, 미용·뷰티, 돌봄·반려동물, 정비·기술)",
+      "default": "학교 밖 청소년 실태조사 희망 직업 상위와 체험 가능성으로 Claude가 후보 5개를 정리해 팀에 제시",
+      "by": "2026-10-12 (M1 끝)"
     }
   ],
   "user_todo": [
