@@ -7,6 +7,8 @@
 
 <!-- TODO: 서비스 이름 확정 (지금 이름은 '혜택 찾기' 중심일 때 붙인 가칭), 대표 스크린샷 추가 -->
 
+**사이트: https://jinro.mandeun.com**
+
 ## 해결하려는 문제
 
 ### 확인된 것 (자료 있음)
@@ -150,9 +152,9 @@ youth-benefit-finder/
 | 조건 추출 | Jev (TypeSafe AI) |
 | 요약 | 소형 LLM |
 | 자동화 | GitHub Actions |
-| 웹 | 미정 |
+| 웹 | Astro (정적) |
 | 로그인·DB (v0부터, 선택 가입) | 미정 (Supabase, Firebase 등) |
-| 호스팅 | Vercel / Netlify 등 |
+| 호스팅 | Cloudflare Workers 정적 배포 → https://jinro.mandeun.com (D29) |
 
 ## 시작하기
 
@@ -166,6 +168,7 @@ cd web
 npm install
 npm run dev                 # http://localhost:4321 에서 사이트 보기
 npm run build               # web/dist 로 정적 사이트 만들기
+npm run deploy              # web/dist 를 jinro.mandeun.com 으로 올리기 (Cloudflare 로그인 필요)
 ```
 
 전체 검사(데이터 검사 + 사이트 빌드)를 한 번에: `python tests/verify.py`. PR을 올리면 GitHub Actions(`.github/workflows/check.yml`)가 같은 검사를 돌린다.

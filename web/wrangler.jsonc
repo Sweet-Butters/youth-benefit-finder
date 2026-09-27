@@ -1,0 +1,21 @@
+// Cloudflare Workers 정적 배포 설정 — https://jinro.mandeun.com
+//
+// 빌드 결과(dist/)만 올린다. 저장소 루트를 애셋으로 잡으면 문서·수집 원문까지 공개되므로
+// 애셋 폴더는 언제나 dist/ 하나다. 배포: cd web && npm run build && npm run deploy
+//
+// mandeun.com 에는 이미 `*.mandeun.com` 와일드카드 DNS가 있고, 호스트 라우트가 와일드카드보다
+// 우선한다. 그래서 DNS 레코드를 새로 만들지 않고도 이 주소가 이 워커로 들어온다.
+// (`custom_domain: true` 는 DNS 쓰기 권한을 요구하므로 쓰지 않는다.)
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jinro",
+  "compatibility_date": "2026-09-28",
+  "assets": {
+    "directory": "./dist",
+    // 없는 주소는 Astro가 만든 404.html 을 404 상태로 보여 준다 (src/pages/404.astro).
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "jinro.mandeun.com/*", "zone_name": "mandeun.com" }
+  ]
+}

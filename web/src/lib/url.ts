@@ -1,5 +1,5 @@
 // Site base path (astro.config `base`). Every internal link goes through here so the site
-// works under https://sweet-butters.github.io/youth-benefit-finder/ now and at "/" on our own domain later.
+// works at "/" on jinro.mandeun.com and under a sub-path when SITE_BASE is set (astro.config.mjs).
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 /** Prefix a root-relative path ("/guide", "/fields/cooking#x") with the base path. */
