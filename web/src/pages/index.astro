@@ -12,7 +12,7 @@
 import Site from "../layouts/Site.astro";
 import { url } from "../lib/url";
 import { fields, REGION_LABEL } from "../lib/content";
-import { boardEntries, stateOn, todayKst, KIND, KIND_COLOR } from "../lib/board";
+import { boardEntries, stateOn, todayKst, KIND, KIND_ORDER, KIND_COLOR } from "../lib/board";
 import { catalog, quiz, maxByType } from "../lib/findtalk";
 import { GC_CODE } from "../lib/stats";
 
@@ -53,17 +53,10 @@ const steps = talkReady ? [...situation, ...interest, worry] : [];
 // ---------- 내 조건 혜택: board entries still open, upcoming or 상시 ----------
 const today = todayKst();
 const entries = boardEntries();
-const liveBoard = entries.filter((e) => { const s = stateOn(e, today); return s.live && s.status !== "check"; });
 const openNow = entries.filter((e) => stateOn(e, today).status === "open").length;
-const board = liveBoard.map((e) => ({
-  i: e.id, k: e.kind, t: e.title, p: e.provider, rl: e.regionLabel, r: e.regions,
-  w: e.windows.map((w) => [w.s, w.e]), ...(e.always ? { a: 1 } : {}),
-  lo: e.ageMin, hi: e.ageMax, ...(e.oosOk ? { ok: 1 } : {}), ...(e.forOutOfSchool ? { oos: 1 } : {}),
-  // 고등학생·대학생 대상 장학금 ask for a student; a 학교 밖 reader does not see them unless the source says otherwise.
-  ...(e.kind === "scholarship" && /^(고등학생|대학생)\s*대상/.test(e.target) && !e.oosOk ? { stu: 1 } : {}),
-  q: `${e.title} ${e.summary}`.toLowerCase(),
-  ...(e.fieldIds.length ? { fi: e.fieldIds } : {}),
-}));
+// 지난 모집 장학금 (D28) stay out of 내 조건 혜택; one line under it points to them on the board.
+const closedScholar = entries.filter((e) => e.kind === "scholarship" && stateOn(e, today).status === "closed").length;
+// The entries come from /helps/mine.json (lib/payload.ts), fetched when the talk reaches its result.
 
 const data = {
   version: quiz?.version ?? 0,
@@ -71,7 +64,8 @@ const data = {
   nQuiz: interest.length,
   max: quiz ? maxByType(quiz) : {},
   cat,
-  board,
+  boardSrc: url("/helps/mine.json"),
+  order: KIND_ORDER,
   kinds: KIND,
   colors: KIND_COLOR,
   regions: REGION_LABEL,
@@ -169,6 +163,7 @@ const data = {
             </div>
             <ol class="mrows" id="mrows"></ol>
             <p class="mine-empty" id="mine-empty" hidden>조건에 맞는 혜택을 아직 못 찾았어요. 조건 없이 게시판 전체를 봐 주세요.</p>
+            {closedScholar > 0 && <p class="mine-more"><a href={url("/helps/?kind=scholarship&status=closed")}>장학금 {closedScholar.toLocaleString("ko-KR")}개 더 · 지난 모집까지 보기 →</a></p>}
             <p class="mine-foot"><a id="mine-all" href={url("/helps/")}>전체 보기 →</a><span>모두 기관 공식 자료에서 자동으로 모은 것이에요. 신청 전에 원문 공고를 꼭 확인하세요.</span></p>
           </aside>
         </div>
@@ -220,11 +215,18 @@ const data = {
       const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
       const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
       const md = (d) => `${+d.slice(5, 7)}월 ${+d.slice(8, 10)}일`;
-      const board = D.board.map((x) => {
-        const w = x.w.filter((v) => v[1] >= today);
-        if (w.length) { const open = w.find((v) => v[0] <= today); const win = open || w[0]; return { ...x, st: open ? "open" : "upcoming", date: open ? win[1] : win[0], key: win[1], win }; }
-        return x.a ? { ...x, st: "always", date: "", key: "9998" } : null;
-      }).filter(Boolean).sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : a.t.localeCompare(b.t, "ko")));
+      const regionLabel = (r) => (r.includes("all") ? "전국" : r.length ? r.map((k) => D.regions[k] || k).join(" · ") : "지역 제한");
+      // 내 조건 혜택 entries, fetched once when first needed (keys in lib/payload.ts); [] when the fetch fails.
+      let board = [], boardP = null;
+      const loadBoard = () => (boardP ||= fetch(D.boardSrc).then((r) => r.json()).then((list) => {
+        board = list.map((x) => {
+          x = { ...x, k: D.order[x.k], r: x.r || ["all"], lo: x.lo ?? null, hi: x.hi ?? null, q: `${x.t} ${x.q || ""}`.toLowerCase() };
+          x.rl = regionLabel(x.r);
+          const w = (x.w || []).filter((v) => v[1] >= today);
+          if (w.length) { const open = w.find((v) => v[0] <= today); const win = open || w[0]; return { ...x, st: open ? "open" : "upcoming", date: open ? win[1] : win[0], key: win[1], win }; }
+          return x.a ? { ...x, st: "always", date: "", key: "9998" } : null;
+        }).filter(Boolean).sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : a.t.localeCompare(b.t, "ko")));
+      }).catch(() => {}));
 
       // ---------- state ----------
       const blank = () => Array(N).fill(null);
@@ -598,7 +600,7 @@ const data = {
         $("result-title").textContent = D.cat.length === 1 ? "지금 볼 수 있는 분야" : "해 볼 만한 분야";
         renderRecap(picks, anyScore);
         renderPicks(picks, anyScore);
-        renderMine(picks);
+        loadBoard().then(() => renderMine(picks));
         renderTools();
         document.body.classList.add("done");
         result.hidden = false;
@@ -1004,6 +1006,8 @@ const data = {
   .ft .m-dd.s-always { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); }
   .ft .m-dd.today b { font-size: 15px; }
   .ft .mine-empty { margin: 0; padding: 16px; font-size: 15px; }
+  .ft .mine-more { margin: 0; padding: 0 16px 6px; }
+  .ft .mine-more a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 700; color: var(--ink); text-underline-offset: 4px; text-decoration-color: var(--line-1); text-decoration-thickness: 2px; }
   .ft .mine-foot { margin: 0; padding: 4px 16px 12px; border-top: 1.5px solid var(--ink); display: flex; flex-direction: column; font-size: 13px; color: var(--ink-2); }
   .ft .mine-foot a { display: inline-flex; align-items: center; min-height: 44px; font-size: 16px; font-weight: 700; color: var(--ink); text-underline-offset: 4px; }
 

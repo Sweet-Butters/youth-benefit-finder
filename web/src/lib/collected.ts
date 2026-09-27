@@ -29,7 +29,7 @@ export interface AutoGroup {
 
 export const SOURCE_LABEL: Record<string, string> = {
   qnet: "큐넷", kosaf: "한국장학재단", certi: "청소년활동정보서비스", vms: "1365 자원봉사", volunteer: "청소년자원봉사 두볼",
-  gov24: "보조금24",
+  gov24: "보조금24", vms1365: "1365 자원봉사포털", bizinfo: "기업마당", kstartup: "K-Startup",
 };
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 

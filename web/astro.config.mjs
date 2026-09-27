@@ -22,6 +22,8 @@ export default defineConfig({
   site: "https://sweet-butters.github.io",
   base: BASE,
   markdown: { remarkPlugins: [remarkBaseLinks] },
+  // Every stylesheet as a cached file, never inlined: thousands of /helps/ detail pages share them (D28).
+  build: { inlineStylesheets: "never" },
   // sitemap-index.xml + sitemap-0.xml under the base, every built page except design concepts and 404.
   // Drafts are never built, so they never get listed. robots.txt (src/pages/robots.txt.ts) points here.
   integrations: [sitemap({ filter: (page) => !/\/(concepts\/|404\/?$)/.test(new URL(page).pathname) })],

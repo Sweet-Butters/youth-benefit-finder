@@ -2,6 +2,9 @@
 // 혜택 board (D26): every youth benefit the crawler collected, one row each, soonest deadline first.
 // Filters, search and paging run in the browser; without JS the first page is in the HTML.
 // View counts are fetched only for the rows on screen (window.ycFillViews from Site.astro).
+// 한국장학재단 장학금 stay after they close (D28): they come after every live entry as "지난 모집", under a divider.
+// With thousands of entries the list data is its own file (./board.json, lib/payload.ts), fetched on load;
+// the page carries only the first rows, which is also what a reader without JS sees.
 import Site from "../../layouts/Site.astro";
 import ViewCount from "../../components/ViewCount.astro";
 import { boardEntries, stateOn, todayKst, daysBetween, shortRange, md, KIND, KIND_ORDER, KIND_COLOR, STATUS_LABEL, ALWAYS_SORT, type BoardEntry } from "../../lib/board";
@@ -14,8 +17,15 @@ const PER = 20;
 const today = todayKst();
 const entries = boardEntries();
 // A kind with nothing on the board today gets no button (and no filter choice).
-const counts = KIND_ORDER.map((k) => ({ k, label: KIND[k], n: entries.filter((e) => e.kind === k).length })).filter((c) => c.n > 0);
+const states = new Map(entries.map((e) => [e.id, stateOn(e, today)]));
+const isLive = (e: BoardEntry) => states.get(e.id)!.live;
+const counts = KIND_ORDER.map((k) => ({
+  k, label: KIND[k], n: entries.filter((e) => e.kind === k).length, live: entries.filter((e) => e.kind === k && isLive(e)).length,
+})).filter((c) => c.n > 0);
+const closedN = entries.filter((e) => states.get(e.id)!.status === "closed").length;
 const kindList = counts.map((c) => c.label).join("·");
+// 공모전 come from listing sites, not agencies: the lead says so, and names the sites on the board today.
+const contestSites = [...new Set(entries.filter((e) => e.kind === "contest").map((e) => e.sourceLabel))];
 // 전국 first as its own choice, then every 시·도 in the usual order.
 const regionOpts = Object.entries(REGION_LABEL);
 const helpsBase = url("/helps/");
@@ -24,47 +34,47 @@ const updated = collected.updatedAt.slice(0, 10);
 
 // The same row the script draws (row() below), for the first page and for no-JS.
 // 상시 has no D-day, only its badge; a deadline today reads "오늘 마감".
+// 지난 모집 shows the month it usually opens in the D-day box, and last round's dates with the year.
 function view(e: BoardEntry) {
-  const st = stateOn(e, today);
+  const st = states.get(e.id)!;
+  const closed = st.status === "closed";
   const n = st.date ? daysBetween(today, st.date) : 0;
   const always = st.status === "always";
   const todayEnd = st.status === "open" && n === 0;
-  const dd = always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
-  const sub = always ? "언제든 신청" : todayEnd ? "" : st.status === "open" ? "마감" : st.status === "upcoming" ? "접수 시작" : "활동일";
-  const date = st.window ? { k: "신청", v: shortRange(st.window.s, st.window.e) } : always ? { k: "신청", v: "상시" } : { k: "활동", v: st.date ? md(st.date) : "" };
-  return { e, st, dd, sub, date, todayEnd, urgent: st.status === "open" && n <= 7 };
+  const dd = closed ? `${+st.window!.s.slice(5, 7)}월` : always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
+  const sub = closed ? "지난 모집" : always ? "언제든 신청" : todayEnd ? "" : st.status === "open" ? "마감" : st.status === "upcoming" ? "접수 시작" : "활동일";
+  const date = closed ? { k: "지난", v: `${st.window!.s.slice(0, 4)}년 ${shortRange(st.window!.s, st.window!.e)}` }
+    : st.window ? { k: "신청", v: shortRange(st.window.s, st.window.e) } : always ? { k: "신청", v: "상시" } : { k: "활동", v: st.date ? md(st.date) : "" };
+  return { e, st, dd, sub, date, todayEnd, closed, urgent: st.status === "open" && n <= 7 };
 }
 const first = entries.slice(0, PER).map(view);
+const SEP = "지난 모집 · 해마다 다시 열리는 장학금";
 
-// Compact data for the script: w = [start, end] windows, s = session days, q = text to search.
+// Settings for the script; the entries themselves come from ./board.json (keys explained in lib/payload.ts).
 const data = {
-  today, per: PER, base: helpsBase, viewBase, counting: !!GC_CODE, alwaysSort: ALWAYS_SORT,
-  kinds: KIND, colors: KIND_COLOR, status: STATUS_LABEL, regions: REGION_LABEL,
-  items: entries.map((e) => ({
-    i: e.id, k: e.kind, t: e.title, p: e.provider, r: e.regions, rl: e.regionLabel,
-    w: e.windows.map((w) => [w.s, w.e]), s: e.sessions, ...(e.always ? { a: 1 } : {}),
-    q: `${e.title} ${e.provider} ${e.target} ${e.summary}`.toLowerCase(),
-  })),
+  today, per: PER, base: helpsBase, viewBase, counting: !!GC_CODE, alwaysSort: ALWAYS_SORT, sep: SEP, src: `${helpsBase}board.json`,
+  kinds: KIND, order: KIND_ORDER, colors: KIND_COLOR, status: STATUS_LABEL, regions: REGION_LABEL,
 };
 ---
-<Site title="혜택" description={`청소년이 받을 수 있는 ${kindList} ${entries.length}개를 마감이 가까운 순서로 모았어요. 기관 공식 자료에서 자동으로 모은 정보예요.`}>
+<Site title="혜택" description={`청소년이 받을 수 있는 ${kindList} ${entries.length}개를 마감이 가까운 순서로 모았어요. 기관 공식 자료${contestSites.length ? "와 공모전 모음 사이트" : ""}에서 자동으로 모은 정보예요.`}>
   <main class="hb">
     <header class="head">
       <p class="eyebrow">혜택 · 공식 자동 <ViewCount /></p>
       <h1 class="display">지금 받을 수 있는 혜택</h1>
       <p class="lead">
-        {counts.map((c) => c.label).join(", ")} 접수를 마감이 가까운 순서로 모았어요. 모두 <b>공식 자동</b>이에요. 기관 공식 자료에서 자동으로 모았고, 사람이 아직 확인하지 않았어요. 신청 전에 원문 공고를 꼭 확인하세요.
+        {counts.map((c) => c.label).join(", ")} 접수를 마감이 가까운 순서로 모았어요. {contestSites.length ? <>공모전 말고는 모두 <b>공식 자동</b>이에요</> : <>모두 <b>공식 자동</b>이에요</>}. 기관 공식 자료에서 자동으로 모았고, 사람이 아직 확인하지 않았어요. 신청 전에 원문 공고를 꼭 확인하세요.
+        {contestSites.length > 0 && <> 공모전은 모음 사이트({contestSites.join("·")})에 올라온 이름·주최·기간·대상만 옮기고 원문으로 이어 드려요.</>}
       </p>
-      <p class="asof">{updated && `${updated.replaceAll("-", ".")} 모음 · `}전체 {entries.length}개 · <span class="gone">마감 지난 혜택은 자동으로 사라져요</span></p>
+      <p class="asof">{updated && `${updated.replaceAll("-", ".")} 모음 · `}전체 {entries.length}개 · <span class="gone">마감 지난 혜택은 자동으로 사라져요</span>{closedN > 0 && <> · <span class="gone">장학금은 해마다 다시 열려서 ‘지난 모집’으로 남겨요</span></>}</p>
     </header>
 
-    <div class="kstrip" role="group" aria-label="분류별 개수와 거르기" style={`--n:${counts.length + 1}`}>
+    <div class:list={["kstrip", { many: counts.length + 1 > 5 }]} role="group" aria-label="분류별 개수와 거르기" style={`--n:${counts.length + 1}`}>
       <button type="button" class="kc" data-kind="" aria-pressed="true" style="--c:var(--ink)">
         <b>{entries.length}</b><span>전체</span>
       </button>
       {counts.map((c) => (
         <button type="button" class="kc" data-kind={c.k} aria-pressed="false" style={`--c:${KIND_COLOR[c.k]}`}>
-          <b>{c.n}</b><span>{c.label}</span>
+          <b>{c.n}</b><span>{c.label}</span>{c.live < c.n && <small class="kc-live">지금 신청 가능 <em>{c.live}</em></small>}
         </button>
       ))}
     </div>
@@ -85,6 +95,7 @@ const data = {
           <option value="upcoming">곧 열림</option>
           <option value="check">일정 확인</option>
           {entries.some((e) => e.always) && <option value="always">상시</option>}
+          {closedN > 0 && <option value="closed">지난 모집 (다시 열릴 수 있어요)</option>}
         </select>
       </label>
       <label class="f q">
@@ -99,7 +110,8 @@ const data = {
       <p class="nojs">자바스크립트가 꺼져 있어서 마감이 가까운 {Math.min(PER, entries.length)}개만 보여요. 거르기와 다음 쪽은 자바스크립트를 켜면 쓸 수 있어요.</p>
       <div class="thead" aria-hidden="true"><span>분류</span><span>혜택</span><span>지역</span><span>신청 · 활동일</span><span>남은 날</span><span>조회</span></div>
       <ol class="rows" id="rows" data-views-manual>
-        {first.map(({ e, st, dd, sub, date, urgent, todayEnd }) => (
+        {first.map(({ e, st, dd, sub, date, urgent, todayEnd, closed }, i) => (
+          <>{closed && (i === 0 || !first[i - 1].closed) && <li class="sep">{SEP}</li>}
           <li><a class="hr" href={`${helpsBase}${e.id}/`} style={`--c:${KIND_COLOR[e.kind]}`}>
             <span class="h-kind"><i aria-hidden="true"></i>{e.kindLabel}</span>
             <span class="h-main"><span class="h-title">{e.title}</span><span class="h-prov">{e.provider}</span></span>
@@ -107,19 +119,21 @@ const data = {
             <span class="h-date"><small>{date.k}</small> {date.v}</span>
             <span class:list={["h-dd", `s-${st.status}`, { urgent, today: todayEnd }]}><b>{dd}</b>{sub && <small>{sub}</small>}</span>
             <span class="h-views">{GC_CODE && <span class="views" data-views={`${viewBase}${e.id}`} data-label="조회" hidden></span>}</span>
-          </a></li>
+          </a></li></>
         ))}
       </ol>
       <p class="empty" id="empty" hidden>조건에 맞는 혜택이 없어요. 조건을 줄여 보세요.</p>
       <nav class="pager" id="pager" aria-label="쪽 넘기기" hidden></nav>
-      <p class="foot">‘조회’는 50회가 넘은 것만 보여요. 순서는 광고와 상관없이 마감일(체험은 다음 활동일) 순서예요.</p>
+      <p class="foot">‘조회’는 50회가 넘은 것만 보여요. 순서는 광고와 상관없이 마감일(체험은 다음 활동일) 순서예요.{closedN > 0 && " 지난 모집 장학금은 그 뒤에, 다시 모집할 달이 가까운 순서로 둬요."}</p>
     </section>
   </main>
 
   <script type="application/json" id="board-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")}></script>
   <script is:inline>
-    (() => {
+    (async () => {
       const D = JSON.parse(document.getElementById("board-data").textContent);
+      // The rows in the HTML stay until the list arrives; if it never does, the page stays as it is without JS.
+      try { D.items = await (await fetch(D.src)).json(); } catch { return; }
       const $ = (id) => document.getElementById(id);
       const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
       const pad = (n) => String(n).padStart(2, "0");
@@ -129,10 +143,19 @@ const data = {
       const md = (d) => `${+d.slice(5, 7)}월 ${+d.slice(8, 10)}일`;
       const range = (s, e) => (s === e ? md(s) : `${md(s)}~${md(e)}`);
 
-      // Re-judge every entry against today's date; one with nothing left ahead is dropped.
+      const regionLabel = (r) => (r.includes("all") ? "전국" : r.length ? r.map((k) => D.regions[k] || k).join(" · ") : "지역 제한");
+      // 지난 모집: after every live entry, by how soon the last round's start month comes around (closedSortKey in lib/board.ts).
+      const closedKey = (v) => {
+        let dist = (+v[0].slice(5, 7) - +today.slice(5, 7) + 12) % 12;
+        if (dist === 0 && v[1].slice(5) < today.slice(5)) dist = 12;
+        return `9999-${pad(dist)}-${v[0].slice(8, 10)}`;
+      };
+      // Re-judge every entry against today's date; one with nothing left ahead is dropped,
+      // except a recurring 장학금 (c), which becomes 지난 모집 with its last round.
       const items = D.items.map((x) => {
-        const w = x.w.filter((v) => v[1] >= today);
-        const s = x.s.filter((d) => d >= today);
+        const all = x.w || [], r = x.r || ["all"];
+        const w = all.filter((v) => v[1] >= today);
+        const s = (x.s || []).filter((d) => d >= today);
         let st, date, sortKey, win;
         if (w.length) {
           const open = w.find((v) => v[0] <= today);
@@ -140,8 +163,9 @@ const data = {
           st = open ? "open" : "upcoming"; date = open ? win[1] : win[0]; sortKey = win[1];
         } else if (s.length) { st = "check"; date = s[0]; sortKey = s[0]; }
         else if (x.a) { st = "always"; date = ""; sortKey = D.alwaysSort; }
+        else if (x.c && all.length) { win = all.reduce((a, v) => (v[0] > a[0] ? v : a)); st = "closed"; date = ""; sortKey = closedKey(win); }
         else return null;
-        return { ...x, st, date, sortKey, win };
+        return { ...x, k: D.order[x.k], r, rl: regionLabel(r), q: `${x.t} ${x.p} ${x.q || ""}`.toLowerCase(), st, date, sortKey, win };
       }).filter(Boolean).sort((a, b) => (a.sortKey < b.sortKey ? -1 : a.sortKey > b.sortKey ? 1 : a.t.localeCompare(b.t, "ko")));
 
       const qs = new URLSearchParams(location.search);
@@ -164,12 +188,13 @@ const data = {
 
       // Same row as view() in the frontmatter: 상시 has no D-day, a deadline today reads "오늘 마감".
       function row(x) {
-        const always = x.st === "always";
-        const n = always ? 0 : days(today, x.date);
+        const always = x.st === "always", closed = x.st === "closed";
+        const n = always || closed ? 0 : days(today, x.date);
         const todayEnd = x.st === "open" && n === 0;
-        const dd = always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
-        const sub = always ? "언제든 신청" : todayEnd ? "" : x.st === "open" ? "마감" : x.st === "upcoming" ? "접수 시작" : "활동일";
-        const date = x.win ? ["신청", range(x.win[0], x.win[1])] : always ? ["신청", "상시"] : ["활동", md(x.date)];
+        const dd = closed ? `${+x.win[0].slice(5, 7)}월` : always ? "상시" : todayEnd ? "오늘 마감" : n === 0 ? "오늘" : `D-${n}`;
+        const sub = closed ? "지난 모집" : always ? "언제든 신청" : todayEnd ? "" : x.st === "open" ? "마감" : x.st === "upcoming" ? "접수 시작" : "활동일";
+        const date = closed ? ["지난", `${x.win[0].slice(0, 4)}년 ${range(x.win[0], x.win[1])}`]
+          : x.win ? ["신청", range(x.win[0], x.win[1])] : always ? ["신청", "상시"] : ["활동", md(x.date)];
         const cls = (x.st === "open" && n <= 7 ? " urgent" : "") + (todayEnd ? " today" : "");
         return `<li><a class="hr" href="${D.base}${esc(x.i)}/" style="--c:${D.colors[x.k]}">` +
           `<span class="h-kind"><i aria-hidden="true"></i>${esc(D.kinds[x.k])}</span>` +
@@ -204,16 +229,20 @@ const data = {
         if (S.page > last) S.page = last;
         const shown = list.slice((S.page - 1) * D.per, S.page * D.per);
         const rows = $("rows");
-        rows.innerHTML = shown.map(row).join("");
+        // The divider goes above the first 지난 모집 on the page.
+        rows.innerHTML = shown.map((x, i) => (x.st === "closed" && (i === 0 || shown[i - 1].st !== "closed") ? `<li class="sep">${esc(D.sep)}</li>` : "") + row(x)).join("");
         $("empty").hidden = list.length > 0;
         $("res-n").textContent = `${list.length}개`;
         const bits = [S.kind && D.kinds[S.kind], S.region && (S.region === "all" ? "전국 대상만" : `${D.regions[S.region]} + 전국`), S.status && D.status[S.status], S.q && `‘${S.q}’`].filter(Boolean);
-        $("res-note").textContent = (bits.length ? bits.join(" · ") + " · " : "") + "마감이 가까운 순서" + (last > 1 ? ` · ${S.page}/${last}쪽` : "");
+        const order = S.status === "closed" ? "다시 모집할 달이 가까운 순서" : "마감이 가까운 순서";
+        $("res-note").textContent = (bits.length ? bits.join(" · ") + " · " : "") + order + (last > 1 ? ` · ${S.page}/${last}쪽` : "");
         reset.hidden = !(S.kind || S.region || S.status || S.q);
         kbtns.forEach((b) => {
           b.setAttribute("aria-pressed", String(b.dataset.kind === S.kind));
-          const n = items.filter((x) => (!b.dataset.kind || x.k === b.dataset.kind) && matches(x, true)).length;
-          b.querySelector("b").textContent = n;
+          const mine = items.filter((x) => (!b.dataset.kind || x.k === b.dataset.kind) && matches(x, true));
+          b.querySelector("b").textContent = mine.length;
+          const live = b.querySelector(".kc-live em");
+          if (live) live.textContent = mine.filter((x) => x.st !== "closed").length;
         });
         const pager = $("pager");
         pager.hidden = last <= 1;
@@ -254,7 +283,9 @@ const data = {
   .hb .views { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
   /* count strip, doubling as the kind filter */
-  .kstrip { display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); margin-top: 22px; border-top: 3px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+  .kstrip { display: grid; grid-template-columns: repeat(var(--cols, var(--n, 5)), minmax(0, 1fr)); margin-top: 22px; border-top: 3px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+  /* more than five cells (with 공모전): two rows of four on a phone, so each count keeps its width */
+  @media (max-width: 599px) { .kstrip.many { --cols: 4; row-gap: 7px; } .kstrip.many .kc:nth-child(4n + 1) { border-left: 0; padding-left: 2px; } }
   .kc {
     display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 4px 10px 8px; min-height: 64px; min-width: 0;
     border: 0; border-left: 1px solid var(--rule); background: none; text-align: left; cursor: pointer; position: relative;
@@ -262,8 +293,10 @@ const data = {
   .kc:first-child { border-left: 0; padding-left: 2px; }
   .kc::before { content: ""; position: absolute; left: 0; right: 0; top: -3px; height: 3px; background: var(--c); }
   /* sized by the number of cells (--n), so a 3-digit count still fits one line on a phone */
-  .kc b { font: 400 clamp(20px, calc(34vw / var(--n, 5)), 36px)/1.1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .kc b { font: 400 clamp(20px, calc(34vw / var(--cols, var(--n, 5))), 36px)/1.1 var(--display); font-variant-numeric: tabular-nums; white-space: nowrap; }
   .kc span { font-size: 14px; font-weight: 600; color: var(--ink-2); }
+  .kc .kc-live { font-size: 12px; font-weight: 600; color: var(--ink-2); line-height: 1.3; }
+  .kc .kc-live em { font-style: normal; color: var(--ink); font-variant-numeric: tabular-nums; }
   .kc[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 12%, transparent); }
   .kc[aria-pressed="true"]::before { height: 7px; top: -5px; }
   .kc[aria-pressed="true"] span { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
@@ -321,6 +354,12 @@ const data = {
   .h-dd.s-check { border-color: var(--lead); background: var(--board); }
   .h-dd.s-always { border-color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); }
   .h-dd.today b { font-size: 16px; line-height: 1.1; }
+  .h-dd.s-closed { border-color: var(--lead); border-style: dotted; color: var(--ink-2); }
+  .rows > li.sep {
+    padding: 18px 0 8px; border-bottom: 2px solid var(--ink); font-size: 15px; font-weight: 700; color: var(--ink);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .rows > li.sep::before { content: ""; width: 18px; height: 6px; border-radius: 3px; background: var(--line-1); flex: none; }
 
   .empty { margin: 0; padding: 22px 0; font-size: 16px; border-bottom: 1px solid var(--rule); }
   .pager { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-top: 14px; flex-wrap: wrap; }

@@ -1,19 +1,17 @@
 """Second opinion on the rules from TypeSafe's Jev model, borrowed from korea-ai-contest-tracker.
 
-Rules decide first (youth.py, attach.py). Jev answers three typed questions with probabilities:
-can a 14-24 year old apply, can an out-of-school teenager apply, and which roadmap step is it closest to.
-Jev only overrides the youth verdict when it is sure (see decide()); its step answer is kept as a hint. Each distinct text is asked once and cached
+Rules decide first (youth.py, attach.py). Jev answers two typed questions with probabilities:
+can a 14-24 year old apply, and can an out-of-school teenager apply.
+Jev only overrides the youth verdict when it is sure (see decide()). Each distinct text is asked once and cached
 in data/collected/jev_cache.json, so a daily run only sends new items. Without TYPESAFE_API_KEY, or when a
 request fails, the rules decide alone.
 """
 import hashlib
-import json
 import os
 import statistics
 import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from pathlib import Path
 
 import requests
 
@@ -30,12 +28,9 @@ PRICE_PER_MTOK = 0.042  # USD, input tokens only
 YOUTH_RESCUE_ABOVE = 0.85  # an item the rules were unsure about is kept above this
 YOUTH_DROP_BELOW = 0.15    # an item kept only by loose words ("학생") is dropped below this
 OUT_OF_SCHOOL_ABOVE = 0.85  # tag "out_of_school_ok"
-# Jev's step is only a hint for the review list: in the first full run (2026-09-27, 591 scholarships) it
-# put ordinary university scholarships under "요리 대학 학과" with confidence up to 0.8. Rules attach.
 
 # Bump when the questions change, so cached answers are asked again.
 QUESTION_VERSION = 1
-STEPS_DIR = Path(__file__).resolve().parent.parent / "data" / "processed" / "steps"
 
 
 def _key() -> str | None:
@@ -54,15 +49,6 @@ def _text(item: Item) -> tuple[str, str]:
 def cache_key(item: Item) -> str:
     title, desc = _text(item)
     return hashlib.sha1(f"v{QUESTION_VERSION}\n{title}\n{desc}".encode()).hexdigest()[:16]
-
-
-def _steps() -> dict[str, str]:
-    out = {}
-    for f in sorted(STEPS_DIR.glob("*.json")):
-        s = json.loads(f.read_text(encoding="utf-8"))
-        out[s["id"]] = f"{s['title']}: {s.get('summary', '')[:120]}"
-    out["none"] = "None of these steps"
-    return out
 
 
 def _questions() -> dict:
@@ -84,11 +70,8 @@ def _questions() -> dict:
                 "false": "Applicants must be enrolled at a school or university, or teenagers are not eligible",
             },
         },
-        "step": {
-            "type": "choice",
-            "instructions": "Which step of a young person's path toward becoming a cook is this listing most useful for?",
-            "criteria": _steps(),
-        },
+        # The step question was dropped on 2026-09-27: it listed every roadmap step (113 by then), which made
+        # each call about 14k tokens ($1.47 for 2,521 scholarships), and its answer was only a hint.
     }
 
 
@@ -106,8 +89,7 @@ def _ask(session: requests.Session, state: dict, questions: dict, calls: list) -
             body = r.json()
             row.update(model=body.get("model"), tokens=body.get("usage", {}).get("input_tokens", 0))
             a = body["answers"]
-            return {"youth": a["youth"]["noul"], "out_of_school": a["out_of_school"]["noul"],
-                    "step": a["step"]["choice"], "stepConf": a["step"]["confidence"]}
+            return {"youth": a["youth"]["noul"], "out_of_school": a["out_of_school"]["noul"]}
         if r is not None and r.status_code not in (429, 529) and r.status_code < 500:
             print(f"  jev {r.status_code}: {r.text[:200]}")
             return None
@@ -178,6 +160,7 @@ def decide(item: Item, ok: bool | None, why: str, attached: dict, ans: dict | No
     attached = dict(attached)
     if ans["out_of_school"] >= OUT_OF_SCHOOL_ABOVE:
         attached["tags_add"] = ["out_of_school_ok"]
-    attached["jev"] = {"youth": round(ans["youth"], 2), "out_of_school": round(ans["out_of_school"], 2),
-                       "step": ans["step"], "stepConf": round(ans["stepConf"], 2)}
+    attached["jev"] = {"youth": round(ans["youth"], 2), "out_of_school": round(ans["out_of_school"], 2)}
+    if "step" in ans:  # older cached answers still carry the step hint
+        attached["jev"] |= {"step": ans["step"], "stepConf": round(ans["stepConf"], 2)}
     return ok, why, attached, outcome

@@ -19,6 +19,11 @@ python -m crawler.main qnet    # 출처 하나만
 4. `jev.py`: Jev가 두 번째 의견. 규칙이 모를 때 0.85 이상이면 살리고, 느슨한 단어로만 붙었을 때 0.15 미만이면 뺀다. 학교 밖 청소년 가능 0.85 이상이면 `out_of_school_ok` 태그. 단계 답은 힌트(`jev.step`)로만 남긴다 (첫 실행에서 틀린 게 많았다).
 5. `merge.py`: 이전 결과와 합치고, 출처끼리 중복을 묶고, 날짜로 상태(열림, 곧 열림, 마감)를 정한다.
 
+## 매일 건강 확인
+
+`scripts/collect_health.py`가 매일 수집 뒤 출처별 기록(`data/collected/health.json`, 최근 14번)을 남긴다.
+한 번이라도 성공했던 출처가 **이틀 연속 실패**하거나 가져온 수가 **평소의 절반 아래**로 떨어지면 GitHub 이슈(`collect-alert` 라벨)를 열거나 댓글을 단다. 월요일(KST)에는 주간 요약(전체·장학금 수, 새로 들어온 것, 검토 목록 수)도 같은 이슈에 단다.
+
 ## 결과 파일
 
 | 파일 | 내용 | 커밋 |
@@ -27,6 +32,7 @@ python -m crawler.main qnet    # 출처 하나만
 | `review.json` | 사람이 볼 항목 (`review_reason`) | 아니오 (Actions 산출물) |
 | `meta.json` | 출처별 가져온 수·오류·시간, Jev 통계 | 예 |
 | `jev_cache.json`, `jev_runs.jsonl` | Jev 답 캐시, 실행별 비용 | 예 |
+| `health.json` | 출처별 최근 14번 기록 (경고용) | 예 |
 
 ## 출처 추가
 

@@ -2,7 +2,8 @@
 
 No API key: each run reads the dataset page for the current CSV link (it changes with every new
 edition) and falls back to the link in config/kosaf.json. Files are cp949. One row = one scholarship.
-Rows that closed long ago are skipped (merge.py would drop them anyway).
+Closed rows are kept too (config keep_closed_days = null, D28): scholarships come back every year, so the
+whole catalog is useful. merge.py keeps them for sources listed in KEEP_CLOSED.
 """
 import csv
 import datetime as dt
@@ -317,7 +318,8 @@ def _item(ds: dict, row: dict) -> Item:
 
 def fetch() -> list[Item]:
     cfg = json.loads(CONFIG.read_text(encoding="utf-8"))
-    cutoff = (today() - dt.timedelta(days=int(cfg.get("keep_closed_days", 60)))).isoformat()
+    keep = cfg.get("keep_closed_days", 60)  # None = keep every scholarship, closed ones too (D28)
+    cutoff = "" if keep is None else (today() - dt.timedelta(days=int(keep))).isoformat()
     items: list[Item] = []
     seen: set[str] = set()
     for ds in cfg["datasets"]:
@@ -325,7 +327,7 @@ def fetch() -> list[Item]:
             if not row.get("상품명"):
                 continue
             it = _item(ds, row)
-            if (it.apply_end or "9999") < cutoff or it.source_id in seen:
+            if (cutoff and (it.apply_end or "9999") < cutoff) or it.source_id in seen:
                 continue
             seen.add(it.source_id)
             items.append(it)

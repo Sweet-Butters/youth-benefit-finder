@@ -4,6 +4,7 @@ import re
 
 from .util import today
 
+KEEP_CLOSED = {"kosaf"}
 NOISE = re.compile(r"\(.*?\)|\[.*?\]|20\d\d\s*년?|제?\s*\d+\s*(회|기|차)|모집|안내|공고|신청")
 
 
@@ -45,6 +46,8 @@ def merge(previous: list[dict], fresh: list[dict], run_date: str) -> list[dict]:
             continue
         seen[dup] = rec
         out.append(rec)
-    # Drop items closed for more than 60 days so the file does not grow forever.
+    # Drop items closed for more than 60 days so the file does not grow forever, except scholarships:
+    # they recur every year, and the full catalog (with last year's dates) is what students plan with (D28).
     cutoff = (today() - dt.timedelta(days=60)).isoformat()
-    return [r for r in out if not (r["status"] == "closed" and (r.get("apply_end") or "9999") < cutoff)]
+    return [r for r in out if r["source"] in KEEP_CLOSED
+            or not (r["status"] == "closed" and (r.get("apply_end") or "9999") < cutoff)]

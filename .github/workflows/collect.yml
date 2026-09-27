@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # 수집 경고·주간 요약 이슈
 
 concurrency:
   group: collect
@@ -30,6 +31,10 @@ jobs:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}   # 없으면 규칙만으로 판단
         run: python -m crawler.main
+      - name: Health check
+        # 이틀 연속 실패하거나 평소의 절반 아래로 떨어진 출처가 있으면 이슈, 월요일(KST)에는 주간 요약도.
+        run: |
+          if [ "$(TZ=Asia/Seoul date +%u)" = "1" ]; then python scripts/collect_health.py --weekly; else python scripts/collect_health.py; fi
       - uses: actions/upload-artifact@v4
         with:
           name: review
@@ -41,3 +46,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/collected
           if ! git diff --cached --quiet; then git commit -m "collect: $(date -u +%F)" && git push; fi
+      - name: Open or update the alert issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s .health-alert.md ] || exit 0
+          gh label create collect-alert --color d93f0b --description "수집기 경고·주간 요약" 2>/dev/null || true
+          n=$(gh issue list --label collect-alert --state open --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file .health-alert.md
+          else gh issue create --title "수집기 알림 $(TZ=Asia/Seoul date +%F)" --label collect-alert --body-file .health-alert.md; fi
