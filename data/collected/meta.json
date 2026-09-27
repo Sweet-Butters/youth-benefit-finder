@@ -1,5 +1,5 @@
 {
- "runDate": "2026-09-27",
+ "runDate": "2026-09-28",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 4.4
+   "seconds": 3.4
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 6.7
+   "seconds": 9.0
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 200,
-   "kept": 125,
-   "general": 125,
+   "fetched": 198,
+   "kept": 124,
+   "general": 124,
    "review": 0,
-   "dropped": 75,
+   "dropped": 74,
    "error": null,
-   "seconds": 46.5
+   "seconds": 68.8
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 6.8
+   "seconds": 8.2
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 0,
-   "kept": 0,
-   "general": 0,
+   "fetched": 241,
+   "kept": 241,
+   "general": 219,
    "review": 0,
    "dropped": 0,
-   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B552713/svc003/getYthVlntrActvtyPrgmInfo (429 Client Error: Too Many Requests for url: https://apis.data.go.kr/B552713/svc003/getYthVlntrActvtyPrgmInfo?pageNo=1&numOfRows=1000&returnType=json&actvCtpvNm=%EA%B2%BD%EC%83%81%EB%82%A8&prgrmNm=2026&serviceKey=***)",
-   "seconds": 127.3
+   "error": null,
+   "seconds": 202.6
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,17 +59,17 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 8.6
+   "seconds": 7.0
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
-   "fetched": 3430,
-   "kept": 3430,
-   "general": 3182,
+   "fetched": 3400,
+   "kept": 3400,
+   "general": 3154,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 1.8
+   "seconds": 3.1
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
@@ -79,7 +79,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 4.7
+   "seconds": 5.2
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
@@ -89,84 +89,83 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 45.1
+   "seconds": 53.6
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 341,
-   "kept": 326,
-   "general": 326,
+   "fetched": 325,
+   "kept": 310,
+   "general": 310,
    "review": 13,
    "dropped": 2,
    "error": null,
-   "seconds": 127.2
+   "seconds": 128.9
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 681,
-   "kept": 584,
-   "general": 584,
-   "review": 94,
+   "fetched": 649,
+   "kept": 559,
+   "general": 559,
+   "review": 87,
    "dropped": 3,
    "error": null,
-   "seconds": 43.9
+   "seconds": 40.7
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 704,
-   "kept": 611,
-   "general": 611,
-   "review": 90,
+   "fetched": 683,
+   "kept": 592,
+   "general": 592,
+   "review": 88,
    "dropped": 3,
    "error": null,
-   "seconds": 100.5
+   "seconds": 138.5
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 654,
-   "kept": 640,
-   "general": 639,
+   "fetched": 629,
+   "kept": 615,
+   "general": 614,
    "review": 14,
    "dropped": 0,
    "error": null,
-   "seconds": 70.3
+   "seconds": 65.8
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 858,
-   "kept": 829,
-   "general": 829,
-   "review": 29,
+   "fetched": 827,
+   "kept": 799,
+   "general": 799,
+   "review": 28,
    "dropped": 0,
    "error": null,
-   "seconds": 56.1
+   "seconds": 54.0
   }
  },
- "total": 7908,
- "review": 394,
+ "total": 8225,
+ "review": 384,
  "jev": {
-  "requests": 3000,
-  "ok": 3000,
+  "requests": 351,
+  "ok": 351,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 201,
-   "p95": 262,
-   "mean": 214
+   "p50": 78,
+   "p95": 132,
+   "mean": 85
   },
-  "inputTokens": 1544504,
-  "costUsd": 0.064869,
+  "inputTokens": 181407,
+  "costUsd": 0.007619,
   "models": {
-   "jev-1.13.0": 3000
+   "jev-1.13.0": 351
   },
-  "asked": 3000,
+  "asked": 351,
   "failed": 0,
-  "cached": 7182,
+  "cached": 9915,
   "outcomes": {
-   "agreed": 9909,
+   "agreed": 10257,
    "dropped": 8,
-   "rescued": 1,
-   "no_answer": 264
+   "rescued": 1
   }
  }
 }
