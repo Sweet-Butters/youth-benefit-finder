@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-27 08:53",
+  "updated_at": "2026-09-27 17:07",
   "updated_by": "claude",
-  "stage": "0-validation-prep",
-  "stage_note": "0단계: 검증 준비 + MVP·수익 모델 설계 완료. 사람 중심 진로 대화 + AI 보조(D6), 콘텐츠 MVP(D7), 지도 제공(D8), 소셜벤처(D9), 개인 식별 데이터 판매 금지(D10). 2026-10 봉사·인터뷰·콘텐츠 시작 예정.",
+  "stage": "1-mvp",
+  "stage_note": "1단계 MVP. 사이트 공개(찾기 대화, 노선도 14개, 혜택 게시판, 조회수), 매일 자동 수집. M1·M2 개발 끝, 남은 것은 사람 확인·학생 시험. M3(가입·알림·AI)는 개인정보 상담 뒤. 일정 docs/milestones.md",
   "active_tasks": [],
   "queued_tasks": [
     {
@@ -145,21 +145,16 @@
     }
   ],
   "user_todo": [
-    "개인정보 무료 상담: docs/kisa-questions.md 순서대로 ① 02-2100-3043에 학생 팀도 원스톱 신청 가능한지 전화 ② 원스톱에 질문 메일 (M3 가입·알림·AI 전 필수)",
-    "전화 확인 목록 docs/phone-checks.md (내일이룸학교 02-398-7640, 고용노동부 1350 등). 사실 확인 담당과 나눠서",
-    "문의용 메일 주소 정하기 (개인정보 처리방침·후원 문의에 씀). 지금은 GitHub 문의 창구로 되어 있음",
-    "(보안) 공공데이터포털 키가 채팅에 한 번 노출됐다. 여유 있을 때 재발급 → 새 키를 알려 주지 말고 Claude에게 '키 바꿨어'라고만 하면 파일 경로로 등록",
-    "GoatCounter(sweetbutters) Settings에서 'Allow adding visitor counts on your website'와 공개 통계판(public dashboard) 켜기. 켜기 전에는 세기만 하고 사이트에 숫자가 안 뜬다",
-    "구글 서치 콘솔과 네이버 서치어드바이저에 사이트 등록 → 사이트맵 https://sweet-butters.github.io/youth-benefit-finder/sitemap-index.xml 제출 (장학금 이름으로 검색해 들어오게)",
-    "보조금24 승인 나면 알려 주기 (수집 출처 추가)",
-    "국민내일배움카드를 미성년 학교 밖 청소년이 받을 수 있는지 고용노동부 콜센터(1350)에 확인",
-    "1주차 미션 PPT 확인·제출 (Downloads, 팀명 Team 유이정)",
-    "docs/mvp.md와 docs/roadmap.md 확인 (콘텐츠 10개, 역할, 일정)",
-    "2023 학교 밖 청소년 실태조사 원문 PDF에서 '고민 상담 대상' 문항 확인",
-    "Orca Settings > repo > Setup script에 bootstrap-board.ps1 넣기 (CLI로 설정 불가)",
-    "꿈드림 센터에 10월 봉사 일정 연락",
-    "연세대·서강대 창업지원단 하반기 교내 프로그램 확인",
-    "지원사업 공고 월 1회 확인 (기업마당, K-Startup 등)"
+    "꿈드림 센터에 10월 봉사 일정 연락 (봉사와 M2 학생 시험이 여기에 달림)",
+    "개인정보 무료 상담: 02-2100-3043에 학생 팀도 원스톱 신청 되는지 → 되면 docs/kisa-questions.md 질문을 onestoppipc@korea.kr로 (M3 전 필수)",
+    "전화 확인 3개: 내일이룸학교 2026년 운영(02-398-7640), 미성년 학교 밖 청소년 내일배움카드(1350), 15~17세 중학생 취직인허증(1350). 나머지는 docs/phone-checks.md",
+    "문의용 메일 주소 정하기 (처리방침·후원 문의)",
+    "구글 서치 콘솔·네이버 서치어드바이저 등록 → meta 태그 한 줄을 Claude에게, 사이트맵 sitemap-index.xml 제출",
+    "(보안) 공공데이터포털 키 재발급 → D:\\orca\\secrets\\youth-benefit-finder\\data_go_kr_key.txt에 넣고 Claude에게 '키 바꿨어'",
+    "보조금24 승인 나면 알려 주기",
+    "팀 회의: 서비스 이름·도메인, 팀 역할, MVP 기준 수치, H1 기준 수치, 요리사 글 공개 여부",
+    "지원사업 공고 월 1회 확인 (기업마당, K-Startup), 연세대·서강대 창업지원단 하반기 프로그램",
+    "여유 있을 때: 2023 실태조사 PDF '고민 상담 대상' 문항, 1주차 미션 PPT 제출 확인, Orca Setup script에 bootstrap-board.ps1"
   ],
   "rules": {
     "base_branch": "main",
