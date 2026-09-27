@@ -14,7 +14,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from . import attach, jev, youth
+from . import attach, audience, jev, youth
 from .http import MissingKey
 from .merge import merge
 from .sources import ALL
@@ -54,6 +54,8 @@ def main(only: set[str] | None = None):
     previous = load(OUT / "items.json", {"items": []})["items"]
     ran = {src.NAME for src, _, err, _ in results if not err}
     previous = [r for r in previous if r["source"] not in ran]  # re-fetched sources replace their old items
+    for r in previous:  # items kept from a source that failed this run get the current audience rules too
+        audience.apply(r)
     jev_cache, jev_stats, outcomes = load(JEV_CACHE, {}), None, Counter()
     if jev.available():
         jev_stats = jev.ask_all([it for _, raw, _, _ in results for it in raw], jev_cache, run_date)
@@ -73,6 +75,7 @@ def main(only: set[str] | None = None):
             rec |= attached | {"youth_reason": why}
             # Youth items no rule attaches to a step still go on the public benefits list (D26) as "general".
             rec["scope"] = "step" if {"step_ids", "field_ids"} & rec.keys() else "general"
+            audience.apply(rec)  # who can apply: for:* / cond:* tags for the site's filters
             reason = (why if ok is None
                       else "region unknown" if not rec.get("regions")
                       else "no dates" if "undated" in rec.get("tags", [])

@@ -2,7 +2,11 @@
 // and mine.json.ts. With thousands of entries (D28 keeps every 한국장학재단 장학금) an inline copy made
 // /helps/ and the home page over 2 MB each, so the pages keep only the first rows and fetch these.
 // Short keys, the kind as an index into KIND_ORDER, no detail rows; "all" regions and empty lists are left out.
-import { boardEntries, stateOn, todayKst, KIND_ORDER, type BoardEntry } from "./board";
+import { boardEntries, stateOn, todayKst, daysBetween, KIND_ORDER, type BoardEntry, type WhoKey, type CondKey } from "./board";
+
+/** One letter per 누가 key and condition in the list payload; helps/index.astro reads them back. */
+export const WHO_LETTER: Record<WhoKey, string> = { middle: "m", high: "h", oos: "o", univ: "u", young: "y", all: "a" };
+export const COND_LETTER: Record<Exclude<CondKey, "region">, string> = { income: "i", grade: "g", special: "s" };
 
 const clip = (t: string, max: number) => (t.length > max ? t.slice(0, max) : t);
 const regionsOf = (e: BoardEntry) => (e.regions.length === 1 && e.regions[0] === "all" ? {} : { r: e.regions });
@@ -12,7 +16,10 @@ const regionsOf = (e: BoardEntry) => (e.regions.length === 1 && e.regions[0] ===
  * (a 지난 모집 keeps only its last round), s session days, a 상시, c recurring 장학금,
  * q extra search text besides the title and provider (the start of the target line; left out when dozens of
  * entries share it, such as 1365's fixed "청소년 가능" line, since it tells them apart from nothing),
- * m 장학금 학과 계열 (장학금 only): "*" anyone, "?" 특정 학과 with no group named, else the groups.
+ * m 장학금 학과 계열 (장학금 only): "*" anyone, "?" 특정 학과 with no group named, else the groups,
+ * f 누가 받을 수 있나 as letters (WHO_LETTER: m 중학생, h 고등학생, o 학교 밖, u 대학생, y 청년, a 누구나),
+ * n conditions as letters (COND_LETTER: i 소득, g 성적, s 특정 자격; 거주 is left out, r already says where), x how many 모음 사이트 list it (2 or more),
+ * d days between first_seen and the build day (left out when 0), for 새로 올라온 순.
  */
 export function listPayload() {
   const today = todayKst();
@@ -28,6 +35,10 @@ export function listPayload() {
       ...(w.length ? { w } : {}), ...(e.sessions.length ? { s: e.sessions } : {}), ...(e.always ? { a: 1 } : {}), ...(e.recurs ? { c: 1 } : {}),
       ...(q ? { q } : {}),
       ...(e.kind === "scholarship" ? { m: e.majors === "any" ? "*" : e.majors === "specific" ? "?" : e.majors } : {}),
+      ...(e.who.length ? { f: e.who.map((k) => WHO_LETTER[k]).join("") } : {}),
+      ...(e.conds.some((k) => k !== "region") ? { n: e.conds.filter((k) => k !== "region").map((k) => COND_LETTER[k as Exclude<CondKey, "region">]).join("") } : {}),
+      ...(e.sites.length > 1 ? { x: e.sites.length } : {}),
+      ...(daysBetween(e.firstSeen, today) > 0 ? { d: daysBetween(e.firstSeen, today) } : {}),
     };
   });
 }
