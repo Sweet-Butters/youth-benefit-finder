@@ -11,7 +11,8 @@ const regionsOf = (e: BoardEntry) => (e.regions.length === 1 && e.regions[0] ===
  * /helps/ list: i id, k kind index, t title, p provider, r regions (none = 전국), w [start, end] windows
  * (a 지난 모집 keeps only its last round), s session days, a 상시, c recurring 장학금,
  * q extra search text besides the title and provider (the start of the target line; left out when dozens of
- * entries share it, such as 1365's fixed "청소년 가능" line, since it tells them apart from nothing).
+ * entries share it, such as 1365's fixed "청소년 가능" line, since it tells them apart from nothing),
+ * m 장학금 학과 계열 (장학금 only): "*" anyone, "?" 특정 학과 with no group named, else the groups.
  */
 export function listPayload() {
   const today = todayKst();
@@ -26,6 +27,7 @@ export function listPayload() {
       i: e.id, k: KIND_ORDER.indexOf(e.kind), t: e.title, p: e.provider, ...regionsOf(e),
       ...(w.length ? { w } : {}), ...(e.sessions.length ? { s: e.sessions } : {}), ...(e.always ? { a: 1 } : {}), ...(e.recurs ? { c: 1 } : {}),
       ...(q ? { q } : {}),
+      ...(e.kind === "scholarship" ? { m: e.majors === "any" ? "*" : e.majors === "specific" ? "?" : e.majors } : {}),
     };
   });
 }

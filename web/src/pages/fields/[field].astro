@@ -8,7 +8,8 @@ import ViewCount from "../../components/ViewCount.astro";
 import PerkCard from "../../components/field/PerkCard.astro";
 import { fields, steps, helps, KIND_LABEL, REGION_LABEL, COST_LABEL, HELP_LABEL, type Field, type Path, type Help } from "../../lib/content";
 import { autoGroups } from "../../lib/collected";
-import { boardEntries } from "../../lib/board";
+import { boardEntries, scholarshipsFor, todayKst } from "../../lib/board";
+import { catalog } from "../../lib/findtalk";
 import { url } from "../../lib/url";
 import { layout } from "../../lib/subway";
 
@@ -210,6 +211,32 @@ const data = {
   hasPerks,
   checkingAsOf: CHECKING_AS_OF,
 };
+// ---------- 장학금: this field's 학과 장학금 and 누구나, and the 1년 장학금 달력 (lib/board.ts scholarshipsFor) ----------
+// Counted at build in Korean time. 지난 모집 count by the month they are expected to open again (D28).
+const kst = todayKst();
+const groups = catalog.find((c) => c.id === field.id)?.major_groups ?? [];
+const sch = scholarshipsFor(groups, kst);
+const helpsUrl = url("/helps/");
+const mineHref = `${helpsUrl}?kind=scholarship&major=${encodeURIComponent(groups.join(","))}`;
+const anyHref = `${helpsUrl}?kind=scholarship&major=any`;
+const groupLabel = groups.join("·");
+const curM = +kst.slice(5, 7), curY = +kst.slice(0, 4);
+const calMax = Math.max(1, ...sch.byMonth.slice(1).map((c) => c.mine + c.any));
+const calCells = Array.from({ length: 12 }, (_, i) => {
+  const m = ((curM - 1 + i) % 12) + 1;
+  const year = curY + (curM - 1 + i >= 12 ? 1 : 0);
+  const c = sch.byMonth[m];
+  return {
+    m, i, mine: c.mine, any: c.any, href: `${helpsUrl}?kind=scholarship&month=${m}`,
+    tag: i === 0 ? "이번 달" : m === 1 ? `${year}년` : "",
+    tot: ((c.mine + c.any) / calMax) * 100, part: c.mine + c.any ? (c.mine / (c.mine + c.any)) * 100 : 0,
+    aria: `${year}년 ${m}월${i === 0 ? "(이번 달)" : ""}: ${groups.length ? `${groupLabel} 학과 장학금 ${c.mine}개, ` : ""}누구나 받을 수 있는 장학금 ${c.any}개. ${m}월에 여는 장학금 보기`,
+  };
+});
+// "3월과 9월", or "3~4월" when the two busiest months sit side by side.
+const [t1, t2] = sch.top;
+const topLabel = t2 == null ? (t1 ? `${t1}월` : "") : t2 - t1 === 1 || (t1 === 1 && t2 === 12) ? `${t1 === 1 && t2 === 12 ? "12~1" : `${t1}~${t2}`}월` : `${t1}월과 ${t2}월`;
+
 const emptyMain = "받을 수 있는 혜택은 공식 출처로 확인하는 대로 여기에 떠요.";
 const emptySub = `(${CHECKING_AS_OF} 기준 확인 중)`;
 const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼저 볼 노선을 노선도에서 밝혀 줘요.`;
@@ -251,6 +278,34 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
       <div class="result-grid">
         <div class="left">
           <div class="recap" id="recap"></div>
+          <section class="money" aria-labelledby="money-h">
+            <h2 id="money-h">장학금</h2>
+            <ul class="money-lines">
+              {groups.length > 0 && (sch.mine > 0 ? (
+                <li class="ml mine"><a href={mineHref}><span class="ml-body"><span class="ml-t">이 분야 학과 장학금 <b>{sch.mine}개</b></span><span class="ml-s">(지금 신청 가능 {sch.mineLive})</span><span class="ml-g">{groupLabel} 계열</span></span></a></li>
+              ) : (
+                <li class="ml none"><p>이 분야만을 위한 장학금은 아직 못 찾았어요. 누구나 받을 수 있는 장학금부터 봐요.</p></li>
+              ))}
+              <li class="ml any"><a href={anyHref}><span class="ml-body"><span class="ml-t">누구나 받을 수 있는 장학금 <b>{sch.any}개</b></span><span class="ml-s">(지금 신청 가능 {sch.anyLive})</span></span></a></li>
+            </ul>
+            <div class="cal">
+              <p class="cal-h"><b>1년 장학금 달력</b><span class="cal-key">{groups.length > 0 && <span><i class="k-mine"></i>{groupLabel} 학과</span>}<span><i class="k-any"></i>누구나</span></span></p>
+              <ol class="cal-strip" id="cal-strip">
+                {calCells.map((c) => (
+                  <li class:list={["cm", { now: c.i === 0 }]} data-m={c.m} style={`order:${c.i}`}>
+                    <a href={c.href} aria-label={c.aria} aria-current={c.i === 0 ? "date" : undefined}>
+                      <span class="cm-m">{c.m}월</span>
+                      <small class="cm-y">{c.tag}</small>
+                      <span class="cm-bar" aria-hidden="true"><i style={c.mine + c.any ? `height:max(3px, ${c.tot.toFixed(1)}%)` : "height:0"}><i style={c.mine ? `height:max(3px, ${c.part.toFixed(1)}%)` : "height:0"}></i></i></span>
+                      <span class="cm-n" aria-hidden="true">{groups.length > 0 && <b>{c.mine}</b>}<small>{c.any}</small></span>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+              {topLabel && <p class="cal-hint">장학금은 보통 {topLabel}에 많이 열려요.</p>}
+              <p class="cal-note">신청을 시작하는 달로 셌어요. 지난 모집은 지난 일정대로 다시 연다고 보고 셌어요. 달을 누르면 그달에 여는 장학금을 볼 수 있어요.</p>
+            </div>
+          </section>
           <section class="legend" aria-labelledby="legend-h">
             <h2 id="legend-h">노선 고르기</h2>
             <p class="legend-note">어느 노선이 더 좋은 건 아니에요. 누르면 그 노선이 또렷해져요{hasPerks ? ". 혜택도 그 노선 기준으로 바뀌어요" : ""}.</p>
@@ -361,6 +416,19 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
     </section>
   </div>
 
+  <script is:inline>
+    (() => {
+      const now = new Date(), cm = now.getMonth() + 1, cy = now.getFullYear();
+      document.querySelectorAll("#cal-strip .cm").forEach((li) => {
+        const m = +li.dataset.m, i = (m - cm + 12) % 12, a = li.querySelector("a");
+        li.style.order = i;
+        li.classList.toggle("now", i === 0);
+        if (i === 0) a.setAttribute("aria-current", "date"); else a.removeAttribute("aria-current");
+        li.querySelector(".cm-y").textContent = i === 0 ? "이번 달" : m === 1 ? `${cy + 1}년` : "";
+        a.setAttribute("aria-label", a.getAttribute("aria-label").replace(/^\d{4}년 \d+월(\(이번 달\))?/, `${cy + (cm - 1 + i >= 12 ? 1 : 0)}년 ${m}월${i === 0 ? "(이번 달)" : ""}`));
+      });
+    })();
+  </script>
   <script type="application/json" id="field-data" set:html={JSON.stringify(data).replace(/</g, "\\u003c")}></script>
 
   <script is:inline>
@@ -976,6 +1044,53 @@ const pageDesc = `${field.summary} 질문 ${KNUM[nQ] ?? nQ} 개에 답하면 먼
   .edit button em { font-style: normal; color: var(--me); font-weight: 600; font-size: 14px; }
   .edit button:hover { background: #eef3ef; }
   .answer-tools .tool { align-self: flex-start; }
+
+  /* 장학금: two count lines and the 1년 장학금 달력 (a 12-month strip, 2 rows of 6 until the column is wide) */
+  .money { margin-top: 22px; }
+  .money h2 { margin: 0; font: 400 20px/1.3 var(--display); }
+  .money-lines { list-style: none; margin: 6px 0 0; padding: 0; border-top: 2px solid var(--ink); }
+  .ml { border-bottom: 1px solid var(--rule); }
+  .ml a { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 48px; padding: 10px 2px; text-decoration: none; color: inherit; }
+  .ml-body { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; min-width: 0; }
+  .ml-t { font-size: 16px; font-weight: 600; }
+  .ml-t b { font: 400 20px/1 var(--display); margin-left: 2px; }
+  .ml-s { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .ml-g { flex-basis: 100%; font-size: 13px; color: var(--ink-2); }
+  .ml.mine a { box-shadow: inset 5px 0 0 var(--carrot); padding-left: 12px; }
+  .ml.mine .ml-t b { color: var(--carrot); }
+  .ml a:hover .ml-t { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .ml a::after { content: "→"; font-weight: 700; color: var(--ink-2); }
+  .ml.none p { margin: 0; padding: 10px 2px 10px 12px; font-size: 15px; line-height: 1.55; box-shadow: inset 5px 0 0 var(--lead); }
+  .cal { margin-top: 14px; }
+  .cal-h { margin: 0 0 6px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; }
+  .cal-h > b { font-size: 16px; }
+  .cal-key { display: inline-flex; flex-wrap: wrap; gap: 2px 12px; font-size: 13px; color: var(--ink-2); }
+  .cal-key > span { display: inline-flex; align-items: center; gap: 6px; }
+  .cal-key i { width: 12px; height: 12px; flex: none; }
+  .k-mine { background: var(--carrot); }
+  .k-any { background: var(--lead); }
+  .cal-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
+  .cm { border-bottom: 1px solid var(--rule); border-left: 1px solid var(--rule); min-width: 0; }
+  .cm a { display: flex; flex-direction: column; align-items: stretch; padding: 6px 4px 6px; text-decoration: none; color: inherit; min-height: 44px; }
+  .cm-m { font-size: 15px; font-weight: 700; line-height: 1.2; }
+  .cm-y { font-size: 11.5px; font-weight: 600; color: var(--ink-2); line-height: 1.3; min-height: 1.3em; white-space: nowrap; }
+  .cm-bar { position: relative; display: block; height: 52px; margin: 4px 6px 4px 0; border-bottom: 1px solid var(--ink-2); }
+  .cm-bar > i { position: absolute; left: 0; right: 0; bottom: 0; background: var(--lead); min-height: 0; }
+  .cm-bar > i > i { position: absolute; left: 0; right: 0; bottom: 0; background: var(--carrot); }
+  .cm-n { display: flex; flex-direction: column; font-variant-numeric: tabular-nums; line-height: 1.25; }
+  .cm-n b { font-size: 15px; color: var(--carrot); }
+  .cm-n small { font-size: 12.5px; color: var(--ink-2); }
+  .cm.now a { background: var(--carrot-bg); box-shadow: inset 0 3px 0 var(--ink); }
+  .cm.now .cm-y { color: var(--ink); }
+  .cm a:hover .cm-m { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .cm a:focus-visible { outline: 3px solid var(--ink); outline-offset: -3px; }
+  .cal-hint { margin: 8px 0 0; font-size: 15px; font-weight: 600; }
+  .cal-note { margin: 2px 0 0; font-size: 13px; color: var(--ink-2); }
+  .js body:not(.done) .money { display: none; }
+  @media (min-width: 1100px) {
+    .cal-strip { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .cm a { padding: 6px 3px; }
+  }
 
   /* legend (line picker) */
   .legend { margin-top: 22px; }

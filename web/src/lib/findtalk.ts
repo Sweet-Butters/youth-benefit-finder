@@ -6,6 +6,8 @@ export const HOLLAND: Holland[] = ["R", "I", "A", "S", "E", "C"];
 export interface CatalogField {
   id: string; title: string; holland: Holland[]; one_line: string; jobs?: string[]; try_first?: string;
   status: "ready" | "coming"; benefit_words?: string[];
+  /** 학과 계열 (공학, 예체능, …) whose 장학금 fit this field: the 이 분야 학과 장학금 lines and the 장학금 달력. */
+  major_groups?: string[];
 }
 export interface QuizOption { id: string; label: string; score: Partial<Record<Holland, number>> }
 export interface QuizQuestion { id: string; text: string; hint?: string; multi?: boolean; options: QuizOption[] }
