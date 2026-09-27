@@ -1,0 +1,29 @@
+{
+  "note": "공모전 모음 사이트 수집 설정 (crawler/contests_common.py, crawler/sources/contest_*.py). 사이트 약관상 제목·주최·기간·분야·대상·원문 링크만 가져온다. 본문과 이미지는 가져오지 않는다. robots.txt는 실행마다 다시 확인한다.",
+  "min_interval_sec": 1.0,
+  "sites": {
+    "allcon": {"label": "올콘", "max_pages": 60},
+    "allforyoung": {"label": "요즘것들", "max_pages": 40},
+    "contestkorea": {"label": "콘테스트코리아", "max_pages": 40},
+    "thinkgood": {"label": "씽굿", "max_pages": 150},
+    "wevity": {"label": "위비티", "max_pages": 40},
+    "linkareer": {"label": "링커리어", "max_pages": 40}
+  },
+  "category_fields": [
+    {"field": "design-video", "words": ["디자인", "영상", "사진", "UCC", "웹툰", "만화", "캐릭터", "일러스트", "미술", "영화", "숏폼", "그림"]},
+    {"field": "it-dev", "words": ["IT", "SW", "소프트웨어", "앱", "게임", "웹/모바일", "모바일", "프로그래밍", "코딩", "해커톤", "개발", "인공지능", "AI", "데이터"]},
+    {"field": "writing", "words": ["문학", "글", "시나리오", "수기", "에세이", "시/소설", "독후감", "웹소설"]},
+    {"field": "business-sales", "words": ["창업", "아이디어", "마케팅", "광고", "경영"]},
+    {"field": "science-lab", "words": ["과학", "공학", "환경"]},
+    {"field": "cooking", "words": ["요리", "조리", "푸드", "레시피", "제과", "제빵"]},
+    {"field": "beauty", "words": ["뷰티", "미용", "헤어", "메이크업", "네일"]},
+    {"field": "sports", "words": ["스포츠", "체육", "댄스"]}
+  ],
+  "max_fields_without_title_match": 2,
+  "open_to_all_words": ["누구나", "제한없음", "제한 없음", "대상 제한 없음", "대상제한없음", "전국민", "남녀노소"],
+  "not_youth_only_words": {
+    "organisation": ["기업", "법인", "단체", "기관", "공공기관", "지자체", "지방자치단체", "스타트업", "소상공인", "사업자", "개인사업자", "중소기업", "창업기업", "예비창업자", "협회"],
+    "child": ["유치원", "유아", "영유아", "어린이", "초등학생", "초등"],
+    "adult": ["교사", "교원", "교직원", "학부모", "공무원", "직원", "재직자", "시니어", "노인", "어르신"]
+  }
+}

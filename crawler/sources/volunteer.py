@@ -4,10 +4,19 @@ What the API allows (checked 2026-09 against the swagger on the dataset page):
 - Required: pageNo, numOfRows, returnType=json, actvCtpvNm (활동시도명, partial match: '서울' finds
   '서울특별시'). Optional filters are only actvSggNm and prgrmNm (partial match). Any other
   parameter is rejected, so there is no date or status filter.
+- actvCtpvNm is a *prefix* match ('서울' finds '서울특별시', '시' finds nothing), so short forms
+  that are not official names (충북, 충남, 경북, 경남) return nothing and are not asked. 전라남도 rows
+  now come as 전남광주통합특별시 (prefix '전남'); '전라남' returned no 2026 rows, so it is not asked.
 - Rows are sorted by program name and go back to 2008 (Seoul alone ~480,000), so paging through
-  everything is not possible within the daily quota. We ask per 시도 for program names that contain
-  this year or next year ("2026", "2027", "26년") and keep only rows whose application is still
-  open and that are not finished or cancelled. Programs without a year in their name are missed.
+  everything is not possible within the daily quota, and paging from the end does not give the newest.
+  We ask per 시도 for program names that contain this year or next year ("2026", "2027") or the
+  current month or the next two ("9월", "10월", "11월"), and keep only rows whose application is still
+  open and that are not finished or cancelled.
+- Yield measured 2026-09-27 over all 시도 (new current items / calls): "2026" 169/21, "10월" 49/20,
+  "11월" 17/20, "9월" 12/20, "2027" 0/19 (grows near the new year), "26년" 0/20 (dropped: "2026년"
+  already matches "2026"). Generic words (모집 7,439 rows in Seoul, 봉사단 15,421, 캠페인 105,767,
+  청소년 136,624, 멘토링, 서포터즈, 동아리) had no current rows on page 1, because name order puts old
+  programs first, so they cost many calls for nothing. About 95 calls per run.
 - numOfRows=1000 works when a name filter is used (the unfiltered deep pages time out).
 
 Links: prgrmNo looks like "PPG020011260820-9986258"; the number after the last '-' is the site's
@@ -33,10 +42,10 @@ DETAIL = "https://www.youth.go.kr/youth/dvl/ey/vlntwkAct/vlntwkActRcritDtl.yt?kP
 # DOVOL's public "봉사활동 찾기" list, used only when the program id has an unexpected shape.
 PAGE = "https://www.youth.go.kr/youth/dvl/ey/vlntwkAct/vlntwkActRcritLstForm.yt?curMenuSn=434"
 ROWS = 1000
-# Partial-match 시도 names. Old and new official names both appear (전라북도 / 전북특별자치도).
+# Prefixes of official 시도 names. Old and new names both appear (전라북도 / 전북특별자치도);
+# '전남' also finds 전남광주통합특별시.
 SIDO = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기", "강원",
-        "충청북", "충북", "충청남", "충남", "전라북", "전북", "전라남", "전남",
-        "경상북", "경북", "경상남", "경남", "제주"]
+        "충청북", "충청남", "전라북", "전북", "전남", "경상북", "경상남", "제주"]
 CLOSED = {"활동완료", "활동취소"}
 
 # A word that names an institution running youth programs. The last one in the place text wins:
@@ -120,10 +129,11 @@ def _title(name: str, years: list[str]) -> str:
 def fetch() -> list[Item]:
     now = today()
     cutoff = now.isoformat()
-    names = [str(now.year), str(now.year + 1), f"{now.year % 100}년"]
+    years = [str(now.year), str(now.year + 1)]
+    months = [f"{(now.month - 1 + k) % 12 + 1}월" for k in range(3)]   # this month and the next two
     seen: dict[str, dict] = {}
     for sido in SIDO:
-        for name in names:
+        for name in years + months:
             for row in _rows(sido, name):
                 if row.get("prgrmNo"):
                     seen.setdefault(row["prgrmNo"], row)
@@ -135,7 +145,7 @@ def fetch() -> list[Item]:
         if status in CLOSED or not apply_end or apply_end < cutoff:
             continue
         full_title = _clean(row.get("prgrmNm"))
-        title = _title(full_title, names[:2])[:80]
+        title = _title(full_title, years)[:80]
         place = _clean(row.get("actvPlcCn"))
         sido, sgg = _clean(row.get("actvCtpvNm")), _clean(row.get("actvSggNm"))
         provider = _provider(place, sido, sgg)

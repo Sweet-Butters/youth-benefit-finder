@@ -4,17 +4,23 @@
 import Site from "../layouts/Site.astro";
 import ViewCount from "../components/ViewCount.astro";
 import { fields, steps, helps } from "../lib/content";
-import { boardEntries } from "../lib/board";
+import { boardEntries, stateOn, todayKst } from "../lib/board";
 import { GC_CODE, GC_ORIGIN, MIN_SHOWN } from "../lib/stats";
 import { url } from "../lib/url";
 
 const live = fields.filter((f) => !f.retired);
-const auto = boardEntries();
+// 공식 자동 counts only what is open, upcoming or 상시 today; 장학금 also counts 지난 모집 (D28), which recur yearly.
+const today = todayKst();
+const all = boardEntries();
+const auto = all.filter((e) => stateOn(e, today).live);
+const scholar = all.filter((e) => e.kind === "scholarship");
+const scholarLive = scholar.filter((e) => stateOn(e, today).live).length;
 const content = [
   { n: live.length, label: "분야 노선도" },
   { n: live.reduce((a, f) => a + f.paths.filter((p) => !p.retired).length, 0), label: "노선 (가는 길)" },
   { n: [...steps.values()].filter((s) => !s.retired).length, label: "역 (단계)" },
   { n: helps.length + auto.length, label: "지금 보여 주는 혜택", note: `사람이 확인 ${helps.length} · 공식 자동 ${auto.length}` },
+  { n: scholar.length, label: "장학금", note: `지금 신청 가능 ${scholarLive.toLocaleString("ko-KR")}개 · 나머지는 지난 모집` },
 ];
 const pages = [
   ...live.map((f) => ({ path: `/fields/${f.id}`, label: `${f.title} 노선도` })),

@@ -1,0 +1,39 @@
+{
+ "runs": [
+  {
+   "date": "2026-09-27",
+   "sources": {
+    "qnet": {
+     "fetched": 625,
+     "kept": 625,
+     "error": null
+    },
+    "kosaf": {
+     "fetched": 3112,
+     "kept": 2919,
+     "error": null
+    },
+    "certi": {
+     "fetched": 199,
+     "kept": 125,
+     "error": null
+    },
+    "report": {
+     "fetched": 19,
+     "kept": 0,
+     "error": null
+    },
+    "volunteer": {
+     "fetched": 169,
+     "kept": 169,
+     "error": null
+    },
+    "gov24": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)"
+    }
+   }
+  }
+ ]
+}
