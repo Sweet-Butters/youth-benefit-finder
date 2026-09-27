@@ -331,4 +331,28 @@ def fetch() -> list[Item]:
                 continue
             seen.add(it.source_id)
             items.append(it)
-    return items
+    return _merge_levels(items)
+
+
+def _merge_levels(items: list[Item]) -> list[Item]:
+    """The 고등학생 and 대학생 files list many scholarships twice (same 기관 and 이름). Keep one item:
+    the smallest source_id (stable while both rows exist), the most recent round's dates, both targets."""
+    groups: dict[tuple[str, str], list[Item]] = {}
+    for it in items:
+        groups.setdefault((re.sub(r"\s+", "", it.provider), re.sub(r"\s+", "", it.title)), []).append(it)
+    out = []
+    for its in groups.values():
+        if len(its) == 1:
+            out.append(its[0])
+            continue
+        latest = max(its, key=lambda i: (i.apply_end or "", i.apply_start or ""))
+        keep = min(its, key=lambda i: i.source_id)
+        keep.apply_start, keep.apply_end = latest.apply_start, latest.apply_end
+        keep.target_text = " / ".join(dict.fromkeys(i.target_text for i in its if i.target_text))
+        keep.tags = list(dict.fromkeys(t for i in its for t in i.tags))
+        keep.regions = list(dict.fromkeys(r for i in its for r in i.regions)) if all(i.regions for i in its) else keep.regions
+        if latest is not keep:
+            keep.summary, keep.cost_text = latest.summary or keep.summary, latest.cost_text or keep.cost_text
+        keep.extra = {**keep.extra, "also_id": [i.source_id for i in its if i is not keep]}
+        out.append(keep)
+    return out

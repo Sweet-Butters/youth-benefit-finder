@@ -13,13 +13,13 @@
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
-   "fetched": 3112,
-   "kept": 2924,
-   "general": 2890,
-   "review": 179,
-   "dropped": 9,
+   "fetched": 2657,
+   "kept": 2503,
+   "general": 2472,
+   "review": 146,
+   "dropped": 8,
    "error": null,
-   "seconds": 5.7
+   "seconds": 2.1
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
@@ -142,30 +142,29 @@
    "seconds": 56.3
   }
  },
- "total": 8633,
- "review": 428,
+ "total": 8212,
+ "review": 146,
  "jev": {
-  "requests": 3000,
-  "ok": 3000,
+  "requests": 455,
+  "ok": 455,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 201,
-   "p95": 256,
-   "mean": 212
+   "p50": 200,
+   "p95": 259,
+   "mean": 223
   },
-  "inputTokens": 1686973,
-  "costUsd": 0.070853,
+  "inputTokens": 311497,
+  "costUsd": 0.013083,
   "models": {
-   "jev-1.13.0": 3000
+   "jev-1.13.0": 455
   },
-  "asked": 3000,
+  "asked": 455,
   "failed": 0,
-  "cached": 7881,
+  "cached": 2202,
   "outcomes": {
-   "agreed": 7391,
-   "dropped": 9,
-   "no_answer": 3481
+   "agreed": 2649,
+   "dropped": 8
   }
  }
 }
