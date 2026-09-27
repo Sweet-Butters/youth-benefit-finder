@@ -8,7 +8,7 @@ import Site from "../../layouts/Site.astro";
 import MiniMap from "../../components/MiniMap.astro";
 import { fields, helps } from "../../lib/content";
 import { catalog } from "../../lib/findtalk";
-import { boardEntries, stateOn, todayKst } from "../../lib/board";
+import { boardEntries, stateOn, todayKst, scholarshipsFor } from "../../lib/board";
 import { layout } from "../../lib/subway";
 import { url } from "../../lib/url";
 
@@ -26,7 +26,10 @@ function stats(id: string) {
   const onField = (stepIds: string[] | undefined, fieldIds: string[] | undefined) =>
     (fieldIds ?? []).includes(id) || (stepIds ?? []).some((s) => inField.has(s));
   const benefits = board.filter((e) => onField(e.stepIds, e.fieldIds)).length + openHelps.filter((h) => onField(h.step_ids, h.field_ids)).length;
-  return { paths, nLines: lineSegs.length, nStations: order.length, benefits, colors: lineSegs.map((l) => l.color) };
+  // 학과 장학금: every 장학금 for one of the field's 학과 계열, 지난 모집 included (they open again every year, D28).
+  const groups = catalog.find((c) => c.id === id)?.major_groups ?? [];
+  const majorSch = groups.length ? scholarshipsFor(groups, today).mine : null;
+  return { paths, nLines: lineSegs.length, nStations: order.length, benefits, majorSch, colors: lineSegs.map((l) => l.color) };
 }
 
 // Catalog order; a field with a map but no catalog row (should not happen) still gets its card, after the rest.
@@ -68,12 +71,13 @@ const total = ready.length + coming.length;
                   <span>노선 <b>{f.nLines}</b></span>
                   <span>역 <b>{f.nStations}</b></span>
                   <span class="fx-ben">혜택 <b>{f.benefits}</b></span>
+                  {f.majorSch != null && <span class="fx-sch">학과 장학금 <b>{f.majorSch}</b></span>}
                 </span>
               </a>
             </li>
           ))}
         </ul>
-        <p class="fx-note">혜택 수는 그 분야의 역에 이어진 것과 분야 표시가 붙은 것 중, 아직 신청할 수 있거나 곧 열리는 것만 셌어요.</p>
+        <p class="fx-note">혜택 수는 그 분야의 역에 이어진 것과 분야 표시가 붙은 것 중, 아직 신청할 수 있거나 곧 열리는 것만 셌어요. 학과 장학금은 그 분야 학과 계열(공학, 예체능 같은) 학생을 뽑는 장학금으로, 해마다 다시 열리니 지난 모집까지 셌어요.</p>
       </section>
     )}
 

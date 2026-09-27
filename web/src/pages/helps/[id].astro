@@ -3,7 +3,7 @@
 // The info table follows dreamspon.com's order and keeps only the rows the source has.
 import Site from "../../layouts/Site.astro";
 import ViewCount from "../../components/ViewCount.astro";
-import { boardEntries, stateOn, similarTo, recurHint, todayKst, daysBetween, rangeLabel, ymd, md, STATUS_LABEL, KIND_COLOR, type BoardEntry } from "../../lib/board";
+import { boardEntries, stateOn, similarTo, recurHint, lastWindow, closedSortKey, todayKst, daysBetween, rangeLabel, ymd, md, STATUS_LABEL, KIND_COLOR, type BoardEntry } from "../../lib/board";
 import { fields, steps } from "../../lib/content";
 import { url } from "../../lib/url";
 
@@ -19,6 +19,13 @@ const always = st.status === "always";
 // 지난 모집 (D28): a recurring 장학금 with no round ahead gets the badge and its usual month instead of a D-day.
 const closed = st.status === "closed";
 const recur = e.recurs ? recurHint(e, today) : null;
+// 다음 예상 (nextExpected in lib/board.ts): the last round's start rolled forward by whole years. Worked out here for
+// any entry with a window, shown only when every window is past; the script below re-works it from the browser's date.
+const last = lastWindow(e);
+const nxDate = last ? closedSortKey(last, today).slice(5) : "";
+const nxLabel = nxDate ? `${+nxDate.slice(0, 4)}년 ${+nxDate.slice(5, 7)}월쯤` : "";
+const ty = +today.slice(0, 4), ly = last ? +last.s.slice(0, 4) : 0;
+const basis = ly === ty - 1 ? "작년" : ly === ty ? "올해" : `${ly}년`;
 const dd = closed ? "지난 모집" : always ? "상시" : n === 0 ? "오늘" : `D-${n}`;
 const sub = closed ? `보통 ${recur?.month}월` : always ? "언제든 신청" : st.status === "open" ? (n === 0 ? "마감" : "마감까지") : st.status === "upcoming" ? "접수 시작까지" : n === 0 ? "활동일" : "다음 활동일까지";
 
@@ -114,9 +121,12 @@ const ldJson = JSON.stringify(ld).replace(/</g, "\\u003c");
     <div class="grid">
       <div class="main">
         {e.summary && <p class="summary">{e.summary}</p>}
-        {recur && (
+        {last && (
           <p class="recur" id="recur" hidden={!closed}>
-            <b>{recur.when}</b><span>{recur.dates}</span><span>다시 열리면 원문에서 확인해요.</span>
+            {recur && <b>{recur.when}</b>}
+            <span class="nx">다음 모집 예상: <b id="nx-when">{nxLabel}</b> (<span id="nx-basis">{basis}</span> 일정 기준, 기관 사정으로 달라질 수 있어요)</span>
+            {recur && <span>{recur.dates}</span>}
+            <span>다시 열리면 원문에서 확인해요.</span>
           </p>
         )}
 
@@ -211,7 +221,18 @@ const ldJson = JSON.stringify(ld).replace(/</g, "\\u003c");
       });
       const dd = document.getElementById("dd");
       const L = { open: "접수 중", upcoming: "곧 열림", check: "일정 확인", always: "상시" };
-      if (state !== "closed") { const r = document.getElementById("recur"); if (r) r.hidden = true; }
+      const recurEl = document.getElementById("recur");
+      if (state !== "closed" && recurEl) recurEl.hidden = true;
+      // 다음 예상 from today's date: the latest round's start, rolled forward by whole years (nextExpected in lib/board.ts).
+      if (state === "closed" && recurEl && T.w.length) {
+        const ls = T.w.reduce((a, v) => (v[0] > a[0] ? v : a))[0];
+        let y = +ls.slice(0, 4);
+        while (`${y}${ls.slice(4)}` < today) y++;
+        const ty = now.getFullYear(), ly = +ls.slice(0, 4);
+        document.getElementById("nx-when").textContent = `${y}년 ${+ls.slice(5, 7)}월쯤`;
+        document.getElementById("nx-basis").textContent = ly === ty - 1 ? "작년" : ly === ty ? "올해" : `${ly}년`;
+        recurEl.hidden = false;
+      }
       if (state === "always") {
         dd.className = "dd s-always";
         document.getElementById("status").textContent = L.always;
@@ -221,8 +242,6 @@ const ldJson = JSON.stringify(ld).replace(/</g, "\\u003c");
         dd.querySelector("b").textContent = "지난 모집";
         dd.querySelector("small").textContent = `보통 ${T.m}월`;
         document.getElementById("status").textContent = "지난 모집";
-        const recur = document.getElementById("recur");
-        if (recur) recur.hidden = false;
       } else if (state === "closed") {
         dd.className = "dd s-closed";
         dd.querySelector("b").textContent = "마감";
@@ -284,6 +303,7 @@ const ldJson = JSON.stringify(ld).replace(/</g, "\\u003c");
   .hd .recur[hidden] { display: none; }
   .hd .recur b { font-size: 17px; }
   .hd .recur span:last-child { color: var(--ink-2); font-size: 14px; }
+  .hd .recur .nx b { font-size: inherit; }
   .hd .prov { margin: 6px 0 0; font-size: 15px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
   .hd .tier { margin: 10px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 0; font-size: 13px; color: var(--ink-2); }
   .hd .tier > span + span::before { content: "·"; margin: 0 6px; }

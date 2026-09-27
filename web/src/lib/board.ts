@@ -70,6 +70,21 @@ export interface BoardEntry {
   tierLabel: string;
   /** Text of the button to the original page. */
   goLabel: string;
+  /** 장학금 학과 계열 from the target's "학과:" part: "any" (제한 없음·모든 계열·no 학과 part), "specific" (특정 학과
+   *  with no group named), or the groups named (MAJOR_GROUPS). Other kinds are "any"; the list sends it for 장학금 only. */
+  majors: Majors;
+}
+
+/** The 학과 계열 names a 장학금 target uses, in the order the /helps/ filter lists them. */
+export const MAJOR_GROUPS = ["공학", "예체능", "의약", "자연", "사회", "인문", "교육"] as const;
+export type Majors = string[] | "any" | "specific";
+/** "대학생 대상 · 학과: 공학계열, 특정 학과 · …" -> ["공학"]; "학과: 제한 없음" or no 학과 part -> "any". */
+export function majorsOf(target: string): Majors {
+  const m = /학과\s*[:：]\s*([^·]*)/.exec(target);
+  const t = m ? m[1].trim() : "";
+  if (!t || /제한\s*없음|모든\s*계열/.test(t)) return "any";
+  const groups = MAJOR_GROUPS.filter((g) => t.includes(g));
+  return groups.length ? groups : "specific";
 }
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
@@ -274,6 +289,7 @@ function build(): BoardEntry[] {
       fieldIds: [...tags].filter((t) => typeof t === "string" && t.startsWith("field:")).map((t) => t.slice(6)),
       tierLabel: kind === "contest" ? "모음 사이트 자동" : "공식 자동",
       goLabel: kind === "contest" ? "원문 보기 ↗" : "원문 공고 보기 ↗",
+      majors: kind === "scholarship" ? majorsOf(str(first.target_text)) : ("any" as Majors),
     };
     return { ...base, ...age, rows: rowsFor(kind, its, { ...base, ...age }) };
   });
@@ -287,15 +303,41 @@ export const lastWindow = (e: Pick<BoardEntry, "windows">): BoardWindow | undefi
   e.windows.reduce<BoardWindow | undefined>((a, w) => (!a || w.s > a.s || (w.s === a.s && w.e > a.e) ? w : a), undefined);
 
 /**
- * 지난 모집 sort after every live entry ("9999-…" sorts after ALWAYS_SORT), by how soon the month of the last
- * window's start comes around again: this month first, unless this month's round is already over.
- * The browser list (helps/index.astro) repeats this rule.
+ * 다음 예상 for anything whose windows are all past (a 지난 모집 장학금, D28): the last window's start date rolled
+ * forward by whole years until it is today or later. date is that day; the page says only "YYYY년 M월쯤".
+ * null when a window is still open or ahead, or there is no window at all.
+ */
+export function nextExpected(e: Pick<BoardEntry, "windows">, today: string): { year: number; month: number; date: string } | null {
+  if (!e.windows.length || e.windows.some((w) => w.e >= today)) return null;
+  const last = lastWindow(e)!;
+  const rest = last.s.slice(4);
+  let y = +last.s.slice(0, 4);
+  while (`${y}${rest}` < today) y++;
+  return { year: y, month: +rest.slice(1, 3), date: `${y}${rest}` };
+}
+/** A 장학금 for any of these 학과 계열 (a field's major_groups); "any" and "specific" never match. */
+export const majorsMatch = (m: Majors, groups: readonly string[]) => Array.isArray(m) && m.some((g) => groups.includes(g));
+export const nextLabel = (n: { year: number; month: number }) => `${n.year}년 ${n.month}월쯤`;
+
+/**
+ * 지난 모집 sort after every live entry ("9999-…" sorts after ALWAYS_SORT), by the next expected start date
+ * (nextExpected), soonest first. The browser list (helps/index.astro) repeats this rule.
  */
 export function closedSortKey(w: BoardWindow, today: string) {
-  const m = +w.s.slice(5, 7), tm = +today.slice(5, 7);
-  let dist = (m - tm + 12) % 12;
-  if (dist === 0 && w.e.slice(5) < today.slice(5)) dist = 12;
-  return `9999-${String(dist).padStart(2, "0")}-${w.s.slice(8, 10)}`;
+  const rest = w.s.slice(4);
+  let y = +w.s.slice(0, 4);
+  while (`${y}${rest}` < today) y++;
+  return `9999-${y}${rest}`;
+}
+
+/**
+ * The month a 장학금 (or anything dated) opens in, for the 1년 장학금 달력 and the /helps/ month filter:
+ * the current or next window's start, or 다음 예상 when every window is past; null for 상시 and 체험.
+ */
+export function openMonth(e: Pick<BoardEntry, "windows" | "sessions" | "always"> & { recurs?: boolean }, today: string) {
+  const st = stateOn(e, today);
+  if (st.status === "closed") return nextExpected(e, today);
+  return st.window ? { year: +st.window.s.slice(0, 4), month: +st.window.s.slice(5, 7), date: st.window.s } : null;
 }
 
 /**
@@ -378,4 +420,29 @@ export function boardEntries(): BoardEntry[] {
   });
   cache = list;
   return list;
+}
+
+/**
+ * 장학금 for a field (its catalog major_groups), for the field page and the /fields/ cards:
+ * mine = 이 분야 학과 장학금 (a 학과 계열 in groups), any = 누구나 (no 학과 condition), each with how many are live today;
+ * byMonth[m] (1~12) counts them by the month they open in (openMonth), and top = the two months where the most
+ * 장학금 of all kinds of 학과 condition open, in calendar order.
+ */
+export function scholarshipsFor(groups: readonly string[], today = todayKst()) {
+  const all = boardEntries().filter((e) => e.kind === "scholarship");
+  const mine = all.filter((e) => majorsMatch(e.majors, groups));
+  const any = all.filter((e) => e.majors === "any");
+  const live = (xs: BoardEntry[]) => xs.filter((e) => stateOn(e, today).live).length;
+  const byMonth = Array.from({ length: 13 }, () => ({ mine: 0, any: 0, all: 0 }));
+  const mineIds = new Set(mine.map((e) => e.id));
+  for (const e of all) {
+    const m = openMonth(e, today)?.month;
+    if (!m) continue;
+    byMonth[m].all++;
+    if (mineIds.has(e.id)) byMonth[m].mine++;
+    else if (e.majors === "any") byMonth[m].any++;
+  }
+  const top = byMonth.map((c, m) => ({ m, n: c.all })).slice(1).sort((a, b) => b.n - a.n || a.m - b.m).slice(0, 2).filter((x) => x.n > 0)
+    .map((x) => x.m).sort((a, b) => a - b);
+  return { mine: mine.length, mineLive: live(mine), any: any.length, anyLive: live(any), byMonth, top };
 }
