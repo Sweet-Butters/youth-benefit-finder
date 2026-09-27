@@ -1,0 +1,126 @@
+{
+  "id": "business-sales",
+  "title": "판매·창업",
+  "holland": [
+    "E",
+    "S"
+  ],
+  "summary": "물건이나 서비스를 사람들에게 알리고 파는 일, 내 가게를 여는 일이에요. 면허 없이 시작할 수 있지만, 19세 미만이 가게를 열려면 부모님 동의가 필요하고 돈을 잃을 위험도 있어요. 학교에 다니든 그만뒀든 갈 수 있는 길이 있어요.",
+  "try_phrase": "물건 팔기나 장사",
+  "paths": [
+    {
+      "id": "business-sales-shop-path",
+      "title": "매장에서 일하며 판매 배우기",
+      "learn_style": "hands",
+      "summary": "물건 하나를 팔아 보고, 매장에서 아르바이트하며 손님 응대와 판매를 익힌 뒤 판매 일을 이어 가요.",
+      "steps": [
+        {
+          "step": "business-sales-mission-sell-one"
+        },
+        {
+          "step": "business-sales-store-job"
+        },
+        {
+          "step": "business-sales-distribution-exam",
+          "note": "필수는 아니에요. 일하면서 배운 걸 정리하고 싶을 때 봐요."
+        },
+        {
+          "step": "business-sales-work"
+        }
+      ],
+      "pros": [
+        "일하면서 돈을 벌고 손님을 바로 만나요.",
+        "학교나 학원에 다니지 않아도 시작할 수 있어요."
+      ],
+      "cons": [
+        "18세 미만은 일할 수 있는 시간과 장소가 법으로 정해져 있어요.",
+        "매장마다 근무 조건이 달라요. 근로계약서를 꼭 받아요.",
+        "계산, 진열처럼 반복하는 일이 많고 오래 서 있어야 할 수 있어요."
+      ]
+    },
+    {
+      "id": "business-sales-startup-path",
+      "title": "작게 팔아 보며 창업 연습",
+      "learn_style": "institution",
+      "summary": "물건 하나를 팔아 보고, 학교나 꿈드림 센터의 비즈쿨에서 창업을 배운 뒤 보호자와 함께 작은 온라인 가게를 열어 봐요.",
+      "steps": [
+        {
+          "step": "business-sales-mission-sell-one"
+        },
+        {
+          "step": "business-sales-bizcool",
+          "note": "우리 학교나 센터가 비즈쿨을 안 하면 다른 창업 교육이 있는지 물어봐요."
+        },
+        {
+          "step": "business-sales-online-shop"
+        },
+        {
+          "step": "business-sales-work"
+        }
+      ],
+      "pros": [
+        "내 아이디어로 직접 팔아 보면서 배워요.",
+        "학교 밖 청소년도 비즈쿨을 하는 꿈드림 센터에서 창업 교육을 받을 수 있어요."
+      ],
+      "cons": [
+        "물건값과 광고비를 먼저 써서 돈을 잃을 수 있어요.",
+        "19세 미만이면 부모님 동의서처럼 챙길 서류와 절차가 더 있어요.",
+        "비즈쿨을 하는 학교·센터는 해마다 새로 뽑혀서 곳마다 달라요."
+      ]
+    },
+    {
+      "id": "business-sales-hs-path",
+      "title": "특성화고에서 경영·유통 배우기",
+      "learn_style": "school",
+      "summary": "경영·유통 관련 학과가 있는 특성화고에서 친구들과 배우고, 자격증을 따서 판매·유통 일을 시작해요.",
+      "steps": [
+        {
+          "step": "business-sales-vocational-hs"
+        },
+        {
+          "step": "business-sales-bizcool",
+          "note": "다니는 학교가 비즈쿨 학교면 창업동아리를 해 볼 수 있어요."
+        },
+        {
+          "step": "business-sales-distribution-exam"
+        },
+        {
+          "step": "business-sales-work"
+        }
+      ],
+      "pros": [
+        "친구들과 함께 경영과 판매를 차근차근 배워요.",
+        "학교에서 자격증과 취업 준비를 함께 도와줄 수 있어요."
+      ],
+      "cons": [
+        "학교를 그만뒀다면 다시 들어갈 수 있는지부터 확인해야 해요.",
+        "경영·유통 관련 학과가 있는 학교가 지역마다 달라요."
+      ]
+    },
+    {
+      "id": "business-sales-college-path",
+      "title": "검정고시 보고 대학 경영학과로",
+      "learn_style": "study",
+      "summary": "학력을 인정받고 대학에서 경영을 넓게 배운 뒤 회사에 들어가거나 창업을 준비해요.",
+      "steps": [
+        {
+          "step": "ged-high"
+        },
+        {
+          "step": "business-sales-business-college"
+        },
+        {
+          "step": "business-sales-work"
+        }
+      ],
+      "pros": [
+        "마케팅, 재무처럼 경영을 넓게 배워요.",
+        "회사 일과 창업 준비를 함께 알아볼 수 있어요."
+      ],
+      "cons": [
+        "검정고시와 입시를 거쳐서 시간이 오래 걸려요.",
+        "학비가 들어요."
+      ]
+    }
+  ]
+}
