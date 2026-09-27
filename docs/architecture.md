@@ -11,8 +11,9 @@
 | 웹 | Astro 정적 사이트. React 아일랜드는 **퀴즈와 로드맵 도구, 내 페이지**에만 쓴다 | 콘텐츠 페이지는 JS 없이 나가야 검색과 저사양 폰에 좋다 |
 | 콘텐츠 데이터 | `data/processed/`의 JSON. PR로 고치고 자동 검사를 거친다 | 저장소는 공개다 |
 | 사용자 데이터 | Supabase (Auth, Postgres, Storage). 무료 티어 | 저장소에 절대 두지 않는다 (`CLAUDE.md`) |
-| 호스팅 | Cloudflare Pages 또는 Vercel 무료 티어. 정적 파일만 올린다 | 서버 코드 없음 |
-| 호스팅 (지금) | **GitHub Pages** `https://sweet-butters.github.io/youth-benefit-finder/` (`base: /youth-benefit-finder`, `.github/workflows/deploy.yml`). 이 컴퓨터에 Cloudflare 로그인이 없어서 먼저 이걸로 공개했다. GitHub Pages는 301 리다이렉트 파일을 못 쓰므로 `redirects.json`이 생기기 전이나 도메인을 정할 때 다시 본다 | 내부 링크는 `web/src/lib/url.ts`를 거쳐 base를 따른다 |
+| 호스팅 | **Cloudflare Workers 정적 배포** `https://jinro.mandeun.com` (D29). `web/dist/`만 올린다 (`web/wrangler.jsonc`, `.github/workflows/deploy.yml`) | 서버 코드 없음. 애셋 폴더는 언제나 `dist/` 하나 — 저장소 루트를 올리면 문서·원문까지 공개된다 |
+| 주소와 base | `base: /`. 주소는 `astro.config.mjs`의 `SITE_URL`·`SITE_BASE` 환경변수로 바꾼다 (예: 옛 GitHub Pages 주소로 빌드하려면 `SITE_URL=https://sweet-butters.github.io SITE_BASE=/youth-benefit-finder`) | 내부 링크는 `web/src/lib/url.ts`를 거쳐 base를 따른다 |
+| DNS | `*.mandeun.com` 와일드카드가 이미 있고 **호스트 라우트가 와일드카드보다 우선**하므로 DNS 레코드를 새로 만들지 않았다 | `custom_domain: true`는 DNS 쓰기 권한을 요구해서 쓰지 않는다 |
 | 방문 통계 | 쿠키 없고 개인을 못 알아보는 도구. **GoatCounter**로 정함(D25): 페이지별 조회수를 JSON으로 공개할 수 있어 "조회 N"과 `/stats`를 만든다 | 3절 참고 |
 | 팀 | 학생 3명, 파트타임. React 경험은 한 명이 조금 | 그래서 **서버를 만들지 않는다** |
 
@@ -156,10 +157,10 @@ ID 규칙: `^[a-z0-9][a-z0-9-]{1,39}$`. 영문 소문자와 숫자, 하이픈만
 
 - 퀴즈·로드맵 결과가 **URL만으로 다시 그려지므로** 가입하지 않아도 공유가 되고, 서버에 아무것도 남지 않는다. 결과 이미지는 클라이언트에서 만든다.
 - 슬러그 규칙은 ID 규칙과 같다(1절). 날짜, 번호, 한글을 URL에 넣지 않는다. 한글 URL은 카카오톡·인스타에 붙이면 퍼센트 인코딩으로 깨져 보인다.
-- **이름 바꾸기**: 제목은 언제든 바꾼다. 슬러그·ID는 바꾸지 않는 것이 원칙이고, 꼭 바꿔야 하면 `data/processed/redirects.json`에 `{"from": "/guide/old", "to": "/guide/new"}`를 추가한다. 빌드가 이 파일로 호스팅용 리다이렉트 파일(Cloudflare/Netlify는 `_redirects`, Vercel은 `vercel.json`)을 만들고 301을 낸다. 검사 스크립트가 "사라진 슬러그는 반드시 redirects에 있음"을 확인한다.
-- `sitemap.xml`, `robots.txt`, canonical, Open Graph는 Astro 통합으로 자동 생성한다. 서치 콘솔·네이버 서치어드바이저 등록은 도메인이 정해진 뒤 한다.
+- **이름 바꾸기**: 제목은 언제든 바꾼다. 슬러그·ID는 바꾸지 않는 것이 원칙이고, 꼭 바꿔야 하면 `data/processed/redirects.json`에 `{"from": "/guide/old", "to": "/guide/new"}`를 추가한다. 빌드가 이 파일로 Cloudflare용 `dist/_redirects`를 만들고 301을 낸다 (형식과 Workers 정적 배포의 지원 범위는 만들 때 Cloudflare 문서로 직접 확인한다). 검사 스크립트가 "사라진 슬러그는 반드시 redirects에 있음"을 확인한다.
+- `sitemap.xml`, `robots.txt`, canonical, Open Graph는 Astro 통합으로 자동 생성한다. 서치 콘솔·네이버 서치어드바이저 등록은 주소가 정해졌으니(D29, `https://jinro.mandeun.com`) 이제 할 수 있다 — `docs/state/active-work.json`의 `search-console` 참고.
 - 검토한 대안: **(a) `/posts/<slug>` 하나로 통일** → 단순하지만 글 종류별 검색 노출 분석이 어렵다. **(b) `/steps/<step_id>`, `/helps/<help_id>` 개별 페이지** → 얇은 페이지가 수십 개 생겨 검색 품질에 안 좋고 오래된 정보가 남는다. 항목이 100개를 넘으면 다시 본다. → **D26으로 바꿈**: 수집 혜택이 수백 개가 되어 `/helps/`와 `/helps/<id>/`를 만든다. 마감 지난 항목은 60일 뒤 수집 데이터에서 빠지면서 페이지도 사라진다.
-- **도메인**: 서비스 이름이 미정이라(`pending_decisions.service-name`) 처음엔 `*.pages.dev`로 시작할 수 있지만, **검색과 공유 링크는 도메인이 바뀌면 다 잃는다.** 콘텐츠를 외부에 알리기 전에 도메인을 정하는 것이 가장 싼 길이다. → 열린 질문
+- **도메인**: `https://jinro.mandeun.com`으로 정했다 (D29). 서비스 이름은 아직 가칭이지만(`pending_decisions.service-name`) 주소는 이름과 따로 두고 그대로 쓸 수 있다. **검색과 공유 링크는 주소가 바뀌면 다 잃으므로**, 외부에 알린 뒤에는 옮기지 않는다.
 
 ## 6. 저장소 구조와 PR 검사
 
@@ -221,9 +222,9 @@ youth-benefit-finder/
 1. 로그인 방식: 이메일 매직 링크만? 카카오 로그인도? (학생에게는 카카오가 쉽지만 카카오 계정 정보를 받게 된다)
 2. 통계 억제 기준 k (예: 5)와 `checked_at` 경고 기준(예: 90일)
 3. 사진 한도: 2 MB × 기록당 3개로 시작해도 되는가. 무료 티어 용량을 확인한 뒤 확정
-4. 도메인을 언제 사는가. 서비스 이름이 먼저다
+4. 서비스 전용 도메인을 따로 사는가. 지금은 `jinro.mandeun.com`(D29)이고, 이름이 정해지고 외부 홍보를 크게 벌일 때 다시 본다
 5. 방문 통계 도구 확정 (Cloudflare Web Analytics vs 자체 호스팅 Umami)
-6. 호스팅: Cloudflare Pages와 Vercel 중 하나. 리다이렉트 파일 형식만 다르다
+6. ~~호스팅: Cloudflare Pages와 Vercel 중 하나~~ → Cloudflare Workers 정적 배포로 정함 (D29)
 7. Supabase 리전(서울)과 프로젝트 소유 계정(개인 계정이 아니라 팀 공용 계정으로)
 8. 알림 채널: 이메일인가, 카카오 채널인가, 아니면 v0에서는 채널 친구 추가로 대신하는가
 9. 25세 이상이 v0에 가입하려 할 때의 안내 문구와 어른 트랙 대기 명단을 받을지 여부

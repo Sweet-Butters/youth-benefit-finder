@@ -1,7 +1,10 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-const BASE = "/youth-benefit-finder";
+// 주소는 환경변수로 고른다 (docs/architecture.md 1절). 기본값이 우리 도메인이다.
+// 옛 GitHub Pages 주소로 빌드하려면: SITE_URL=https://sweet-butters.github.io SITE_BASE=/youth-benefit-finder
+const SITE = process.env.SITE_URL ?? "https://jinro.mandeun.com";
+const BASE = (process.env.SITE_BASE ?? "/").replace(/\/+$/, ""); // 도메인 루트면 ""
 
 // Markdown links like [x](/fields/cooking) are root-relative; prefix them with the base.
 function remarkBaseLinks() {
@@ -17,10 +20,10 @@ function remarkBaseLinks() {
 
 // Content data lives outside web/ (../data/processed), shared with the validator and later the crawler.
 export default defineConfig({
-  // 지금은 GitHub Pages(sweet-butters.github.io/youth-benefit-finder). 나중에 우리 도메인으로 옮기면
-  // site를 그 도메인으로, base를 "/"로 바꾼다. 내부 링크는 src/lib/url.ts를 거치므로 따라온다 (docs/architecture.md 5절).
-  site: "https://sweet-butters.github.io",
-  base: BASE,
+  // jinro.mandeun.com (Cloudflare Workers, web/wrangler.jsonc, .github/workflows/deploy.yml).
+  // 내부 링크는 src/lib/url.ts를 거치므로 base를 따라온다 (docs/architecture.md 5절).
+  site: SITE,
+  base: BASE || "/",
   markdown: { remarkPlugins: [remarkBaseLinks] },
   // Every stylesheet as a cached file, never inlined: thousands of /helps/ detail pages share them (D28).
   build: { inlineStylesheets: "never" },

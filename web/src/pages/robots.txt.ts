@@ -1,6 +1,6 @@
-// robots.txt under the base path. GitHub Pages serves this project at /youth-benefit-finder/, and crawlers only
-// read robots.txt at the domain root, so on github.io this file is a pointer for people and tools; the sitemap
-// itself has to be submitted in Search Console. On our own domain (base "/") it becomes the real one.
+// robots.txt under the base path. On jinro.mandeun.com (base "/") this is the real one crawlers read.
+// Built under a sub-path (SITE_BASE) it is only a pointer for people and tools, because crawlers read
+// robots.txt at the domain root; the sitemap then has to be submitted in Search Console by hand.
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = ({ site }) => {

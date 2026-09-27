@@ -4,12 +4,14 @@
 import Site from "../layouts/Site.astro";
 import { GC_CODE } from "../lib/stats";
 const EFFECTIVE = "2026. 9. 27.";
+// 주소는 astro.config의 site를 그대로 쓴다 — 도메인이 바뀌면 여기도 따라온다.
+const SITE = new URL(import.meta.env.BASE_URL, Astro.site).href;
 ---
 <Site title="개인정보 처리방침" description="지금 내 자리에서는 여러분을 알아볼 수 있는 정보를 모으지 않아요. 무엇을 어떻게 세는지 적어 둡니다.">
   <main class="policy">
     <p class="eyebrow">개인정보 처리방침</p>
     <h1 class="display">알아볼 수 있는 정보는 모으지 않아요</h1>
-    <p class="lead">Team 유이정(학생 팀)은 '지금 내 자리에서'(https://sweet-butters.github.io/youth-benefit-finder/)를 운영하면서 「개인정보 보호법」을 지킵니다.</p>
+    <p class="lead">Team 유이정(학생 팀)은 '지금 내 자리에서'({SITE})를 운영하면서 「개인정보 보호법」을 지킵니다.</p>
 
     <h2>1. 여러분을 알아볼 수 있는 정보를 모으지 않아요</h2>
     <p>지금 이 사이트에는 가입, 로그인, 입력 양식이 없어요. 이름, 이메일, 전화번호, 학교, 나이를 받지 않아요.</p>
