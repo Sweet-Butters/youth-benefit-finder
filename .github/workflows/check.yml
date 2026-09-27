@@ -26,6 +26,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           python -m crawler.util
+          python tests/test_audience.py
       - name: Validate data
         run: |
           npm ci

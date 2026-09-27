@@ -70,9 +70,126 @@ export interface BoardEntry {
   tierLabel: string;
   /** Text of the button to the original page. */
   goLabel: string;
+  /** 누가 받을 수 있나 (#1): the crawler's for:<key> tags, or when it has none, guessed from the target line (whoOf). */
+  who: WhoKey[];
+  /** Conditions it asks for (#1): the crawler's cond:<key> tags, or guessed from the 장학금 columns and the target line. */
+  conds: CondKey[];
+  /** First day the crawler saw it (first_seen), for 새로 올라온 순; the collection day when unknown. */
+  firstSeen: string;
+  /** 모음 사이트 that list the same 공모전 (#2): the kept one first, then also_in. url is "" when not known. */
+  sites: { key: string; label: string; url: string }[];
   /** 장학금 학과 계열 from the target's "학과:" part: "any" (제한 없음·모든 계열·no 학과 part), "specific" (특정 학과
    *  with no group named), or the groups named (MAJOR_GROUPS). Other kinds are "any"; the list sends it for 장학금 only. */
   majors: Majors;
+}
+
+/** 누가 받을 수 있나 (#1). The crawler tags items for:<key>; all = 누구나 (no age or schooling limit). */
+export type WhoKey = "middle" | "high" | "oos" | "univ" | "young" | "all";
+export const WHO: Record<WhoKey, string> = { middle: "중학생", high: "고등학생", oos: "학교 밖", univ: "대학생", young: "청년", all: "누구나" };
+export const WHO_ORDER: WhoKey[] = ["middle", "high", "oos", "univ", "young", "all"];
+/** Conditions (cond:<key>). The /helps/ 조건 row hides ones that need income, grade or special; region is shown, not filtered. */
+export type CondKey = "income" | "region" | "grade" | "special";
+export const COND: Record<CondKey, string> = { income: "소득 기준", region: "거주 조건", grade: "성적 기준", special: "특정 자격" };
+export const COND_ORDER: CondKey[] = ["income", "grade", "special", "region"];
+
+// Fallbacks while items still lack for:/cond: tags: read the target line (and title) the way a person would.
+// "청소년" alone covers 중·고등학생 and 학교 밖 청소년.
+const WHO_TEXT: [WhoKey, RegExp][] = [
+  ["middle", /중학생|중학교|중등|청소년/],
+  ["high", /고등학생|고교|고등학교|특성화고|마이스터고|청소년/],
+  ["oos", /학교\s*밖|학업\s*중단|검정고시|자퇴|청소년/],
+  ["univ", /대학생|대학교|전문대|대학\s*(신입생|재학)/],
+  ["young", /청년|일반인|직장인|성인|취업\s*준비|취준/],
+];
+const ALL_TEXT = /^(누구나|제한\s*없음|대상\s*제한\s*없음|전\s*국민)/;
+/** A 장학금 column that states a real limit ("가점"·"우대" are bonuses, "기관에 확인 필요" says nothing). */
+const realLimit = (v: unknown) => { const t = str(v); return !!t && !/^(가점|우대)|확인\s*필요|제한\s*없|해당\s*없|^-$/.test(t); };
+const INCOME_TEXT = /저소득|기초\s*생활|차상위|중위\s*소득|소득\s*(분위|구간|인정|기준)|가정\s*형편|학자금\s*지원\s*구간/;
+const GRADE_TEXT = /성적|평점|내신|등급\s*이내|백분위/;
+const SPECIAL_TEXT = /장애|다문화|보훈|유공자|북한\s*이탈|새터민|한부모|조손|자립\s*준비|보호\s*종료|아동\s*양육|농어촌|다자녀|자녀|특정\s*(대학|학과|학교)|수급자/;
+const tagged = (tags: Set<string>, prefix: string) => [...tags].filter((t) => typeof t === "string" && t.startsWith(prefix)).map((t) => t.slice(prefix.length));
+
+/** for:<key> tags if the crawler gave any, else a guess from the target line, the title and the age range. */
+export function whoOf(its: CollectedItem[], tags: Set<string>): WhoKey[] {
+  const given = tagged(tags, "for:").filter((k): k is WhoKey => k in WHO);
+  if (given.length) return WHO_ORDER.filter((k) => given.includes(k));
+  const first = its[0];
+  const target = str(first.target_text);
+  const text = `${target} ${str(first.title)}`;
+  const out = new Set<WhoKey>();
+  if (ALL_TEXT.test(target) || (tags.has("open_to_all") && !/청소년|학생/.test(target))) out.add("all");
+  for (const [k, re] of WHO_TEXT) if (re.test(text)) out.add(k);
+  if (tags.has("out_of_school_ok")) out.add("oos");
+  // Only ages to go on (체험): the school stages the age range covers.
+  if (!out.size) {
+    const lo = its.map((i) => i.age_min).find((n): n is number => typeof n === "number");
+    const hi = its.map((i) => i.age_max).find((n): n is number => typeof n === "number");
+    if (lo != null || hi != null) {
+      const a = lo ?? 0, b = hi ?? 99;
+      if (a <= 15 && b >= 13) out.add("middle");
+      if (a <= 18 && b >= 16) out.add("high");
+      if (b >= 19) out.add("young");
+    }
+  }
+  return WHO_ORDER.filter((k) => out.has(k));
+}
+
+/** cond:<key> tags if the crawler gave any, else the 장학금 columns (income, grade, residence) and the target line. */
+export function condsOf(its: CollectedItem[], tags: Set<string>, regions: string[]): CondKey[] {
+  const given = tagged(tags, "cond:");
+  if (given.length) return COND_ORDER.filter((k) => given.includes(k));
+  const first = its[0];
+  const x = extraOf(first);
+  const text = `${str(first.target_text)} ${str(first.title)}`;
+  const out = new Set<CondKey>();
+  if (realLimit(x.income) || INCOME_TEXT.test(text)) out.add("income");
+  if (realLimit(x.grade) || GRADE_TEXT.test(text)) out.add("grade");
+  if (SPECIAL_TEXT.test(text)) out.add("special");
+  if (realLimit(x.residence) || (regions.length > 0 && !regions.includes("all"))) out.add("region");
+  return COND_ORDER.filter((k) => out.has(k));
+}
+
+// A 모음 사이트's page address from its id, learned from the items (every allcon url is ".../view/contest/<id>"),
+// so an also_in key ("linkareer:306744") can link to that site's own page. A site whose urls do not follow
+// one pattern gets no link, only its name.
+let urlPatterns: Map<string, [string, string] | null> | null = null;
+function siteUrl(source: string, id: string): string {
+  if (!urlPatterns) {
+    urlPatterns = new Map();
+    for (const it of collected.items) {
+      if (!it || typeof it.url !== "string" || typeof it.source_id !== "string" || !it.source_id) continue;
+      const i = it.url.indexOf(it.source_id);
+      const pat: [string, string] | null = i < 0 || it.url.indexOf(it.source_id, i + 1) >= 0 ? null : [it.url.slice(0, i), it.url.slice(i + it.source_id.length)];
+      const had = urlPatterns.get(it.source);
+      if (had === undefined) urlPatterns.set(it.source, pat);
+      else if (had && (!pat || had[0] !== pat[0] || had[1] !== pat[1])) urlPatterns.set(it.source, null);
+    }
+  }
+  const p = urlPatterns.get(source);
+  return p && /^[\w.-]+$/.test(id) ? `${p[0]}${id}${p[1]}` : "";
+}
+const siteLabel = (s: string) => CONTEST_SITE[s] ?? SOURCE_LABEL[s] ?? s;
+/** The kept item's site, then each also_in key ("site:id" or {source, source_id, url}), then any other name in sources. */
+function sitesOf(its: CollectedItem[]): BoardEntry["sites"] {
+  const first = its[0];
+  const out = new Map<string, { key: string; label: string; url: string }>();
+  out.set(first.source, { key: first.source, label: siteLabel(first.source), url: first.url });
+  for (const it of its) {
+    const also = (it as { also_in?: unknown }).also_in;
+    for (const a of Array.isArray(also) ? also : []) {
+      let src = "", id = "", u = "";
+      if (typeof a === "string") { const at = a.indexOf(":"); src = at < 0 ? a : a.slice(0, at); id = at < 0 ? "" : a.slice(at + 1); }
+      else if (a && typeof a === "object") {
+        const o = a as Record<string, unknown>;
+        src = str(o.source); id = str(o.source_id); u = /^https?:\/\//.test(str(o.url)) ? str(o.url) : "";
+      }
+      if (!src || out.has(src)) continue;
+      out.set(src, { key: src, label: siteLabel(src), url: u || (id ? siteUrl(src, id) : "") });
+    }
+    const srcs = (it as { sources?: unknown }).sources;
+    for (const s of Array.isArray(srcs) ? srcs : []) if (typeof s === "string" && s && !out.has(s)) out.set(s, { key: s, label: siteLabel(s), url: "" });
+  }
+  return [...out.values()];
 }
 
 /** The 학과 계열 names a 장학금 target uses, in the order the /helps/ filter lists them. */
@@ -203,7 +320,7 @@ function rowsFor(kind: KindKey, its: CollectedItem[], e: Omit<BoardEntry, "rows"
     row("접수기간", next && !isIso(first.apply_start) ? `${ymd(next.e)}까지` : apply || "원문에서 확인");
     row("참가대상", e.target);
     row("지역", e.regionLabel);
-    row("모음 사이트", e.sourceLabel);
+    row("모음 사이트", e.sites.length > 1 ? e.sites.map((x) => x.label).join(" · ") : e.sourceLabel);
   } else {
     const open = its.some((i) => i.tags?.includes("open_to_all"));
     row("시험", e.title.replace(/\s*원서접수$/, ""));
@@ -263,6 +380,7 @@ function build(): BoardEntry[] {
     const extra = kind === "scholarship" || kind === "support"
       ? Object.fromEntries(Object.entries(extraOf(first)).map(([k, v]) => [k, str(v)]).filter(([, v]) => v))
       : {};
+    const tagSet = new Set(its.flatMap((i) => i.tags ?? []));
     const base: Omit<BoardEntry, "rows" | "ageMin" | "ageMax" | "oosOk" | "forOutOfSchool"> = {
       id, source: first.source, sourceLabel: SOURCE_LABEL[first.source] ?? CONTEST_SITE[first.source] ?? (str(extraOf(first).site) || str(first.provider) || first.source), kind, kindLabel: KIND[kind],
       title: kind === "exam" || its.length > 1 ? first.title.replace(ROUND, " ").replace(/\s+/g, " ").trim() : str(first.title),
@@ -275,6 +393,9 @@ function build(): BoardEntry[] {
       scope: its.some((i) => i.scope === "step" || i.step_ids?.length) ? "step" : "general",
       windows, recurs: kind === "scholarship" && RECUR_SOURCES.has(first.source), sessions, always, deadlineText: dText,
       cost: str(first.cost_text), target: str(first.target_text), extra, count: its.length,
+      who: whoOf(its, tagSet), conds: condsOf(its, tagSet, regions),
+      firstSeen: its.map((i) => (i as { first_seen?: unknown }).first_seen).filter(isIso).sort()[0] ?? fallbackSeen,
+      sites: kind === "contest" ? sitesOf(its) : [],
     };
     // Age: the item's own limits win; a 장학금 without them gets the school level's usual ages (kosaf:hs / kosaf:univ).
     const mins = its.map((i) => i.age_min).filter((n): n is number => typeof n === "number");
