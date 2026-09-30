@@ -8,6 +8,7 @@
 2. Read `docs/progress.md` - the board people read.
 3. Read the newest entries of `docs/decisions.md`.
 4. Then report where things stand before proposing work.
+5. On a new computer, follow `docs/handoff.md` (setup, what lives outside the repo).
 
 ## Rules
 
