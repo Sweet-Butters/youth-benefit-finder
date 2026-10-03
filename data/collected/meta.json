@@ -1,55 +1,55 @@
 {
- "runDate": "2026-10-02",
+ "runDate": "2026-10-03",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
-   "fetched": 625,
-   "kept": 625,
-   "general": 220,
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": null,
-   "seconds": 4.7
+   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B490007/qualExamSchd/getQualExamSchdList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B490007/qualExamSchd/getQualExamSchdList?numOfRows=50&pageNo=1&dataFormat=json&implYy=2026&qualgbCd=T&jmCd=7910&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf844449e0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))",
+   "seconds": 132.9
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
-   "fetched": 2657,
-   "kept": 2503,
-   "general": 2472,
-   "review": 146,
-   "dropped": 8,
-   "error": null,
-   "seconds": 34.9
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
+   "review": 0,
+   "dropped": 0,
+   "error": "RuntimeError: GET failed after 3 tries: https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668278&fileDetailSn=1&insertDataPrcus=N (HTTPSConnectionPool(host='www.data.go.kr', port=443): Max retries exceeded with url: /cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668278&fileDetailSn=1&insertDataPrcus=N (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.data.go.kr', port=443) at 0x7fdf867c4b30>, 'Connection to www.data.go.kr timed out. (connect timeout=90)')))",
+   "seconds": 430.8
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 260,
-   "kept": 168,
-   "general": 167,
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
    "review": 0,
-   "dropped": 92,
-   "error": null,
-   "seconds": 170.4
+   "dropped": 0,
+   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/1383000/YouthActivInfoCertiSrvc2/getCertiProgrmList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1383000/YouthActivInfoCertiSrvc2/getCertiProgrmList?pageNo=1&numOfRows=500&sido=%EC%84%9C%EC%9A%B8&sdate=20261003&edate=20270101&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf84586ba0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))",
+   "seconds": 132.9
   },
   "report": {
    "label": "청소년활동 신고프로그램",
-   "fetched": 19,
+   "fetched": 0,
    "kept": 0,
    "general": 0,
-   "review": 8,
-   "dropped": 11,
-   "error": null,
-   "seconds": 8.3
+   "review": 0,
+   "dropped": 0,
+   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B552713/svc002/getYthActvtyRprtPrgmTrFcltyInfo (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B552713/svc002/getYthActvtyRprtPrgmTrFcltyInfo?pageNo=1&numOfRows=1000&returnType=JSON&trnActvNm=%EC%9A%94%EB%A6%AC&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf845876b0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))",
+   "seconds": 133.1
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 272,
-   "kept": 272,
-   "general": 229,
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": null,
-   "seconds": 288.7
+   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B552713/svc003/getYthVlntrActvtyPrgmInfo (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B552713/svc003/getYthVlntrActvtyPrgmInfo?pageNo=1&numOfRows=1000&returnType=json&actvCtpvNm=%EC%84%9C%EC%9A%B8&prgrmNm=2026&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf8684e120>, 'Connection to apis.data.go.kr timed out. (connect timeout=60)')))",
+   "seconds": 192.9
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,112 +59,111 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.7
+   "seconds": 7.4
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
-   "fetched": 3407,
-   "kept": 3407,
-   "general": 3180,
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": null,
-   "seconds": 4.0
+   "error": "RuntimeError: vms1365: no endpoint answered: GET failed after 3 tries: http://openapi.1365.go.kr/openapi/service/rest/VolunteerPartcptnService/getVltrSearchWordList (HTTPConnectionPool(host='openapi.1365.go.kr', port=80): Max retries exceeded wi | GET failed after 3 tries: https://apis.data.go.kr/1741000/volunteerPartcptnService/getVltrSearchWordList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1741000",
+   "seconds": 385.8
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
-   "fetched": 9,
-   "kept": 9,
-   "general": 9,
+   "fetched": 0,
+   "kept": 0,
+   "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": null,
-   "seconds": 9.2
+   "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/1421000/bizinfo/pblancBsnsService (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1421000/bizinfo/pblancBsnsService?numOfRows=500&pageNo=1&dataType=json&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf867bc6b0>, 'Connection to apis.data.go.kr timed out. (connect timeout=60)')))",
+   "seconds": 193.1
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
-   "fetched": 1,
-   "kept": 1,
-   "general": 1,
+   "fetched": 3,
+   "kept": 3,
+   "general": 3,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 50.4
+   "seconds": 86.6
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 271,
-   "kept": 260,
-   "general": 260,
+   "fetched": 288,
+   "kept": 277,
+   "general": 277,
    "review": 9,
    "dropped": 2,
    "error": null,
-   "seconds": 117.5
+   "seconds": 116.0
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 563,
-   "kept": 490,
-   "general": 490,
-   "review": 70,
-   "dropped": 3,
+   "fetched": 553,
+   "kept": 486,
+   "general": 486,
+   "review": 65,
+   "dropped": 2,
    "error": null,
-   "seconds": 44.7
+   "seconds": 45.1
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 586,
+   "fetched": 585,
    "kept": 518,
    "general": 518,
-   "review": 65,
+   "review": 64,
    "dropped": 3,
    "error": null,
-   "seconds": 128.4
+   "seconds": 123.1
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 538,
-   "kept": 528,
-   "general": 528,
-   "review": 10,
+   "fetched": 539,
+   "kept": 530,
+   "general": 529,
+   "review": 9,
    "dropped": 0,
    "error": null,
-   "seconds": 65.8
+   "seconds": 60.3
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 721,
-   "kept": 698,
-   "general": 698,
-   "review": 23,
+   "fetched": 706,
+   "kept": 684,
+   "general": 684,
+   "review": 22,
    "dropped": 0,
    "error": null,
-   "seconds": 50.7
+   "seconds": 47.1
   }
  },
- "total": 8101,
- "review": 331,
+ "total": 8108,
+ "review": 169,
  "jev": {
-  "requests": 679,
-  "ok": 679,
+  "requests": 123,
+  "ok": 123,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 143,
-   "p95": 203,
-   "mean": 149
+   "p50": 139,
+   "p95": 196,
+   "mean": 146
   },
-  "inputTokens": 374585,
-  "costUsd": 0.015733,
+  "inputTokens": 62727,
+  "costUsd": 0.002635,
   "models": {
-   "jev-1.13.0": 679
+   "jev-1.13.0": 123
   },
-  "asked": 679,
+  "asked": 123,
   "failed": 0,
-  "cached": 9250,
+  "cached": 2551,
   "outcomes": {
-   "agreed": 9920,
-   "dropped": 8,
+   "agreed": 2673,
    "rescued": 1
   }
  }

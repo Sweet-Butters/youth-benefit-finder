@@ -334,6 +334,81 @@
      "error": null
     }
    }
+  },
+  {
+   "date": "2026-10-03",
+   "sources": {
+    "qnet": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B490007/qualExamSchd/getQualExamSchdList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B490007/qualExamSchd/getQualExamSchdList?numOfRows=50&pageNo=1&dataFormat=json&implYy=2026&qualgbCd=T&jmCd=7910&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf844449e0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))"
+    },
+    "kosaf": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://www.data.go.kr/cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668278&fileDetailSn=1&insertDataPrcus=N (HTTPSConnectionPool(host='www.data.go.kr', port=443): Max retries exceeded with url: /cmm/cmm/fileDownload.do?atchFileId=FILE_000000007668278&fileDetailSn=1&insertDataPrcus=N (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.data.go.kr', port=443) at 0x7fdf867c4b30>, 'Connection to www.data.go.kr timed out. (connect timeout=90)')))"
+    },
+    "certi": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/1383000/YouthActivInfoCertiSrvc2/getCertiProgrmList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1383000/YouthActivInfoCertiSrvc2/getCertiProgrmList?pageNo=1&numOfRows=500&sido=%EC%84%9C%EC%9A%B8&sdate=20261003&edate=20270101&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf84586ba0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))"
+    },
+    "report": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B552713/svc002/getYthActvtyRprtPrgmTrFcltyInfo (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B552713/svc002/getYthActvtyRprtPrgmTrFcltyInfo?pageNo=1&numOfRows=1000&returnType=JSON&trnActvNm=%EC%9A%94%EB%A6%AC&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf845876b0>, 'Connection to apis.data.go.kr timed out. (connect timeout=40)')))"
+    },
+    "volunteer": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/B552713/svc003/getYthVlntrActvtyPrgmInfo (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /B552713/svc003/getYthVlntrActvtyPrgmInfo?pageNo=1&numOfRows=1000&returnType=json&actvCtpvNm=%EC%84%9C%EC%9A%B8&prgrmNm=2026&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf8684e120>, 'Connection to apis.data.go.kr timed out. (connect timeout=60)')))"
+    },
+    "gov24": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)"
+    },
+    "vms1365": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: vms1365: no endpoint answered: GET failed after 3 tries: http://openapi.1365.go.kr/openapi/service/rest/VolunteerPartcptnService/getVltrSearchWordList (HTTPConnectionPool(host='openapi.1365.go.kr', port=80): Max retries exceeded wi | GET failed after 3 tries: https://apis.data.go.kr/1741000/volunteerPartcptnService/getVltrSearchWordList (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1741000"
+    },
+    "bizinfo": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: GET failed after 3 tries: https://apis.data.go.kr/1421000/bizinfo/pblancBsnsService (HTTPSConnectionPool(host='apis.data.go.kr', port=443): Max retries exceeded with url: /1421000/bizinfo/pblancBsnsService?numOfRows=500&pageNo=1&dataType=json&serviceKey=*** (Caused by ConnectTimeoutError(<HTTPSConnection(host='apis.data.go.kr', port=443) at 0x7fdf867bc6b0>, 'Connection to apis.data.go.kr timed out. (connect timeout=60)')))"
+    },
+    "kstartup": {
+     "fetched": 3,
+     "kept": 3,
+     "error": null
+    },
+    "allcon": {
+     "fetched": 288,
+     "kept": 277,
+     "error": null
+    },
+    "contestkorea": {
+     "fetched": 553,
+     "kept": 486,
+     "error": null
+    },
+    "thinkgood": {
+     "fetched": 585,
+     "kept": 518,
+     "error": null
+    },
+    "wevity": {
+     "fetched": 539,
+     "kept": 530,
+     "error": null
+    },
+    "linkareer": {
+     "fetched": 706,
+     "kept": 684,
+     "error": null
+    }
+   }
   }
  ]
 }
