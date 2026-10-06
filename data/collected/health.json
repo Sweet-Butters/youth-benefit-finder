@@ -559,6 +559,81 @@
      "error": null
     }
    }
+  },
+  {
+   "date": "2026-10-06",
+   "sources": {
+    "qnet": {
+     "fetched": 625,
+     "kept": 625,
+     "error": null
+    },
+    "kosaf": {
+     "fetched": 2657,
+     "kept": 2503,
+     "error": null
+    },
+    "certi": {
+     "fetched": 270,
+     "kept": 174,
+     "error": null
+    },
+    "report": {
+     "fetched": 19,
+     "kept": 0,
+     "error": null
+    },
+    "volunteer": {
+     "fetched": 271,
+     "kept": 271,
+     "error": null
+    },
+    "gov24": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)"
+    },
+    "vms1365": {
+     "fetched": 3358,
+     "kept": 3358,
+     "error": null
+    },
+    "bizinfo": {
+     "fetched": 10,
+     "kept": 10,
+     "error": null
+    },
+    "kstartup": {
+     "fetched": 3,
+     "kept": 3,
+     "error": null
+    },
+    "allcon": {
+     "fetched": 266,
+     "kept": 255,
+     "error": null
+    },
+    "contestkorea": {
+     "fetched": 529,
+     "kept": 462,
+     "error": null
+    },
+    "thinkgood": {
+     "fetched": 571,
+     "kept": 507,
+     "error": null
+    },
+    "wevity": {
+     "fetched": 525,
+     "kept": 516,
+     "error": null
+    },
+    "linkareer": {
+     "fetched": 676,
+     "kept": 654,
+     "error": null
+    }
+   }
   }
  ]
 }
