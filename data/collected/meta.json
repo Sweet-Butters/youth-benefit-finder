@@ -1,5 +1,5 @@
 {
- "runDate": "2026-10-06",
+ "runDate": "2026-10-07",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 4.4
+   "seconds": 4.6
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 10.7
+   "seconds": 13.2
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 270,
-   "kept": 174,
-   "general": 173,
+   "fetched": 287,
+   "kept": 184,
+   "general": 183,
    "review": 0,
-   "dropped": 96,
+   "dropped": 103,
    "error": null,
-   "seconds": 122.9
+   "seconds": 136.6
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 10.0
+   "seconds": 9.0
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 271,
-   "kept": 271,
-   "general": 226,
+   "fetched": 273,
+   "kept": 273,
+   "general": 228,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 250.1
+   "seconds": 310.7
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,111 +59,111 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.4
+   "seconds": 7.3
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
-   "fetched": 3358,
-   "kept": 3358,
-   "general": 3123,
+   "fetched": 3564,
+   "kept": 3564,
+   "general": 3325,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 3.2
+   "seconds": 3.9
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
-   "fetched": 10,
-   "kept": 10,
-   "general": 10,
-   "review": 0,
+   "fetched": 12,
+   "kept": 11,
+   "general": 11,
+   "review": 1,
    "dropped": 0,
    "error": null,
-   "seconds": 7.6
+   "seconds": 9.2
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
-   "fetched": 3,
-   "kept": 3,
-   "general": 3,
+   "fetched": 1,
+   "kept": 1,
+   "general": 1,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 47.9
+   "seconds": 55.6
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 266,
-   "kept": 255,
-   "general": 255,
-   "review": 9,
+   "fetched": 256,
+   "kept": 248,
+   "general": 248,
+   "review": 6,
    "dropped": 2,
    "error": null,
-   "seconds": 105.7
+   "seconds": 98.1
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 529,
-   "kept": 462,
-   "general": 462,
-   "review": 65,
+   "fetched": 518,
+   "kept": 453,
+   "general": 453,
+   "review": 63,
    "dropped": 2,
    "error": null,
-   "seconds": 35.7
+   "seconds": 32.4
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 571,
-   "kept": 507,
-   "general": 507,
-   "review": 61,
+   "fetched": 576,
+   "kept": 511,
+   "general": 511,
+   "review": 62,
    "dropped": 3,
    "error": null,
-   "seconds": 117.5
+   "seconds": 119.7
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 525,
-   "kept": 516,
-   "general": 515,
+   "fetched": 532,
+   "kept": 523,
+   "general": 522,
    "review": 9,
    "dropped": 0,
    "error": null,
-   "seconds": 62.0
+   "seconds": 64.8
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 676,
-   "kept": 654,
-   "general": 654,
-   "review": 22,
+   "fetched": 688,
+   "kept": 665,
+   "general": 665,
+   "review": 23,
    "dropped": 0,
    "error": null,
-   "seconds": 45.5
+   "seconds": 46.2
   }
  },
- "total": 7988,
- "review": 320,
+ "total": 8202,
+ "review": 318,
  "jev": {
-  "requests": 60,
-  "ok": 60,
+  "requests": 358,
+  "ok": 358,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 134,
-   "p95": 277,
-   "mean": 147
+   "p50": 128,
+   "p95": 179,
+   "mean": 135
   },
-  "inputTokens": 32419,
-  "costUsd": 0.001362,
+  "inputTokens": 196540,
+  "costUsd": 0.008255,
   "models": {
-   "jev-1.13.0": 60
+   "jev-1.13.0": 358
   },
-  "asked": 60,
+  "asked": 358,
   "failed": 0,
-  "cached": 9720,
+  "cached": 9650,
   "outcomes": {
-   "agreed": 9771,
+   "agreed": 9999,
    "dropped": 8,
    "rescued": 1
   }
