@@ -1,5 +1,5 @@
 {
- "runDate": "2026-10-23",
+ "runDate": "2026-10-24",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 4.6
+   "seconds": 4.3
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 148,
    "dropped": 9,
    "error": null,
-   "seconds": 13.2
+   "seconds": 11.1
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 255,
-   "kept": 161,
-   "general": 156,
+   "fetched": 240,
+   "kept": 146,
+   "general": 140,
    "review": 0,
    "dropped": 94,
    "error": null,
-   "seconds": 110.6
+   "seconds": 116.2
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 7.3
+   "seconds": 6.2
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 280,
-   "kept": 280,
-   "general": 238,
+   "fetched": 243,
+   "kept": 243,
+   "general": 196,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 251.9
+   "seconds": 215.4
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,7 +59,7 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.3
+   "seconds": 7.5
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
@@ -68,18 +68,18 @@
    "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": "ParseError: not well-formed (invalid token): line 1, column 176289",
-   "seconds": 3.8
+   "error": "ParseError: not well-formed (invalid token): line 1, column 45769",
+   "seconds": 4.8
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
-   "fetched": 14,
-   "kept": 13,
-   "general": 13,
+   "fetched": 13,
+   "kept": 12,
+   "general": 12,
    "review": 1,
    "dropped": 0,
    "error": null,
-   "seconds": 7.0
+   "seconds": 8.4
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
@@ -89,83 +89,82 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 49.6
+   "seconds": 49.1
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 211,
-   "kept": 205,
-   "general": 205,
+   "fetched": 219,
+   "kept": 213,
+   "general": 213,
    "review": 6,
    "dropped": 0,
    "error": null,
-   "seconds": 58.9
+   "seconds": 57.5
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 467,
-   "kept": 413,
-   "general": 413,
+   "fetched": 443,
+   "kept": 389,
+   "general": 389,
    "review": 53,
    "dropped": 1,
    "error": null,
-   "seconds": 25.3
+   "seconds": 28.0
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 554,
-   "kept": 481,
-   "general": 481,
-   "review": 70,
+   "fetched": 541,
+   "kept": 467,
+   "general": 467,
+   "review": 71,
    "dropped": 3,
    "error": null,
-   "seconds": 113.3
+   "seconds": 116.7
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 467,
-   "kept": 461,
-   "general": 460,
-   "review": 6,
+   "fetched": 456,
+   "kept": 447,
+   "general": 446,
+   "review": 9,
    "dropped": 0,
    "error": null,
-   "seconds": 59.0
+   "seconds": 66.4
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 677,
-   "kept": 655,
-   "general": 655,
-   "review": 22,
+   "fetched": 639,
+   "kept": 620,
+   "general": 620,
+   "review": 19,
    "dropped": 0,
    "error": null,
-   "seconds": 45.2
+   "seconds": 43.0
   }
  },
- "total": 8038,
- "review": 314,
+ "total": 7929,
+ "review": 315,
  "jev": {
-  "requests": 428,
-  "ok": 428,
+  "requests": 112,
+  "ok": 112,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 106,
-   "p95": 198,
-   "mean": 120
+   "p50": 68,
+   "p95": 136,
+   "mean": 76
   },
-  "inputTokens": 258792,
-  "costUsd": 0.010869,
+  "inputTokens": 59204,
+  "costUsd": 0.002487,
   "models": {
-   "jev-1.14.0": 428
+   "jev-1.14.0": 112
   },
-  "asked": 428,
+  "asked": 112,
   "failed": 0,
-  "cached": 5820,
+  "cached": 6005,
   "outcomes": {
-   "agreed": 6238,
-   "dropped": 9,
-   "rescued": 1
+   "agreed": 6108,
+   "dropped": 9
   }
  }
 }
