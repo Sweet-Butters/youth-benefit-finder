@@ -1,81 +1,6 @@
 {
  "runs": [
   {
-   "date": "2026-10-22",
-   "sources": {
-    "qnet": {
-     "fetched": 625,
-     "kept": 625,
-     "error": null
-    },
-    "kosaf": {
-     "fetched": 2657,
-     "kept": 2503,
-     "error": null
-    },
-    "certi": {
-     "fetched": 256,
-     "kept": 161,
-     "error": null
-    },
-    "report": {
-     "fetched": 19,
-     "kept": 0,
-     "error": null
-    },
-    "volunteer": {
-     "fetched": 281,
-     "kept": 281,
-     "error": null
-    },
-    "gov24": {
-     "fetched": 0,
-     "kept": 0,
-     "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)"
-    },
-    "vms1365": {
-     "fetched": 0,
-     "kept": 0,
-     "error": "ParseError: not well-formed (invalid token): line 1, column 205862"
-    },
-    "bizinfo": {
-     "fetched": 14,
-     "kept": 13,
-     "error": null
-    },
-    "kstartup": {
-     "fetched": 6,
-     "kept": 6,
-     "error": null
-    },
-    "allcon": {
-     "fetched": 214,
-     "kept": 208,
-     "error": null
-    },
-    "contestkorea": {
-     "fetched": 457,
-     "kept": 404,
-     "error": null
-    },
-    "thinkgood": {
-     "fetched": 541,
-     "kept": 468,
-     "error": null
-    },
-    "wevity": {
-     "fetched": 466,
-     "kept": 460,
-     "error": null
-    },
-    "linkareer": {
-     "fetched": 656,
-     "kept": 634,
-     "error": null
-    }
-   }
-  },
-  {
    "date": "2026-10-23",
    "sources": {
     "qnet": {
@@ -1046,6 +971,81 @@
     "linkareer": {
      "fetched": 500,
      "kept": 486,
+     "error": null
+    }
+   }
+  },
+  {
+   "date": "2026-11-05",
+   "sources": {
+    "qnet": {
+     "fetched": 625,
+     "kept": 625,
+     "error": null
+    },
+    "kosaf": {
+     "fetched": 2657,
+     "kept": 2503,
+     "error": null
+    },
+    "certi": {
+     "fetched": 222,
+     "kept": 126,
+     "error": null
+    },
+    "report": {
+     "fetched": 19,
+     "kept": 0,
+     "error": null
+    },
+    "volunteer": {
+     "fetched": 213,
+     "kept": 213,
+     "error": null
+    },
+    "gov24": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)"
+    },
+    "vms1365": {
+     "fetched": 0,
+     "kept": 0,
+     "error": "ParseError: not well-formed (invalid token): line 1, column 271438"
+    },
+    "bizinfo": {
+     "fetched": 12,
+     "kept": 11,
+     "error": null
+    },
+    "kstartup": {
+     "fetched": 3,
+     "kept": 3,
+     "error": null
+    },
+    "allcon": {
+     "fetched": 170,
+     "kept": 165,
+     "error": null
+    },
+    "contestkorea": {
+     "fetched": 351,
+     "kept": 306,
+     "error": null
+    },
+    "thinkgood": {
+     "fetched": 433,
+     "kept": 368,
+     "error": null
+    },
+    "wevity": {
+     "fetched": 354,
+     "kept": 346,
+     "error": null
+    },
+    "linkareer": {
+     "fetched": 514,
+     "kept": 498,
      "error": null
     }
    }
