@@ -1,5 +1,5 @@
 {
- "runDate": "2026-11-07",
+ "runDate": "2026-11-08",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 8.2
+   "seconds": 10.8
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 216,
-   "kept": 114,
-   "general": 107,
+   "fetched": 193,
+   "kept": 107,
+   "general": 101,
    "review": 0,
-   "dropped": 102,
+   "dropped": 86,
    "error": null,
-   "seconds": 100.2
+   "seconds": 84.5
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -43,13 +43,13 @@
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 181,
-   "kept": 181,
-   "general": 153,
+   "fetched": 185,
+   "kept": 185,
+   "general": 157,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 305.9
+   "seconds": 223.1
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,7 +59,7 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.2
+   "seconds": 7.5
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
@@ -68,8 +68,8 @@
    "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": "ParseError: not well-formed (invalid token): line 1, column 180556",
-   "seconds": 2.7
+   "error": "ParseError: not well-formed (invalid token): line 1, column 153993",
+   "seconds": 3.8
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
@@ -89,43 +89,43 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 51.1
+   "seconds": 53.5
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 161,
-   "kept": 156,
-   "general": 156,
-   "review": 5,
+   "fetched": 140,
+   "kept": 136,
+   "general": 136,
+   "review": 4,
    "dropped": 0,
    "error": null,
-   "seconds": 45.2
+   "seconds": 42.0
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 337,
-   "kept": 290,
-   "general": 290,
+   "fetched": 335,
+   "kept": 288,
+   "general": 288,
    "review": 47,
    "dropped": 0,
    "error": null,
-   "seconds": 28.0
+   "seconds": 29.4
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 409,
-   "kept": 348,
-   "general": 348,
-   "review": 58,
+   "fetched": 394,
+   "kept": 336,
+   "general": 336,
+   "review": 55,
    "dropped": 3,
    "error": null,
-   "seconds": 88.5
+   "seconds": 84.2
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 339,
-   "kept": 333,
-   "general": 332,
+   "fetched": 335,
+   "kept": 329,
+   "general": 328,
    "review": 6,
    "dropped": 0,
    "error": null,
@@ -133,37 +133,37 @@
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 488,
-   "kept": 472,
-   "general": 472,
+   "fetched": 484,
+   "kept": 468,
+   "general": 468,
    "review": 16,
    "dropped": 0,
    "error": null,
-   "seconds": 33.3
+   "seconds": 34.1
   }
  },
- "total": 7480,
- "review": 287,
+ "total": 7445,
+ "review": 283,
  "jev": {
-  "requests": 65,
-  "ok": 65,
+  "requests": 8,
+  "ok": 8,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 94,
-   "p95": 178,
-   "mean": 103
+   "p50": 120,
+   "p95": 168,
+   "mean": 104
   },
-  "inputTokens": 34031,
-  "costUsd": 0.001429,
+  "inputTokens": 4157,
+  "costUsd": 0.000175,
   "models": {
-   "jev-1.14.0": 65
+   "jev-1.14.0": 8
   },
-  "asked": 65,
+  "asked": 8,
   "failed": 0,
-  "cached": 5383,
+  "cached": 5375,
   "outcomes": {
-   "agreed": 5436,
+   "agreed": 5371,
    "dropped": 8,
    "rescued": 4
   }
