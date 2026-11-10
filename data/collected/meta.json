@@ -1,5 +1,5 @@
 {
- "runDate": "2026-11-09",
+ "runDate": "2026-11-10",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 3.5
+   "seconds": 4.3
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 11.0
+   "seconds": 7.7
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 195,
-   "kept": 109,
-   "general": 102,
+   "fetched": 199,
+   "kept": 110,
+   "general": 103,
    "review": 0,
-   "dropped": 86,
+   "dropped": 89,
    "error": null,
-   "seconds": 396.9
+   "seconds": 90.7
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 8.0
+   "seconds": 6.5
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 185,
-   "kept": 185,
-   "general": 158,
+   "fetched": 197,
+   "kept": 197,
+   "general": 172,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 211.7
+   "seconds": 204.8
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,7 +59,7 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.3
+   "seconds": 7.1
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
@@ -68,8 +68,8 @@
    "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": "ParseError: not well-formed (invalid token): line 1, column 148250",
-   "seconds": 2.4
+   "error": "ParseError: not well-formed (invalid token): line 1, column 178703",
+   "seconds": 2.7
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
@@ -79,93 +79,93 @@
    "review": 1,
    "dropped": 0,
    "error": null,
-   "seconds": 5.4
+   "seconds": 6.3
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
-   "fetched": 2,
-   "kept": 2,
-   "general": 2,
+   "fetched": 4,
+   "kept": 4,
+   "general": 4,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 46.4
+   "seconds": 44.4
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 135,
-   "kept": 131,
-   "general": 131,
+   "fetched": 136,
+   "kept": 132,
+   "general": 132,
    "review": 4,
    "dropped": 0,
    "error": null,
-   "seconds": 35.6
+   "seconds": 34.8
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 301,
-   "kept": 257,
-   "general": 257,
-   "review": 44,
+   "fetched": 324,
+   "kept": 279,
+   "general": 279,
+   "review": 45,
    "dropped": 0,
    "error": null,
-   "seconds": 30.3
+   "seconds": 28.3
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 361,
-   "kept": 304,
-   "general": 304,
-   "review": 54,
+   "fetched": 372,
+   "kept": 312,
+   "general": 312,
+   "review": 57,
    "dropped": 3,
    "error": null,
-   "seconds": 70.2
+   "seconds": 77.2
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 312,
-   "kept": 307,
-   "general": 306,
+   "fetched": 324,
+   "kept": 319,
+   "general": 318,
    "review": 5,
    "dropped": 0,
    "error": null,
-   "seconds": 35.1
+   "seconds": 42.6
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 443,
-   "kept": 427,
-   "general": 427,
+   "fetched": 468,
+   "kept": 452,
+   "general": 452,
    "review": 16,
    "dropped": 0,
    "error": null,
-   "seconds": 30.7
+   "seconds": 32.4
   }
  },
- "total": 7360,
- "review": 278,
+ "total": 7223,
+ "review": 282,
  "jev": {
-  "requests": 13,
-  "ok": 13,
+  "requests": 121,
+  "ok": 121,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 52,
-   "p95": 130,
-   "mean": 71
+   "p50": 109,
+   "p95": 164,
+   "mean": 122
   },
-  "inputTokens": 6754,
-  "costUsd": 0.000284,
+  "inputTokens": 62127,
+  "costUsd": 0.002609,
   "models": {
-   "jev-1.14.0": 13
+   "jev-1.14.0": 121
   },
-  "asked": 13,
+  "asked": 121,
   "failed": 0,
-  "cached": 5236,
+  "cached": 5218,
   "outcomes": {
-   "agreed": 5238,
+   "agreed": 5327,
    "dropped": 8,
-   "rescued": 3
+   "rescued": 4
   }
  }
 }
