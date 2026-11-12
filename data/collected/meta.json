@@ -1,5 +1,5 @@
 {
- "runDate": "2026-11-11",
+ "runDate": "2026-11-12",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 3.2
+   "seconds": 4.3
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 10.2
+   "seconds": 11.6
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
-   "fetched": 204,
-   "kept": 112,
-   "general": 105,
+   "fetched": 200,
+   "kept": 107,
+   "general": 100,
    "review": 0,
-   "dropped": 92,
+   "dropped": 93,
    "error": null,
-   "seconds": 90.4
+   "seconds": 91.8
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 7.4
+   "seconds": 9.6
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 200,
-   "kept": 200,
-   "general": 175,
+   "fetched": 202,
+   "kept": 202,
+   "general": 179,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 220.7
+   "seconds": 269.4
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,7 +59,7 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.0
+   "seconds": 7.2
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
@@ -68,100 +68,100 @@
    "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": "ParseError: not well-formed (invalid token): line 1, column 202290",
-   "seconds": 2.3
+   "error": "ParseError: not well-formed (invalid token): line 1, column 194733",
+   "seconds": 3.0
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
-   "fetched": 18,
-   "kept": 17,
-   "general": 17,
+   "fetched": 19,
+   "kept": 18,
+   "general": 18,
    "review": 1,
    "dropped": 0,
    "error": null,
-   "seconds": 5.1
+   "seconds": 7.8
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
-   "fetched": 5,
-   "kept": 5,
-   "general": 5,
+   "fetched": 4,
+   "kept": 4,
+   "general": 4,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 46.4
+   "seconds": 50.3
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 137,
-   "kept": 133,
-   "general": 133,
+   "fetched": 142,
+   "kept": 138,
+   "general": 138,
    "review": 4,
    "dropped": 0,
    "error": null,
-   "seconds": 36.5
+   "seconds": 36.9
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 314,
+   "fetched": 315,
    "kept": 270,
    "general": 270,
-   "review": 44,
+   "review": 45,
    "dropped": 0,
    "error": null,
-   "seconds": 30.6
+   "seconds": 23.9
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 373,
-   "kept": 314,
-   "general": 314,
-   "review": 56,
+   "fetched": 365,
+   "kept": 307,
+   "general": 307,
+   "review": 55,
    "dropped": 3,
    "error": null,
-   "seconds": 78.7
+   "seconds": 77.4
   },
   "wevity": {
    "label": "위비티 공모전",
    "fetched": 325,
-   "kept": 320,
-   "general": 319,
-   "review": 5,
+   "kept": 319,
+   "general": 318,
+   "review": 6,
    "dropped": 0,
    "error": null,
-   "seconds": 94.7
+   "seconds": 40.5
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 467,
-   "kept": 452,
-   "general": 452,
-   "review": 15,
+   "fetched": 471,
+   "kept": 453,
+   "general": 453,
+   "review": 18,
    "dropped": 0,
    "error": null,
-   "seconds": 31.8
+   "seconds": 33.6
   }
  },
- "total": 7436,
- "review": 279,
+ "total": 7420,
+ "review": 283,
  "jev": {
-  "requests": 71,
-  "ok": 71,
+  "requests": 97,
+  "ok": 97,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 41,
-   "p95": 107,
-   "mean": 47
+   "p50": 87,
+   "p95": 184,
+   "mean": 101
   },
-  "inputTokens": 37478,
-  "costUsd": 0.001574,
+  "inputTokens": 49962,
+  "costUsd": 0.002098,
   "models": {
-   "jev-1.14.0": 71
+   "jev-1.14.0": 97
   },
-  "asked": 71,
+  "asked": 97,
   "failed": 0,
-  "cached": 5273,
+  "cached": 5247,
   "outcomes": {
    "agreed": 5331,
    "dropped": 8,
