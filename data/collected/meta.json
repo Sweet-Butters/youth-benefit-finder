@@ -1,5 +1,5 @@
 {
- "runDate": "2026-11-23",
+ "runDate": "2026-11-24",
  "sources": {
   "qnet": {
    "label": "큐넷 시험일정",
@@ -9,7 +9,7 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 4.6
+   "seconds": 3.9
   },
   "kosaf": {
    "label": "한국장학재단 학자금지원정보",
@@ -19,17 +19,17 @@
    "review": 146,
    "dropped": 8,
    "error": null,
-   "seconds": 10.1
+   "seconds": 10.4
   },
   "certi": {
    "label": "청소년활동 인증프로그램",
    "fetched": 124,
-   "kept": 61,
-   "general": 59,
+   "kept": 60,
+   "general": 58,
    "review": 0,
-   "dropped": 63,
+   "dropped": 64,
    "error": null,
-   "seconds": 60.1
+   "seconds": 57.8
   },
   "report": {
    "label": "청소년활동 신고프로그램",
@@ -39,17 +39,17 @@
    "review": 8,
    "dropped": 11,
    "error": null,
-   "seconds": 10.8
+   "seconds": 7.3
   },
   "volunteer": {
    "label": "청소년 자원봉사 (두볼)",
-   "fetched": 117,
-   "kept": 117,
-   "general": 106,
+   "fetched": 115,
+   "kept": 115,
+   "general": 105,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 297.1
+   "seconds": 240.0
   },
   "gov24": {
    "label": "보조금24 공공서비스",
@@ -59,7 +59,7 @@
    "review": 0,
    "dropped": 0,
    "error": "RuntimeError: gov24: key not approved yet (serviceList: HTTP 401/403, code -4 등록되지 않은 인증키)",
-   "seconds": 7.5
+   "seconds": 7.2
   },
   "vms1365": {
    "label": "1365 자원봉사 (청소년 가능)",
@@ -68,8 +68,8 @@
    "general": 0,
    "review": 0,
    "dropped": 0,
-   "error": "ParseError: not well-formed (invalid token): line 1, column 598069",
-   "seconds": 3.6
+   "error": "ParseError: not well-formed (invalid token): line 1, column 612565",
+   "seconds": 2.0
   },
   "bizinfo": {
    "label": "기업마당 창업 지원 (청년)",
@@ -79,93 +79,93 @@
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 6.8
+   "seconds": 6.9
   },
   "kstartup": {
    "label": "K-Startup 창업 지원 (청소년·청년)",
-   "fetched": 1,
-   "kept": 1,
-   "general": 1,
+   "fetched": 5,
+   "kept": 5,
+   "general": 5,
    "review": 0,
    "dropped": 0,
    "error": null,
-   "seconds": 54.4
+   "seconds": 45.5
   },
   "allcon": {
    "label": "올콘 공모전",
-   "fetched": 100,
-   "kept": 92,
-   "general": 92,
-   "review": 7,
+   "fetched": 109,
+   "kept": 100,
+   "general": 100,
+   "review": 8,
    "dropped": 1,
    "error": null,
-   "seconds": 32.5
+   "seconds": 38.6
   },
   "contestkorea": {
    "label": "콘테스트코리아 공모전",
-   "fetched": 263,
-   "kept": 225,
-   "general": 225,
+   "fetched": 276,
+   "kept": 238,
+   "general": 238,
    "review": 38,
    "dropped": 0,
    "error": null,
-   "seconds": 25.5
+   "seconds": 28.0
   },
   "thinkgood": {
    "label": "씽굿 공모전",
-   "fetched": 270,
-   "kept": 233,
-   "general": 233,
-   "review": 36,
+   "fetched": 276,
+   "kept": 238,
+   "general": 238,
+   "review": 37,
    "dropped": 1,
    "error": null,
-   "seconds": 60.0
+   "seconds": 55.7
   },
   "wevity": {
    "label": "위비티 공모전",
-   "fetched": 276,
-   "kept": 271,
-   "general": 270,
+   "fetched": 281,
+   "kept": 276,
+   "general": 275,
    "review": 5,
    "dropped": 0,
    "error": null,
-   "seconds": 34.2
+   "seconds": 47.5
   },
   "linkareer": {
    "label": "링커리어 공모전",
-   "fetched": 372,
-   "kept": 356,
-   "general": 356,
-   "review": 16,
+   "fetched": 384,
+   "kept": 367,
+   "general": 367,
+   "review": 17,
    "dropped": 0,
    "error": null,
-   "seconds": 27.1
+   "seconds": 27.0
   }
  },
- "total": 7106,
- "review": 256,
+ "total": 6986,
+ "review": 259,
  "jev": {
-  "requests": 22,
-  "ok": 22,
+  "requests": 113,
+  "ok": 113,
   "retries": 0,
   "errors": {},
   "latencyMs": {
-   "p50": 61,
-   "p95": 143,
-   "mean": 71
+   "p50": 53,
+   "p95": 96,
+   "mean": 60
   },
-  "inputTokens": 11308,
-  "costUsd": 0.000475,
+  "inputTokens": 57999,
+  "costUsd": 0.002436,
   "models": {
-   "jev-1.14.0": 22
+   "jev-1.14.0": 113
   },
-  "asked": 22,
+  "asked": 113,
   "failed": 0,
-  "cached": 4830,
+  "cached": 4786,
   "outcomes": {
-   "agreed": 4842,
+   "agreed": 4888,
    "dropped": 8,
-   "rescued": 2
+   "rescued": 3
   }
  }
 }
